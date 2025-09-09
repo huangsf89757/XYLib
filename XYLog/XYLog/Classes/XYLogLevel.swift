@@ -24,7 +24,8 @@ public enum XYLogLevel {
         case .debug:
             return "🧑🏻‍💻"
         case .info:
-            return "🤔"
+//            return "🤔"
+            return "  "
         case .warning:
             return "😬"
         case .error:
