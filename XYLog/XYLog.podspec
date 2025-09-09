@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   # 公共依赖（所有平台共享）
   s.dependency 'XYExtension'
   s.dependency 'XYUtil'
-  s.dependency 'CocoaLumberjack'
+  s.dependency 'CocoaLumberjack/Swift'
   
   # 公共代码
   shared_files = 'XYLog/Classes/**/*.swift'
