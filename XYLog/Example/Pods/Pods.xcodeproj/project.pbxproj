@@ -1,0 +1,1001 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02ED7CF9FCE22E9C2954FA39016ACD3B /* Pods-XYLog_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ACC1ECC30167E003AC955F91D17FC3 /* Pods-XYLog_Tests-dummy.m */; };
+		33E027144B42373418B5B888334A6377 /* Pods-XYLog_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4552443DDBC40119B8E5497429BD276E /* Pods-XYLog_Example-dummy.m */; };
+		3D2F57BB25CF36B4DC70D59051733D65 /* Pods-XYLog_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA75E67794FD3FB70863DCCD064ADCA3 /* Pods-XYLog_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E1666B86BF1C9D85F354A5112E69436 /* XYExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFF7A5E5A781AEFE701BB57F8C7E3B /* XYExtension-dummy.m */; };
+		65E7F919C7C05E75F31E030A68F87835 /* XYExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC1418B2CEFCB74911AC1CEE77F1530E /* XYExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AB0FB51A657CBBA05A093F9C939661F /* Pods-XYLog_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0161B59D16C8C7C90B820F19169E6A34 /* Pods-XYLog_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BE16CA20BE15CDBAF3F4242D51F7CA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+		A613434952F77792A62BFF957933A2F5 /* XYLog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6005DC86F8496B78938FC78DF2CE24E7 /* XYLog-dummy.m */; };
+		B0D240575FB4C5431365B0B90BF60865 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+		CD0F98303CF679D87128798ABD909D70 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508949C45CE2E3CC86F0F37ADD2867F /* ReplaceMe.swift */; };
+		D8A6B741AEAF31E6EDAED17880457BB1 /* XYLog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14D546DA94285DAC1F5ECA713B372FB3 /* XYLog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2BF6679D102C780A94C92A29FF0BD80 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779787EE778D185A9DB83DF7284771EA /* ReplaceMe.swift */; };
+		E8D9BC15EE06214EC6DB6B554C0AA414 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+		FF15E2A0A22E344AC09ABEB02EB7139A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31DEB0B406D5517D0894959EB3A6A79B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
+			remoteInfo = XYLog;
+		};
+		458DDC1A23E289A92F192AAA761AB70D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D8C4C7D0EF3BEF2A4D81B9EFF628FB6;
+			remoteInfo = "Pods-XYLog_Example";
+		};
+		808B2EF9DD274C313769E4C2A909669E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0161B59D16C8C7C90B820F19169E6A34 /* Pods-XYLog_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYLog_Tests-umbrella.h"; sourceTree = "<group>"; };
+		0A4B265AA81347E9165EA8462ADE0ECE /* Pods-XYLog_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-XYLog_Tests"; path = Pods_XYLog_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14D546DA94285DAC1F5ECA713B372FB3 /* XYLog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-umbrella.h"; sourceTree = "<group>"; };
+		1D1BD6DF614274326FA169927DCFCA4A /* XYLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.release.xcconfig; sourceTree = "<group>"; };
+		1E73083CFDCA60BB7186CF5F8154456C /* XYExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		24EDF7DED2498D1827A7A47C2FB8E52C /* Pods-XYLog_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-XYLog_Example"; path = Pods_XYLog_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28766BDD58797F3EEAC49F919C2152D8 /* XYExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-prefix.pch"; sourceTree = "<group>"; };
+		36CBFCB211B77FA4E81C3075F451E842 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		36D8B222CF0A00088BA8BD321579B56D /* Pods-XYLog_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYLog_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		36FDB70356E2AAC95D51EF1C9149A5B8 /* XYExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.release.xcconfig; sourceTree = "<group>"; };
+		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		39DBA0213FA3116D620188A40468DB44 /* XYLog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYLog.modulemap; sourceTree = "<group>"; };
+		4552443DDBC40119B8E5497429BD276E /* Pods-XYLog_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYLog_Example-dummy.m"; sourceTree = "<group>"; };
+		4785B6F0FC3922D00421CAD337A34CF7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		6005DC86F8496B78938FC78DF2CE24E7 /* XYLog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYLog-dummy.m"; sourceTree = "<group>"; };
+		68B9D3F2F99085C401808BC3FF31CC08 /* XYExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYExtension-Info.plist"; sourceTree = "<group>"; };
+		6A77E873287E570E885A49A03EE578BB /* XYExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.debug.xcconfig; sourceTree = "<group>"; };
+		779787EE778D185A9DB83DF7284771EA /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = XYLog/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		7B8DAE70621D8816A29F126CA52BB00F /* Pods-XYLog_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYLog_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYExtension; path = XYExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E0331027B4002F53A95CBF80DA8554 /* Pods-XYLog_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYLog_Tests.modulemap"; sourceTree = "<group>"; };
+		96D9286A8E67801A05975F35579CAFA6 /* Pods-XYLog_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYLog_Tests-Info.plist"; sourceTree = "<group>"; };
+		9B6F388B1D47A406A15A4FF8B04A2450 /* XYLog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-prefix.pch"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A2DDDBFC50CA0BBB50EF807BEF106D2B /* Pods-XYLog_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYLog_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYLog; path = XYLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7EE98FE0AAF140FE01B26B82B1A081 /* Pods-XYLog_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYLog_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B2338C7D78816DA8259E65BD910CE3A0 /* XYLog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYLog-Info.plist"; sourceTree = "<group>"; };
+		B508949C45CE2E3CC86F0F37ADD2867F /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = XYExtension/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		B6CFF7A5E5A781AEFE701BB57F8C7E3B /* XYExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYExtension-dummy.m"; sourceTree = "<group>"; };
+		C1E2E1088ABABA4A73A7595A2E5E3E9B /* Pods-XYLog_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XYLog_Example-frameworks.sh"; sourceTree = "<group>"; };
+		C66C8551F959E9446199989C10E06FF2 /* Pods-XYLog_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYLog_Example-Info.plist"; sourceTree = "<group>"; };
+		CB4D7894F35721BF543767EA804533DD /* Pods-XYLog_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYLog_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CB89E1A3218FBB4023FF19D3B3D7763F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		D0ACC1ECC30167E003AC955F91D17FC3 /* Pods-XYLog_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYLog_Tests-dummy.m"; sourceTree = "<group>"; };
+		D39856F8BB31D55A176CEA302A3A3A35 /* Pods-XYLog_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYLog_Example.release.xcconfig"; sourceTree = "<group>"; };
+		D9FF25ED23B5FF862936D7F755BD4B9A /* Pods-XYLog_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYLog_Example.modulemap"; sourceTree = "<group>"; };
+		DB76B90F42E33140BD58B76CD096D575 /* XYLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.debug.xcconfig; sourceTree = "<group>"; };
+		E08961F4691A494C89CB66F4A13A37C4 /* XYExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYExtension.modulemap; sourceTree = "<group>"; };
+		E13CEB6AABCF9B23983BC6EA01CE2B83 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		ED8B75B4851A8A2B5EE976A94314EC7E /* Pods-XYLog_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYLog_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F66BB869FF5E0ED9609617F46589D715 /* XYLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYLog.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F75158E2EE6D09039BFDE1BBFBACAD2A /* Pods-XYLog_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYLog_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FA75E67794FD3FB70863DCCD064ADCA3 /* Pods-XYLog_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYLog_Example-umbrella.h"; sourceTree = "<group>"; };
+		FC1418B2CEFCB74911AC1CEE77F1530E /* XYExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F0CCFAB2CB7577571C8DFEA95E2AA55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BE16CA20BE15CDBAF3F4242D51F7CA4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		756B0579AB5F6527D6D2871ACAFDA35A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0D240575FB4C5431365B0B90BF60865 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7815BA72EBC85CF62C8567FEB9735775 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF15E2A0A22E344AC09ABEB02EB7139A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CE561F2061AC74A72C17CD5180F959 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8D9BC15EE06214EC6DB6B554C0AA414 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		143A3A9C76DEA930652E561EA72443C1 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				985099F1C9780D911DDA9ED57589E6D2 /* XYExtension */,
+				8D7AD9AEAC7C8B3A98BB8D579B3BDEB0 /* XYLog */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		471A0C509673C3F6BDECCE97B3000EB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24EDF7DED2498D1827A7A47C2FB8E52C /* Pods-XYLog_Example */,
+				0A4B265AA81347E9165EA8462ADE0ECE /* Pods-XYLog_Tests */,
+				7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */,
+				A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EFF3E112B9441DA55468F42EF855A7A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				4785B6F0FC3922D00421CAD337A34CF7 /* LICENSE */,
+				36CBFCB211B77FA4E81C3075F451E842 /* README.md */,
+				F66BB869FF5E0ED9609617F46589D715 /* XYLog.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		519A877C90C5F8694DA991C0AE612EBB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E08961F4691A494C89CB66F4A13A37C4 /* XYExtension.modulemap */,
+				B6CFF7A5E5A781AEFE701BB57F8C7E3B /* XYExtension-dummy.m */,
+				68B9D3F2F99085C401808BC3FF31CC08 /* XYExtension-Info.plist */,
+				28766BDD58797F3EEAC49F919C2152D8 /* XYExtension-prefix.pch */,
+				FC1418B2CEFCB74911AC1CEE77F1530E /* XYExtension-umbrella.h */,
+				6A77E873287E570E885A49A03EE578BB /* XYExtension.debug.xcconfig */,
+				36FDB70356E2AAC95D51EF1C9149A5B8 /* XYExtension.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../XYLog/Example/Pods/Target Support Files/XYExtension";
+			sourceTree = "<group>";
+		};
+		52675F82FB6EB142BA4EEA578D89C91F /* Pods-XYLog_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				88E0331027B4002F53A95CBF80DA8554 /* Pods-XYLog_Tests.modulemap */,
+				A2DDDBFC50CA0BBB50EF807BEF106D2B /* Pods-XYLog_Tests-acknowledgements.markdown */,
+				AE7EE98FE0AAF140FE01B26B82B1A081 /* Pods-XYLog_Tests-acknowledgements.plist */,
+				D0ACC1ECC30167E003AC955F91D17FC3 /* Pods-XYLog_Tests-dummy.m */,
+				96D9286A8E67801A05975F35579CAFA6 /* Pods-XYLog_Tests-Info.plist */,
+				0161B59D16C8C7C90B820F19169E6A34 /* Pods-XYLog_Tests-umbrella.h */,
+				7B8DAE70621D8816A29F126CA52BB00F /* Pods-XYLog_Tests.debug.xcconfig */,
+				F75158E2EE6D09039BFDE1BBFBACAD2A /* Pods-XYLog_Tests.release.xcconfig */,
+			);
+			name = "Pods-XYLog_Tests";
+			path = "Target Support Files/Pods-XYLog_Tests";
+			sourceTree = "<group>";
+		};
+		8D7AD9AEAC7C8B3A98BB8D579B3BDEB0 /* XYLog */ = {
+			isa = PBXGroup;
+			children = (
+				779787EE778D185A9DB83DF7284771EA /* ReplaceMe.swift */,
+				4EFF3E112B9441DA55468F42EF855A7A /* Pod */,
+				B292769B832209083C05D77F5414A9E6 /* Support Files */,
+			);
+			name = XYLog;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		985099F1C9780D911DDA9ED57589E6D2 /* XYExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B508949C45CE2E3CC86F0F37ADD2867F /* ReplaceMe.swift */,
+				CCCE9B988B08B8AF7B871C7F0CC9C8E8 /* Pod */,
+				519A877C90C5F8694DA991C0AE612EBB /* Support Files */,
+			);
+			name = XYExtension;
+			path = ../../../XYExtension;
+			sourceTree = "<group>";
+		};
+		B292769B832209083C05D77F5414A9E6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				39DBA0213FA3116D620188A40468DB44 /* XYLog.modulemap */,
+				6005DC86F8496B78938FC78DF2CE24E7 /* XYLog-dummy.m */,
+				B2338C7D78816DA8259E65BD910CE3A0 /* XYLog-Info.plist */,
+				9B6F388B1D47A406A15A4FF8B04A2450 /* XYLog-prefix.pch */,
+				14D546DA94285DAC1F5ECA713B372FB3 /* XYLog-umbrella.h */,
+				DB76B90F42E33140BD58B76CD096D575 /* XYLog.debug.xcconfig */,
+				1D1BD6DF614274326FA169927DCFCA4A /* XYLog.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/XYLog";
+			sourceTree = "<group>";
+		};
+		C6EA19FAE2BDC5CF59436EA41FE39076 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9184EF46555275F01A3CE06D44CD102 /* Pods-XYLog_Example */,
+				52675F82FB6EB142BA4EEA578D89C91F /* Pods-XYLog_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CCCE9B988B08B8AF7B871C7F0CC9C8E8 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				CB89E1A3218FBB4023FF19D3B3D7763F /* LICENSE */,
+				E13CEB6AABCF9B23983BC6EA01CE2B83 /* README.md */,
+				1E73083CFDCA60BB7186CF5F8154456C /* XYExtension.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				143A3A9C76DEA930652E561EA72443C1 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				471A0C509673C3F6BDECCE97B3000EB4 /* Products */,
+				C6EA19FAE2BDC5CF59436EA41FE39076 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4801F62A6B08CD9B5410329F1A18FDE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9184EF46555275F01A3CE06D44CD102 /* Pods-XYLog_Example */ = {
+			isa = PBXGroup;
+			children = (
+				D9FF25ED23B5FF862936D7F755BD4B9A /* Pods-XYLog_Example.modulemap */,
+				CB4D7894F35721BF543767EA804533DD /* Pods-XYLog_Example-acknowledgements.markdown */,
+				36D8B222CF0A00088BA8BD321579B56D /* Pods-XYLog_Example-acknowledgements.plist */,
+				4552443DDBC40119B8E5497429BD276E /* Pods-XYLog_Example-dummy.m */,
+				C1E2E1088ABABA4A73A7595A2E5E3E9B /* Pods-XYLog_Example-frameworks.sh */,
+				C66C8551F959E9446199989C10E06FF2 /* Pods-XYLog_Example-Info.plist */,
+				FA75E67794FD3FB70863DCCD064ADCA3 /* Pods-XYLog_Example-umbrella.h */,
+				ED8B75B4851A8A2B5EE976A94314EC7E /* Pods-XYLog_Example.debug.xcconfig */,
+				D39856F8BB31D55A176CEA302A3A3A35 /* Pods-XYLog_Example.release.xcconfig */,
+			);
+			name = "Pods-XYLog_Example";
+			path = "Target Support Files/Pods-XYLog_Example";
+			sourceTree = "<group>";
+		};
+		E4801F62A6B08CD9B5410329F1A18FDE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		44565D88D9BF28D7E7B4D6385E5357A5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E7F919C7C05E75F31E030A68F87835 /* XYExtension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AFA1E92349EC3E95348AEB0FF080DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AB0FB51A657CBBA05A093F9C939661F /* Pods-XYLog_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AD1BADCDFCAB4833D6CB509FD70507B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2F57BB25CF36B4DC70D59051733D65 /* Pods-XYLog_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F39D3DC79B531F5F1AEDDA90971B942C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8A6B741AEAF31E6EDAED17880457BB1 /* XYLog-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		606F4BA4318CD0324FB40536167C5A47 /* XYExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A4E345E03743F5116BE5632C45099D3 /* Build configuration list for PBXNativeTarget "XYExtension" */;
+			buildPhases = (
+				44565D88D9BF28D7E7B4D6385E5357A5 /* Headers */,
+				72CF0BC3874194EBC94207910A661E51 /* Sources */,
+				7815BA72EBC85CF62C8567FEB9735775 /* Frameworks */,
+				1BAFCBC5D14A3D16DF17A079D5B25389 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XYExtension;
+			productName = XYExtension;
+			productReference = 7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */;
+			productType = "com.apple.product-type.framework";
+		};
+		7D8C4C7D0EF3BEF2A4D81B9EFF628FB6 /* Pods-XYLog_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C50F532C4CA29673D99BE6278303EBD /* Build configuration list for PBXNativeTarget "Pods-XYLog_Example" */;
+			buildPhases = (
+				6AD1BADCDFCAB4833D6CB509FD70507B /* Headers */,
+				3936503D09DB685F6BE3F5B06451F0A4 /* Sources */,
+				4F0CCFAB2CB7577571C8DFEA95E2AA55 /* Frameworks */,
+				99B8259D1B3BA68860D26FB5E2CD1650 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				560799ED18E2547B77E14D976F20365B /* PBXTargetDependency */,
+				7FC2E6AA1E47CE7FB8D07CF3B2E8D15C /* PBXTargetDependency */,
+			);
+			name = "Pods-XYLog_Example";
+			productName = Pods_XYLog_Example;
+			productReference = 24EDF7DED2498D1827A7A47C2FB8E52C /* Pods-XYLog_Example */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0793A26198B6A2BB989D10E58428393C /* Build configuration list for PBXNativeTarget "XYLog" */;
+			buildPhases = (
+				F39D3DC79B531F5F1AEDDA90971B942C /* Headers */,
+				5A9E36B8FA33F3BA1F745EC92EBA1749 /* Sources */,
+				84CE561F2061AC74A72C17CD5180F959 /* Frameworks */,
+				7DFD2D13164FC255911ABDA402FEFB4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XYLog;
+			productName = XYLog;
+			productReference = A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */;
+			productType = "com.apple.product-type.framework";
+		};
+		E142644681F19425F4CDA1EB5A56EC86 /* Pods-XYLog_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F6201623C5EDD293C06665DB9DF8D3D /* Build configuration list for PBXNativeTarget "Pods-XYLog_Tests" */;
+			buildPhases = (
+				59AFA1E92349EC3E95348AEB0FF080DD /* Headers */,
+				EE3F9949B23C15023EE43F7415D9D270 /* Sources */,
+				756B0579AB5F6527D6D2871ACAFDA35A /* Frameworks */,
+				06E196A2FFB57EEBEE61E873B1464FA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C33EEA0DA90F0D084C2540259715A085 /* PBXTargetDependency */,
+			);
+			name = "Pods-XYLog_Tests";
+			productName = Pods_XYLog_Tests;
+			productReference = 0A4B265AA81347E9165EA8462ADE0ECE /* Pods-XYLog_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 471A0C509673C3F6BDECCE97B3000EB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D8C4C7D0EF3BEF2A4D81B9EFF628FB6 /* Pods-XYLog_Example */,
+				E142644681F19425F4CDA1EB5A56EC86 /* Pods-XYLog_Tests */,
+				606F4BA4318CD0324FB40536167C5A47 /* XYExtension */,
+				A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06E196A2FFB57EEBEE61E873B1464FA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BAFCBC5D14A3D16DF17A079D5B25389 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DFD2D13164FC255911ABDA402FEFB4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99B8259D1B3BA68860D26FB5E2CD1650 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3936503D09DB685F6BE3F5B06451F0A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33E027144B42373418B5B888334A6377 /* Pods-XYLog_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A9E36B8FA33F3BA1F745EC92EBA1749 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2BF6679D102C780A94C92A29FF0BD80 /* ReplaceMe.swift in Sources */,
+				A613434952F77792A62BFF957933A2F5 /* XYLog-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72CF0BC3874194EBC94207910A661E51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0F98303CF679D87128798ABD909D70 /* ReplaceMe.swift in Sources */,
+				5E1666B86BF1C9D85F354A5112E69436 /* XYExtension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3F9949B23C15023EE43F7415D9D270 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02ED7CF9FCE22E9C2954FA39016ACD3B /* Pods-XYLog_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		560799ED18E2547B77E14D976F20365B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = 808B2EF9DD274C313769E4C2A909669E /* PBXContainerItemProxy */;
+		};
+		7FC2E6AA1E47CE7FB8D07CF3B2E8D15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYLog;
+			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
+			targetProxy = 31DEB0B406D5517D0894959EB3A6A79B /* PBXContainerItemProxy */;
+		};
+		C33EEA0DA90F0D084C2540259715A085 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-XYLog_Example";
+			target = 7D8C4C7D0EF3BEF2A4D81B9EFF628FB6 /* Pods-XYLog_Example */;
+			targetProxy = 458DDC1A23E289A92F192AAA761AB70D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1BA4E7971342F1B46DB54D39D08C60DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F75158E2EE6D09039BFDE1BBFBACAD2A /* Pods-XYLog_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-XYLog_Tests/Pods-XYLog_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYLog_Tests/Pods-XYLog_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		20AFF29854AF766AB7D5EFE6C37D939E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B8DAE70621D8816A29F126CA52BB00F /* Pods-XYLog_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-XYLog_Tests/Pods-XYLog_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYLog_Tests/Pods-XYLog_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		25B9A3237D27A3D782EA3B757E2F249B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D1BD6DF614274326FA169927DCFCA4A /* XYLog.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYLog/XYLog-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYLog/XYLog-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYLog/XYLog.modulemap";
+				PRODUCT_MODULE_NAME = XYLog;
+				PRODUCT_NAME = XYLog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2B9E26EAE2CD392AD762421F663075A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		70D778FEA5AE9A6D9A4C868F2657CFF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36FDB70356E2AAC95D51EF1C9149A5B8 /* XYExtension.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYExtension/XYExtension-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYExtension/XYExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYExtension/XYExtension.modulemap";
+				PRODUCT_MODULE_NAME = XYExtension;
+				PRODUCT_NAME = XYExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7A655C351A7E12619D3B166A09796FC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A77E873287E570E885A49A03EE578BB /* XYExtension.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYExtension/XYExtension-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYExtension/XYExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYExtension/XYExtension.modulemap";
+				PRODUCT_MODULE_NAME = XYExtension;
+				PRODUCT_NAME = XYExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A54C0DE86091135B6A5FB3EA50AD3683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D39856F8BB31D55A176CEA302A3A3A35 /* Pods-XYLog_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-XYLog_Example/Pods-XYLog_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYLog_Example/Pods-XYLog_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B2F39E7C44F6C025F9FAFD028A1A169F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED8B75B4851A8A2B5EE976A94314EC7E /* Pods-XYLog_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-XYLog_Example/Pods-XYLog_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYLog_Example/Pods-XYLog_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FC1324702ADFB73FEEFA16F82D010EA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB76B90F42E33140BD58B76CD096D575 /* XYLog.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYLog/XYLog-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYLog/XYLog-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYLog/XYLog.modulemap";
+				PRODUCT_MODULE_NAME = XYLog;
+				PRODUCT_NAME = XYLog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0793A26198B6A2BB989D10E58428393C /* Build configuration list for PBXNativeTarget "XYLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC1324702ADFB73FEEFA16F82D010EA7 /* Debug */,
+				25B9A3237D27A3D782EA3B757E2F249B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C50F532C4CA29673D99BE6278303EBD /* Build configuration list for PBXNativeTarget "Pods-XYLog_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2F39E7C44F6C025F9FAFD028A1A169F /* Debug */,
+				A54C0DE86091135B6A5FB3EA50AD3683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A4E345E03743F5116BE5632C45099D3 /* Build configuration list for PBXNativeTarget "XYExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A655C351A7E12619D3B166A09796FC0 /* Debug */,
+				70D778FEA5AE9A6D9A4C868F2657CFF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F6201623C5EDD293C06665DB9DF8D3D /* Build configuration list for PBXNativeTarget "Pods-XYLog_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20AFF29854AF766AB7D5EFE6C37D939E /* Debug */,
+				1BA4E7971342F1B46DB54D39D08C60DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B9E26EAE2CD392AD762421F663075A1 /* Debug */,
+				63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

@@ -1,0 +1,21 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+# 平台
+platform :ios, '14.0'
+# 使用frameworks
+use_frameworks!
+# 忽略pod里面警告
+inhibit_all_warnings!
+# XYLib路径
+$libPath = '../../'
+
+target 'XYUtil_Example' do
+  pod 'XYUtil', :path => '../'
+  
+  # dependency
+  pod 'XYExtension', :path => $libPath + 'XYExtension/'
+
+  target 'XYUtil_Tests' do
+    inherit! :search_paths
+  end
+end

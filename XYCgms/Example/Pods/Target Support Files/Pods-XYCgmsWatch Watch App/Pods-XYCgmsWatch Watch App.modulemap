@@ -1,0 +1,6 @@
+framework module Pods_XYCgmsWatch_Watch_App {
+  umbrella header "Pods-XYCgmsWatch Watch App-umbrella.h"
+
+  export *
+  module * { export * }
+}

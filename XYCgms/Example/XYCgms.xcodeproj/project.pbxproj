@@ -1,0 +1,1264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A032DD2F8DB8BD6D15AC14E /* Pods_XYCgmsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704FDFCADCA570A1DDE08633 /* Pods_XYCgmsTests.framework */; };
+		0C3F70129C46D6D34D8CDC18 /* Pods_XYCgmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447A9F5D07A77127458EDA33 /* Pods_XYCgmsUITests.framework */; };
+		18A2143A3C8E542C153ABC43 /* Pods_XYCgmsWatch_Watch_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1311F13A0B36D481DC729C91 /* Pods_XYCgmsWatch_Watch_AppTests.framework */; };
+		9B48A97677C86657DA257893 /* Pods_XYCgmsWatch_Watch_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0ED79CDFC9CDD2250EDF9E0 /* Pods_XYCgmsWatch_Watch_AppUITests.framework */; };
+		B385FFFE46F81592FC1E7598 /* Pods_XYCgmsWatch_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94D1D7DE7F4AD84C940F694 /* Pods_XYCgmsWatch_Watch_App.framework */; };
+		D4A392FCF70694F586B9970A /* Pods_XYCgms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADB0ECC55E5DB8571E01D25 /* Pods_XYCgms.framework */; };
+		DDB455612E696EF3000AA2C2 /* XYCgmsWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DDB455412E696EF1000AA2C2 /* XYCgmsWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDB455212E696EC8000AA2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB4550A2E696EC5000AA2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB455112E696EC5000AA2C2;
+			remoteInfo = XYCgms;
+		};
+		DDB4552B2E696EC8000AA2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB4550A2E696EC5000AA2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB455112E696EC5000AA2C2;
+			remoteInfo = XYCgms;
+		};
+		DDB4554E2E696EF3000AA2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB4550A2E696EC5000AA2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB455402E696EF1000AA2C2;
+			remoteInfo = "XYCgmsWatch Watch App";
+		};
+		DDB455582E696EF3000AA2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB4550A2E696EC5000AA2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB455402E696EF1000AA2C2;
+			remoteInfo = "XYCgmsWatch Watch App";
+		};
+		DDB4555F2E696EF3000AA2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB4550A2E696EC5000AA2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB455402E696EF1000AA2C2;
+			remoteInfo = "XYCgmsWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDB455652E696EF3000AA2C2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DDB455612E696EF3000AA2C2 /* XYCgmsWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1311F13A0B36D481DC729C91 /* Pods_XYCgmsWatch_Watch_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCgmsWatch_Watch_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21599D0CD77365CC28827F0B /* Pods-XYCgms-XYCgmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgms-XYCgmsUITests.debug.xcconfig"; path = "Target Support Files/Pods-XYCgms-XYCgmsUITests/Pods-XYCgms-XYCgmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4118FE949B842C78AEACB5C0 /* Pods-XYCgms-XYCgmsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgms-XYCgmsUITests.release.xcconfig"; path = "Target Support Files/Pods-XYCgms-XYCgmsUITests/Pods-XYCgms-XYCgmsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		447A9F5D07A77127458EDA33 /* Pods_XYCgmsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCgmsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B3EAA4EDE9C46CDAE98E1A1 /* Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.release.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests/Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		618C8B9DBB6F35C050124F6D /* Pods-XYCgmsWatch Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch App.release.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App.release.xcconfig"; sourceTree = "<group>"; };
+		704FDFCADCA570A1DDE08633 /* Pods_XYCgmsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCgmsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7173B91606714F30955A3276 /* Pods-XYCgmsWatch Watch AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch AppUITests.release.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch AppUITests/Pods-XYCgmsWatch Watch AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		71CA1CCC940A98564E65DF1A /* Pods-XYCgmsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsTests.release.xcconfig"; path = "Target Support Files/Pods-XYCgmsTests/Pods-XYCgmsTests.release.xcconfig"; sourceTree = "<group>"; };
+		71CAFD71D55AB815A66F2FAC /* Pods-XYCgms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgms.debug.xcconfig"; path = "Target Support Files/Pods-XYCgms/Pods-XYCgms.debug.xcconfig"; sourceTree = "<group>"; };
+		71EB76E1110CB9EEDC4189A8 /* Pods-XYCgmsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsUITests.release.xcconfig"; path = "Target Support Files/Pods-XYCgmsUITests/Pods-XYCgmsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AD40D0E195250A42D309914F /* Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests/Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0ED79CDFC9CDD2250EDF9E0 /* Pods_XYCgmsWatch_Watch_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCgmsWatch_Watch_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B94D1D7DE7F4AD84C940F694 /* Pods_XYCgmsWatch_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCgmsWatch_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BADB0ECC55E5DB8571E01D25 /* Pods_XYCgms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCgms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C887C37B830BDA3E9ADF72E4 /* Pods-XYCgmsWatch Watch AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch AppUITests/Pods-XYCgmsWatch Watch AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CAF93634EB93FC00DF4FD080 /* Pods-XYCgmsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsTests.debug.xcconfig"; path = "Target Support Files/Pods-XYCgmsTests/Pods-XYCgmsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D3B6F69FBA6F5DF07BD52E02 /* Pods-XYCgmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsUITests.debug.xcconfig"; path = "Target Support Files/Pods-XYCgmsUITests/Pods-XYCgmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB749C203A3E9A186D0E9266 /* Pods-XYCgmsWatch Watch AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch AppTests.release.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch AppTests/Pods-XYCgmsWatch Watch AppTests.release.xcconfig"; sourceTree = "<group>"; };
+		DDB455122E696EC5000AA2C2 /* XYCgms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYCgms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB455202E696EC8000AA2C2 /* XYCgmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XYCgmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB4552A2E696EC8000AA2C2 /* XYCgmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XYCgmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB455412E696EF1000AA2C2 /* XYCgmsWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XYCgmsWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB4554D2E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XYCgmsWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB455572E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XYCgmsWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC84B7BA338A1B9B7B63C87D /* Pods-XYCgms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgms.release.xcconfig"; path = "Target Support Files/Pods-XYCgms/Pods-XYCgms.release.xcconfig"; sourceTree = "<group>"; };
+		F7DD330960E03BF953530C1C /* Pods-XYCgmsWatch Watch AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch AppTests.debug.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch AppTests/Pods-XYCgmsWatch Watch AppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBC428338C977683226B427F /* Pods-XYCgmsWatch Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCgmsWatch Watch App.debug.xcconfig"; path = "Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DDB455142E696EC5000AA2C2 /* XYCgms */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = XYCgms;
+			sourceTree = "<group>";
+		};
+		DDB455232E696EC8000AA2C2 /* XYCgmsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = XYCgmsTests;
+			sourceTree = "<group>";
+		};
+		DDB4552D2E696EC8000AA2C2 /* XYCgmsUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = XYCgmsUITests;
+			sourceTree = "<group>";
+		};
+		DDB455422E696EF1000AA2C2 /* XYCgmsWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = "XYCgmsWatch Watch App";
+			sourceTree = "<group>";
+		};
+		DDB455502E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = "XYCgmsWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		DDB4555A2E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = "XYCgmsWatch Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDB4550F2E696EC5000AA2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4A392FCF70694F586B9970A /* Pods_XYCgms.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4551D2E696EC8000AA2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A032DD2F8DB8BD6D15AC14E /* Pods_XYCgmsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB455272E696EC8000AA2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C3F70129C46D6D34D8CDC18 /* Pods_XYCgmsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4553E2E696EF1000AA2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B385FFFE46F81592FC1E7598 /* Pods_XYCgmsWatch_Watch_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4554A2E696EF3000AA2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A2143A3C8E542C153ABC43 /* Pods_XYCgmsWatch_Watch_AppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB455542E696EF3000AA2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B48A97677C86657DA257893 /* Pods_XYCgmsWatch_Watch_AppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40D4A5AD87AA0B1E5EE2BE37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71CAFD71D55AB815A66F2FAC /* Pods-XYCgms.debug.xcconfig */,
+				EC84B7BA338A1B9B7B63C87D /* Pods-XYCgms.release.xcconfig */,
+				21599D0CD77365CC28827F0B /* Pods-XYCgms-XYCgmsUITests.debug.xcconfig */,
+				4118FE949B842C78AEACB5C0 /* Pods-XYCgms-XYCgmsUITests.release.xcconfig */,
+				CAF93634EB93FC00DF4FD080 /* Pods-XYCgmsTests.debug.xcconfig */,
+				71CA1CCC940A98564E65DF1A /* Pods-XYCgmsTests.release.xcconfig */,
+				FBC428338C977683226B427F /* Pods-XYCgmsWatch Watch App.debug.xcconfig */,
+				618C8B9DBB6F35C050124F6D /* Pods-XYCgmsWatch Watch App.release.xcconfig */,
+				AD40D0E195250A42D309914F /* Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.debug.xcconfig */,
+				5B3EAA4EDE9C46CDAE98E1A1 /* Pods-XYCgmsWatch Watch App-XYCgmsWatch Watch AppUITests.release.xcconfig */,
+				F7DD330960E03BF953530C1C /* Pods-XYCgmsWatch Watch AppTests.debug.xcconfig */,
+				DB749C203A3E9A186D0E9266 /* Pods-XYCgmsWatch Watch AppTests.release.xcconfig */,
+				D3B6F69FBA6F5DF07BD52E02 /* Pods-XYCgmsUITests.debug.xcconfig */,
+				71EB76E1110CB9EEDC4189A8 /* Pods-XYCgmsUITests.release.xcconfig */,
+				C887C37B830BDA3E9ADF72E4 /* Pods-XYCgmsWatch Watch AppUITests.debug.xcconfig */,
+				7173B91606714F30955A3276 /* Pods-XYCgmsWatch Watch AppUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		594AB5056D72B8676739AB48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BADB0ECC55E5DB8571E01D25 /* Pods_XYCgms.framework */,
+				704FDFCADCA570A1DDE08633 /* Pods_XYCgmsTests.framework */,
+				B94D1D7DE7F4AD84C940F694 /* Pods_XYCgmsWatch_Watch_App.framework */,
+				1311F13A0B36D481DC729C91 /* Pods_XYCgmsWatch_Watch_AppTests.framework */,
+				447A9F5D07A77127458EDA33 /* Pods_XYCgmsUITests.framework */,
+				B0ED79CDFC9CDD2250EDF9E0 /* Pods_XYCgmsWatch_Watch_AppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDB455092E696EC5000AA2C2 = {
+			isa = PBXGroup;
+			children = (
+				DDB455142E696EC5000AA2C2 /* XYCgms */,
+				DDB455232E696EC8000AA2C2 /* XYCgmsTests */,
+				DDB4552D2E696EC8000AA2C2 /* XYCgmsUITests */,
+				DDB455422E696EF1000AA2C2 /* XYCgmsWatch Watch App */,
+				DDB455502E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests */,
+				DDB4555A2E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests */,
+				DDB455132E696EC5000AA2C2 /* Products */,
+				40D4A5AD87AA0B1E5EE2BE37 /* Pods */,
+				594AB5056D72B8676739AB48 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DDB455132E696EC5000AA2C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDB455122E696EC5000AA2C2 /* XYCgms.app */,
+				DDB455202E696EC8000AA2C2 /* XYCgmsTests.xctest */,
+				DDB4552A2E696EC8000AA2C2 /* XYCgmsUITests.xctest */,
+				DDB455412E696EF1000AA2C2 /* XYCgmsWatch Watch App.app */,
+				DDB4554D2E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests.xctest */,
+				DDB455572E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDB455112E696EC5000AA2C2 /* XYCgms */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB455342E696EC8000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgms" */;
+			buildPhases = (
+				BCF9881AEB7629E04D14023C /* [CP] Check Pods Manifest.lock */,
+				DDB4550E2E696EC5000AA2C2 /* Sources */,
+				DDB4550F2E696EC5000AA2C2 /* Frameworks */,
+				DDB455102E696EC5000AA2C2 /* Resources */,
+				DDB455652E696EF3000AA2C2 /* Embed Watch Content */,
+				34B02D949CD963B1321B3327 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDB455602E696EF3000AA2C2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDB455142E696EC5000AA2C2 /* XYCgms */,
+			);
+			name = XYCgms;
+			productName = XYCgms;
+			productReference = DDB455122E696EC5000AA2C2 /* XYCgms.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDB4551F2E696EC8000AA2C2 /* XYCgmsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB455372E696EC8000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsTests" */;
+			buildPhases = (
+				82C7B9060D715676515F32FC /* [CP] Check Pods Manifest.lock */,
+				DDB4551C2E696EC8000AA2C2 /* Sources */,
+				DDB4551D2E696EC8000AA2C2 /* Frameworks */,
+				DDB4551E2E696EC8000AA2C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDB455222E696EC8000AA2C2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDB455232E696EC8000AA2C2 /* XYCgmsTests */,
+			);
+			name = XYCgmsTests;
+			productName = XYCgmsTests;
+			productReference = DDB455202E696EC8000AA2C2 /* XYCgmsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDB455292E696EC8000AA2C2 /* XYCgmsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB4553A2E696EC8000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsUITests" */;
+			buildPhases = (
+				776E7A32200E478EEC44F656 /* [CP] Check Pods Manifest.lock */,
+				DDB455262E696EC8000AA2C2 /* Sources */,
+				DDB455272E696EC8000AA2C2 /* Frameworks */,
+				DDB455282E696EC8000AA2C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDB4552C2E696EC8000AA2C2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDB4552D2E696EC8000AA2C2 /* XYCgmsUITests */,
+			);
+			name = XYCgmsUITests;
+			productName = XYCgmsUITests;
+			productReference = DDB4552A2E696EC8000AA2C2 /* XYCgmsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		DDB455402E696EF1000AA2C2 /* XYCgmsWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB455622E696EF3000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsWatch Watch App" */;
+			buildPhases = (
+				3C5CF4884CEB5D540E304248 /* [CP] Check Pods Manifest.lock */,
+				DDB4553D2E696EF1000AA2C2 /* Sources */,
+				DDB4553E2E696EF1000AA2C2 /* Frameworks */,
+				DDB4553F2E696EF1000AA2C2 /* Resources */,
+				656EB5BA785A9ED43AD0495E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DDB455422E696EF1000AA2C2 /* XYCgmsWatch Watch App */,
+			);
+			name = "XYCgmsWatch Watch App";
+			productName = "XYCgmsWatch Watch App";
+			productReference = DDB455412E696EF1000AA2C2 /* XYCgmsWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDB4554C2E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB455662E696EF3000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsWatch Watch AppTests" */;
+			buildPhases = (
+				D931BCE1D993DA2ECF1D3FB4 /* [CP] Check Pods Manifest.lock */,
+				DDB455492E696EF3000AA2C2 /* Sources */,
+				DDB4554A2E696EF3000AA2C2 /* Frameworks */,
+				DDB4554B2E696EF3000AA2C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDB4554F2E696EF3000AA2C2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDB455502E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests */,
+			);
+			name = "XYCgmsWatch Watch AppTests";
+			productName = "XYCgmsWatch Watch AppTests";
+			productReference = DDB4554D2E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDB455562E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB455692E696EF3000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsWatch Watch AppUITests" */;
+			buildPhases = (
+				D209BB79F04FFC67F18F0B87 /* [CP] Check Pods Manifest.lock */,
+				DDB455532E696EF3000AA2C2 /* Sources */,
+				DDB455542E696EF3000AA2C2 /* Frameworks */,
+				DDB455552E696EF3000AA2C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDB455592E696EF3000AA2C2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDB4555A2E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests */,
+			);
+			name = "XYCgmsWatch Watch AppUITests";
+			productName = "XYCgmsWatch Watch AppUITests";
+			productReference = DDB455572E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDB4550A2E696EC5000AA2C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					DDB455112E696EC5000AA2C2 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					DDB4551F2E696EC8000AA2C2 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDB455112E696EC5000AA2C2;
+					};
+					DDB455292E696EC8000AA2C2 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDB455112E696EC5000AA2C2;
+					};
+					DDB455402E696EF1000AA2C2 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					DDB4554C2E696EF3000AA2C2 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDB455402E696EF1000AA2C2;
+					};
+					DDB455562E696EF3000AA2C2 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDB455402E696EF1000AA2C2;
+					};
+				};
+			};
+			buildConfigurationList = DDB4550D2E696EC5000AA2C2 /* Build configuration list for PBXProject "XYCgms" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDB455092E696EC5000AA2C2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DDB455132E696EC5000AA2C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDB455112E696EC5000AA2C2 /* XYCgms */,
+				DDB4551F2E696EC8000AA2C2 /* XYCgmsTests */,
+				DDB455292E696EC8000AA2C2 /* XYCgmsUITests */,
+				DDB455402E696EF1000AA2C2 /* XYCgmsWatch Watch App */,
+				DDB4554C2E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests */,
+				DDB455562E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDB455102E696EC5000AA2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4551E2E696EC8000AA2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB455282E696EC8000AA2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4553F2E696EF1000AA2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4554B2E696EF3000AA2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB455552E696EF3000AA2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34B02D949CD963B1321B3327 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XYCgms/Pods-XYCgms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XYCgms/Pods-XYCgms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XYCgms/Pods-XYCgms-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C5CF4884CEB5D540E304248 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XYCgmsWatch Watch App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		656EB5BA785A9ED43AD0495E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		776E7A32200E478EEC44F656 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XYCgmsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82C7B9060D715676515F32FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XYCgmsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCF9881AEB7629E04D14023C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XYCgms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D209BB79F04FFC67F18F0B87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XYCgmsWatch Watch AppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D931BCE1D993DA2ECF1D3FB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XYCgmsWatch Watch AppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDB4550E2E696EC5000AA2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4551C2E696EC8000AA2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB455262E696EC8000AA2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4553D2E696EF1000AA2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB455492E696EF3000AA2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB455532E696EF3000AA2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDB455222E696EC8000AA2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB455112E696EC5000AA2C2 /* XYCgms */;
+			targetProxy = DDB455212E696EC8000AA2C2 /* PBXContainerItemProxy */;
+		};
+		DDB4552C2E696EC8000AA2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB455112E696EC5000AA2C2 /* XYCgms */;
+			targetProxy = DDB4552B2E696EC8000AA2C2 /* PBXContainerItemProxy */;
+		};
+		DDB4554F2E696EF3000AA2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB455402E696EF1000AA2C2 /* XYCgmsWatch Watch App */;
+			targetProxy = DDB4554E2E696EF3000AA2C2 /* PBXContainerItemProxy */;
+		};
+		DDB455592E696EF3000AA2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB455402E696EF1000AA2C2 /* XYCgmsWatch Watch App */;
+			targetProxy = DDB455582E696EF3000AA2C2 /* PBXContainerItemProxy */;
+		};
+		DDB455602E696EF3000AA2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB455402E696EF1000AA2C2 /* XYCgmsWatch Watch App */;
+			targetProxy = DDB4555F2E696EF3000AA2C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DDB455322E696EC8000AA2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DDB455332E696EC8000AA2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		DDB455352E696EC8000AA2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71CAFD71D55AB815A66F2FAC /* Pods-XYCgms.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = XYCgms/XYCgms.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"$(inherited)",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgms;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Debug;
+		};
+		DDB455362E696EC8000AA2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC84B7BA338A1B9B7B63C87D /* Pods-XYCgms.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = XYCgms/XYCgms.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"$(inherited)",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgms;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+		DDB455382E696EC8000AA2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAF93634EB93FC00DF4FD080 /* Pods-XYCgmsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgmsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XYCgms.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/XYCgms";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Debug;
+		};
+		DDB455392E696EC8000AA2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71CA1CCC940A98564E65DF1A /* Pods-XYCgmsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgmsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XYCgms.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/XYCgms";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+		DDB4553B2E696EC8000AA2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3B6F69FBA6F5DF07BD52E02 /* Pods-XYCgmsUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgmsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = XYCgms;
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Debug;
+		};
+		DDB4553C2E696EC8000AA2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71EB76E1110CB9EEDC4189A8 /* Pods-XYCgmsUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgmsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = XYCgms;
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+		DDB455632E696EF3000AA2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBC428338C977683226B427F /* Pods-XYCgmsWatch Watch App.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = XYCgmsWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.microtech.XYCgms;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgms.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		DDB455642E696EF3000AA2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 618C8B9DBB6F35C050124F6D /* Pods-XYCgmsWatch Watch App.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = XYCgmsWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.microtech.XYCgms;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microtech.XYCgms.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		DDB455672E696EF3000AA2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7DD330960E03BF953530C1C /* Pods-XYCgmsWatch Watch AppTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microtech.XYCgmsWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XYCgmsWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/XYCgmsWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		DDB455682E696EF3000AA2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB749C203A3E9A186D0E9266 /* Pods-XYCgmsWatch Watch AppTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microtech.XYCgmsWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XYCgmsWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/XYCgmsWatch Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		DDB4556A2E696EF3000AA2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C887C37B830BDA3E9ADF72E4 /* Pods-XYCgmsWatch Watch AppUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microtech.XYCgmsWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "XYCgmsWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		DDB4556B2E696EF3000AA2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7173B91606714F30955A3276 /* Pods-XYCgmsWatch Watch AppUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K78MX7YJZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microtech.XYCgmsWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "XYCgmsWatch Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDB4550D2E696EC5000AA2C2 /* Build configuration list for PBXProject "XYCgms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB455322E696EC8000AA2C2 /* Debug */,
+				DDB455332E696EC8000AA2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB455342E696EC8000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB455352E696EC8000AA2C2 /* Debug */,
+				DDB455362E696EC8000AA2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB455372E696EC8000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB455382E696EC8000AA2C2 /* Debug */,
+				DDB455392E696EC8000AA2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB4553A2E696EC8000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB4553B2E696EC8000AA2C2 /* Debug */,
+				DDB4553C2E696EC8000AA2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB455622E696EF3000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB455632E696EF3000AA2C2 /* Debug */,
+				DDB455642E696EF3000AA2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB455662E696EF3000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB455672E696EF3000AA2C2 /* Debug */,
+				DDB455682E696EF3000AA2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB455692E696EF3000AA2C2 /* Build configuration list for PBXNativeTarget "XYCgmsWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB4556A2E696EF3000AA2C2 /* Debug */,
+				DDB4556B2E696EF3000AA2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDB4550A2E696EC5000AA2C2 /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_XYUtil_Example {
+  umbrella header "Pods-XYUtil_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

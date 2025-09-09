@@ -1,0 +1,11 @@
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYCgms-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYExtension-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYLog-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYNetwork-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYStorage-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYUtil-watchOS"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/XYCgms-watchOS/XYCgms.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/XYExtension-watchOS/XYExtension.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/XYLog-watchOS/XYLog.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/XYNetwork-watchOS/XYNetwork.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/XYStorage-watchOS/XYStorage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/XYUtil-watchOS/XYUtil.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "CocoaLumberjack" -framework "Foundation" -framework "WatchKit" -framework "XYCgms" -framework "XYExtension" -framework "XYLog" -framework "XYNetwork" -framework "XYStorage" -framework "XYUtil"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

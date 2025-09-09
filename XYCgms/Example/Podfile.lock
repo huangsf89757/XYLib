@@ -1,0 +1,62 @@
+PODS:
+  - CocoaLumberjack (3.8.5):
+    - CocoaLumberjack/Core (= 3.8.5)
+  - CocoaLumberjack/Core (3.8.5)
+  - XYCgms (1.0.0):
+    - XYExtension
+    - XYLog
+    - XYNetwork
+    - XYStorage
+    - XYUtil
+  - XYExtension (1.0.0)
+  - XYLog (1.0.0):
+    - CocoaLumberjack
+    - XYExtension
+    - XYUtil
+  - XYNetwork (1.0.0):
+    - XYExtension
+    - XYUtil
+  - XYStorage (1.0.0):
+    - XYExtension
+    - XYUtil
+  - XYUtil (1.0.0):
+    - XYExtension
+
+DEPENDENCIES:
+  - XYCgms (from `../`)
+  - XYExtension (from `../../XYExtension/`)
+  - XYLog (from `../../XYLog/`)
+  - XYNetwork (from `../../XYNetwork/`)
+  - XYStorage (from `../../XYStorage/`)
+  - XYUtil (from `../../XYUtil/`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CocoaLumberjack
+
+EXTERNAL SOURCES:
+  XYCgms:
+    :path: "../"
+  XYExtension:
+    :path: "../../XYExtension/"
+  XYLog:
+    :path: "../../XYLog/"
+  XYNetwork:
+    :path: "../../XYNetwork/"
+  XYStorage:
+    :path: "../../XYStorage/"
+  XYUtil:
+    :path: "../../XYUtil/"
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  XYCgms: 393476e72b8456785f12abb94f1d88e5b557af6d
+  XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
+  XYLog: b34f7ddede377b9b5342af36ba37a354a1ee752f
+  XYNetwork: a2b5b4edf88e35a5ef7b176e58f0bc881d690468
+  XYStorage: 9ef261cd24fe0816283843aa1a7be7c75066b757
+  XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23
+
+PODFILE CHECKSUM: aba2316c07cae79d1b733e4b4a7680d32bbaf69e
+
+COCOAPODS: 1.16.2

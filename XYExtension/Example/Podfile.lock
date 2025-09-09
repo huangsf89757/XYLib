@@ -1,0 +1,16 @@
+PODS:
+  - XYExtension (0.1.0)
+
+DEPENDENCIES:
+  - XYExtension (from `../`)
+
+EXTERNAL SOURCES:
+  XYExtension:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XYExtension: 01fcc49864211dbc604ed87a881f0dd06f487eb5
+
+PODFILE CHECKSUM: d82ffa6c4511b98415a7b4464b78197ba363b453
+
+COCOAPODS: 1.16.2
