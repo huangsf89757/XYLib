@@ -19,6 +19,8 @@
     "XYExtension": [],
     "XYUtil": [],
     "XYLog": [],
+    "XYCoreBluetooth": [],
+    "XYWatchConnectivity": [],
     "XYStorage": [],
     "XYNetwork": []
   },

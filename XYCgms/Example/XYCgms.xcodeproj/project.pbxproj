@@ -102,31 +102,43 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DDB455142E696EC5000AA2C2 /* XYCgms */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = XYCgms;
 			sourceTree = "<group>";
 		};
 		DDB455232E696EC8000AA2C2 /* XYCgmsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = XYCgmsTests;
 			sourceTree = "<group>";
 		};
 		DDB4552D2E696EC8000AA2C2 /* XYCgmsUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = XYCgmsUITests;
 			sourceTree = "<group>";
 		};
 		DDB455422E696EF1000AA2C2 /* XYCgmsWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "XYCgmsWatch Watch App";
 			sourceTree = "<group>";
 		};
 		DDB455502E696EF3000AA2C2 /* XYCgmsWatch Watch AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "XYCgmsWatch Watch AppTests";
 			sourceTree = "<group>";
 		};
 		DDB4555A2E696EF3000AA2C2 /* XYCgmsWatch Watch AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "XYCgmsWatch Watch AppUITests";
 			sourceTree = "<group>";
 		};
@@ -497,13 +509,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XYCgms/Pods-XYCgms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XYCgms/Pods-XYCgms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -540,13 +548,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

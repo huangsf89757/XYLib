@@ -178,20 +178,24 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCgms-watchOS/XYCgms.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-watchOS/XYCoreBluetooth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYExtension-watchOS/XYExtension.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYLog-watchOS/XYLog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYNetwork-watchOS/XYNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYStorage-watchOS/XYStorage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYUtil-watchOS/XYUtil.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-watchOS/XYWatchConnectivity.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCgms-watchOS/XYCgms.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-watchOS/XYCoreBluetooth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYExtension-watchOS/XYExtension.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYLog-watchOS/XYLog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYNetwork-watchOS/XYNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYStorage-watchOS/XYStorage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYUtil-watchOS/XYUtil.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-watchOS/XYWatchConnectivity.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

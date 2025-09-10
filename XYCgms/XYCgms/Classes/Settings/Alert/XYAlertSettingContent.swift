@@ -1,5 +1,5 @@
 //
-//  XYWarningSettingContent.swift
+//  XYAlertSettingContent.swift
 //  XYCgms
 //
 //  Created by hsf on 2025/8/27.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - 提醒设置内容
-public final class XYWarningSettingContent {
+public final class XYAlertSettingContent {
     // MARK: var
     /// 开关，默认开启
     public var enable = true

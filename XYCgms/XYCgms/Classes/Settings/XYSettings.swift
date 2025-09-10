@@ -15,7 +15,7 @@ public final class XYSettings {
     /// 目标范围
     public private(set) var targetRange = XYTargetSettings()
     /// 提醒设置
-    public private(set) var warning = XYWarningSettings()
+    public private(set) var alert = XYAlertSettings()
     /// 系统设置
     public private(set) var system = XYSystemSettings()
 }

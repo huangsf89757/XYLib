@@ -1,0 +1,6 @@
+framework module XYWatchConnectivity {
+  umbrella header "XYWatchConnectivity-watchOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

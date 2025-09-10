@@ -3,10 +3,16 @@ PODS:
   - CocoaLumberjack/Swift (3.8.5):
     - CocoaLumberjack/Core
   - XYCgms (1.0.0):
+    - XYCoreBluetooth
     - XYExtension
     - XYLog
     - XYNetwork
     - XYStorage
+    - XYUtil
+    - XYWatchConnectivity
+  - XYCoreBluetooth (1.0.0):
+    - XYExtension
+    - XYLog
     - XYUtil
   - XYExtension (1.0.0)
   - XYLog (1.0.0):
@@ -21,14 +27,20 @@ PODS:
     - XYUtil
   - XYUtil (1.0.0):
     - XYExtension
+  - XYWatchConnectivity (1.0.0):
+    - XYExtension
+    - XYLog
+    - XYUtil
 
 DEPENDENCIES:
   - XYCgms (from `../`)
+  - XYCoreBluetooth (from `../../XYCoreBluetooth/`)
   - XYExtension (from `../../XYExtension/`)
   - XYLog (from `../../XYLog/`)
   - XYNetwork (from `../../XYNetwork/`)
   - XYStorage (from `../../XYStorage/`)
   - XYUtil (from `../../XYUtil/`)
+  - XYWatchConnectivity (from `../../XYWatchConnectivity/`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -37,6 +49,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   XYCgms:
     :path: "../"
+  XYCoreBluetooth:
+    :path: "../../XYCoreBluetooth/"
   XYExtension:
     :path: "../../XYExtension/"
   XYLog:
@@ -47,16 +61,20 @@ EXTERNAL SOURCES:
     :path: "../../XYStorage/"
   XYUtil:
     :path: "../../XYUtil/"
+  XYWatchConnectivity:
+    :path: "../../XYWatchConnectivity/"
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
-  XYCgms: 393476e72b8456785f12abb94f1d88e5b557af6d
+  XYCgms: e2f20d8edb4b00480240a004f61bd5892280f709
+  XYCoreBluetooth: 6d979538a872d8f997e72c19f23b99512e32c8fb
   XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
   XYLog: 22bc8883abd56a232546d8f8c9206fa88fe193cb
   XYNetwork: a2b5b4edf88e35a5ef7b176e58f0bc881d690468
   XYStorage: 9ef261cd24fe0816283843aa1a7be7c75066b757
   XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23
+  XYWatchConnectivity: 789125b196e7905764b855ee47000febd0b101c1
 
-PODFILE CHECKSUM: aba2316c07cae79d1b733e4b4a7680d32bbaf69e
+PODFILE CHECKSUM: f290868ae8ef7faf70f9ccb5932d486047a3729c
 
 COCOAPODS: 1.16.2

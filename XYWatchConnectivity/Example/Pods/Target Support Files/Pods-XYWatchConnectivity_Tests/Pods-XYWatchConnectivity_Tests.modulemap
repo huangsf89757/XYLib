@@ -1,0 +1,6 @@
+framework module Pods_XYWatchConnectivity_Tests {
+  umbrella header "Pods-XYWatchConnectivity_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

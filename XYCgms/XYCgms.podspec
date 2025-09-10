@@ -32,6 +32,8 @@ TODO: Add long description of the pod here.
   s.dependency 'XYExtension'
   s.dependency 'XYUtil'
   s.dependency 'XYLog'
+  s.dependency 'XYCoreBluetooth'
+  s.dependency 'XYWatchConnectivity'
   s.dependency 'XYStorage'
   s.dependency 'XYNetwork'
   

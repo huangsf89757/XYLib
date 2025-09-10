@@ -40,6 +40,8 @@ def comPod
   pod 'XYExtension', :path => $libPath + 'XYExtension/'
   pod 'XYUtil', :path => $libPath + 'XYUtil/'
   pod 'XYLog', :path => $libPath + 'XYLog/'
+  pod 'XYCoreBluetooth', :path => $libPath + 'XYCoreBluetooth/'
+  pod 'XYWatchConnectivity', :path => $libPath + 'XYWatchConnectivity/'
   pod 'XYStorage', :path => $libPath + 'XYStorage/'
   pod 'XYNetwork', :path => $libPath + 'XYNetwork/'
 end

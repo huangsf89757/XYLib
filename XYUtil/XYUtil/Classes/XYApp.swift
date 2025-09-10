@@ -53,3 +53,9 @@ public final class XYApp {
         return icon
     }
 }
+
+public extension XYApp {
+    static var key: String {
+        bundleId + ".KEY"
+    }
+}
