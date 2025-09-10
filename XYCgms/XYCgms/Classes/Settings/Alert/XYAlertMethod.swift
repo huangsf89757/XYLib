@@ -1,5 +1,5 @@
 //
-//  XYWarningMethod.swift
+//  XYAlertMethod.swift
 //  XYCgms
 //
 //  Created by hsf on 2025/8/27.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - 提醒方式
-public struct XYWarningMethod: OptionSet {
+public struct XYAlertMethod: OptionSet {
     public let rawValue: Int
     public init(rawValue: Int) {
         self.rawValue = rawValue
