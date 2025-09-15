@@ -17,18 +17,25 @@ public final class XYPeripheralAgent: NSObject {
     
     // MARK: var
     /// 持有的外围设备
-    public let peripheral: CBPeripheral    
+    public let peripheral: CBPeripheral
+    /// 广播数据
     public let advertisementData: [String : Any]
+    /// 信号强度
     public let RSSI: NSNumber
+    /// 广播时间
+    public let discoverDate: Date
+    /// 日志记录时间
+    public var logDate: Date?
     
     // MARK: plugin
     public var plugins = [XYPeripheralPlugin]()
     
     // MARK: init
-    init(peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber) {
+    init(peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber, discoverDate: Date) {
         self.peripheral = peripheral
         self.advertisementData = advertisementData
         self.RSSI = RSSI
+        self.discoverDate = discoverDate
         super.init()
         self.peripheral.delegate = self
         addObservers()

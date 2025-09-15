@@ -14,6 +14,8 @@ import XYLog
 public final class XYCentralManagerAgent: NSObject {
     // MARK: log
     public static let logTag = "Ble.CM"
+    /// 同一个外围设备广播日志打印间隔
+    public static let logDiscoverInterval: TimeInterval = 5
     
     // MARK: shared
     public static let shared = XYCentralManagerAgent()
@@ -46,12 +48,9 @@ public final class XYCentralManagerAgent: NSObject {
     /// 自动恢复挂起前的状态
     public var autoRestore: Bool = true
     
-    
     // MARK: centralManager
     /// 持有的中央设备
     public internal(set) var centralManager: CBCentralManager!
-    /// 广播日志
-    public let discoverLogger = XYDiscoverLogger()
     
     // MARK: scan
     /* 开启扫描后，蓝牙开关开启则自动开始扫描 */
@@ -65,7 +64,6 @@ public final class XYCentralManagerAgent: NSObject {
     public internal(set) var lastPeripheralAgent: XYPeripheralAgent?
     /// 连接超时Task
     public internal(set) var connectTimeoutTaskMap = [UUID: DispatchWorkItem]()
-    
     
     // MARK: plugin
     public var plugins = [XYCentralManagerPlugin]()
@@ -168,12 +166,22 @@ extension XYCentralManagerAgent {
     // delegate
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let logTag = [Self.logTag, "didDiscoverPeripheral()"]
-        discoverLogger.log(tag: logTag, peripheral: peripheral, advertisementData: advertisementData, rssi: RSSI)
+        let peripheralAgent = XYPeripheralAgent(peripheral: peripheral, advertisementData: advertisementData, RSSI: RSSI, discoverDate: Date())
+        let uuid = peripheral.identifier
+        let now = Date()
+        if let logDate = discoveredPeripherals[uuid]?.logDate {
+            let distance = logDate.distance(to: now)
+            if distance > Self.logDiscoverInterval {
+                XYLog.info(tag: logTag, content: "peripheral=\(peripheral.info)", "advData=\(advertisementData.toJSONString() ?? "nil")", "rssi=\(RSSI)")
+                peripheralAgent.logDate = now
+            }
+        } else {
+            peripheralAgent.logDate = now
+        }
+        discoveredPeripherals[uuid] = peripheralAgent
         plugins.forEach { plugin in
             plugin.centralManager?(central, didDiscover: peripheral, advertisementData: advertisementData, rssi: RSSI)
         }
-        let uuid = peripheral.identifier
-        discoveredPeripherals[uuid] = XYPeripheralAgent(peripheral: peripheral, advertisementData: advertisementData, RSSI: RSSI)
     }
 }
 
@@ -187,7 +195,7 @@ extension XYCentralManagerAgent {
             XYLog.info(tag: logTag, process: .fail("TimeoutTask Handel (\(uuid))"))
             self?.plugins.forEach { plugin in
                 guard let centralManager = self?.centralManager else { return }
-                plugin.centralManager(centralManager, peripheralMapDidRemove: uuid)
+                plugin.centralManager(centralManager, discoveredPeripheralsDidRemove: uuid)
             }
             let peripheralAgent = self?.discoveredPeripherals[uuid]
             guard let peripheral = peripheralAgent?.peripheral else { return }
@@ -254,7 +262,7 @@ extension XYCentralManagerAgent {
         let uuid = peripheral.identifier
         lastPeripheralAgent = discoveredPeripherals[uuid]
         plugins.forEach { plugin in
-            plugin.centralManager(centralManager, peripheralMapDidAdd: uuid, peripheral: peripheral)
+            plugin.centralManager(centralManager, discoveredPeripheralsDidAdd: uuid, peripheral: peripheral)
         }
         centralManager.connect(peripheral, options: options)
         // plugins

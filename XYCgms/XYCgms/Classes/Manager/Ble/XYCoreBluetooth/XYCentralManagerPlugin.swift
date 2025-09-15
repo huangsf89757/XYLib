@@ -34,11 +34,11 @@ extension XYCgmsBleManager {
         
     }
     
-    public func centralManager(_ central: CBCentralManager, peripheralMapDidAdd uuid: UUID, peripheral: CBPeripheral) {
+    public func centralManager(_ central: CBCentralManager, discoveredPeripheralsDidAdd uuid: UUID, peripheral: CBPeripheral) {
 
     }
     
-    public func centralManager(_ central: CBCentralManager, peripheralMapDidRemove uuid: UUID) {
+    public func centralManager(_ central: CBCentralManager, discoveredPeripheralsDidRemove uuid: UUID) {
 
     }
 }
