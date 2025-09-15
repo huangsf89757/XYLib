@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-XYCgmsWatch Watch App/Pods-XYCgmsWatch Watch App-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework
+${BUILT_PRODUCTS_DIR}/MTBleCore-watchOS/MTBleCore.framework
 ${BUILT_PRODUCTS_DIR}/XYCgms-watchOS/XYCgms.framework
 ${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-watchOS/XYCoreBluetooth.framework
 ${BUILT_PRODUCTS_DIR}/XYExtension-watchOS/XYExtension.framework

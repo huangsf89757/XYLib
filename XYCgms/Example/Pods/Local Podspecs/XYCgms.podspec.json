@@ -22,7 +22,8 @@
     "XYCoreBluetooth": [],
     "XYWatchConnectivity": [],
     "XYStorage": [],
-    "XYNetwork": []
+    "XYNetwork": [],
+    "MTBleCore": []
   },
   "platforms": {
     "ios": "14.0",

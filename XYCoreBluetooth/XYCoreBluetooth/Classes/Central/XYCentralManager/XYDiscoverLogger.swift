@@ -32,7 +32,7 @@ public final class XYDiscoverLogger {
         }
         func appendNewInfo() {
             peripheralMap[uuid] = now
-            XYLog.info(tag: tag, content: "advData=\(advertisementData.toJSONString() ?? "nil")", "rssi=\(RSSI)")
+            XYLog.info(tag: tag, content: "peripheral=\(peripheral.info)", "advData=\(advertisementData.toJSONString() ?? "nil")", "rssi=\(RSSI)")
         }
     }
     

@@ -27,6 +27,6 @@ public extension CBManagerState {
         @unknown default:
             desc = "@unknown"
         }
-        return "\(rawValue)(\(desc))"
+        return "\(desc)(\(rawValue))"
     }
 }

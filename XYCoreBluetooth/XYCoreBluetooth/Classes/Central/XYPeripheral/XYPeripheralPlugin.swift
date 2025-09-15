@@ -22,7 +22,7 @@ public protocol XYPeripheralPlugin: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didTryOpenL2CAPChannel PSM: CBL2CAPPSM)
 }
 
-extension XYPeripheralPlugin {
+public extension XYPeripheralPlugin {
     func peripheralDidTryReadRSSI(_ peripheral: CBPeripheral) {}
     func peripheral(_ peripheral: CBPeripheral, didTryDiscoverServices serviceUUIDs: [CBUUID]?) {}
     func peripheral(_ peripheral: CBPeripheral, didTryDiscoverIncludedServices includedServiceUUIDs: [CBUUID]?, for service: CBService) {}

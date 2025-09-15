@@ -1,9 +1,9 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/XYCgms-watchOS
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYCoreBluetooth-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYExtension-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYLog-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYNetwork-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYStorage-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYUtil-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYWatchConnectivity-watchOS"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/MTBleCore-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYCoreBluetooth-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYExtension-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYLog-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYNetwork-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYStorage-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYUtil-watchOS" "${PODS_CONFIGURATION_BUILD_DIR}/XYWatchConnectivity-watchOS"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LIBRARY_SEARCH_PATHS = $(inherited) "${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
-OTHER_LDFLAGS = $(inherited) -framework "Foundation" -framework "WatchKit" -framework "XYCoreBluetooth" -framework "XYExtension" -framework "XYLog" -framework "XYNetwork" -framework "XYStorage" -framework "XYUtil" -framework "XYWatchConnectivity"
+OTHER_LDFLAGS = $(inherited) -framework "CoreBluetooth" -framework "Foundation" -framework "MTBleCore" -framework "WatchKit" -framework "XYCoreBluetooth" -framework "XYExtension" -framework "XYLog" -framework "XYNetwork" -framework "XYStorage" -framework "XYUtil" -framework "XYWatchConnectivity"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -suppress-warnings
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

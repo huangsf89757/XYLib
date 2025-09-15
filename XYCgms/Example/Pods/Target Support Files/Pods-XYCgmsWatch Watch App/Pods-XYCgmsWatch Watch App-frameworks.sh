@@ -177,6 +177,7 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MTBleCore-watchOS/MTBleCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCgms-watchOS/XYCgms.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-watchOS/XYCoreBluetooth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYExtension-watchOS/XYExtension.framework"
@@ -188,6 +189,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MTBleCore-watchOS/MTBleCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCgms-watchOS/XYCgms.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-watchOS/XYCoreBluetooth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYExtension-watchOS/XYExtension.framework"

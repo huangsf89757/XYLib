@@ -44,6 +44,8 @@ def comPod
   pod 'XYWatchConnectivity', :path => $libPath + 'XYWatchConnectivity/'
   pod 'XYStorage', :path => $libPath + 'XYStorage/'
   pod 'XYNetwork', :path => $libPath + 'XYNetwork/'
+  pod 'MTBleCore', :path => '/Users/huangshanfeng/Desktop/MTBleCore'
+  
 end
 
 # ====== iOS ====== #

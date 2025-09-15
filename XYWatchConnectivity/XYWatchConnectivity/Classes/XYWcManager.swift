@@ -44,6 +44,9 @@ public final class XYWcManager: NSObject {
         session.delegate = self
         session.activate()
         XYLog.info(tag: logTag, process: .succ)
+        plugins.forEach { plugin in
+            plugin.sessionDidTryActivate(session)
+        }
     }
 }
 
@@ -51,7 +54,7 @@ extension XYWcManager: WCSessionDelegate {
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {
         let logTag = [Self.logTag, "activationDidComplete()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "state=\(activationState.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "state=\(activationState.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "state=\(activationState.info)")
         }
@@ -179,9 +182,12 @@ extension XYWcManager {
         do {
             try session.updateApplicationContext(dict)
         } catch let error {
-            XYLog.info(tag: logTag, process: .fail("error=\(error.localizedDescription)"))
+            XYLog.info(tag: logTag, process: .fail("error=\(error.info)"))
         }
         XYLog.info(tag: logTag, process: .succ)
+        plugins.forEach { plugin in
+            plugin.session(session, didTryUpdateApplicationContext: dict)
+        }
     }
 }
 /// 接收方
@@ -217,12 +223,15 @@ extension XYWcManager {
         }
         session.sendMessage(dict, replyHandler: newReplyHandler, errorHandler: {
             error in
-            XYLog.info(tag: logTag, process: .fail("error=\(error.localizedDescription)"))
+            XYLog.info(tag: logTag, process: .fail("error=\(error.info)"))
         })
         if replyHandler != nil {
             XYLog.info(tag: logTag, process: .succ)
         } else {
             XYLog.info(tag: logTag, process: .doing, content: "waitingReplyMessageDict")
+        }
+        plugins.forEach { plugin in
+            plugin.session(session, didTrySendMessage: dict, replyHandler: replyHandler)
         }
     }
 }
@@ -263,12 +272,15 @@ extension XYWcManager {
         }
         session.sendMessageData(data, replyHandler: newReplyHandler, errorHandler: {
             error in
-            XYLog.info(tag: logTag, process: .fail("error=\(error.localizedDescription)"))
+            XYLog.info(tag: logTag, process: .fail("error=\(error.info)"))
         })
         if replyHandler != nil {
             XYLog.info(tag: logTag, process: .succ)
         } else {
             XYLog.info(tag: logTag, process: .doing, content: "waitingReplyMessageData")
+        }
+        plugins.forEach { plugin in
+            plugin.session(session, didTrySendMessage: data, replyHandler: replyHandler)
         }
     }
 }
@@ -313,6 +325,9 @@ extension XYWcManager {
         }
         session.transferCurrentComplicationUserInfo(dict)
         XYLog.info(tag: logTag, process: .succ)
+        plugins.forEach { plugin in
+            plugin.session(session, didTryTransferCurrentComplicationUserInfo: dict)
+        }
     }
 #endif
     
@@ -326,11 +341,14 @@ extension XYWcManager {
         guard let session = getUsefulSession(logTag: logTag, mustReachable: false) else { return }
         session.transferUserInfo(dict)
         XYLog.info(tag: logTag, process: .succ)
+        plugins.forEach { plugin in
+            plugin.session(session, didTryTransferUserInfo: dict)
+        }
     }
     public func session(_ session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error: (any Error)?) {
         let logTag = [Self.logTag, Self.logTagSender, "didFinishTransferUserInfo()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag)
         }
@@ -379,6 +397,9 @@ extension XYWcManager {
             fileProgressObservers[transfer] = obs
         }
         FileTransferCallbackRegistry.shared.register(transfer: transfer, onDone: onDone)
+        plugins.forEach { plugin in
+            plugin.session(session, didTryTransferFileAt: url, metadata: metadata)
+        }
         return transfer
     }
     
@@ -391,7 +412,7 @@ extension XYWcManager {
     public func session(_ session: WCSession, didFinish fileTransfer: WCSessionFileTransfer, error: (any Error)?) {
         let logTag = [Self.logTag, Self.logTagSender, "didFinishTransferFile()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag)
         }

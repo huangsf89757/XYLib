@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-XYCgms/Pods-XYCgms-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CocoaLumberjack-iOS/CocoaLumberjack.framework
+${BUILT_PRODUCTS_DIR}/MTBleCore-iOS/MTBleCore.framework
 ${BUILT_PRODUCTS_DIR}/XYCgms-iOS/XYCgms.framework
 ${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-iOS/XYCoreBluetooth.framework
 ${BUILT_PRODUCTS_DIR}/XYExtension-iOS/XYExtension.framework

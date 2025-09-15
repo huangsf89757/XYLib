@@ -12,12 +12,20 @@ public protocol XYCentralManagerPlugin: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didTryScanForPeripherals serviceUUIDs: [CBUUID]?, options: [String : Any]?)
     func centralManagerDidTryStopScan(_ central: CBCentralManager)
     func centralManager(_ central: CBCentralManager, didTryConnect peripheral: CBPeripheral, options: [String : Any]?)
+    func centralManager(_ central: CBCentralManager, didConnectTimeout peripheral: CBPeripheral)
     func centralManager(_ central: CBCentralManager, didTryCancelPeripheralConnection peripheral: CBPeripheral)
+    
+    func centralManager(_ central: CBCentralManager, peripheralMapDidAdd uuid: UUID, peripheral: CBPeripheral)
+    func centralManager(_ central: CBCentralManager, peripheralMapDidRemove uuid: UUID)
 }
 
-extension XYCentralManagerPlugin {
+public extension XYCentralManagerPlugin {
     func centralManager(_ central: CBCentralManager, didTryScanForPeripherals serviceUUIDs: [CBUUID]?, options: [String : Any]?) {}
     func centralManagerDidTryStopScan(_ central: CBCentralManager) {}
     func centralManager(_ central: CBCentralManager, didTryConnect peripheral: CBPeripheral, options: [String : Any]?) {}
+    func centralManager(_ central: CBCentralManager, didConnectTimeout peripheral: CBPeripheral) {}
     func centralManager(_ central: CBCentralManager, didTryCancelPeripheralConnection peripheral: CBPeripheral) {}
+    
+    func centralManager(_ central: CBCentralManager, peripheralMapDidAdd uuid: UUID, peripheral: CBPeripheral) {}
+    func centralManager(_ central: CBCentralManager, peripheralMapDidRemove uuid: UUID) {}
 }

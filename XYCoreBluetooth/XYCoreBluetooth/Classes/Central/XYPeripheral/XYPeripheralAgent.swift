@@ -1,5 +1,5 @@
 //
-//  XYPeripheral.swift
+//  XYPeripheralAgent.swift
 //  Pods
 //
 //  Created by hsf on 2025/9/10.
@@ -11,20 +11,24 @@ import XYExtension
 import XYUtil
 import XYLog
 
-public final class XYPeripheral: NSObject {
+public final class XYPeripheralAgent: NSObject {
     // MARK: log
     public static let logTag = "Ble.P"
     
     // MARK: var
     /// 持有的外围设备
-    public let peripheral: CBPeripheral
+    public let peripheral: CBPeripheral    
+    public let advertisementData: [String : Any]
+    public let RSSI: NSNumber
     
     // MARK: plugin
     public var plugins = [XYPeripheralPlugin]()
     
     // MARK: init
-    public init(peripheral: CBPeripheral) {
+    init(peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber) {
         self.peripheral = peripheral
+        self.advertisementData = advertisementData
+        self.RSSI = RSSI
         super.init()
         self.peripheral.delegate = self
         addObservers()
@@ -34,8 +38,27 @@ public final class XYPeripheral: NSObject {
     }
 }
 
+// MARK: - func
+extension XYPeripheralAgent {
+    public func getCharacteristic(uuidString: String) -> CBCharacteristic? {
+        var target: CBCharacteristic?
+        let services = peripheral.services ?? []
+        for service in services {
+            let characteristics = service.characteristics ?? []
+            for characteristic in characteristics {
+                if characteristic.uuid.uuidString == uuidString {
+                    target = characteristic
+                    break
+                }
+            }
+        }
+        return target
+    }
+}
+
 // MARK: - CBPeripheralDelegate
-extension XYPeripheral: CBPeripheralDelegate {
+extension XYPeripheralAgent: CBPeripheralDelegate {
+    // delegate
     public func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
         let logTag = [Self.logTag, "didUpdateName()"]
         XYLog.info(tag: logTag)
@@ -44,6 +67,7 @@ extension XYPeripheral: CBPeripheralDelegate {
         }
     }
     
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         let logTag = [Self.logTag, "didModifyServices()"]
         XYLog.info(tag: logTag, content: "invalidatedServices=\(invalidatedServices)")
@@ -52,10 +76,11 @@ extension XYPeripheral: CBPeripheralDelegate {
         }
     }
 
+    // delegate
     public func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: (any Error)?) {
         let logTag = [Self.logTag, "didUpdateRSSI()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag)
         }
@@ -66,7 +91,7 @@ extension XYPeripheral: CBPeripheralDelegate {
 }
 
 // MARK: - readRSSI
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func readRSSI() {
         let logTag = [Self.logTag, "readRSSI()"]
         XYLog.info(tag: logTag, process: .begin)
@@ -76,11 +101,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: (any Error)?) {
         let logTag = [Self.logTag, "didReadRSSI()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "RSSI=\(RSSI)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "RSSI=\(RSSI)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "RSSI=\(RSSI)")
         }
@@ -91,7 +117,7 @@ extension XYPeripheral {
 }
 
 // MARK: - discoverServices
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func discoverServices(serviceUUIDs: [CBUUID]?) {
         let logTag = [Self.logTag, "discoverServices()"]
         XYLog.info(tag: logTag, process: .begin, content: "uuids=\(serviceUUIDs)")
@@ -101,11 +127,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         let logTag = [Self.logTag, "didDiscoverServices()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag)
         }
@@ -116,7 +143,7 @@ extension XYPeripheral {
 }
 
 // MARK: - discoverIncludedServicesForService
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func discoverIncludedServices(includedServiceUUIDs: [CBUUID]?, for service: CBService) {
         let logTag = [Self.logTag, "discoverIncludedServicesForService()"]
         XYLog.info(tag: logTag, process: .begin, content: "uuids=\(includedServiceUUIDs)", "service=\(service.info)")
@@ -126,11 +153,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: (any Error)?) {
         let logTag = [Self.logTag, "didDiscoverIncludedServicesForService()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "service=\(service.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "service=\(service.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "service=\(service.info)")
         }
@@ -141,7 +169,7 @@ extension XYPeripheral {
 }
 
 // MARK: - discoverCharacteristicsForService
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func discoverCharacteristics(characteristicUUIDs: [CBUUID]?, for service: CBService) {
         let logTag = [Self.logTag, "discoverCharacteristicsForService()"]
         XYLog.info(tag: logTag, process: .begin, content: "uuids=\(characteristicUUIDs)", "service=\(service.info)")
@@ -151,11 +179,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         let logTag = [Self.logTag, "didDiscoverCharacteristicsForService()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "service=\(service.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "service=\(service.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "service=\(service.info)")
         }
@@ -166,7 +195,7 @@ extension XYPeripheral {
 }
 
 // MARK: - readValueForCharacteristic
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func readValue(for characteristic: CBCharacteristic) {
         let logTag = [Self.logTag, "readValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)")
@@ -176,11 +205,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        let logTag = [Self.logTag, "didReadValueForCharacteristic()"]
+        let logTag = [Self.logTag, "didUpdateValueForCharacteristic()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
@@ -191,7 +221,7 @@ extension XYPeripheral {
 }
 
 // MARK: - writeValueForCharacteristic
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func writeValue(data: Data, for characteristic: CBCharacteristic, type: CBCharacteristicWriteType) {
         let logTag = [Self.logTag, "writeValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)", "type=\(type.info)")
@@ -201,11 +231,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         let logTag = [Self.logTag, "didWriteValueForCharacteristic()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
@@ -216,7 +247,7 @@ extension XYPeripheral {
 }
 
 // MARK: - updateNotificationStateForCharacteristic
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func setNotifyValue(enabled: Bool, for characteristic: CBCharacteristic) {
         let logTag = [Self.logTag, "updateNotificationStateForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "enabled=\(enabled)", "characteristic=\(characteristic.info)")
@@ -226,11 +257,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         let logTag = [Self.logTag, "didUpdateNotificationStateForCharacteristic()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
@@ -241,7 +273,7 @@ extension XYPeripheral {
 }
 
 // MARK: - discoverDescriptorsForCharacteristic
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func discoverDescriptors(for characteristic: CBCharacteristic) {
         let logTag = [Self.logTag, "discoverDescriptorsForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)")
@@ -251,11 +283,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: (any Error)?) {
         let logTag = [Self.logTag, "didDiscoverDescriptorsForCharacteristic()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
@@ -266,7 +299,7 @@ extension XYPeripheral {
 }
 
 // MARK: - readValueForDescriptor
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func readValue(for descriptor: CBDescriptor) {
         let logTag = [Self.logTag, "readValueForDescriptor()"]
         XYLog.info(tag: logTag, process: .begin, content: "descriptor=\(descriptor.info)")
@@ -276,11 +309,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: (any Error)?) {
         let logTag = [Self.logTag, "didReadValueForDescriptor()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)")
         }
@@ -291,7 +325,7 @@ extension XYPeripheral {
 }
 
 // MARK: - writeValueForDescriptor
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func writeValue(data: Data, for descriptor: CBDescriptor) {
         let logTag = [Self.logTag, "writeValueForDescriptor()"]
         XYLog.info(tag: logTag, process: .begin, content: "descriptor=\(descriptor.info)")
@@ -301,11 +335,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: (any Error)?) {
         let logTag = [Self.logTag, "didWriteValueForDescriptor()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)")
         }
@@ -316,7 +351,7 @@ extension XYPeripheral {
 }
 
 // MARK: - writeValueForDescriptor
-extension XYPeripheral {
+extension XYPeripheralAgent {
     public func openL2CAPChannel(PSM: CBL2CAPPSM) {
         let logTag = [Self.logTag, "openL2CAPChannel()"]
         XYLog.info(tag: logTag, process: .begin, content: "PSM=\(PSM)")
@@ -326,11 +361,12 @@ extension XYPeripheral {
         }
     }
 }
-extension XYPeripheral {
+extension XYPeripheralAgent {
+    // delegate
     public func peripheral(_ peripheral: CBPeripheral, didOpen channel: CBL2CAPChannel?, error: (any Error)?) {
         let logTag = [Self.logTag, "didOpenL2CAPChannel()"]
         if let error = error {
-            XYLog.info(tag: logTag, content: "channel=\(channel?.info ?? "nil")", "error=\(error.localizedDescription)")
+            XYLog.info(tag: logTag, content: "channel=\(channel?.info ?? "nil")", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "channel=\(channel?.info ?? "nil")")
         }
@@ -341,7 +377,7 @@ extension XYPeripheral {
 }
 
 // MARK: - KVO
-extension XYPeripheral {
+extension XYPeripheralAgent {
     private func addObservers() {
         peripheral.addObserver(self, forKeyPath: "state", options: .new, context: nil)
     }

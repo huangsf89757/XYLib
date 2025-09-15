@@ -22,7 +22,7 @@ public extension WCSessionActivationState {
         @unknown default:
             desc = "@unknown"
         }
-        return "\(rawValue)(\(desc))"
+        return "\(desc)(\(rawValue))"
     }
 }
 #endif

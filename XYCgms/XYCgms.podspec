@@ -36,6 +36,7 @@ TODO: Add long description of the pod here.
   s.dependency 'XYWatchConnectivity'
   s.dependency 'XYStorage'
   s.dependency 'XYNetwork'
+  s.dependency 'MTBleCore'
   
   # 公共代码
   shared_files = 'XYCgms/Classes/**/*.swift'

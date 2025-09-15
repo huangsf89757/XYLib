@@ -2,7 +2,9 @@ PODS:
   - CocoaLumberjack/Core (3.8.5)
   - CocoaLumberjack/Swift (3.8.5):
     - CocoaLumberjack/Core
+  - MTBleCore (0.0.1)
   - XYCgms (1.0.0):
+    - MTBleCore
     - XYCoreBluetooth
     - XYExtension
     - XYLog
@@ -33,6 +35,7 @@ PODS:
     - XYUtil
 
 DEPENDENCIES:
+  - MTBleCore (from `/Users/huangshanfeng/Desktop/MTBleCore`)
   - XYCgms (from `../`)
   - XYCoreBluetooth (from `../../XYCoreBluetooth/`)
   - XYExtension (from `../../XYExtension/`)
@@ -47,6 +50,8 @@ SPEC REPOS:
     - CocoaLumberjack
 
 EXTERNAL SOURCES:
+  MTBleCore:
+    :path: "/Users/huangshanfeng/Desktop/MTBleCore"
   XYCgms:
     :path: "../"
   XYCoreBluetooth:
@@ -66,7 +71,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
-  XYCgms: e2f20d8edb4b00480240a004f61bd5892280f709
+  MTBleCore: 2c56e59161ee4e1c37f87578aa1399ffabcca0e5
+  XYCgms: efe4695e3eddaa525b3acdd82f7b2900ac731e9a
   XYCoreBluetooth: 6d979538a872d8f997e72c19f23b99512e32c8fb
   XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
   XYLog: 22bc8883abd56a232546d8f8c9206fa88fe193cb
@@ -75,6 +81,6 @@ SPEC CHECKSUMS:
   XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23
   XYWatchConnectivity: 789125b196e7905764b855ee47000febd0b101c1
 
-PODFILE CHECKSUM: f290868ae8ef7faf70f9ccb5932d486047a3729c
+PODFILE CHECKSUM: 508085fa394360a8ca1aca3054cedd976003e1f4
 
 COCOAPODS: 1.16.2

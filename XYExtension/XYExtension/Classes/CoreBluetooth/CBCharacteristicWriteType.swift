@@ -19,6 +19,6 @@ public extension CBCharacteristicWriteType {
         @unknown default:
             desc = "@unknown"
         }
-        return "\(rawValue)(\(desc))"
+        return "\(desc)(\(rawValue))"
     }
 }
