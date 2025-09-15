@@ -253,10 +253,10 @@ extension XYPeripheralAgent {
     }
 }
 
-// MARK: - updateNotificationStateForCharacteristic
+// MARK: - setNotifyValueForCharacteristic
 extension XYPeripheralAgent {
     public func setNotifyValue(enabled: Bool, for characteristic: CBCharacteristic) {
-        let logTag = [Self.logTag, "updateNotificationStateForCharacteristic()"]
+        let logTag = [Self.logTag, "setNotifyValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "enabled=\(enabled)", "characteristic=\(characteristic.info)")
         peripheral.setNotifyValue(enabled, for: characteristic)
         plugins.forEach { plugin in
@@ -319,7 +319,7 @@ extension XYPeripheralAgent {
 extension XYPeripheralAgent {
     // delegate
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: (any Error)?) {
-        let logTag = [Self.logTag, "didReadValueForDescriptor()"]
+        let logTag = [Self.logTag, "didUpdateValueForDescriptor()"]
         if let error = error {
             XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)", "error=\(error.info)")
         } else {

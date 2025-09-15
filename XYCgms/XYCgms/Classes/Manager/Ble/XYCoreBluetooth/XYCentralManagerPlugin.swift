@@ -58,9 +58,10 @@ extension XYCgmsBleManager {
         let uuid = peripheral.identifier
         XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuid.uuidString)")
         guard let peripheralAgent = XYCentralManagerAgent.shared.discoveredPeripherals[uuid] else {
-            XYLog.info(tag: logTag, content: "enableBlock", "Fail", "peripheralAgent=nil")
+            XYLog.info(tag: logTag, process: .fail("peripheralAgent=nil"))
             return
         }
+        peripheralAgent.plugins = [self]
         let serviceUUID = CBUUID(string: Self.serviceUuid181F)
         let serviceUUIDs = [serviceUUID]
         peripheralAgent.discoverServices(serviceUUIDs: serviceUUIDs)
