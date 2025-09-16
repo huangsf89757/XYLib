@@ -15,7 +15,7 @@ public final class XYCgmsBleManager: NSObject {
     public static let shared = XYCgmsBleManager()
     private override init() {
         super.init()
-        XYCentralManagerAgent.shared.plugins = [self]
+        XYCentralManagerAgent.shared.delegate = self
     }
     
     // MARK: log

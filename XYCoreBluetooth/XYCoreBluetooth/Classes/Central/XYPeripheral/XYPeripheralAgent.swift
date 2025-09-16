@@ -28,7 +28,7 @@ public final class XYPeripheralAgent: NSObject {
     public var logDate: Date?
     
     // MARK: plugin
-    public var plugins = [XYPeripheralPlugin]()
+    public weak var delegate: XYPeripheralDelegate?
     
     // MARK: init
     init(peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber, discoverDate: Date) {
@@ -69,18 +69,14 @@ extension XYPeripheralAgent: CBPeripheralDelegate {
     public func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
         let logTag = [Self.logTag, "didUpdateName()"]
         XYLog.info(tag: logTag)
-        plugins.forEach { plugin in
-            plugin.peripheralDidUpdateName?(peripheral)
-        }
+        delegate?.peripheralDidUpdateName?(peripheral)
     }
     
     // delegate
     public func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         let logTag = [Self.logTag, "didModifyServices()"]
         XYLog.info(tag: logTag, content: "invalidatedServices=\(invalidatedServices)")
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didModifyServices: invalidatedServices)
-        }
+        delegate?.peripheral?(peripheral, didModifyServices: invalidatedServices)
     }
 
     // delegate
@@ -91,9 +87,7 @@ extension XYPeripheralAgent: CBPeripheralDelegate {
         } else {
             XYLog.info(tag: logTag)
         }
-        plugins.forEach { plugin in
-            plugin.peripheralDidUpdateRSSI?(peripheral, error: error)
-        }
+        delegate?.peripheralDidUpdateRSSI?(peripheral, error: error)
     }
 }
 
@@ -103,9 +97,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "readRSSI()"]
         XYLog.info(tag: logTag, process: .begin)
         peripheral.readRSSI()
-        plugins.forEach { plugin in
-            plugin.peripheralDidTryReadRSSI(peripheral)
-        }
+        delegate?.peripheralDidTryReadRSSI(peripheral)
     }
 }
 extension XYPeripheralAgent {
@@ -117,9 +109,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "RSSI=\(RSSI)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didReadRSSI: RSSI, error: error)
-        }
+        delegate?.peripheral?(peripheral, didReadRSSI: RSSI, error: error)
     }
 }
 
@@ -129,9 +119,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "discoverServices()"]
         XYLog.info(tag: logTag, process: .begin, content: "uuids=\(serviceUUIDs)")
         peripheral.discoverServices(serviceUUIDs)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryDiscoverServices: serviceUUIDs)
-        }
+        delegate?.peripheral(peripheral, didTryDiscoverServices: serviceUUIDs)
     }
 }
 extension XYPeripheralAgent {
@@ -143,9 +131,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag)
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didDiscoverServices: error)
-        }
+        delegate?.peripheral?(peripheral, didDiscoverServices: error)
     }
 }
 
@@ -155,9 +141,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "discoverIncludedServicesForService()"]
         XYLog.info(tag: logTag, process: .begin, content: "uuids=\(includedServiceUUIDs)", "service=\(service.info)")
         peripheral.discoverIncludedServices(includedServiceUUIDs, for: service)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryDiscoverIncludedServices: includedServiceUUIDs, for: service)
-        }
+        delegate?.peripheral(peripheral, didTryDiscoverIncludedServices: includedServiceUUIDs, for: service)
     }
 }
 extension XYPeripheralAgent {
@@ -169,9 +153,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "service=\(service.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didDiscoverIncludedServicesFor: service, error: error)
-        }
+        delegate?.peripheral?(peripheral, didDiscoverIncludedServicesFor: service, error: error)
     }
 }
 
@@ -181,9 +163,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "discoverCharacteristicsForService()"]
         XYLog.info(tag: logTag, process: .begin, content: "uuids=\(characteristicUUIDs)", "service=\(service.info)")
         peripheral.discoverCharacteristics(characteristicUUIDs, for: service)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryDiscoverCharacteristics: characteristicUUIDs, for: service)
-        }
+        delegate?.peripheral(peripheral, didTryDiscoverCharacteristics: characteristicUUIDs, for: service)
     }
 }
 extension XYPeripheralAgent {
@@ -195,9 +175,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "service=\(service.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didDiscoverCharacteristicsFor: service, error: error)
-        }
+        delegate?.peripheral?(peripheral, didDiscoverCharacteristicsFor: service, error: error)
     }
 }
 
@@ -211,9 +189,7 @@ extension XYPeripheralAgent {
             return
         }
         peripheral.readValue(for: characteristic)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryReadValueFor: characteristic)
-        }
+        delegate?.peripheral(peripheral, didTryReadValueFor: characteristic)
     }
 }
 extension XYPeripheralAgent {
@@ -225,9 +201,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didUpdateValueFor: characteristic, error: error)
-        }
+        delegate?.peripheral?(peripheral, didUpdateValueFor: characteristic, error: error)
     }
 }
 
@@ -249,9 +223,7 @@ extension XYPeripheralAgent {
             }
         }
         peripheral.writeValue(data, for: characteristic, type: type)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryWriteValue: data, for: characteristic, type: type)
-        }
+        delegate?.peripheral(peripheral, didTryWriteValue: data, for: characteristic, type: type)
     }
 }
 extension XYPeripheralAgent {
@@ -263,9 +235,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didWriteValueFor: characteristic, error: error)
-        }
+        delegate?.peripheral?(peripheral, didWriteValueFor: characteristic, error: error)
     }
 }
 
@@ -279,9 +249,7 @@ extension XYPeripheralAgent {
             return
         }
         peripheral.setNotifyValue(enabled, for: characteristic)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTrySetNotifyValue: enabled, for: characteristic)
-        }
+        delegate?.peripheral(peripheral, didTrySetNotifyValue: enabled, for: characteristic)
     }
 }
 extension XYPeripheralAgent {
@@ -293,9 +261,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didUpdateNotificationStateFor: characteristic, error: error)
-        }
+        delegate?.peripheral?(peripheral, didUpdateNotificationStateFor: characteristic, error: error)
     }
 }
 
@@ -305,9 +271,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "discoverDescriptorsForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)")
         peripheral.discoverDescriptors(for: characteristic)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryDiscoverDescriptorsFor: characteristic)
-        }
+        delegate?.peripheral(peripheral, didTryDiscoverDescriptorsFor: characteristic)
     }
 }
 extension XYPeripheralAgent {
@@ -319,9 +283,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "characteristic=\(characteristic.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didDiscoverDescriptorsFor: characteristic, error: error)
-        }
+        delegate?.peripheral?(peripheral, didDiscoverDescriptorsFor: characteristic, error: error)
     }
 }
 
@@ -331,9 +293,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "readValueForDescriptor()"]
         XYLog.info(tag: logTag, process: .begin, content: "descriptor=\(descriptor.info)")
         peripheral.readValue(for: descriptor)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryReadValueFor: descriptor)
-        }
+        delegate?.peripheral(peripheral, didTryReadValueFor: descriptor)
     }
 }
 extension XYPeripheralAgent {
@@ -345,9 +305,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didUpdateValueFor: descriptor, error: error)
-        }
+        delegate?.peripheral?(peripheral, didUpdateValueFor: descriptor, error: error)
     }
 }
 
@@ -357,9 +315,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "writeValueForDescriptor()"]
         XYLog.info(tag: logTag, process: .begin, content: "descriptor=\(descriptor.info)")
         peripheral.writeValue(data, for: descriptor)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryWriteValue: data, for: descriptor)
-        }
+        delegate?.peripheral(peripheral, didTryWriteValue: data, for: descriptor)
     }
 }
 extension XYPeripheralAgent {
@@ -371,9 +327,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "descriptor=\(descriptor.info)")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didWriteValueFor: descriptor, error: error)
-        }
+        delegate?.peripheral?(peripheral, didWriteValueFor: descriptor, error: error)
     }
 }
 
@@ -383,9 +337,7 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "openL2CAPChannel()"]
         XYLog.info(tag: logTag, process: .begin, content: "PSM=\(PSM)")
         peripheral.openL2CAPChannel(PSM)
-        plugins.forEach { plugin in
-            plugin.peripheral(peripheral, didTryOpenL2CAPChannel: PSM)
-        }
+        delegate?.peripheral(peripheral, didTryOpenL2CAPChannel: PSM)
     }
 }
 extension XYPeripheralAgent {
@@ -397,9 +349,7 @@ extension XYPeripheralAgent {
         } else {
             XYLog.info(tag: logTag, content: "channel=\(channel?.info ?? "nil")")
         }
-        plugins.forEach { plugin in
-            plugin.peripheral?(peripheral, didOpen: channel, error: error)
-        }
+        delegate?.peripheral?(peripheral, didOpen: channel, error: error)
     }
 }
 

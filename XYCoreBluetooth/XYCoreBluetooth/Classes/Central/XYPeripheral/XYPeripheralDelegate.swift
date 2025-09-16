@@ -1,5 +1,5 @@
 //
-//  XYPeripheralPlugin.swift
+//  XYPeripheralDelegate.swift
 //  Pods
 //
 //  Created by hsf on 2025/9/10.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreBluetooth
 
-public protocol XYPeripheralPlugin: CBPeripheralDelegate {
+public protocol XYPeripheralDelegate: CBPeripheralDelegate {
     func peripheralDidTryReadRSSI(_ peripheral: CBPeripheral)
     func peripheral(_ peripheral: CBPeripheral, didTryDiscoverServices serviceUUIDs: [CBUUID]?)
     func peripheral(_ peripheral: CBPeripheral, didTryDiscoverIncludedServices includedServiceUUIDs: [CBUUID]?, for service: CBService)
@@ -22,7 +22,7 @@ public protocol XYPeripheralPlugin: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didTryOpenL2CAPChannel PSM: CBL2CAPPSM)
 }
 
-public extension XYPeripheralPlugin {
+public extension XYPeripheralDelegate {
     func peripheralDidTryReadRSSI(_ peripheral: CBPeripheral) {}
     func peripheral(_ peripheral: CBPeripheral, didTryDiscoverServices serviceUUIDs: [CBUUID]?) {}
     func peripheral(_ peripheral: CBPeripheral, didTryDiscoverIncludedServices includedServiceUUIDs: [CBUUID]?, for service: CBService) {}

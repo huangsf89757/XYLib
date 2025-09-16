@@ -1013,18 +1013,18 @@
 		46EB2E00006DA0 /* XYCgms-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00006D90 /* XYCgms-watchOS-dummy.m */; };
 		46EB2E00006E40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB2E00002800 /* Foundation.framework */; };
 		46EB2E00006E50 /* XYCentralManagerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000022E0 /* XYCentralManagerAgent.swift */; };
-		46EB2E00006E60 /* XYCentralManagerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000022F0 /* XYCentralManagerPlugin.swift */; };
+		46EB2E00006E60 /* XYCentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000022F0 /* XYCentralManagerDelegate.swift */; };
 		46EB2E00006E80 /* XYPeripheralAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002320 /* XYPeripheralAgent.swift */; };
-		46EB2E00006E90 /* XYPeripheralPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002330 /* XYPeripheralPlugin.swift */; };
+		46EB2E00006E90 /* XYPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002330 /* XYPeripheralDelegate.swift */; };
 		46EB2E00006EA0 /* XYCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002360 /* XYCentral.swift */; };
 		46EB2E00006EB0 /* XYPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002380 /* XYPeripheralManager.swift */; };
 		46EB2E00006F10 /* XYCoreBluetooth-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E00006F00 /* XYCoreBluetooth-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46EB2E00006F50 /* XYCoreBluetooth-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00006F40 /* XYCoreBluetooth-iOS-dummy.m */; };
 		46EB2E00006FF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB2E00002C60 /* Foundation.framework */; };
 		46EB2E00007000 /* XYCentralManagerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000022E0 /* XYCentralManagerAgent.swift */; };
-		46EB2E00007010 /* XYCentralManagerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000022F0 /* XYCentralManagerPlugin.swift */; };
+		46EB2E00007010 /* XYCentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000022F0 /* XYCentralManagerDelegate.swift */; };
 		46EB2E00007030 /* XYPeripheralAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002320 /* XYPeripheralAgent.swift */; };
-		46EB2E00007040 /* XYPeripheralPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002330 /* XYPeripheralPlugin.swift */; };
+		46EB2E00007040 /* XYPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002330 /* XYPeripheralDelegate.swift */; };
 		46EB2E00007050 /* XYCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002360 /* XYCentral.swift */; };
 		46EB2E00007060 /* XYPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00002380 /* XYPeripheralManager.swift */; };
 		46EB2E000070B0 /* XYCoreBluetooth-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E000070A0 /* XYCoreBluetooth-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2145,9 +2145,9 @@
 		46EB2E000022A0 /* XYConnectivityDataSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYConnectivityDataSync.swift; sourceTree = "<group>"; };
 		46EB2E000022B0 /* XYNetworkDataSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYNetworkDataSync.swift; sourceTree = "<group>"; };
 		46EB2E000022E0 /* XYCentralManagerAgent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentralManagerAgent.swift; sourceTree = "<group>"; };
-		46EB2E000022F0 /* XYCentralManagerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentralManagerPlugin.swift; sourceTree = "<group>"; };
+		46EB2E000022F0 /* XYCentralManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentralManagerDelegate.swift; sourceTree = "<group>"; };
 		46EB2E00002320 /* XYPeripheralAgent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheralAgent.swift; sourceTree = "<group>"; };
-		46EB2E00002330 /* XYPeripheralPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheralPlugin.swift; sourceTree = "<group>"; };
+		46EB2E00002330 /* XYPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheralDelegate.swift; sourceTree = "<group>"; };
 		46EB2E00002360 /* XYCentral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentral.swift; sourceTree = "<group>"; };
 		46EB2E00002380 /* XYPeripheralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheralManager.swift; sourceTree = "<group>"; };
 		46EB2E000023A0 /* CBCharacteristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
@@ -3724,7 +3724,7 @@
 			isa = PBXGroup;
 			children = (
 				46EB2E000022E0 /* XYCentralManagerAgent.swift */,
-				46EB2E000022F0 /* XYCentralManagerPlugin.swift */,
+				46EB2E000022F0 /* XYCentralManagerDelegate.swift */,
 			);
 			path = XYCentralManager;
 			sourceTree = "<group>";
@@ -3733,7 +3733,7 @@
 			isa = PBXGroup;
 			children = (
 				46EB2E00002320 /* XYPeripheralAgent.swift */,
-				46EB2E00002330 /* XYPeripheralPlugin.swift */,
+				46EB2E00002330 /* XYPeripheralDelegate.swift */,
 			);
 			path = XYPeripheral;
 			sourceTree = "<group>";
@@ -6343,11 +6343,11 @@
 			files = (
 				46EB2E00006EA0 /* XYCentral.swift in Sources */,
 				46EB2E00006E50 /* XYCentralManagerAgent.swift in Sources */,
-				46EB2E00006E60 /* XYCentralManagerPlugin.swift in Sources */,
+				46EB2E00006E60 /* XYCentralManagerDelegate.swift in Sources */,
 				46EB2E00006F50 /* XYCoreBluetooth-iOS-dummy.m in Sources */,
 				46EB2E00006E80 /* XYPeripheralAgent.swift in Sources */,
 				46EB2E00006EB0 /* XYPeripheralManager.swift in Sources */,
-				46EB2E00006E90 /* XYPeripheralPlugin.swift in Sources */,
+				46EB2E00006E90 /* XYPeripheralDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6357,11 +6357,11 @@
 			files = (
 				46EB2E00007050 /* XYCentral.swift in Sources */,
 				46EB2E00007000 /* XYCentralManagerAgent.swift in Sources */,
-				46EB2E00007010 /* XYCentralManagerPlugin.swift in Sources */,
+				46EB2E00007010 /* XYCentralManagerDelegate.swift in Sources */,
 				46EB2E000070F0 /* XYCoreBluetooth-watchOS-dummy.m in Sources */,
 				46EB2E00007030 /* XYPeripheralAgent.swift in Sources */,
 				46EB2E00007060 /* XYPeripheralManager.swift in Sources */,
-				46EB2E00007040 /* XYPeripheralPlugin.swift in Sources */,
+				46EB2E00007040 /* XYPeripheralDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

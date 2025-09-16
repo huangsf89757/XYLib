@@ -1,5 +1,5 @@
 //
-//  XYCentralManagerPlugin.swift
+//  XYCentralManagerDelegate.swift
 //  Pods
 //
 //  Created by hsf on 2025/9/10.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreBluetooth
 
-public protocol XYCentralManagerPlugin: CBCentralManagerDelegate {
+public protocol XYCentralManagerDelegate: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didTryScanForPeripherals serviceUUIDs: [CBUUID]?, options: [String : Any]?)
     func centralManagerDidTryStopScan(_ central: CBCentralManager)
     func centralManager(_ central: CBCentralManager, didTryConnect peripheral: CBPeripheral, options: [String : Any]?)
@@ -19,7 +19,7 @@ public protocol XYCentralManagerPlugin: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, discoveredPeripheralsDidRemove uuid: UUID)
 }
 
-public extension XYCentralManagerPlugin {
+public extension XYCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didTryScanForPeripherals serviceUUIDs: [CBUUID]?, options: [String : Any]?) {}
     func centralManagerDidTryStopScan(_ central: CBCentralManager) {}
     func centralManager(_ central: CBCentralManager, didTryConnect peripheral: CBPeripheral, options: [String : Any]?) {}

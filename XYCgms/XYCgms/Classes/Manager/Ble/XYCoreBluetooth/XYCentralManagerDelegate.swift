@@ -1,5 +1,5 @@
 //
-//  XYCentralManagerPlugin.swift
+//  XYCentralManagerDelegate.swift
 //  Pods
 //
 //  Created by hsf on 2025/9/11.
@@ -11,7 +11,7 @@ import MTBleCore
 import XYCoreBluetooth
 import XYLog
 
-extension XYCgmsBleManager: XYCentralManagerPlugin {}
+extension XYCgmsBleManager: XYCentralManagerDelegate {}
 
 extension XYCgmsBleManager {
     public func centralManager(_ central: CBCentralManager, didTryScanForPeripherals serviceUUIDs: [CBUUID]?, options: [String : Any]?) {
@@ -61,7 +61,7 @@ extension XYCgmsBleManager {
             XYLog.info(tag: logTag, process: .fail("peripheralAgent=nil"))
             return
         }
-        peripheralAgent.plugins = [self]
+        peripheralAgent.delegate = self
         let serviceUUID = CBUUID(string: Self.serviceUuid181F)
         let serviceUUIDs = [serviceUUID]
         peripheralAgent.discoverServices(serviceUUIDs: serviceUUIDs)

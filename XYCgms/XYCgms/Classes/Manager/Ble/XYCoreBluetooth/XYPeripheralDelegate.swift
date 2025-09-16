@@ -1,5 +1,5 @@
 //
-//  XYPeripheralPlugin.swift
+//  XYPeripheralDelegate.swift
 //  Pods
 //
 //  Created by hsf on 2025/9/11.
@@ -11,7 +11,7 @@ import MTBleCore
 import XYCoreBluetooth
 import XYLog
 
-extension XYCgmsBleManager: XYPeripheralPlugin {}
+extension XYCgmsBleManager: XYPeripheralDelegate {}
 
 extension XYCgmsBleManager {
     public func peripheralDidTryReadRSSI(_ peripheral: CBPeripheral) {}
