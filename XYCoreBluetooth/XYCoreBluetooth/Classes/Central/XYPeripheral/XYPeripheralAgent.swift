@@ -206,6 +206,10 @@ extension XYPeripheralAgent {
     public func readValue(for characteristic: CBCharacteristic) {
         let logTag = [Self.logTag, "readValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)")
+        guard characteristic.properties.contains(.read) else {
+            XYLog.info(tag: logTag, process: .fail("properties dose not contain read"))
+            return
+        }
         peripheral.readValue(for: characteristic)
         plugins.forEach { plugin in
             plugin.peripheral(peripheral, didTryReadValueFor: characteristic)
@@ -232,6 +236,18 @@ extension XYPeripheralAgent {
     public func writeValue(data: Data, for characteristic: CBCharacteristic, type: CBCharacteristicWriteType) {
         let logTag = [Self.logTag, "writeValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)", "type=\(type.info)")
+        switch type {
+        case .withResponse:
+            guard characteristic.properties.contains(.write) else {
+                XYLog.info(tag: logTag, process: .fail("properties dose not contain write"))
+                return
+            }
+        case .withoutResponse:
+            guard characteristic.properties.contains(.writeWithoutResponse) else {
+                XYLog.info(tag: logTag, process: .fail("properties dose not contain withoutResponse"))
+                return
+            }
+        }
         peripheral.writeValue(data, for: characteristic, type: type)
         plugins.forEach { plugin in
             plugin.peripheral(peripheral, didTryWriteValue: data, for: characteristic, type: type)
@@ -258,6 +274,10 @@ extension XYPeripheralAgent {
     public func setNotifyValue(enabled: Bool, for characteristic: CBCharacteristic) {
         let logTag = [Self.logTag, "setNotifyValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "enabled=\(enabled)", "characteristic=\(characteristic.info)")
+        guard characteristic.properties.canSubscribe else {
+            XYLog.info(tag: logTag, process: .fail("subscribe not supported (no notify/indicate)"))
+            return
+        }
         peripheral.setNotifyValue(enabled, for: characteristic)
         plugins.forEach { plugin in
             plugin.peripheral(peripheral, didTrySetNotifyValue: enabled, for: characteristic)

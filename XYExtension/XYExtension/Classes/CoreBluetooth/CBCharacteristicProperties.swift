@@ -12,4 +12,9 @@ public extension CBCharacteristicProperties {
     var canSubscribe: Bool {
         contains(.notify) || contains(.indicate)
     }
+    
+    var requiresEncryptionForSubscribe: Bool {
+        (contains(.notify) && contains(.notifyEncryptionRequired)) ||
+        (contains(.indicate) && contains(.indicateEncryptionRequired))
+    }
 }

@@ -124,10 +124,6 @@ extension XYCgmsBleManager {
                 XYLog.info(tag: logTag, process: .fail("characteristic=nil"))
                 return
             }
-            guard characteristic.properties.contains(.read) else {
-                XYLog.info(tag: logTag, process: .fail("read disable"))
-                return
-            }
             peripheralAgent.readValue(for: characteristic)
         }
         MTBleAdapter.shared().enableBlock = {
@@ -145,10 +141,6 @@ extension XYCgmsBleManager {
             let characteristic = peripheralAgent.getCharacteristic(uuidString: uuidString)
             guard let characteristic = characteristic else {
                 XYLog.info(tag: logTag, process: .fail("characteristic=nil"))
-                return
-            }
-            guard characteristic.properties.canSubscribe else {
-                XYLog.info(tag: logTag, process: .fail("subscribe not supported (no notify/indicate)"))
                 return
             }
             peripheralAgent.setNotifyValue(enabled: true, for: characteristic)

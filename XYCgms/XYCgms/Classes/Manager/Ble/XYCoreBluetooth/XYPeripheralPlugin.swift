@@ -89,7 +89,15 @@ extension XYCgmsBleManager {
     }
 
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: (any Error)?) {
-        guard error == nil else { return }
+        guard error == nil else {
+            XYCentralManagerAgent.shared.cancelPeripheralConnection(peripheral)
+            return
+        }
+        guard let value = characteristic.value else {
+            XYCentralManagerAgent.shared.cancelPeripheralConnection(peripheral)
+            return
+        }
+        MTBleAdapter.shared().onReceiveValue(value, forCharacteristicUUid: characteristic.uuid.uuidString)
     }
 
     public func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: (any Error)?) {
@@ -97,7 +105,15 @@ extension XYCgmsBleManager {
     }
 
     public func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: (any Error)?) {
-        guard error == nil else { return }
+        guard error == nil else {
+            XYCentralManagerAgent.shared.cancelPeripheralConnection(peripheral)
+            return
+        }
+        let uuidString = characteristic.uuid.uuidString
+        MTBleAdapter.shared().onCharacteristicNotifyEnable(uuidString)
+        if uuidString == Self.characteristicUuidF002 {
+            MTBleAdapter.shared().onConnectSuccess()
+        }
     }
 
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: (any Error)?) {}
