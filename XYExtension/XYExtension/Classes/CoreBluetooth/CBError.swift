@@ -56,7 +56,7 @@ public extension CBError.Code {
 public extension Error {
     var info: String {
         if let error = self as? CBError {
-            return error.info
+            return error.code.info
         }
         return localizedDescription
     }

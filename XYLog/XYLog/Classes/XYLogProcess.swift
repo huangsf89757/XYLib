@@ -20,12 +20,12 @@ public enum XYLogProcess {
         case .doing:
             return "$D"
         case .succ:
-            return "$S"
+            return "✅"
         case .fail(let string):
             if let string = string {
-                return "$F:\(string)"
+                return "❌:\(string)"
             } else {
-                return "$F"
+                return "❌"
             }
         }
     }
