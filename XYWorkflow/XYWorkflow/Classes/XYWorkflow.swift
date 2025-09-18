@@ -12,7 +12,9 @@ import XYLog
 // MARK: - XYWorkflow
 open class XYWorkflow<ResultType>: XYCmd<ResultType> {
     public let root: XYNode<Any?>
-    public init(id: String, timeout: TimeInterval, root: XYNode<Any?>) {
+    public init(id: String = UUID().uuidString,
+                timeout: TimeInterval = 10,
+                root: XYNode<Any?>) {
         self.root = root
         super.init(id: id, timeout: timeout)
         self.logTag = "Flow.W"

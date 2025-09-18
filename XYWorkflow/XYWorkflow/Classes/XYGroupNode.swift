@@ -19,7 +19,7 @@ open class XYGroupNode: XYNode<[Any?]> {
     /// 是否允许部分失败（true = 部分失败仍继续，false = 任一失败立即停止）
     public let allowPartialFailure: Bool
     /// 收集的错误
-    private var collectedErrors: [XYError] = []
+    fileprivate var collectedErrors: [XYError] = []
     /// 已完成的命令数
     private var completedCount = 0
     /// 收集到的结果（失败为 nil）
@@ -29,9 +29,9 @@ open class XYGroupNode: XYNode<[Any?]> {
     // MARK: init
     public init(
         id: String = UUID().uuidString,
+        timeout: TimeInterval = 0,
         cmds: [XYExecutable],
         mode: ExecutionMode = .concurrent,
-        timeout: TimeInterval = 0,
         allowPartialFailure: Bool = false
     ) {
         self.cmds = cmds
@@ -41,34 +41,29 @@ open class XYGroupNode: XYNode<[Any?]> {
         self.logTag = "Flow.N.B"
     }
     
-    public convenience init(
-        id: String = UUID().uuidString,
-        cmds: [XYBaseNode],
-        mode: ExecutionMode = .concurrent,
-        timeout: TimeInterval = 0,
-        allowPartialFailure: Bool = false
-    ) {
-        self.init(id: id, cmds: cmds, mode: mode, timeout: timeout, allowPartialFailure: allowPartialFailure)
+    public convenience init(id: String = UUID().uuidString,
+                            timeout: TimeInterval = 30,
+                            cmds: [XYBaseNode<Any>],
+                            mode: ExecutionMode = .concurrent,
+                            
+                            allowPartialFailure: Bool = false) {
+        self.init(id: id, timeout: timeout, cmds: cmds, mode: mode, allowPartialFailure: allowPartialFailure)
     }
     
-    public convenience init(
-        id: String = UUID().uuidString,
-        groups: [XYGroupNode],
-        mode: ExecutionMode = .concurrent,
-        timeout: TimeInterval = 0,
-        allowPartialFailure: Bool = false
-    ) {
-        self.init(id: id, cmds: groups, mode: mode, timeout: timeout, allowPartialFailure: allowPartialFailure)
+    public convenience init(id: String = UUID().uuidString,
+                            timeout: TimeInterval = 0,
+                            groups: [XYGroupNode],
+                            mode: ExecutionMode = .concurrent,
+                            allowPartialFailure: Bool = false) {
+        self.init(id: id, timeout: timeout, cmds: groups, mode: mode, allowPartialFailure: allowPartialFailure)
     }
     
-    public convenience init(
-        id: String = UUID().uuidString,
-        cmdsAndGroups: [XYExecutable],
-        mode: ExecutionMode = .concurrent,
-        timeout: TimeInterval = 0,
-        allowPartialFailure: Bool = false
-    ) {
-        self.init(id: id, cmds: cmdsAndGroups, mode: mode, timeout: timeout, allowPartialFailure: allowPartialFailure)
+    public convenience init(id: String = UUID().uuidString,
+                            timeout: TimeInterval = 0,
+                            cmdsAndGroups: [XYExecutable],
+                            mode: ExecutionMode = .concurrent,
+                            allowPartialFailure: Bool = false) {
+        self.init(id: id, timeout: timeout, cmds: cmdsAndGroups, mode: mode, allowPartialFailure: allowPartialFailure)
     }
     
     
@@ -189,9 +184,16 @@ private extension XYGroupNode {
             let cmdError: XYError = (error as? XYError) ?? .unknown(error)
             collectedErrors.append(cmdError)
             
-            // 记录子组失败（即使没有错误详情）
-            if let subGroup = cmds[index] as? XYGroupNode, subGroup.state == .failed {
-                collectedErrors.append(.other(nil)) 
+            // 收集子组的具体错误信息
+            if let subGroup = cmds[index] as? XYGroupNode, 
+               subGroup.state == .failed, 
+               !subGroup.collectedErrors.isEmpty {
+            collectedErrors.append(contentsOf: subGroup.collectedErrors)
+            } else if let subGroup = cmds[index] as? XYGroupNode,
+                      subGroup.state == .failed {
+            // 如果子组没有具体错误，添加上下文信息
+            let contextError = NSError(domain: "XYWorkflow", code: 0, userInfo: [NSLocalizedDescriptionKey: "SubGroup \(subGroup.id) failed without specific error"])
+            collectedErrors.append(.other(contextError))
             }
             
             XYLog.info(
@@ -227,18 +229,5 @@ private extension XYGroupNode {
         } else {
             XYLog.info(tag: tag, process: .fail("部分命令失败"), content: durationInfo, successInfo)
         }
-    }
-    
-    func startTimeoutTask() {
-        guard timeout > 0 else { return }
-        let tag = [logTag, "timeout"]
-        let task = DispatchWorkItem { [weak self] in
-            guard let self = self else { return }
-            XYLog.info(tag: tag, content: "did", "id=\(self.id)")
-            self.cancel()
-        }
-        timeoutTask = task
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeout, execute: task)
-        XYLog.info(tag: tag, content: "start", "id=\(id)", "\(timeout)s")
     }
 }

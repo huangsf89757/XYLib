@@ -30,7 +30,8 @@ open class XYCmd<ResultType>: XYExecutable {
     public internal(set) var executeTime: Date?
     
     // MARK: init
-    public init(id: String, timeout: TimeInterval) {
+    public init(id: String = UUID().uuidString,
+                timeout: TimeInterval = 10) {
         self.id = id
         self.timeout = timeout
     }
@@ -76,6 +77,19 @@ open class XYCmd<ResultType>: XYExecutable {
         XYLog.info(tag: tag, content: "id=\(id)")
         timeoutTask?.cancel()
         timeoutTask = nil
+    }
+    
+    internal func startTimeoutTask() {
+        guard timeout > 0 else { return }
+        let tag = [logTag, "timeout"]
+        let task = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            XYLog.info(tag: tag, content: "did", "id=\(self.id)")
+            self.cancel()
+        }
+        timeoutTask = task
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeout, execute: task)
+        XYLog.info(tag: tag, content: "start", "id=\(id)", "\(timeout)s")
     }
 }
 

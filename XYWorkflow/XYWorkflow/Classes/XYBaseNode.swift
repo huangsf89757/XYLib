@@ -9,10 +9,10 @@ import Foundation
 import XYLog
 
 // MARK: - XYBaseNode
-open class XYBaseNode: XYNode<Any?> {
+open class XYBaseNode<ResultType>: XYNode<ResultType> {
     // MARK: var
     /// 当前异步操作的 Continuation，用于在异步操作完成时恢复
-    private var continuation: CheckedContinuation<Any?, Error>?
+    private var continuation: CheckedContinuation<ResultType, Error>?
     /// 最大重试次数
     public let maxRetries: Int
     /// 当前已重试次数
@@ -88,22 +88,9 @@ open class XYBaseNode: XYNode<Any?> {
 
 // MARK: - Private Helpers
 private extension XYBaseNode {
-    /// 设置超时任务。
-    func startTimeoutTask() {
-        let tag = [logTag, "timeout"]
-        timeoutTask?.cancel()
-        let task = DispatchWorkItem { [weak self] in
-            guard let self = self else { return }
-            XYLog.info(tag: tag, content: "did", "id=\(id)")
-            self.finishExecution(with: .failure(XYError.timeout))
-        }
-        timeoutTask = task
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeout, execute: task)
-        XYLog.info(tag: tag, content: "start", "id=\(id)", "\(timeout)")
-    }
-    
+   
     /// 执行单次命令（不含重试）
-    private func executeOnce() async {
+    func executeOnce() async {
         do {
             executeTime = Date()
             let result = try await run()
@@ -114,7 +101,7 @@ private extension XYBaseNode {
     }
             
     /// 完成命令执行，无论是成功还是失败。
-    func finishExecution(with result: Result<Any?, Error>) {
+    func finishExecution(with result: Result<ResultType, Error>) {
         let tag = [logTag, "execute"]
         // 取消超时任务
         timeoutTask?.cancel()

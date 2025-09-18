@@ -15,7 +15,10 @@ open class XYNode<ResultType>: XYCmd<ResultType> {
     /// 父节点
     public weak var prev: XYNode?
     
-    public init(id: String, timeout: TimeInterval, next: XYNode? = nil, prev: XYNode? = nil) {
+    public init(id: String = UUID().uuidString,
+                timeout: TimeInterval = 10,
+                next: XYNode? = nil,
+                prev: XYNode? = nil) {
         self.next = next
         self.prev = prev
         super.init(id: id, timeout: timeout)
