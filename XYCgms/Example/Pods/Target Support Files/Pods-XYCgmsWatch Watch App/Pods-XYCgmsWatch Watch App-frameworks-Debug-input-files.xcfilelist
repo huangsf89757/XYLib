@@ -9,3 +9,4 @@ ${BUILT_PRODUCTS_DIR}/XYNetwork-watchOS/XYNetwork.framework
 ${BUILT_PRODUCTS_DIR}/XYStorage-watchOS/XYStorage.framework
 ${BUILT_PRODUCTS_DIR}/XYUtil-watchOS/XYUtil.framework
 ${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-watchOS/XYWatchConnectivity.framework
+${BUILT_PRODUCTS_DIR}/XYWorkflow-watchOS/XYWorkflow.framework

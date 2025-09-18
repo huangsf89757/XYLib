@@ -186,6 +186,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/XYStorage-watchOS/XYStorage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYUtil-watchOS/XYUtil.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-watchOS/XYWatchConnectivity.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYWorkflow-watchOS/XYWorkflow.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework"
@@ -198,6 +199,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/XYStorage-watchOS/XYStorage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYUtil-watchOS/XYUtil.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-watchOS/XYWatchConnectivity.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYWorkflow-watchOS/XYWorkflow.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

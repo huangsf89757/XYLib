@@ -32,6 +32,7 @@ TODO: Add long description of the pod here.
   s.dependency 'XYExtension'
   s.dependency 'XYUtil'
   s.dependency 'XYLog'
+  s.dependency 'XYWorkflow'
   
   # 公共代码
   shared_files = 'XYCoreBluetooth/Classes/**/*.swift'

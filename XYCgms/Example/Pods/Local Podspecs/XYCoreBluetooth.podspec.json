@@ -18,7 +18,8 @@
   "dependencies": {
     "XYExtension": [],
     "XYUtil": [],
-    "XYLog": []
+    "XYLog": [],
+    "XYWorkflow": []
   },
   "platforms": {
     "ios": "14.0",

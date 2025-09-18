@@ -1,0 +1,6 @@
+framework module XYWorkflow {
+  umbrella header "XYWorkflow-umbrella.h"
+
+  export *
+  module * { export * }
+}
