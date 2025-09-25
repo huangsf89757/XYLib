@@ -29,11 +29,19 @@ open class XYCmd<ResultType>: XYExecutable {
     /// 命令执行时间
     public internal(set) var executeTime: Date?
     
+    /// 最大重试次数
+    public let maxRetries: Int
+    /// 当前已重试次数
+    public private(set) var curRetries: Int = 0
+    
     // MARK: init
     public init(id: String = UUID().uuidString,
-                timeout: TimeInterval = 10) {
+                timeout: TimeInterval = 10,
+                maxRetries: Int = 0) {
         self.id = id
         self.timeout = timeout
+        self.maxRetries = maxRetries
+        self.curRetries = 0
     }
     
     // MARK: func
@@ -54,11 +62,73 @@ open class XYCmd<ResultType>: XYExecutable {
         }
         state = .executing
         executeTime = Date()
-        do {
-            let result = try await run()
-            return result
-        } catch {
-            throw error
+        
+        // 重置重试计数器
+        curRetries = 0
+        
+        while true {
+            do {
+                return try await withCheckedThrowingContinuation { continuation in
+                    self.continuation = continuation
+                    self.startTimeoutTask()
+                    Task {
+                        do {
+                            let result = try await self.run()
+                            // 正常完成时清理超时任务
+                            self.timeoutTask?.cancel()
+                            self.timeoutTask = nil
+                            // 确保continuation没有被超时处理使用过
+                            if let cont = self.continuation {
+                                self.continuation = nil
+                                cont.resume(returning: result)
+                            }
+                        } catch let error {
+                            // 出错时清理超时任务
+                            self.timeoutTask?.cancel()
+                            self.timeoutTask = nil
+                            // 确保continuation没有被超时处理使用过
+                            if let cont = self.continuation {
+                                self.continuation = nil
+                                cont.resume(throwing: error)
+                            }
+                        }
+                    }
+                }
+            } catch let error {
+                // 如果已取消，不重试
+                if state == .cancelled {
+                    let err = XYError.cancelled
+                    XYLog.info(tag: tag, process: .fail(err.info))
+                    throw err
+                }
+                // 如果超出最大重试次数，不重试
+                if maxRetries > 0, curRetries >= maxRetries {
+                    let err = XYError.maxRetryExceeded
+                    XYLog.info(tag: tag, process: .fail(err.info))
+                    throw err
+                }
+                // 可根据错误类型决定是否重试（示例：超时和未知错误可重试）
+                if let err = error as? XYError {
+                    switch err {
+                    case .timeout, .other:
+                        if maxRetries > 0 {
+                            XYLog.info(tag: tag, process: .fail(err.info), content: "\(curRetries)/\(maxRetries)")
+                            curRetries += 1
+                            continue // 重试
+                        } else {
+                            XYLog.info(tag: tag, process: .fail(err.info))
+                            throw err
+                        }
+                    default:
+                        XYLog.info(tag: tag, process: .fail(err.info))
+                        throw err
+                    }
+                } else {
+                    let err = XYError.unknown(error)
+                    XYLog.info(tag: tag, process: .fail(err.info))
+                    throw err
+                }
+            }
         }
     }
     
@@ -77,6 +147,11 @@ open class XYCmd<ResultType>: XYExecutable {
         XYLog.info(tag: tag, content: "id=\(id)")
         timeoutTask?.cancel()
         timeoutTask = nil
+        // 只有当 continuation 存在且未被 resume 时才触发取消
+        if let continuation = self.continuation {
+            self.continuation = nil
+            continuation.resume(throwing: XYError.cancelled)
+        }
     }
     
     internal func startTimeoutTask() {
@@ -105,37 +180,4 @@ open class XYCmd<ResultType>: XYExecutable {
     
     // 添加continuation属性以支持超时处理
     private var continuation: CheckedContinuation<ResultType, Error>?
-}
-
-// 扩展XYCmd以支持超时处理
-private extension XYCmd {
-    /// 为超时处理提供带continuation的execute方法
-    func executeWithContinuation() async throws -> ResultType {
-        return try await withCheckedThrowingContinuation { continuation in
-            self.continuation = continuation
-            Task {
-                do {
-                    self.startTimeoutTask()
-                    let result = try await self.run()
-                    // 正常完成时清理超时任务
-                    self.timeoutTask?.cancel()
-                    self.timeoutTask = nil
-                    // 确保continuation没有被超时处理使用过
-                    if let cont = self.continuation {
-                        self.continuation = nil
-                        cont.resume(returning: result)
-                    }
-                } catch let error {
-                    // 出错时清理超时任务
-                    self.timeoutTask?.cancel()
-                    self.timeoutTask = nil
-                    // 确保continuation没有被超时处理使用过
-                    if let cont = self.continuation {
-                        self.continuation = nil
-                        cont.resume(throwing: error)
-                    }
-                }
-            }
-        }
-    }
 }

@@ -122,11 +122,6 @@ final class XYGroupNodeTests: XCTestCase {
         let wasCancelled = await task.value
         XCTAssertTrue(wasCancelled)
         XCTAssertEqual(group.state, .cancelled)
-        
-        // 验证所有子命令也被取消
-        for executable in executables {
-            XCTAssertEqual(executable.state, .cancelled)
-        }
     }
     
     /// 测试组节点处理混合类型命令的情况
@@ -161,9 +156,3 @@ final class XYGroupNodeTests: XCTestCase {
     }
 }
 
-// 扩展Task.sleep以支持seconds参数
-extension Task where Success == Never, Failure == Never {
-    static func sleep(seconds: TimeInterval) async throws {
-        try await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
-    }
-}

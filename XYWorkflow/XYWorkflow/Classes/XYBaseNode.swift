@@ -25,8 +25,7 @@ open class XYBaseNode<ResultType>: XYNode<ResultType> {
     public init(id: String = UUID().uuidString,
                 timeout: TimeInterval = 10,
                 maxRetries: Int = 3) {
-        self.maxRetries = maxRetries
-        super.init(id: id, timeout: timeout)
+        super.init(id: id, timeout: timeout, maxRetries: maxRetries)
         self.logTag = "WorkFlow.Node.Base"
     }
     
@@ -43,47 +42,32 @@ open class XYBaseNode<ResultType>: XYNode<ResultType> {
     public override func run() async throws -> ResultType {
         let tag = [logTag, "execute"]
         XYLog.info(tag: tag, process: .begin, content: "id=\(id)")
-        curRetries = 0 // 重置重试计数器
-        while true {
-            do {
-                return try await withCheckedThrowingContinuation { continuation in
-                    self.continuation = continuation
-                    self.startTimeoutTask()
-                    Task {
-                        await self.executeOnce()
+        executeTime = Date()
+        let result: ResultType
+        // 如果提供了闭包，则执行闭包
+        if let executionBlock = self.executionBlock {
+            let tag = [logTag, "runOnce"]
+            XYLog.info(tag: tag, process: .doing, content: "executionBlock")
+            result = try await withCheckedThrowingContinuation { continuation in
+                executionBlock { result in
+                    switch result {
+                    case .success(let value):
+                        continuation.resume(returning: value)
+                    case .failure(let error):
+                        continuation.resume(throwing: error)
                     }
-                }
-            } catch let error {
-                // 如果已取消，不重试
-                if state == .cancelled {
-                    let err = XYError.cancelled
-                    XYLog.info(tag: tag, process: .fail(err.info))
-                    throw err
-                }
-                // 如果超出最大重试次数，不重试
-                if curRetries >= maxRetries {
-                    let err = XYError.maxRetryExceeded
-                    XYLog.info(tag: tag, process: .fail(err.info))
-                    throw err
-                }
-                // 可根据错误类型决定是否重试（示例：超时和未知错误可重试）
-                if let err = error as? XYError {
-                    switch err {
-                    case .timeout, .other:
-                        XYLog.info(tag: tag, process: .fail(err.info), content: "\(curRetries)/\(maxRetries)")
-                        curRetries += 1
-                        continue // 重试
-                    default:
-                        XYLog.info(tag: tag, process: .fail(err.info))
-                        throw err
-                    }
-                } else {
-                    let err = XYError.unknown(error)
-                    XYLog.info(tag: tag, process: .fail(err.info))
-                    throw err
                 }
             }
+        } else {
+            // 否则调用子类实现的runOnce方法
+            result = try await runOnce()
         }
+        var durationInfo = ""
+        if let duration = executeTime.map({ Date().timeIntervalSince($0) }) {
+            durationInfo = String(format: "duration=%.2fs", duration)
+        }
+        XYLog.info(tag: tag, process: .succ, content: durationInfo)
+        return result
     }
     
     /// 子类需要实现的单次执行方法
@@ -98,36 +82,6 @@ open class XYBaseNode<ResultType>: XYNode<ResultType> {
     /// 取消当前正在执行的命令。
     public override func cancel() {
         super.cancel()
-        // 只有当 continuation 存在且未被 resume 时才触发取消
-        if let continuation = self.continuation {
-            self.continuation = nil
-            continuation.resume(throwing: XYError.cancelled)
-        }
-    }
-    
-    /// 重写startTimeoutTask方法以处理超时
-    internal override func startTimeoutTask() {
-        guard timeout > 0 else { return }
-        let tag = [logTag, "timeout"]
-        // Cancel previous timeout if any
-        timeoutTask?.cancel()
-        let task = Task { [weak self] in
-            do {
-                try await Task.sleep(nanoseconds: UInt64(timeout * 1_000_000_000))
-                guard let self = self else { return }
-                XYLog.info(tag: tag, content: "did", "id=\(self.id)")
-                // 超时时设置状态为失败并抛出timeout错误
-                self.state = .failed
-                if let continuation = self.continuation {
-                    self.continuation = nil
-                    continuation.resume(throwing: XYError.timeout)
-                }
-            } catch {
-                // Task was cancelled; nothing to do
-            }
-        }
-        timeoutTask = task
-        XYLog.info(tag: tag, content: "start", "id=\(id)", "\(timeout)s")
     }
 }
 

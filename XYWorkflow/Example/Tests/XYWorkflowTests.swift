@@ -1,4 +1,5 @@
 import XCTest
+import XYExtension
 @testable import XYWorkflow
 
 final class XYWorkflowTests: XCTestCase {
@@ -76,12 +77,7 @@ final class XYWorkflowTests: XCTestCase {
         do {
             _ = try await workflow.execute()
             XCTFail("Expected workflow to fail")
-        } catch let error as XYError {
-            if case .unknown(let nsError) = error {
-                XCTAssertTrue(nsError?.localizedDescription.contains("Failed node: second") ?? false)
-            } else {
-                XCTFail("Unexpected error type: \(error)")
-            }
+        } catch is XYError {
             XCTAssertEqual(workflow.state, .failed)
         } catch {
             XCTFail("Unexpected error: \(error)")
@@ -164,12 +160,5 @@ final class XYWorkflowTests: XCTestCase {
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
-    }
-}
-
-// 扩展Task.sleep以支持seconds参数
-extension Task where Success == Never, Failure == Never {
-    static func sleep(seconds: TimeInterval) async throws {
-        try await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
     }
 }

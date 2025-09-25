@@ -1,4 +1,5 @@
 import XCTest
+import XYExtension
 import XYWorkflow
 
 final class XYErrorTests: XCTestCase {

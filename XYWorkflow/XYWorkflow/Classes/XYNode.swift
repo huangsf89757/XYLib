@@ -17,11 +17,12 @@ open class XYNode<ResultType>: XYCmd<ResultType> {
     
     public init(id: String = UUID().uuidString,
                 timeout: TimeInterval = 10,
+                maxRetries: Int = 0,
                 next: XYNode? = nil,
                 prev: XYNode? = nil) {
         self.next = next
         self.prev = prev
-        super.init(id: id, timeout: timeout)
+        super.init(id: id, timeout: timeout, maxRetries: maxRetries)
         self.logTag = "WorkFlow.Node"
     }
 }

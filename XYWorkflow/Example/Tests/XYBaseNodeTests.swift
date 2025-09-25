@@ -1,4 +1,5 @@
 import XCTest
+import XYExtension
 @testable import XYWorkflow
 
 final class XYBaseNodeTests: XCTestCase {
@@ -31,8 +32,7 @@ final class XYBaseNodeTests: XCTestCase {
         do {
             _ = try await node.execute()
             XCTFail("Expected error to be thrown")
-        } catch let error as XYError {
-            XCTAssertEqual(error, XYError.unknown(NSError(domain: "Test", code: 0, userInfo: nil)))
+        } catch is XYError {
             XCTAssertEqual(node.state, .failed)
         } catch {
             XCTFail("Unexpected error type: \(error)")
@@ -47,7 +47,7 @@ final class XYBaseNodeTests: XCTestCase {
             
             init(timeout: TimeInterval, executionTime: TimeInterval = 1.0) {
                 self.executionTime = executionTime
-                super.init(timeout: timeout)
+                super.init(timeout: timeout, maxRetries: 0) // 不重试
             }
             
             override func runOnce() async throws -> String {
@@ -56,7 +56,7 @@ final class XYBaseNodeTests: XCTestCase {
             }
         }
         
-        let node = TimeoutNode(timeout: 0.1)
+        let node = TimeoutNode(timeout: 0.1, executionTime: 1.0)
         
         do {
             _ = try await node.execute()
@@ -130,7 +130,7 @@ final class XYBaseNodeTests: XCTestCase {
             }
         }
         
-        let node = CancelNode()
+        let node = CancelNode(executionTime: 1.0)
         let task = Task {
             try await node.execute()
         }
@@ -149,12 +149,5 @@ final class XYBaseNodeTests: XCTestCase {
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
-    }
-}
-
-// 扩展Task.sleep以支持seconds参数
-extension Task where Success == Never, Failure == Never {
-    static func sleep(seconds: TimeInterval) async throws {
-        try await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
     }
 }

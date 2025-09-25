@@ -106,6 +106,7 @@ open class XYGroupNode: XYNode<[XYGroupResult]> {
     public init(
         id: String = UUID().uuidString,
         timeout: TimeInterval = 0,
+        maxRetries: Int = 0,
         executables: [any XYExecutable],
         mode: ExecutionMode = .concurrent,
         allowPartialFailure: Bool = false
@@ -113,32 +114,35 @@ open class XYGroupNode: XYNode<[XYGroupResult]> {
         self.executables = executables
         self.mode = mode
         self.allowPartialFailure = allowPartialFailure
-        super.init(id: id, timeout: timeout)
+        super.init(id: id, timeout: timeout, maxRetries: maxRetries)
         self.logTag = "WorkFlow.Node.Group"
     }
     
     public convenience init(id: String = UUID().uuidString,
                             timeout: TimeInterval = 30,
+                            maxRetries: Int = 0,
                             cmds: [XYBaseNode<Any>],
                             mode: ExecutionMode = .concurrent,
                             allowPartialFailure: Bool = false) {
-        self.init(id: id, timeout: timeout, executables: cmds, mode: mode, allowPartialFailure: allowPartialFailure)
+        self.init(id: id, timeout: timeout, maxRetries: maxRetries, executables: cmds, mode: mode, allowPartialFailure: allowPartialFailure)
     }
     
     public convenience init(id: String = UUID().uuidString,
                             timeout: TimeInterval = 0,
+                            maxRetries: Int = 0,
                             groups: [XYGroupNode],
                             mode: ExecutionMode = .concurrent,
                             allowPartialFailure: Bool = false) {
-        self.init(id: id, timeout: timeout, executables: groups, mode: mode, allowPartialFailure: allowPartialFailure)
+        self.init(id: id, timeout: timeout, maxRetries: maxRetries, executables: groups, mode: mode, allowPartialFailure: allowPartialFailure)
     }
     
     public convenience init(id: String = UUID().uuidString,
                             timeout: TimeInterval = 0,
+                            maxRetries: Int = 0,
                             cmdsAndGroups: [any XYExecutable],
                             mode: ExecutionMode = .concurrent,
                             allowPartialFailure: Bool = false) {
-        self.init(id: id, timeout: timeout, executables: cmdsAndGroups, mode: mode, allowPartialFailure: allowPartialFailure)
+        self.init(id: id, timeout: timeout, maxRetries: maxRetries, executables: cmdsAndGroups, mode: mode, allowPartialFailure: allowPartialFailure)
     }
     
     

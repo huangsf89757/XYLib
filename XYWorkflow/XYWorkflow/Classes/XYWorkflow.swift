@@ -14,9 +14,10 @@ open class XYWorkflow<ResultType>: XYCmd<ResultType> {
     public let root: XYNode<ResultType>
     public init(id: String = UUID().uuidString,
                 timeout: TimeInterval = 10,
+                maxRetries: Int = 0,
                 root: XYNode<ResultType>) {
         self.root = root
-        super.init(id: id, timeout: timeout)
+        super.init(id: id, timeout: timeout, maxRetries: maxRetries)
         self.logTag = "WorkFlow.Work"
     }
     
@@ -25,7 +26,6 @@ open class XYWorkflow<ResultType>: XYCmd<ResultType> {
     open override func run() async throws -> ResultType {
         let tag = [logTag, "execute"]
         XYLog.info(tag: tag, process: .begin, content: "id=\(id)")
-        startTimeoutTask()
         do {
             let result = try await executeFromNode(root)
             XYLog.info(tag: tag, process: .succ, content: "id=\(id)")
@@ -49,26 +49,4 @@ open class XYWorkflow<ResultType>: XYCmd<ResultType> {
         return result
     }
     
-    /// 重写startTimeoutTask方法以处理超时
-    internal override func startTimeoutTask() {
-        guard timeout > 0 else { return }
-        let tag = [logTag, "timeout"]
-        // Cancel previous timeout if any
-        timeoutTask?.cancel()
-        let task = Task { [weak self] in
-            do {
-                try await Task.sleep(nanoseconds: UInt64(timeout * 1_000_000_000))
-                guard let self = self else { return }
-                XYLog.info(tag: tag, content: "did", "id=\(self.id)")
-                // 超时时设置状态为失败
-                self.state = .failed
-                // 取消根节点
-                self.root.cancel()
-            } catch {
-                // Task was cancelled; nothing to do
-            }
-        }
-        timeoutTask = task
-        XYLog.info(tag: tag, content: "start", "id=\(id)", "\(timeout)s")
-    }
 }
