@@ -22,6 +22,6 @@ open class XYNode<ResultType>: XYCmd<ResultType> {
         self.next = next
         self.prev = prev
         super.init(id: id, timeout: timeout)
-        self.logTag = "Flow.N"
+        self.logTag = "WorkFlow.Node"
     }
 }

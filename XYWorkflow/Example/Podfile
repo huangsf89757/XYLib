@@ -1,13 +1,21 @@
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
+inhibit_all_warnings!
 
-platform :ios, '10.0'
+$libPath = '../../'
 
 target 'XYWorkflow_Example' do
+  platform :ios, 14.0
+  
   pod 'XYWorkflow', :path => '../'
+  pod 'XYExtension', :path => $libPath + 'XYExtension/'
+  pod 'XYUtil', :path => $libPath + 'XYUtil/'
+  pod 'XYLog', :path => $libPath + 'XYLog/'
 
   target 'XYWorkflow_Tests' do
     inherit! :search_paths
-
-    pod 'FBSnapshotTestCase' , '~> 2.1.4'
   end
+
+  
 end
+

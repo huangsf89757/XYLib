@@ -18,13 +18,25 @@ open class XYBaseNode<ResultType>: XYNode<ResultType> {
     /// 当前已重试次数
     public private(set) var curRetries: Int = 0
     
+    // 用于存储闭包的属性
+    private var executionBlock: ((@escaping (Result<ResultType, Error>) -> Void) -> Void)?
+    
     // MARK: init
     public init(id: String = UUID().uuidString,
                 timeout: TimeInterval = 10,
                 maxRetries: Int = 3) {
         self.maxRetries = maxRetries
         super.init(id: id, timeout: timeout)
-        self.logTag = "Flow.N.B"
+        self.logTag = "WorkFlow.Node.Base"
+    }
+    
+    /// 便利构造器，支持使用闭包直接创建节点
+    public convenience init(id: String = UUID().uuidString,
+                            timeout: TimeInterval = 10,
+                            maxRetries: Int = 3,
+                            executionBlock: @escaping (@escaping (Result<ResultType, Error>) -> Void) -> Void) {
+        self.init(id: id, timeout: timeout, maxRetries: maxRetries)
+        self.executionBlock = executionBlock
     }
     
     // MARK: override
@@ -74,6 +86,15 @@ open class XYBaseNode<ResultType>: XYNode<ResultType> {
         }
     }
     
+    /// 子类需要实现的单次执行方法
+    /// 注意：此方法不应被直接调用，应通过execute()方法触发执行
+    open func runOnce() async throws -> ResultType {
+        let tag = [logTag, "runOnce"]
+        let error = XYError.notImplemented
+        XYLog.info(tag: tag, process: .fail(error.info))
+        throw error
+    }
+    
     /// 取消当前正在执行的命令。
     public override func cancel() {
         super.cancel()
@@ -82,6 +103,31 @@ open class XYBaseNode<ResultType>: XYNode<ResultType> {
             self.continuation = nil
             continuation.resume(throwing: XYError.cancelled)
         }
+    }
+    
+    /// 重写startTimeoutTask方法以处理超时
+    internal override func startTimeoutTask() {
+        guard timeout > 0 else { return }
+        let tag = [logTag, "timeout"]
+        // Cancel previous timeout if any
+        timeoutTask?.cancel()
+        let task = Task { [weak self] in
+            do {
+                try await Task.sleep(nanoseconds: UInt64(timeout * 1_000_000_000))
+                guard let self = self else { return }
+                XYLog.info(tag: tag, content: "did", "id=\(self.id)")
+                // 超时时设置状态为失败并抛出timeout错误
+                self.state = .failed
+                if let continuation = self.continuation {
+                    self.continuation = nil
+                    continuation.resume(throwing: XYError.timeout)
+                }
+            } catch {
+                // Task was cancelled; nothing to do
+            }
+        }
+        timeoutTask = task
+        XYLog.info(tag: tag, content: "start", "id=\(id)", "\(timeout)s")
     }
 }
 
@@ -93,7 +139,25 @@ private extension XYBaseNode {
     func executeOnce() async {
         do {
             executeTime = Date()
-            let result = try await run()
+            let result: ResultType
+            // 如果提供了闭包，则执行闭包
+            if let executionBlock = self.executionBlock {
+                let tag = [logTag, "runOnce"]
+                XYLog.info(tag: tag, process: .doing, content: "executionBlock")
+                result = try await withCheckedThrowingContinuation { continuation in
+                    executionBlock { result in
+                        switch result {
+                        case .success(let value):
+                            continuation.resume(returning: value)
+                        case .failure(let error):
+                            continuation.resume(throwing: error)
+                        }
+                    }
+                }
+            } else {
+                // 否则调用子类实现的runOnce方法
+                result = try await runOnce()
+            }
             finishExecution(with: .success(result))
         } catch let error {
             finishExecution(with: .failure(error))

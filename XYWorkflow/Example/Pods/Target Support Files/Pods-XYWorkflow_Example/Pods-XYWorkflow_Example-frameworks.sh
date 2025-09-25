@@ -176,9 +176,17 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYExtension/XYExtension.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYLog/XYLog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYUtil/XYUtil.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYWorkflow/XYWorkflow.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYExtension/XYExtension.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYLog/XYLog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYUtil/XYUtil.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYWorkflow/XYWorkflow.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

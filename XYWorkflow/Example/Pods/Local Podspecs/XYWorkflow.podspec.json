@@ -1,6 +1,6 @@
 {
   "name": "XYWorkflow",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "summary": "A short description of XYWorkflow.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/hsf89757/XYWorkflow",
@@ -13,10 +13,30 @@
   },
   "source": {
     "git": "https://github.com/hsf89757/XYWorkflow.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
+  },
+  "dependencies": {
+    "XYExtension": [],
+    "XYUtil": [],
+    "XYLog": []
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "14.0",
+    "watchos": "9.0"
   },
-  "source_files": "XYWorkflow/Classes/**/*"
+  "ios": {
+    "source_files": [
+      "XYWorkflow/Classes/**/*.swift"
+    ],
+    "frameworks": [
+      "UIKit",
+      "Foundation"
+    ]
+  },
+  "watchos": {
+    "source_files": [
+      "XYWorkflow/Classes/**/*.swift"
+    ],
+    "frameworks": "Foundation"
+  }
 }
