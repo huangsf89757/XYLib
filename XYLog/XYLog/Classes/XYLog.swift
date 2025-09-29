@@ -27,7 +27,7 @@ public extension XYLog {
     static func record(file: String = #file,
                        function: String = #function,
                        line: Int = #line,
-                       id: UUID? = nil,
+                       id: String? = nil,
                        level: XYLogLevel = .verbose,
                        tag: [String]? = nil,
                        process: XYLogProcess? = nil,
@@ -49,7 +49,7 @@ public extension XYLog {
         let idLen = 8
         var idStr = String(repeating: " ", count: idLen)
         if let id = id {
-            let res = id.uuidString + idStr
+            let res = id + idStr
             idStr = String(res.prefix(idLen))
         }
         // level
@@ -77,7 +77,7 @@ public extension XYLog {
     static func verbose(file: String = #file,
                         function: String = #function,
                         line: Int = #line,
-                        id: UUID? = nil,
+                        id: String? = nil,
                         tag: [String]? = nil,
                         process: XYLogProcess? = nil,
                         content: Any...) {
@@ -87,7 +87,7 @@ public extension XYLog {
     static func debug(file: String = #file,
                       function: String = #function,
                       line: Int = #line,
-                      id: UUID? = nil,
+                      id: String? = nil,
                       tag: [String]? = nil,
                       process: XYLogProcess? = nil,
                       content: Any...) {
@@ -97,7 +97,7 @@ public extension XYLog {
     static func info(file: String = #file,
                      function: String = #function,
                      line: Int = #line,
-                     id: UUID? = nil,
+                     id: String? = nil,
                      tag: [String]? = nil,
                      process: XYLogProcess? = nil,
                      content: Any...) {
@@ -107,7 +107,7 @@ public extension XYLog {
     static func warning(file: String = #file,
                         function: String = #function,
                         line: Int = #line,
-                        id: UUID? = nil,
+                        id: String? = nil,
                         tag: [String]? = nil,
                         process: XYLogProcess? = nil,
                         content: Any...) {
@@ -117,7 +117,7 @@ public extension XYLog {
     static func error(file: String = #file,
                       function: String = #function,
                       line: Int = #line,
-                      id: UUID? = nil,
+                      id: String? = nil,
                       tag: [String]? = nil,
                       process: XYLogProcess? = nil,
                       content: Any...) {
@@ -127,7 +127,7 @@ public extension XYLog {
     static func fatal(file: String = #file,
                       function: String = #function,
                       line: Int = #line,
-                      id: UUID? = nil,
+                      id: String? = nil,
                       tag: [String]? = nil,
                       process: XYLogProcess? = nil,
                       content: Any...) {
