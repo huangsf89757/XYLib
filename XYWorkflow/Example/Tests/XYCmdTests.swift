@@ -267,7 +267,7 @@ extension XYCmdTests {
     // 11. 无重试：maxRetries = nil
     func test_noRetry_when_maxRetries_nil() async throws {
         let cmd = TestCmd(maxRetries: nil)
-        cmd.errorToThrow = MockError.network
+        cmd.errorToThrow = XYError.other(MockError.network)
         
         do {
             _ = try await cmd.execute()
@@ -281,7 +281,7 @@ extension XYCmdTests {
     // 12. 无重试：maxRetries = 0
     func test_noRetry_when_maxRetries_zero() async throws {
         let cmd = TestCmd(maxRetries: 0)
-        cmd.errorToThrow = MockError.network
+        cmd.errorToThrow = XYError.other(MockError.network)
         
         do {
             _ = try await cmd.execute()
