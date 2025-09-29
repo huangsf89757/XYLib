@@ -187,9 +187,12 @@ extension XYCmdTests {
         
         Task {
             do {
+                print("test_cancel_execution", "1")
                 _ = try await cmd.execute()
+                print("test_cancel_execution", "2")
                 XCTFail("Should have been cancelled")
             } catch {
+                print("test_cancel_execution", "5")
                 if let xyErr = error as? XYError, xyErr == .cancelled {
                     expectation.fulfill()
                 } else {
@@ -199,7 +202,9 @@ extension XYCmdTests {
         }
         
         // 稍等后取消
-//        try await Task.sleep(nanoseconds: 10_000_000) // 10ms
+        print("test_cancel_execution", "3")
+        try await Task.sleep(nanoseconds: 10_000_000) // 10ms
+        print("test_cancel_execution", "4")
         cmd.cancel()
         
         await waitForExpectations(timeout: 3)

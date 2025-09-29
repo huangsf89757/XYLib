@@ -31,7 +31,7 @@ open class XYCmd<ResultType>: XYExecutable {
     }
     
     // === 超时 ===
-    /// 超时时间（秒），<=0 表示无超时
+    /// 超时时间（秒），默认10s，<=0 表示无超时
     public let timeout: TimeInterval
     
     // === 重试 ===
@@ -85,14 +85,12 @@ open class XYCmd<ResultType>: XYExecutable {
         
         // 重试循环
         while true {
-            // 每次重试前检查是否已被取消
-            if state == .cancelled {
-                let finalError = XYError.cancelled
-                finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
-                throw finalError
-            }
-
             do {
+                if state == .cancelled {
+                    let finalError = XYError.cancelled
+                    finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+                    throw finalError
+                }
                 let result: ResultType
                 // 包装执行逻辑（含超时）
                 if let block = executionBlock {
@@ -119,6 +117,11 @@ open class XYCmd<ResultType>: XYExecutable {
                     }
                 }
                 // 成功：结束执行
+                if state == .cancelled {
+                    let finalError = XYError.cancelled
+                    finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+                    throw finalError
+                }
                 finishExecution(tag: tag, state: .succeeded, result: result, error: nil)
                 return result
                 
@@ -170,10 +173,6 @@ open class XYCmd<ResultType>: XYExecutable {
     
     /// 子类重写此方法提供实际执行逻辑
     open func run() async throws -> ResultType {
-        // 执行前检查是否已被取消
-        if state == .cancelled {
-            throw XYError.cancelled
-        }
         let tag = [logTag, "run"]
         let error = XYError.notImplemented
         XYLog.info(id: id, tag: tag, process: .fail(error.info))
@@ -251,10 +250,16 @@ open class XYCmd<ResultType>: XYExecutable {
                 try await Task.sleep(seconds: seconds)
                 throw XYError.timeout
             }
-
-            let result = try await group.next()!
-            group.cancelAll()
-            return result
+            if let result = try await group.next() {
+                group.cancelAll()
+                return result
+            }
+            let fallbackError = NSError(
+                domain: "XYCmd.TimeoutError",
+                code: -1,
+                userInfo: [NSLocalizedDescriptionKey: "Timeout task group returned no result"]
+            )
+            throw XYError.unknown(fallbackError)
         }
     }
 }

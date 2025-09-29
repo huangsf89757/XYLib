@@ -18,16 +18,30 @@ public enum XYError: Error {
     case unknown(Error?)            // 未知错误
     
     public var info: String {
+        var desc = ""
         switch self {
-        case .timeout: return "timeout"
-        case .cancelled: return "cancelled"
-        case .executing: return "executing"
-        case .maxRetryExceeded: return "maxRetryExceeded"
-        case .notImplemented: return "notImplemented"
+        case .timeout: desc = "timeout"
+        case .cancelled: desc = "cancelled"
+        case .executing: desc = "executing"
+        case .maxRetryExceeded: desc = "maxRetryExceeded"
+        case .notImplemented: desc = "notImplemented"
         case .other(let error):
-            return error?.localizedDescription ?? "other"
+            desc = error?.localizedDescription ?? "other"
         case .unknown(let error):
-            return error?.localizedDescription ?? "unknown"
+            desc = error?.localizedDescription ?? "unknown"
+        }
+        return "\(desc)(\(code))"
+    }
+    
+    public var code: Int {
+        switch self {
+        case .timeout: return 1
+        case .cancelled: return 2
+        case .executing: return 3
+        case .maxRetryExceeded: return 4
+        case .notImplemented: return 5
+        case .other: return 6
+        case .unknown: return -99
         }
     }
 }
