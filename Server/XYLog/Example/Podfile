@@ -1,0 +1,29 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+inhibit_all_warnings!
+
+$lib = '../../../'
+$basic = 'Basic/'
+$server = 'Server/'
+$tool = 'Tool/'
+$business = 'Business/'
+
+target 'XYLog_Example' do
+  platform :ios, '14.0'
+  
+  pod 'XYLog', :path => '../'
+  
+  # Basic
+  pod 'XYExtension', :path => $lib + $basic + 'XYExtension/'
+  # Server
+  # Tool
+  pod 'XYUtil', :path => $lib + $tool + 'XYUtil/'
+  # Business
+  # Third
+  
+  target 'XYLog_Tests' do
+    inherit! :search_paths
+  end
+  
+end

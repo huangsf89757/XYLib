@@ -1,0 +1,6 @@
+framework module XYUtil {
+  umbrella header "XYUtil-umbrella.h"
+
+  export *
+  module * { export * }
+}

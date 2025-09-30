@@ -1,0 +1,30 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+inhibit_all_warnings!
+
+$lib = '../../../'
+$basic = 'Basic/'
+$server = 'Server/'
+$tool = 'Tool/'
+$business = 'Business/'
+
+target 'XYWatchConnectivity_Example' do
+  platform :ios, '14.0'
+  
+  pod 'XYWatchConnectivity', :path => '../'
+  
+  # Basic
+  pod 'XYExtension', :path => $lib + $basic + 'XYExtension/'
+  # Server
+  pod 'XYLog', :path => $lib + $server + 'XYLog/'
+  # Tool
+  pod 'XYUtil', :path => $lib + $tool + 'XYUtil/'
+  # Business
+  # Third
+  
+  target 'XYWatchConnectivity_Tests' do
+    inherit! :search_paths
+  end
+  
+end

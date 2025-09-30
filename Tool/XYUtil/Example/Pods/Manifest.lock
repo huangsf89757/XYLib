@@ -1,0 +1,22 @@
+PODS:
+  - XYExtension (1.0.0)
+  - XYUtil (1.0.0):
+    - XYExtension
+
+DEPENDENCIES:
+  - XYExtension (from `../../../Basic/XYExtension/`)
+  - XYUtil (from `../`)
+
+EXTERNAL SOURCES:
+  XYExtension:
+    :path: "../../../Basic/XYExtension/"
+  XYUtil:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
+  XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23
+
+PODFILE CHECKSUM: 0fa462cbc7eaf7e11d6276160fe0b74c8bec0bf4
+
+COCOAPODS: 1.16.2

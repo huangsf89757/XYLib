@@ -1,0 +1,29 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+inhibit_all_warnings!
+
+$lib = '../../../'
+$basic = 'Basic/'
+$server = 'Server/'
+$tool = 'Tool/'
+$business = 'Business/'
+
+target 'XYUtil_Example' do
+  platform :ios, '14.0'
+  
+  pod 'XYUtil', :path => '../'
+  
+  # Basic
+  pod 'XYExtension', :path => $lib + $basic + 'XYExtension/'
+  # Server
+  # Tool
+  # Business
+  # Third
+  
+  target 'XYUtil_Tests' do
+    inherit! :search_paths
+  end
+  
+end
+
