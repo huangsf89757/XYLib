@@ -5,71 +5,138 @@
 //  Created by hsf on 2025/9/30.
 //
 
+// IMPORT: System
 import Foundation
+// IMPORT: Basic
+// IMPORT: Server
+import XYLog
+// IMPORT: Tool
+// IMPORT: Business
+// IMPORT: Third
 
-/// 可扩展节点基类（支持自定义属性和协议）
+// MARK: - ExpandStrategy
+/// 展开/收起策略
+public enum XYExpandStrategy {
+    /// 保留子节点的展开状态（记忆模式）
+    case preserve
+    /// 重置子节点状态：收起时强制子节点收起，展开时子节点默认收起
+    case reset
+}
+
+// MARK: - XYExtendableNode
+/// 支持展开/收起及可见性计算的树节点（适用于 UI 场景）
 open class XYExtendableNode<T>: XYBaseNode<T> {
-    // MARK: - Properties
+    // MARK: var
+    /// 是否处于展开状态（默认为 false，即收起）
+    public var isExpanded: Bool = false
     
-    /// 自定义用户数据（可用于存储额外信息）
-    public var userInfo: [String: Any] = [:]
-    
-    /// 节点标识符（可选，用于快速查找）
-    public var identifier: String?
-    
-    /// 是否启用（可用于过滤）
-    public var isEnabled: Bool = true
-    
-    /// 自定义标签（可用于分类）
-    public var tags: Set<String> = []
-    
-    // MARK: - Lifecycle
-    
+    // MARK: life cycle
     public override init(value: T?) {
         super.init(value: value)
+        // isExpanded 默认 false，无需额外赋值
+    }
+}
+
+// MARK: - Func
+extension XYExtendableNode {
+    /// 当前节点是否应在 UI 中可见（只读）
+    /// - Note: 由根到当前节点路径上所有祖先的 `isExpanded` 状态决定
+    public var isVisible: Bool {
+        // 根节点始终可见
+        guard let parent = self.parent else { return true }
+        
+        // 迭代方式：从当前节点向上遍历到根，检查每个祖先是否展开
+        var current: XYBaseNode<T>? = parent
+        while let node = current {
+            guard let extendableNode = node as? XYExtendableNode<T> else {
+                return false
+            }
+            if !extendableNode.isExpanded {
+                return false
+            }
+            current = node.parent
+        }
+        return true
     }
     
-    // MARK: - Convenience Methods
-    
-    /// 检查是否包含指定标签
-    public func hasTag(_ tag: String) -> Bool {
-        return tags.contains(tag)
+    /// 是否可展开（有子节点才可展开）
+    public var isExpandable: Bool {
+        !children.isEmpty
     }
     
-    /// 添加标签
-    public func addTag(_ tag: String) {
-        tags.insert(tag)
-    }
-    
-    /// 移除标签
-    public func removeTag(_ tag: String) {
-        tags.remove(tag)
-    }
-    
-    /// 获取所有后代节点（递归）
-    public func getAllDescendants() -> [XYExtendableNode<T>] {
-        var descendants: [XYExtendableNode<T>] = []
+    /// 获取所有**可见的后代节点**（用于 UI 渲染）
+    /// - Returns: 所有 `isVisible == true` 的后代节点（不包含自身）
+    public func getVisibleDescendants() -> [XYExtendableNode<T>] {
+        var visible: [XYExtendableNode<T>] = []
         for child in children {
             if let extendableChild = child as? XYExtendableNode<T> {
-                descendants.append(extendableChild)
-                descendants.append(contentsOf: extendableChild.getAllDescendants())
+                if extendableChild.isVisible {
+                    visible.append(extendableChild)
+                    visible.append(contentsOf: extendableChild.getVisibleDescendants())
+                }
             }
         }
-        return descendants
+        return visible
+    }
+}
+
+// MARK: - Expand / Collapse
+extension XYExtendableNode {
+    /// 展开当前节点
+    /// - Parameters:
+    ///   - strategy: 展开策略（默认 `.preserve`）
+    ///   - recursively: 是否递归应用策略到所有后代（仅对 `.reset` 有意义）
+    public func expand(strategy: XYExpandStrategy = .preserve,
+                       recursively: Bool = false) {
+        isExpanded = true
+        if case .reset = strategy {
+            // 重置模式：展开时子节点默认收起
+            for child in children {
+                if let extendableChild = child as? XYExtendableNode<T> {
+                    extendableChild.isExpanded = false
+                    if recursively {
+                        extendableChild.collapse(strategy: .reset, recursively: true)
+                    }
+                }
+            }
+        }
+        // .preserve 模式：不做任何子节点状态变更，保留原有状态
     }
     
-    /// 查找具有指定标识符的后代节点
-    public func findDescendant(withIdentifier identifier: String) -> XYExtendableNode<T>? {
-        for child in children {
-            if let extendableChild = child as? XYExtendableNode<T> {
-                if extendableChild.identifier == identifier {
-                    return extendableChild
-                }
-                if let found = extendableChild.findDescendant(withIdentifier: identifier) {
-                    return found
+    /// 收起当前节点
+    /// - Parameters:
+    ///   - strategy: 收起策略（默认 `.preserve`）
+    ///   - recursively: 是否递归应用策略到所有后代
+    public func collapse(strategy: XYExpandStrategy = .preserve,
+                         recursively: Bool = false) {
+        isExpanded = false
+        if case .reset = strategy {
+            // 重置模式：收起时强制所有子节点收起
+            for child in children {
+                if let extendableChild = child as? XYExtendableNode<T> {
+                    extendableChild.isExpanded = false
+                    if recursively {
+                        extendableChild.collapse(strategy: .reset, recursively: true)
+                    }
                 }
             }
         }
-        return nil
+        // .preserve 模式：仅收起当前节点，子节点状态保留（但因父节点收起而不可见）
+    }
+    
+    /// 切换展开/收起状态
+    /// - Parameters:
+    ///   - strategy: 使用的策略
+    ///   - recursively: 是否递归
+    /// - Returns: 新的展开状态
+    @discardableResult
+    public func toggleExpand(strategy: XYExpandStrategy = .preserve,
+                             recursively: Bool = false) -> Bool {
+        if isExpanded {
+            collapse(strategy: strategy, recursively: recursively)
+        } else {
+            expand(strategy: strategy, recursively: recursively)
+        }
+        return isExpanded
     }
 }
