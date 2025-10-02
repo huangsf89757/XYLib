@@ -31,7 +31,7 @@ open class XYCmd<ResultType>: XYExecutable {
     /// 命令执行状态
     public private(set) var state: XYState = .idle {
         didSet {
-            XYLog.info(id: id, tag: [logTag, "state"], content: "id=\(id)", "\(oldValue) → \(state)")
+            XYLog.info(id: id, tag: [logTag, "state"], content: "\(oldValue) → \(state)")
         }
     }
     
