@@ -216,6 +216,7 @@ extension XYCmdTests {
         cmd.delayBeforeRun = 0.1
         
         let task1 = Task { try await cmd.execute() }
+        try await Task.sleep(nanoseconds: 1_000_000) // 确保task1先启动
         let task2 = Task { try await cmd.execute() }
         
         // 第二次应抛出 .executing

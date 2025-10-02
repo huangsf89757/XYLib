@@ -325,37 +325,30 @@ open class XYCmd<ResultType>: XYExecutable {
             return try await operation()
         }
         
-        return try await withThrowingTaskGroup(of: Optional<T>.self) { group in
+        return try await withThrowingTaskGroup(of: T.self) { group in
             // 主操作任务
             group.addTask {
-                do {
-                    let result = try await operation()
-                    return result
-                } catch {
-                    return nil // 用 nil 表示操作失败
-                }
+                return try await operation()
             }
-            
             // 超时任务
             group.addTask {
                 try await Task.sleep(seconds: seconds)
                 throw XYError.timeout
             }
-            
+            // defer
             defer {
                 group.cancelAll()
             }
-            
-            for try await result in group {
-                if let actualResult = result {
-                    return actualResult // 成功结果
-                }
-                // 如果是 nil，继续等待下一个结果
+            // result
+            if let result = try await group.next() {
+                return result
             }
-            
-            throw XYError.unknown(NSError(domain: "XYCmd",
-                                        code: -1,
-                                        userInfo: [NSLocalizedDescriptionKey: "No result"]))
+            let fallbackError = NSError(
+                domain: "XYCmd.TimeoutError",
+                code: -1,
+                userInfo: [NSLocalizedDescriptionKey: "Timeout task group returned no result"]
+            )
+            throw XYError.unknown(fallbackError)
         }
     }
 }
