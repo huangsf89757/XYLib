@@ -15,7 +15,11 @@ open class XYCmd<ResultType>: XYExecutable {
     // MARK: log
     public internal(set) var logTag = "WorkFlow.Cmd"
     
-    // MARK: XYExecutable
+    // MARK: timing
+    private var startTime: UInt64 = 0
+    private var timebaseInfo = mach_timebase_info()
+    
+    // MARK: identifier
     /// 唯一标识
     public let id: XYIdentifier
     
@@ -27,7 +31,7 @@ open class XYCmd<ResultType>: XYExecutable {
     /// 命令执行状态
     public private(set) var state: XYState = .idle {
         didSet {
-            XYLog.info(tag: [logTag, "state"], content: "id=\(id)", "\(oldValue) → \(state)")
+            XYLog.info(id: id, tag: [logTag, "state"], content: "id=\(id)", "\(oldValue) → \(state)")
         }
     }
     
@@ -46,6 +50,14 @@ open class XYCmd<ResultType>: XYExecutable {
     // === 执行内容 ===
     public let executionBlock: ((@escaping (Result<ResultType, Error>) -> Void) -> Void)?
     
+    // === 执行钩子 ===
+    public var onWillExecute: (() -> Void)?
+    public var onDidExecute: ((Result<ResultType, Error>) -> Void)?
+    public var onRetry: ((Error, Int) -> Void)?
+    
+    // MARK: cancellation
+    private var executeTask: Task<ResultType, any Error>?
+    
     // MARK: init
     public init(id: XYIdentifier = UUID().uuidString,
                 timeout: TimeInterval = 10,
@@ -57,6 +69,10 @@ open class XYCmd<ResultType>: XYExecutable {
         self.maxRetries = maxRetries
         self.retryDelay = retryDelay
         self.executionBlock = executionBlock
+        
+        if timebaseInfo.denom == 0 {
+            mach_timebase_info(&timebaseInfo)
+        }
     }
     
     // MARK: - Public Methods
@@ -67,40 +83,78 @@ open class XYCmd<ResultType>: XYExecutable {
         let tag = [logTag, "execute"]
         XYLog.info(id: id, tag: tag, process: .begin)
         
+        onWillExecute?()
+        
         // 状态检查
         if state == .cancelled {
             let finalError = XYError.cancelled
             finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+            onDidExecute?(.failure(finalError))
             throw finalError
         }
         if state == .executing {
             let finalError = XYError.executing
             finishExecution(tag: tag, state: .failed, result: nil, error: finalError)
+            onDidExecute?(.failure(finalError))
             throw finalError
         }
+        
+        // 创建一个可取消的任务
+        let executeTask = Task {
+            return try await executeImplementation()
+        }
+        self.executeTask = executeTask
+        
+        do {
+            let result = try await executeTask.value
+            return result
+        } catch {
+            // 如果任务被取消，抛出取消错误
+            if executeTask.isCancelled {
+                let finalError = XYError.cancelled
+                finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+                onDidExecute?(.failure(finalError))
+                throw finalError
+            }
+            throw error
+        }
+    }
+    
+    private func executeImplementation() async throws -> ResultType {
+        let tag = [logTag, "execute"]
         
         // 初始化执行
         state = .executing
         executeTime = Date()
         curRetries = 0
+        startTiming()
         
         // 重试循环
         while true {
             do {
-                if state == .cancelled {
+                // 检查取消状态
+                if state == .cancelled || Task.isCancelled {
                     let finalError = XYError.cancelled
                     finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+                    onDidExecute?(.failure(finalError))
                     throw finalError
                 }
+                
                 let result: ResultType
                 // 包装执行逻辑（含超时）
                 if let block = executionBlock {
-                    result = try await withTimeout(timeout) {
-                        return try await withCheckedThrowingContinuation { continuation in
+                    result = try await withTimeout(timeout) { [weak self] in
+                        guard let self = self else { throw XYError.cancelled }
+                        return try await withCheckedThrowingContinuation { [weak self] continuation in
+                            guard let strongSelf = self else {
+                                continuation.resume(throwing: XYError.cancelled)
+                                return
+                            }
+                            
                             var hasResumed = false
                             block { result in
-                                guard !hasResumed else {
-                                    return // 防止多次回调
+                                guard !hasResumed, strongSelf.state != .cancelled, !Task.isCancelled else {
+                                    return // 防止多次回调和检查取消状态
                                 }
                                 hasResumed = true
                                 switch result {
@@ -113,24 +167,30 @@ open class XYCmd<ResultType>: XYExecutable {
                         }
                     }
                 } else {
-                    result = try await withTimeout(timeout) {
+                    result = try await withTimeout(timeout) { [weak self] in
+                        guard let self = self else { throw XYError.cancelled }
                         return try await self.run()
                     }
                 }
-                // 成功：结束执行
-                if state == .cancelled {
+                
+                // 检查取消状态
+                if state == .cancelled || Task.isCancelled {
                     let finalError = XYError.cancelled
                     finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+                    onDidExecute?(.failure(finalError))
                     throw finalError
                 }
+                
                 finishExecution(tag: tag, state: .succeeded, result: result, error: nil)
+                onDidExecute?(.success(result))
                 return result
                 
             } catch let error {
-                // 检查是否已被取消（可能由外部 cancel() 触发）
-                if state == .cancelled {
+                // 检查是否已被取消
+                if state == .cancelled || Task.isCancelled {
                     let finalError = XYError.cancelled
                     finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+                    onDidExecute?(.failure(finalError))
                     throw finalError
                 }
                 
@@ -138,6 +198,7 @@ open class XYCmd<ResultType>: XYExecutable {
                 guard let maxRetries = self.maxRetries, maxRetries > 0 else {
                     let finalError = normalizeError(error)
                     finishExecution(tag: tag, state: .failed, result: nil, error: finalError)
+                    onDidExecute?(.failure(finalError))
                     throw finalError
                 }
                 
@@ -145,6 +206,7 @@ open class XYCmd<ResultType>: XYExecutable {
                 guard checkErrorRetryEnable(error: error) else {
                     let finalError = normalizeError(error)
                     finishExecution(tag: tag, state: .failed, result: nil, error: finalError)
+                    onDidExecute?(.failure(finalError))
                     throw finalError
                 }
                 
@@ -152,16 +214,24 @@ open class XYCmd<ResultType>: XYExecutable {
                 if curRetries >= maxRetries {
                     let finalError = XYError.maxRetryExceeded
                     finishExecution(tag: tag, state: .failed, result: nil, error: finalError)
+                    onDidExecute?(.failure(finalError))
                     throw finalError
                 }
                 
-                // 重试延迟
+                // 重试延迟 - 检查取消状态
                 if let retryDelay = retryDelay, retryDelay > 0 {
                     try await Task.sleep(seconds: retryDelay)
+                    if state == .cancelled || Task.isCancelled {
+                        let finalError = XYError.cancelled
+                        finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+                        onDidExecute?(.failure(finalError))
+                        throw finalError
+                    }
                 }
                 
                 // 重试
                 curRetries += 1
+                onRetry?(error, curRetries)
                 XYLog.info(
                     id: id,
                     tag: tag,
@@ -180,15 +250,26 @@ open class XYCmd<ResultType>: XYExecutable {
         throw error
     }
     
-    /// 取消执行
+    /// 取消执行 - 现在会中断内部任务
     public func cancel() {
         let tag = [logTag, "cancel"]
         guard state != .cancelled else { return }
+        executeTask?.cancel()
         finishExecution(tag: tag, state: .cancelled, result: nil, error: XYError.cancelled)
     }
     
-    
     // MARK: - Private Helpers
+    
+    private func startTiming() {
+        startTime = mach_absolute_time()
+    }
+    
+    private func getDuration() -> TimeInterval {
+        let endTime = mach_absolute_time()
+        let elapsed = endTime - startTime
+        let nanoseconds = elapsed * UInt64(timebaseInfo.numer) / UInt64(timebaseInfo.denom)
+        return TimeInterval(nanoseconds) / 1_000_000_000
+    }
     
     /// 判断错误是否可重试
     private func checkErrorRetryEnable(error: Error) -> Bool {
@@ -218,9 +299,9 @@ open class XYCmd<ResultType>: XYExecutable {
         self.state = state
         
         let durationInfo: String
-        if let executeTime = executeTime {
-            let duration = now.timeIntervalSince(executeTime)
-            durationInfo = String(format: "duration=%.2fs", duration)
+        if executeTime != nil {
+            let duration = getDuration()
+            durationInfo = String(format: "duration=%.3fs", duration)
         } else {
             durationInfo = "duration=N/A"
         }
@@ -238,29 +319,43 @@ open class XYCmd<ResultType>: XYExecutable {
     }
     
     /// 带超时的异步操作包装
-    private func withTimeout<T>(_ seconds: TimeInterval, operation: @escaping () async throws -> T) async throws -> T {
+    private func withTimeout<T>(_ seconds: TimeInterval,
+                                operation: @escaping () async throws -> T) async throws -> T {
         guard seconds > 0 else {
             return try await operation()
         }
         
-        return try await withThrowingTaskGroup(of: T.self) { group in
+        return try await withThrowingTaskGroup(of: Optional<T>.self) { group in
+            // 主操作任务
             group.addTask {
-                return try await operation()
+                do {
+                    let result = try await operation()
+                    return result
+                } catch {
+                    return nil // 用 nil 表示操作失败
+                }
             }
+            
+            // 超时任务
             group.addTask {
                 try await Task.sleep(seconds: seconds)
                 throw XYError.timeout
             }
-            if let result = try await group.next() {
+            
+            defer {
                 group.cancelAll()
-                return result
             }
-            let fallbackError = NSError(
-                domain: "XYCmd.TimeoutError",
-                code: -1,
-                userInfo: [NSLocalizedDescriptionKey: "Timeout task group returned no result"]
-            )
-            throw XYError.unknown(fallbackError)
+            
+            for try await result in group {
+                if let actualResult = result {
+                    return actualResult // 成功结果
+                }
+                // 如果是 nil，继续等待下一个结果
+            }
+            
+            throw XYError.unknown(NSError(domain: "XYCmd",
+                                        code: -1,
+                                        userInfo: [NSLocalizedDescriptionKey: "No result"]))
         }
     }
 }

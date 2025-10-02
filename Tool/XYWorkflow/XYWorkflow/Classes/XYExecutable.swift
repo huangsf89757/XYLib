@@ -12,6 +12,7 @@ import XYUtil
 public protocol XYExecutable {
     /// 关联结果类型
     associatedtype ResultType
+    
     /// 唯一标识
     var id: XYIdentifier { get }
     /// 执行状态
