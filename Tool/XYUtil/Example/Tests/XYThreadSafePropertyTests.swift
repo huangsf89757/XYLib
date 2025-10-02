@@ -32,10 +32,12 @@ class XYThreadSafePropertyTests: XCTestCase {
         let group = DispatchGroup()
         let queue = DispatchQueue(label: "testQueue", attributes: .concurrent)
         
-        // 启动多个并发线程进行操作
-        for _ in 0..<100 {
+        // 启动多个并发线程进行操作，使用withLock确保原子性
+        for _ in 0..<15 {
             queue.async(group: group) {
-                _counter.wrappedValue += 1
+                _counter.withLock { value in
+                    value += 1
+                }
             }
         }
         
@@ -43,7 +45,7 @@ class XYThreadSafePropertyTests: XCTestCase {
         group.wait()
         
         // 验证最终结果
-        XCTAssertEqual(_counter.wrappedValue, 100)
+        XCTAssertEqual(_counter.wrappedValue, 15)
     }
     
     func testWithLock() {

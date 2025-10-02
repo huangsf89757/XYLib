@@ -28,6 +28,7 @@ class XYStateObservablePropertyTests: XCTestCase {
         // 测试值变化时的观察者通知
         @XYStateObservableProperty var state: TestState = .idle
         
+        let expectation = self.expectation(description: "Observer called")
         var observed = false
         var observedOldValue: TestState?
         var observedNewValue: TestState?
@@ -36,15 +37,12 @@ class XYStateObservablePropertyTests: XCTestCase {
             observed = true
             observedOldValue = oldValue
             observedNewValue = newValue
+            expectation.fulfill()
         }
         
         _state.wrappedValue = .loading
         
         // 等待异步操作完成
-        let expectation = self.expectation(description: "Observer notification")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            expectation.fulfill()
-        }
         waitForExpectations(timeout: 1, handler: nil)
         
         XCTAssertTrue(observed)
@@ -56,46 +54,42 @@ class XYStateObservablePropertyTests: XCTestCase {
         // 测试相同值不会触发通知
         @XYStateObservableProperty var state: TestState = .idle
         
-        var observerCalled = false
+        let expectation = self.expectation(description: "Observer should not be called")
+        expectation.isInverted = true
+        
         _state.addObserver(for: self) { _, _ in
-            observerCalled = true
+            expectation.fulfill()
         }
         
         // 设置相同的值
         _state.wrappedValue = .idle
         
-        // 等待异步操作完成
-        let expectation = self.expectation(description: "Observer notification")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 1, handler: nil)
-        
-        XCTAssertFalse(observerCalled)
+        // 等待一小段时间确认观察者未被调用
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     func testMultipleObservers() {
         // 测试多个观察者
         @XYStateObservableProperty var state: TestState = .idle
         
+        let expectation1 = self.expectation(description: "Observer 1 called")
+        let expectation2 = self.expectation(description: "Observer 2 called")
         var observer1Called = false
         var observer2Called = false
         
         _state.addObserver(for: self) { _, _ in
             observer1Called = true
+            expectation1.fulfill()
         }
         
         _state.addObserver(for: self) { _, _ in
             observer2Called = true
+            expectation2.fulfill()
         }
         
         _state.wrappedValue = .loading
         
         // 等待异步操作完成
-        let expectation = self.expectation(description: "Observers notification")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            expectation.fulfill()
-        }
         waitForExpectations(timeout: 1, handler: nil)
         
         XCTAssertTrue(observer1Called)
@@ -106,77 +100,63 @@ class XYStateObservablePropertyTests: XCTestCase {
         // 测试自动内存管理
         @XYStateObservableProperty var state: TestState = .idle
         
-        var observerCalled = false
+        let expectation = self.expectation(description: "Observer should not be called")
+        expectation.isInverted = true
         
         // 创建一个临时对象来添加观察者
         autoreleasepool {
             let tempObject = NSObject()
             _state.addObserver(for: tempObject) { _, _ in
-                observerCalled = true
+                expectation.fulfill()
             }
         }
         
         // tempObject已被释放，观察者应该被自动清理
         _state.wrappedValue = .loading
         
-        // 等待异步操作完成
-        let expectation = self.expectation(description: "Observer notification")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 1, handler: nil)
-        
-        XCTAssertFalse(observerCalled)
+        // 等待一小段时间确认观察者未被调用
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     func testRemoveObserver() {
         // 测试移除观察者
         @XYStateObservableProperty var state: TestState = .idle
         
-        var observerCalled = false
+        let expectation = self.expectation(description: "Observer should not be called")
+        expectation.isInverted = true
+        
         let id = _state.addObserver(for: self) { _, _ in
-            observerCalled = true
+            expectation.fulfill()
         }
         
         _state.removeObserver(with: id)
         _state.wrappedValue = .loading
         
-        // 等待异步操作完成
-        let expectation = self.expectation(description: "Observer notification")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 1, handler: nil)
-        
-        XCTAssertFalse(observerCalled)
+        // 等待一小段时间确认观察者未被调用
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     func testRemoveAllObservers() {
         // 测试移除所有观察者
         @XYStateObservableProperty var state: TestState = .idle
         
-        var observer1Called = false
-        var observer2Called = false
+        let expectation1 = self.expectation(description: "Observer 1 should not be called")
+        let expectation2 = self.expectation(description: "Observer 2 should not be called")
+        expectation1.isInverted = true
+        expectation2.isInverted = true
         
         _state.addObserver(for: self) { _, _ in
-            observer1Called = true
+            expectation1.fulfill()
         }
         
         _state.addObserver(for: self) { _, _ in
-            observer2Called = true
+            expectation2.fulfill()
         }
         
         _state.removeAllObservers()
         _state.wrappedValue = .loading
         
-        // 等待异步操作完成
-        let expectation = self.expectation(description: "Observers notification")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 1, handler: nil)
-        
-        XCTAssertFalse(observer1Called)
-        XCTAssertFalse(observer2Called)
+        // 等待一小段时间确认观察者未被调用
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
 }
