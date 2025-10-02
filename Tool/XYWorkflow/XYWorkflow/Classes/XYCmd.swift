@@ -13,50 +13,42 @@ import XYLog
 // MARK: - XYCmd
 open class XYCmd<ResultType>: XYExecutable {
     // MARK: log
-    public internal(set) var logTag = "WorkFlow.Cmd"
+    public private(set) var logTag = "WorkFlow.Cmd"
     
     // MARK: timing
     private var startTime: UInt64 = 0
     private var timebaseInfo = mach_timebase_info()
     
     // MARK: identifier
-    /// 唯一标识
     public let id: XYIdentifier
     
-    // === 命令执行 ===
-    /// 命令开始时间
+    // MARK: execution
+    public private(set) var executeTask: Task<ResultType, any Error>?
     public private(set) var executeTime: Date?
-    /// 命令完成时间
     public private(set) var finishTime: Date?
-    /// 命令执行状态
     public private(set) var state: XYState = .idle {
         didSet {
             XYLog.info(id: id, tag: [logTag, "state"], content: "\(oldValue) → \(state)")
         }
     }
-    
-    // === 超时 ===
-    /// 超时时间（秒），默认10s，<=0 表示无超时
-    public let timeout: TimeInterval
-    
-    // === 重试 ===
-    /// 最大重试次数。`nil` 或 `<= 0` 表示不重试。
-    public let maxRetries: Int?
-    /// 当前已重试次数
-    public private(set) var curRetries: Int = 0
-    /// 重试之间的延迟（秒）
-    public let retryDelay: TimeInterval?
-    
-    // === 执行内容 ===
     public let executionBlock: ((@escaping (Result<ResultType, Error>) -> Void) -> Void)?
     
-    // === 执行钩子 ===
+    // MARK: timeout
+    public let timeout: TimeInterval
+    
+    // MARK: retry
+    public let maxRetries: Int?
+    public private(set) var curRetries: Int = 0
+    public let retryDelay: TimeInterval?
+    
+    // MARK: hock
     public var onWillExecute: (() -> Void)?
     public var onDidExecute: ((Result<ResultType, Error>) -> Void)?
     public var onRetry: ((Error, Int) -> Void)?
     
-    // MARK: cancellation
-    private var executeTask: Task<ResultType, any Error>?
+    // MARK: private properties
+    /// 在group中是否允许失败
+    public var allowsFailureInGroup: Bool = true
     
     // MARK: init
     public init(id: XYIdentifier = UUID().uuidString,
@@ -75,9 +67,7 @@ open class XYCmd<ResultType>: XYExecutable {
         }
     }
     
-    // MARK: - Public Methods
-    
-    /// 执行命令（主入口）
+    // MARK: execute
     @discardableResult
     public final func execute() async throws -> ResultType {
         let tag = [logTag, "execute"]
@@ -120,6 +110,26 @@ open class XYCmd<ResultType>: XYExecutable {
         }
     }
     
+    // MARK: run
+    /// 子类重写此方法提供实际执行逻辑
+    open func run() async throws -> ResultType {
+        let tag = [logTag, "run"]
+        let error = XYError.notImplemented
+        XYLog.info(id: id, tag: tag, process: .fail(error.info))
+        throw error
+    }
+    
+    // MARK: cancel
+    public final func cancel() {
+        let tag = [logTag, "cancel"]
+        guard state != .cancelled else { return }
+        executeTask?.cancel()
+        finishExecution(tag: tag, state: .cancelled, result: nil, error: XYError.cancelled)
+    }
+}
+
+// MARK: - Execution Implementation
+extension XYCmd {
     private func executeImplementation() async throws -> ResultType {
         let tag = [logTag, "execute"]
         
@@ -241,25 +251,10 @@ open class XYCmd<ResultType>: XYExecutable {
             }
         }
     }
-    
-    /// 子类重写此方法提供实际执行逻辑
-    open func run() async throws -> ResultType {
-        let tag = [logTag, "run"]
-        let error = XYError.notImplemented
-        XYLog.info(id: id, tag: tag, process: .fail(error.info))
-        throw error
-    }
-    
-    /// 取消执行 - 现在会中断内部任务
-    public func cancel() {
-        let tag = [logTag, "cancel"]
-        guard state != .cancelled else { return }
-        executeTask?.cancel()
-        finishExecution(tag: tag, state: .cancelled, result: nil, error: XYError.cancelled)
-    }
-    
-    // MARK: - Private Helpers
-    
+}
+
+// MARK: - Func
+extension XYCmd {
     private func startTiming() {
         startTime = mach_absolute_time()
     }
