@@ -28,6 +28,7 @@ public extension XYGroupCmd {
 
 // MARK: - XYGroupCmd
 open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
+    public typealias ResultType = [XYIdentifier: Any]
     
     // MARK: execution config
     /// 执行方式，默认：serial
@@ -39,7 +40,7 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
     
     // MARK: private properties
     /// 子命令
-    public private(set) var commands: [XYExecutable] = []
+    public private(set) var commands: [XYCmd<Any>] = []
     /// 子命令执行结果
     public private(set) var results: ResultType = [:]
     /// 已取消的子命令
@@ -89,7 +90,7 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
 
 // MARK: - Execute
 extension XYGroupCmd {
-    private func executeCommands() async throws -> ResultType {
+    private func executeCommands() async throws -> [XYIdentifier: Any] {
         switch executionMode {
         case .serial:
             return try await executeSerially()
@@ -176,19 +177,19 @@ extension XYGroupCmd {
 // MARK: - CRUD Operations
 public extension XYGroupCmd {
     // MARK: Add Commands
-    func addCommand<T>(_ cmd: XYCmd<T>) {
+    func addCommand(_ cmd: XYCmd<Any>) {
         guard state == .idle else { return }
         commands.append(cmd)
     }
     
-    func addCommands<T>(_ cmds: [XYCmd<T>]) {
+    func addCommands(_ cmds: [XYCmd<Any>]) {
         guard state == .idle else { return }
         for cmd in cmds {
             addCommand(cmd)
         }
     }
     
-    func insertCommand<T>(_ cmd: XYCmd<T>, at index: Int) {
+    func insertCommand(_ cmd: XYCmd<Any>, at index: Int) {
         guard state == .idle else { return }
         guard index >= 0 && index <= commands.count else { return }
         commands.insert(cmd, at: index)
@@ -196,7 +197,7 @@ public extension XYGroupCmd {
     
     // MARK: Remove Commands
     @discardableResult
-    func removeCommand(withId id: XYIdentifier) -> XYExecutable? {
+    func removeCommand(withId id: XYIdentifier) -> XYCmd<Any>? {
         guard state == .idle else { return nil }
         if let index = commands.firstIndex(where: { $0.id == id }) {
             return commands.remove(at: index)
@@ -218,7 +219,7 @@ public extension XYGroupCmd {
     }
     
     // MARK: Update Commands
-    func updateCommand<T>(withId id: XYIdentifier, newCmd: XYCmd<T>) -> Bool {
+    func updateCommand(withId id: XYIdentifier, newCmd: XYCmd<Any>) -> Bool {
         guard state == .idle else { return false }
         if let index = commands.firstIndex(where: { $0.id == id }) {
             commands[index] = newCmd
@@ -228,16 +229,16 @@ public extension XYGroupCmd {
     }
     
     // MARK: Query Commands
-    func command(withId id: XYIdentifier) -> XYExecutable? {
+    func command(withId id: XYIdentifier) -> XYCmd<Any>? {
         return commands.first { $0.id == id }
     }
     
-    func command(at index: Int) -> XYExecutable? {
+    func command(at index: Int) -> XYCmd<Any>? {
         guard index >= 0 && index < commands.count else { return nil }
         return commands[index]
     }
     
-    var allCommands: [XYExecutable] {
+    var allCommands: [XYCmd<Any>] {
         return commands
     }
     
@@ -245,11 +246,11 @@ public extension XYGroupCmd {
         return commands.count
     }
     
-    var executedCommands: [XYExecutable] {
+    var executedCommands: [XYCmd<Any>] {
         return commands.filter { $0.state != .idle }
     }
     
-    var pendingCommands: [XYExecutable] {
+    var pendingCommands: [XYCmd<Any>] {
         return commands.filter { $0.state == .idle }
     }
     

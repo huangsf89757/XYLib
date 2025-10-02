@@ -11,7 +11,7 @@ import XYExtension
 import XYLog
 
 // MARK: - XYCmd
-open class XYCmd<ResultType>: XYExecutable {
+open class XYCmd<ResultType> {
     // MARK: log
     public internal(set) var logTag = "WorkFlow.Cmd"
         
@@ -19,26 +19,12 @@ open class XYCmd<ResultType>: XYExecutable {
     public let id: XYIdentifier
     
     // MARK: execution
-    public var executeTask: Task<ResultType, any Error>?
-    public var executeTime: Date?
-    public var finishTime: Date?
-    private let stateQueue = DispatchQueue(label: "XYCmd.state", attributes: .concurrent)
-    private var _state: XYState = .idle {
+    public internal(set) var executeTask: Task<ResultType, any Error>?
+    public internal(set) var executeTime: Date?
+    public internal(set) var finishTime: Date?
+    public internal(set) var state: XYState = .idle {
         didSet {
-            XYLog.info(id: id, tag: [logTag, "state"], content: "\(oldValue) → \(_state)")
-        }
-    }
-    public var state: XYState {
-        get {
-            return stateQueue.sync { _state }
-        }
-        set {
-            stateQueue.async(flags: .barrier) {
-                let oldValue = self._state
-                self._state = newValue
-                // 状态变化日志
-                XYLog.info(id: self.id, tag: [self.logTag, "state"], content: "\(oldValue) → \(newValue)")
-            }
+            XYLog.info(id: id, tag: [logTag, "state"], content: "\(oldValue) → \(state)")
         }
     }
     
@@ -47,7 +33,7 @@ open class XYCmd<ResultType>: XYExecutable {
     
     // MARK: retry
     public let maxRetries: Int?
-    public var curRetries: Int = 0
+    public internal(set) var curRetries: Int = 0
     public let retryDelay: TimeInterval?
     
     // MARK: hock
@@ -223,3 +209,110 @@ open class XYCmd<ResultType>: XYExecutable {
     }
 }
 
+// MARK: - State
+extension XYCmd {
+    /// 是否正在执行
+    public var isExecuting: Bool {
+        return state == .executing
+    }
+    
+    /// 是否已完成
+    public var isCompleted: Bool {
+        return state == .succeeded || state == .failed
+    }
+}
+
+// MARK: Execute
+extension XYCmd {
+    /// 当前执行是否已取消
+    public func isCancelled() -> Bool {
+        return state == .cancelled || Task.isCancelled
+    }
+        
+    /// 完成执行（更新状态、时间、日志）
+    public func finishExecution(tag: [String], state: XYState, result: ResultType?, error: Error?) {
+        let finishTime = Date()
+        self.finishTime = finishTime
+        self.state = state
+        
+        let durationInfo: String
+        if let executeTime = executeTime {
+            let duration = executeTime.distance(to: finishTime)
+            durationInfo = String(format: "duration=%.3fs", duration)
+        } else {
+            durationInfo = "duration=N/A"
+        }
+        
+        switch state {
+        case .idle, .executing:
+            // 正常流程不应走到这里
+            break
+        case .succeeded:
+            XYLog.info(id: id, tag: tag, process: .succ, content: durationInfo)
+        case .failed, .cancelled:
+            let err = normalizeError(error)
+            XYLog.info(id: id, tag: tag, process: .fail(err.info), content: durationInfo)
+        }
+    }
+}
+
+// MARK: Error
+extension XYCmd {
+    /// 标准化错误为 XYError（安全处理 nil）
+    public func normalizeError(_ error: Error?) -> XYError {
+        if let err = error as? XYError {
+            return err
+        }
+        return XYError.unknown(error)
+    }
+    
+    /// 判断错误是否可重试
+    public func checkErrorRetryEnable(error: Error) -> Bool {
+        if let err = error as? XYError {
+            switch err {
+            case .timeout, .other: // 超时和其他错误可重试
+                return true
+            default:
+                return false
+            }
+        }
+        return false // 非 XYError 默认不重试
+    }
+}
+
+// MARK: Timeout
+extension XYCmd {
+    /// 带超时的异步操作包装
+    public func withTimeout<T>(_ seconds: TimeInterval,
+                               operation: @escaping () async throws -> T) async throws -> T {
+        guard seconds > 0 else {
+            return try await operation()
+        }
+        
+        return try await withThrowingTaskGroup(of: T.self) { group in
+            // 主操作任务
+            group.addTask {
+                return try await operation()
+            }
+            // 超时任务
+            group.addTask {
+                try await Task.sleep(seconds: seconds)
+                throw XYError.timeout
+            }
+            // defer
+            defer {
+                group.cancelAll()
+            }
+            // result
+            if let result = try await group.next() {
+                return result
+            }
+            let fallbackError = NSError(
+                domain: "XYWorkflow",
+                code: -1,
+                userInfo: [NSLocalizedDescriptionKey: "Timeout task group returned no result"]
+            )
+            throw XYError.unknown(fallbackError)
+        }
+    }
+}
