@@ -40,7 +40,7 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
     
     // MARK: private properties
     /// 子命令
-    public private(set) var commands: [XYCmd<Any>] = []
+    public private(set) var commands: [any XYExecutable] = []
     /// 子命令执行结果
     public private(set) var results: ResultType = [:]
     /// 已取消的子命令
@@ -79,6 +79,7 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
                 // 只有非完成状态的命令才需要取消
                 if !cmd.isCompleted {
                     cmd.cancel()
+                    results[cmd.id] = XYError.cancelled
                 }
             }
         case .unexecuted:
@@ -86,7 +87,10 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
             let unexecutedCommands = commands.filter { cmd in
                 cmd.state == .idle
             }
-            unexecutedCommands.forEach { $0.cancel() }
+            unexecutedCommands.forEach { 
+                $0.cancel() 
+                results[$0.id] = XYError.cancelled
+            }
         }
         
         // 更新已取消命令的集合
@@ -113,9 +117,9 @@ extension XYGroupCmd {
         
         for cmd in commands {
             // 检查取消状态
-            if isCancelled() {
-                cmd.cancel()
-                cancelledCommands.insert(cmd.id)
+            if isCancelled {
+                markCancelled(cmd: cmd)
+                results[cmd.id] = XYError.cancelled
                 continue
             }
             
@@ -128,8 +132,8 @@ extension XYGroupCmd {
                     // 取消后续命令
                     let remainingCommands = commands.dropFirst(commands.firstIndex { $0.id == cmd.id }! + 1)
                     for remainingCmd in remainingCommands {
-                        remainingCmd.cancel()
-                        cancelledCommands.insert(remainingCmd.id)
+                        markCancelled(cmd: remainingCmd)
+                        results[remainingCmd.id] = XYError.cancelled
                     }
                     break
                 }
@@ -139,14 +143,16 @@ extension XYGroupCmd {
                     // 取消后续命令
                     let remainingCommands = commands.dropFirst(commands.firstIndex { $0.id == cmd.id }! + 1)
                     for remainingCmd in remainingCommands {
-                        remainingCmd.cancel()
-                        cancelledCommands.insert(remainingCmd.id)
+                        markCancelled(cmd: remainingCmd)
+                        results[remainingCmd.id] = XYError.cancelled
                     }
                     break
                 }
             }
         }
         
+        // 更新实例的results属性
+        self.results = results
         return results
     }
     
@@ -160,10 +166,15 @@ extension XYGroupCmd {
             }
             
             for cmd in self.commands {
-                // 检查组是否已被取消
-                if self.isCancelled() {
-                    cmd.cancel()
-                    await self.markCommandCancelled(cmd.id)
+                // 如果组已取消，直接标记并记录结果
+                if self.isCancelled {
+                    await self.markCancelled(cmd: cmd)
+                    await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
+                    continue
+                }
+                
+                // 如果命令本身已被外部取消，也提前记录结果
+                if cmd.isCancelled || cmd.isCompleted {
                     await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
                     continue
                 }
@@ -171,11 +182,10 @@ extension XYGroupCmd {
                 group.addTask { [weak self] in
                     guard let self = self else { return }
                     
-                    // 再次检查以确保任务启动时仍是有效的
-                    if self.isCancelled() {
-                        cmd.cancel()
+                    // 再次检查组取消状态
+                    if self.isCancelled {
                         await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
-                        await self.markCommandCancelled(cmd.id)
+                        await self.markCancelled(cmd: cmd)
                         return
                     }
                     
@@ -191,7 +201,10 @@ extension XYGroupCmd {
             // 等待所有任务完成
             try await group.waitForAll()
             
-            return await resultActor.getAllResults()
+            let results = await resultActor.getAllResults()
+            // 更新实例的results属性
+            self.results = results
+            return results
         }
     }
 }
@@ -211,27 +224,28 @@ private actor ResultActor {
 
 // MARK: - Execute Helpers
 extension XYGroupCmd {
-    private func markCommandCancelled(_ id: XYIdentifier) {
-        cancelledCommands.insert(id)
+    private func markCancelled(cmd: any XYExecutable) {
+        cmd.cancel()
+        cancelledCommands.insert(cmd.id)
     }
 }
 
 // MARK: - CRUD Operations
 public extension XYGroupCmd {
     // MARK: Add Commands
-    func addCommand(_ cmd: XYCmd<Any>) {
+    func addCommand(_ cmd: any XYExecutable) {
         guard state == .idle else { return }
         commands.append(cmd)
     }
     
-    func addCommands(_ cmds: [XYCmd<Any>]) {
+    func addCommands(_ cmds: [any XYExecutable]) {
         guard state == .idle else { return }
         for cmd in cmds {
             addCommand(cmd)
         }
     }
     
-    func insertCommand(_ cmd: XYCmd<Any>, at index: Int) {
+    func insertCommand(_ cmd: any XYExecutable, at index: Int) {
         guard state == .idle else { return }
         guard index >= 0 && index <= commands.count else { return }
         commands.insert(cmd, at: index)
@@ -239,7 +253,7 @@ public extension XYGroupCmd {
     
     // MARK: Remove Commands
     @discardableResult
-    func removeCommand(withId id: XYIdentifier) -> XYCmd<Any>? {
+    func removeCommand(withId id: XYIdentifier) -> XYExecutable? {
         guard state == .idle else { return nil }
         if let index = commands.firstIndex(where: { $0.id == id }) {
             return commands.remove(at: index)
@@ -261,26 +275,26 @@ public extension XYGroupCmd {
     }
     
     // MARK: Update Commands
-    func updateCommand(withId id: XYIdentifier, newCmd: XYCmd<Any>) -> Bool {
-        guard state == .idle else { return false }
+    func updateCommand(withId id: XYIdentifier, newCmd: any XYExecutable) -> Int? {
+        guard state == .idle else { return nil }
         if let index = commands.firstIndex(where: { $0.id == id }) {
             commands[index] = newCmd
-            return true
+            return index
         }
-        return false
+        return nil
     }
     
     // MARK: Query Commands
-    func command(withId id: XYIdentifier) -> XYCmd<Any>? {
+    func command(withId id: XYIdentifier) -> XYExecutable? {
         return commands.first { $0.id == id }
     }
     
-    func command(at index: Int) -> XYCmd<Any>? {
+    func command(at index: Int) -> XYExecutable? {
         guard index >= 0 && index < commands.count else { return nil }
         return commands[index]
     }
     
-    var allCommands: [XYCmd<Any>] {
+    var allCommands: [any XYExecutable] {
         return commands
     }
     
@@ -288,11 +302,11 @@ public extension XYGroupCmd {
         return commands.count
     }
     
-    var executedCommands: [XYCmd<Any>] {
+    var executedCommands: [any XYExecutable] {
         return commands.filter { $0.state != .idle }
     }
     
-    var pendingCommands: [XYCmd<Any>] {
+    var pendingCommands: [any XYExecutable] {
         return commands.filter { $0.state == .idle }
     }
     

@@ -14,6 +14,7 @@ import XYLog
 open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
     
     // MARK: var
+    private var continuation: CheckedContinuation<ResultType, any Error>?
     public let executionBlock: ((@escaping (Result<ResultType, Error>) -> Void) -> Void)?
     /// 在group中是否允许失败
     public var allowsFailureInGroup: Bool = true
@@ -31,63 +32,33 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
     
     // MARK: run
     open override func run() async throws -> ResultType {
-        let result: ResultType
-        // 包装执行逻辑（含超时）
-        if let block = executionBlock {
-            result = try await withCheckedThrowingContinuation { [weak self] continuation in
-                guard let strongSelf = self else {
-                    continuation.resume(throwing: XYError.cancelled)
-                    return
-                }
+        // 如果有执行块，直接执行它，否则调用父类实现
+        guard let block = executionBlock else {
+            return try await super.run()
+        }
+        
+        return try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
+            block { [weak self] result in
+                guard let self = self else { return }
+                guard !self.isCompleted else { return }
                 
-                // 检查是否已经被取消
-                guard !strongSelf.isCancelled() else {
-                    continuation.resume(throwing: XYError.cancelled)
-                    return
-                }
-                
-                var hasResumed = false
-                let cancellationObserver = Task {
-                    // 监听任务取消
-                    while !Task.isCancelled {
-                        try? await Task.sleep(nanoseconds: 1_000_000) // 1ms
-                    }
-                    // 任务被取消时，确保continuation被调用
-                    guard !hasResumed else { return }
-                    hasResumed = true
-                    continuation.resume(throwing: XYError.cancelled)
-                }
-                
-                block { [weak strongSelf] result in
-                    // 取消观察任务
-                    cancellationObserver.cancel()
-                    
-                    // 防止多次回调和检查取消状态
-                    guard !hasResumed else { return }
-                    guard let strongSelf = strongSelf else {
-                        hasResumed = true
-                        continuation.resume(throwing: XYError.cancelled)
-                        return
-                    }
-                    guard strongSelf.state != .cancelled else {
-                        hasResumed = true
-                        continuation.resume(throwing: XYError.cancelled)
-                        return
-                    }
-                    
-                    hasResumed = true
-                    switch result {
-                    case .success(let value):
-                        continuation.resume(returning: value)
-                    case .failure(let error):
-                        continuation.resume(throwing: error)
-                    }
+                switch result {
+                case .success(let value):
+                    continuation.resume(returning: value)
+                case .failure(let error):
+                    // 统一错误处理
+                    let normalizedError = self.normalizeError(error)
+                    continuation.resume(throwing: normalizedError)
                 }
             }
-        } else {
-            result = try await super.run()
         }
-        return result
+    }
+    
+    // MARK: cancel
+    open override func cancel() {
+        super.cancel()
+        self.continuation?.resume(throwing: XYError.cancelled)
     }
 }
 

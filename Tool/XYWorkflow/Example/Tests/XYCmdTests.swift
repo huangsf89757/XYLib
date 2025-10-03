@@ -1,6 +1,6 @@
 //
 //  XYCmdTests.swift
-//  YourAppTests
+//  XYWorkflow_Tests
 //
 //  Created by hsf on 2025/9/18.
 //
@@ -105,7 +105,7 @@ extension XYCmdTests {
             XCTFail("Expected to throw")
         } catch {
             if let xyErr = error as? XYError {
-                XCTAssertEqual(xyErr, .unknown(MockError.invalidInput))
+                XCTAssertEqual(xyErr, .other(MockError.invalidInput))
             } else {
                 XCTFail("Expected XYError, got: \(error)")
             }
@@ -187,12 +187,9 @@ extension XYCmdTests {
         
         Task {
             do {
-                print("test_cancel_execution", "1")
                 _ = try await cmd.execute()
-                print("test_cancel_execution", "2")
                 XCTFail("Should have been cancelled")
             } catch {
-                print("test_cancel_execution", "5")
                 if let xyErr = error as? XYError, xyErr == .cancelled {
                     expectation.fulfill()
                 } else {
@@ -202,12 +199,54 @@ extension XYCmdTests {
         }
         
         // 稍等后取消
-        print("test_cancel_execution", "3")
         try await Task.sleep(nanoseconds: 10_000_000) // 10ms
-        print("test_cancel_execution", "4")
         cmd.cancel()
         
         await waitForExpectations(timeout: 3)
+    }
+    
+    // 7.1 测试在执行前取消
+    func test_cancel_before_execution() async throws {
+        let cmd = TestCmd()
+        
+        cmd.cancel()
+        
+        do {
+            _ = try await cmd.execute()
+            XCTFail("Should have been cancelled")
+        } catch {
+            XCTAssertEqual(error as? XYError, .cancelled)
+        }
+        
+        XCTAssertEqual(cmd.state, .cancelled)
+    }
+    
+    // 7.2 测试在重试过程中取消
+    func test_cancel_during_retry() async throws {
+        let cmd = TestCmd(maxRetries: 5, retryDelay: 0.1)
+        cmd.errorToThrow = XYError.other(MockError.network) // 可重试错误
+        
+        let expectation = self.expectation(description: "Command cancelled during retry")
+        
+        Task {
+            do {
+                _ = try await cmd.execute()
+                XCTFail("Should have been cancelled")
+            } catch {
+                if let xyErr = error as? XYError, xyErr == .cancelled {
+                    expectation.fulfill()
+                } else {
+                    XCTFail("Unexpected error: \(error)")
+                }
+            }
+        }
+        
+        // 等待一段时间让重试开始
+        try await Task.sleep(nanoseconds: 50_000_000) // 50ms
+        cmd.cancel()
+        
+        await waitForExpectations(timeout: 3)
+        XCTAssertTrue(cmd.runCallCount >= 1)
     }
     
     // 8. 重复执行防护
@@ -233,39 +272,7 @@ extension XYCmdTests {
         XCTAssertEqual(cmd.state, .succeeded)
     }
     
-    // 9. executionBlock 模式 - 成功
-    func test_executionBlock_success() async throws {
-        let cmd = XYCmd<String>(executionBlock: { completion in
-            DispatchQueue.global().asyncAfter(deadline: .now() + 0.01) {
-                completion(.success("From block"))
-            }
-        })
-        
-        let result = try await cmd.execute()
-        XCTAssertEqual(result, "From block")
-        XCTAssertEqual(cmd.state, .succeeded)
-    }
-    
-    // 10. executionBlock 模式 - 失败
-    func test_executionBlock_failure() async throws {
-        let cmd = XYCmd<String>(executionBlock: { completion in
-            completion(.failure(MockError.network))
-        })
-        
-        do {
-            _ = try await cmd.execute()
-            XCTFail("Expected failure")
-        } catch {
-            if let xyErr = error as? XYError {
-                XCTAssertEqual(xyErr, .unknown(MockError.network))
-            } else {
-                XCTFail("Unexpected error type")
-            }
-        }
-        XCTAssertEqual(cmd.state, .failed)
-    }
-    
-    // 11. 无重试：maxRetries = nil
+    // 9. 无重试：maxRetries = nil
     func test_noRetry_when_maxRetries_nil() async throws {
         let cmd = TestCmd(maxRetries: nil)
         cmd.errorToThrow = XYError.other(MockError.network)
@@ -279,7 +286,7 @@ extension XYCmdTests {
         XCTAssertEqual(cmd.runCallCount, 1)
     }
     
-    // 12. 无重试：maxRetries = 0
+    // 10. 无重试：maxRetries = 0
     func test_noRetry_when_maxRetries_zero() async throws {
         let cmd = TestCmd(maxRetries: 0)
         cmd.errorToThrow = XYError.other(MockError.network)
@@ -291,5 +298,231 @@ extension XYCmdTests {
             // 不重试
         }
         XCTAssertEqual(cmd.runCallCount, 1)
+    }
+    
+    // 11. 测试可重试错误类型
+    func test_retryable_errors() async throws {
+        let cmd = TestCmd(maxRetries: 1)
+        
+        // 测试timeout错误（可重试）
+        cmd.errorToThrow = XYError.timeout
+        do {
+            _ = try await cmd.execute()
+            XCTFail("Expected to fail")
+        } catch {
+            XCTAssertEqual(error as? XYError, .maxRetryExceeded)
+        }
+        XCTAssertEqual(cmd.runCallCount, 2) // 初始 + 1次重试
+        cmd.runCallCount = 0
+        
+        // 测试other错误（可重试）
+        cmd.errorToThrow = XYError.other(nil)
+        do {
+            _ = try await cmd.execute()
+            XCTFail("Expected to fail")
+        } catch {
+            XCTAssertEqual(error as? XYError, .maxRetryExceeded)
+        }
+        XCTAssertEqual(cmd.runCallCount, 2) // 初始 + 1次重试
+        cmd.runCallCount = 0
+        
+        // 测试cancelled错误（不可重试）
+        cmd.errorToThrow = XYError.cancelled
+        do {
+            _ = try await cmd.execute()
+            XCTFail("Expected to fail")
+        } catch {
+            XCTAssertEqual(error as? XYError, .cancelled)
+        }
+        XCTAssertEqual(cmd.runCallCount, 1) // 不重试
+        cmd.runCallCount = 0
+        
+        // 测试executing错误（不可重试）
+        cmd.errorToThrow = XYError.executing
+        do {
+            _ = try await cmd.execute()
+            XCTFail("Expected to fail")
+        } catch {
+            XCTAssertEqual(error as? XYError, .executing)
+        }
+        XCTAssertEqual(cmd.runCallCount, 1) // 不重试
+        cmd.runCallCount = 0
+        
+        // 测试maxRetryExceeded错误（不可重试）
+        cmd.errorToThrow = XYError.maxRetryExceeded
+        do {
+            _ = try await cmd.execute()
+            XCTFail("Expected to fail")
+        } catch {
+            XCTAssertEqual(error as? XYError, .maxRetryExceeded)
+        }
+        XCTAssertEqual(cmd.runCallCount, 1) // 不重试
+        cmd.runCallCount = 0
+        
+        // 测试notImplemented错误（不可重试）
+        cmd.errorToThrow = XYError.notImplemented
+        do {
+            _ = try await cmd.execute()
+            XCTFail("Expected to fail")
+        } catch {
+            XCTAssertEqual(error as? XYError, .notImplemented)
+        }
+        XCTAssertEqual(cmd.runCallCount, 1) // 不重试
+        cmd.runCallCount = 0
+    }
+    
+    // 12. 测试状态查询方法
+    func test_stateQueryMethods() async throws {
+        let cmd = TestCmd()
+        cmd.delayBeforeRun = 0.1 // 添加延迟以确保有足够时间检测执行中状态
+        
+        // 初始状态
+        XCTAssertEqual(cmd.state, .idle)
+        XCTAssertFalse(cmd.isExecuting)
+        XCTAssertFalse(cmd.isCompleted)
+        
+        // 启动执行
+        let executionTask = Task {
+            try await cmd.execute()
+        }
+        
+        // 等待一小段时间确保进入执行状态
+        try await Task.sleep(nanoseconds: 1_000_000) // 1ms
+        
+        // 验证执行中状态
+        XCTAssertEqual(cmd.state, .executing)
+        XCTAssertTrue(cmd.isExecuting)
+        XCTAssertFalse(cmd.isCompleted)
+        
+        // 等待任务完成
+        let result = try await executionTask.value
+        
+        // 验证完成状态
+        XCTAssertEqual(cmd.state, .succeeded)
+        XCTAssertFalse(cmd.isExecuting)
+        XCTAssertTrue(cmd.isCompleted)
+        XCTAssertEqual(result, "Success")
+    }
+    
+    // 13. 测试钩子函数
+    func test_hookFunctions() async throws {
+        let cmd = TestCmd()
+        
+        var willExecuteCalled = false
+        var didExecuteCalled = false
+        var retryCalled = false
+        
+        cmd.onWillExecute = {
+            willExecuteCalled = true
+        }
+        
+        cmd.onDidExecute = { result in
+            didExecuteCalled = true
+            switch result {
+            case .success(let value):
+                XCTAssertEqual(value, "Success")
+            case .failure:
+                XCTFail("Expected success")
+            }
+        }
+        
+        cmd.onRetry = { error, retryCount in
+            retryCalled = true
+        }
+        
+        _ = try await cmd.execute()
+        
+        XCTAssertTrue(willExecuteCalled)
+        XCTAssertTrue(didExecuteCalled)
+        XCTAssertFalse(retryCalled) // 没有重试
+    }
+    
+    // 14. 测试带重试的钩子函数
+    func test_hookFunctionsWithRetry() async throws {
+        let cmd = TestCmd(maxRetries: 1, retryDelay: 0.01)
+        cmd.errorToThrow = XYError.timeout
+        cmd.shouldSucceedOnAttempt = 2
+        
+        var willExecuteCalled = false
+        var didExecuteCalled = false
+        var retryCalled = false
+        var retryCountAtRetry = 0
+        
+        cmd.onWillExecute = {
+            willExecuteCalled = true
+        }
+        
+        cmd.onDidExecute = { result in
+            didExecuteCalled = true
+            switch result {
+            case .success(let value):
+                XCTAssertEqual(value, "Success on attempt 2")
+            case .failure:
+                XCTFail("Expected success")
+            }
+        }
+        
+        cmd.onRetry = { error, retryCount in
+            retryCalled = true
+            retryCountAtRetry = retryCount
+            XCTAssertEqual(error as? XYError, .timeout)
+        }
+        
+        _ = try await cmd.execute()
+        
+        XCTAssertTrue(willExecuteCalled)
+        XCTAssertTrue(didExecuteCalled)
+        XCTAssertTrue(retryCalled)
+        XCTAssertEqual(retryCountAtRetry, 1)
+    }
+    
+    // 15. 测试异步状态变化
+    func test_asyncStateChanges() async throws {
+        let cmd = TestCmd()
+        cmd.delayBeforeRun = 0.1 // 短暂延迟以确保状态变化可观察
+        
+        // 初始状态
+        XCTAssertEqual(cmd.state, .idle)
+        XCTAssertFalse(cmd.isExecuting)
+        XCTAssertFalse(cmd.isCompleted)
+        
+        let expectation = self.expectation(description: "Command execution completed")
+        var executionResult: Result<String, Error>?
+        
+        // 异步执行命令
+        Task {
+            do {
+                let result = try await cmd.execute()
+                executionResult = .success(result)
+            } catch {
+                executionResult = .failure(error)
+            }
+            expectation.fulfill()
+        }
+        
+        // 短暂等待以确保命令进入执行状态
+        try await Task.sleep(nanoseconds: 50_000_000) // 50ms
+        
+        // 验证执行中状态
+        XCTAssertEqual(cmd.state, .executing)
+        XCTAssertTrue(cmd.isExecuting)
+        XCTAssertFalse(cmd.isCompleted)
+        
+        // 等待执行完成
+        await waitForExpectations(timeout: 1)
+        
+        // 验证完成状态
+        XCTAssertEqual(cmd.state, .succeeded)
+        XCTAssertFalse(cmd.isExecuting)
+        XCTAssertTrue(cmd.isCompleted)
+        XCTAssertNotNil(executionResult)
+        switch executionResult {
+        case .success(let value):
+            XCTAssertEqual(value, "Success")
+        case .failure(let error):
+            XCTFail("Unexpected error: \(error)")
+        case .none:
+            XCTFail("Execution result should not be nil")
+        }
     }
 }

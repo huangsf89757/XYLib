@@ -15,7 +15,6 @@ public enum XYError: Error {
     case maxRetryExceeded           // 超出最大重试次数
     case notImplemented             // 子类未实现 run
     case other(Error?)              // 其他错误
-    case unknown(Error?)            // 未知错误
     
     public var info: String {
         var desc = ""
@@ -27,8 +26,6 @@ public enum XYError: Error {
         case .notImplemented: desc = "notImplemented"
         case .other(let error):
             desc = error?.localizedDescription ?? "other"
-        case .unknown(let error):
-            desc = error?.localizedDescription ?? "unknown"
         }
         return "\(desc)(\(code))"
     }
@@ -41,7 +38,6 @@ public enum XYError: Error {
         case .maxRetryExceeded: return 4
         case .notImplemented: return 5
         case .other: return 6
-        case .unknown: return -99
         }
     }
 }
@@ -54,8 +50,7 @@ extension XYError: Equatable {
              (.maxRetryExceeded, .maxRetryExceeded),
              (.notImplemented, .notImplemented):
             return true
-        case let (.other(lhsErr), .other(rhsErr)),
-             let (.unknown(lhsErr), .unknown(rhsErr)):
+        case let (.other(lhsErr), .other(rhsErr)):
             // 处理nil错误的情况
             if lhsErr == nil && rhsErr == nil {
                 return true
@@ -78,7 +73,7 @@ extension XYError: Hashable {
         case .executing: hasher.combine("executing")
         case .maxRetryExceeded: hasher.combine("maxRetryExceeded")
         case .notImplemented: hasher.combine("notImplemented")
-        case .other(let error), .unknown(let error):
+        case .other(let error):
             if let err = error as NSError? {
                 hasher.combine(err.domain)
                 hasher.combine(err.code)

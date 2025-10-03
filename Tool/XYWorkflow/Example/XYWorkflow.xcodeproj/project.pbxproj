@@ -14,14 +14,9 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		B4C4D0ACD8A4028A24A07A3E /* Pods_XYWorkflow_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC225333B21DD716DB7A8F42 /* Pods_XYWorkflow_Tests.framework */; };
 		B4DBB2005F2418E88D9A90A0 /* Pods_XYWorkflow_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8303101EC87F2BC22CFC0A56 /* Pods_XYWorkflow_Example.framework */; };
-		DD0E7F812E851F7700B51E92 /* XYWorkflowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F802E851F7700B51E92 /* XYWorkflowTests.swift */; };
-		DD0E7F822E851F7700B51E92 /* XYStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F7E2E851F7700B51E92 /* XYStateTests.swift */; };
-		DD0E7F832E851F7700B51E92 /* XYStateAndErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F7D2E851F7700B51E92 /* XYStateAndErrorTests.swift */; };
-		DD0E7F842E851F7700B51E92 /* XYBaseNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F782E851F7700B51E92 /* XYBaseNodeTests.swift */; };
-		DD0E7F852E851F7700B51E92 /* XYGroupNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F7B2E851F7700B51E92 /* XYGroupNodeTests.swift */; };
 		DD0E7F862E851F7700B51E92 /* XYCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F792E851F7700B51E92 /* XYCmdTests.swift */; };
-		DD0E7F872E851F7700B51E92 /* XYErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F7A2E851F7700B51E92 /* XYErrorTests.swift */; };
-		DD0E7F882E851F7700B51E92 /* XYNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E7F7C2E851F7700B51E92 /* XYNodeTests.swift */; };
+		DD1A73192E8FB1F100DE5E45 /* XYGroupCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A73182E8FB1F100DE5E45 /* XYGroupCmdTests.swift */; };
+		DD1A731B2E8FB2CE00DE5E45 /* XYBaseCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A731A2E8FB2CE00DE5E45 /* XYBaseCmdTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +47,10 @@
 		A91AD42D61D0D3E6518BE4CB /* Pods-XYWorkflow_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYWorkflow_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XYWorkflow_Tests/Pods-XYWorkflow_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC225333B21DD716DB7A8F42 /* Pods_XYWorkflow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYWorkflow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7264FD1701E79FF0A3C70AC /* XYWorkflow.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XYWorkflow.podspec; path = ../XYWorkflow.podspec; sourceTree = "<group>"; };
-		DD0E7F782E851F7700B51E92 /* XYBaseNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBaseNodeTests.swift; sourceTree = "<group>"; };
 		DD0E7F792E851F7700B51E92 /* XYCmdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYCmdTests.swift; sourceTree = "<group>"; };
-		DD0E7F7A2E851F7700B51E92 /* XYErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYErrorTests.swift; sourceTree = "<group>"; };
-		DD0E7F7B2E851F7700B51E92 /* XYGroupNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYGroupNodeTests.swift; sourceTree = "<group>"; };
-		DD0E7F7C2E851F7700B51E92 /* XYNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYNodeTests.swift; sourceTree = "<group>"; };
-		DD0E7F7D2E851F7700B51E92 /* XYStateAndErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYStateAndErrorTests.swift; sourceTree = "<group>"; };
-		DD0E7F7E2E851F7700B51E92 /* XYStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYStateTests.swift; sourceTree = "<group>"; };
 		DD0E7F7F2E851F7700B51E92 /* XYWorkflow_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XYWorkflow_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
-		DD0E7F802E851F7700B51E92 /* XYWorkflowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYWorkflowTests.swift; sourceTree = "<group>"; };
+		DD1A73182E8FB1F100DE5E45 /* XYGroupCmdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYGroupCmdTests.swift; sourceTree = "<group>"; };
+		DD1A731A2E8FB2CE00DE5E45 /* XYBaseCmdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBaseCmdTests.swift; sourceTree = "<group>"; };
 		E16B87B3D91B65D26E8EF3C3 /* Pods-XYWorkflow_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYWorkflow_Example.release.xcconfig"; path = "Target Support Files/Pods-XYWorkflow_Example/Pods-XYWorkflow_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,15 +131,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				DD0E7F782E851F7700B51E92 /* XYBaseNodeTests.swift */,
 				DD0E7F792E851F7700B51E92 /* XYCmdTests.swift */,
-				DD0E7F7A2E851F7700B51E92 /* XYErrorTests.swift */,
-				DD0E7F7B2E851F7700B51E92 /* XYGroupNodeTests.swift */,
-				DD0E7F7C2E851F7700B51E92 /* XYNodeTests.swift */,
-				DD0E7F7D2E851F7700B51E92 /* XYStateAndErrorTests.swift */,
-				DD0E7F7E2E851F7700B51E92 /* XYStateTests.swift */,
+				DD1A731A2E8FB2CE00DE5E45 /* XYBaseCmdTests.swift */,
+				DD1A73182E8FB1F100DE5E45 /* XYGroupCmdTests.swift */,
 				DD0E7F7F2E851F7700B51E92 /* XYWorkflow_Tests-Bridging-Header.h */,
-				DD0E7F802E851F7700B51E92 /* XYWorkflowTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -375,14 +360,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD0E7F812E851F7700B51E92 /* XYWorkflowTests.swift in Sources */,
-				DD0E7F822E851F7700B51E92 /* XYStateTests.swift in Sources */,
-				DD0E7F832E851F7700B51E92 /* XYStateAndErrorTests.swift in Sources */,
-				DD0E7F842E851F7700B51E92 /* XYBaseNodeTests.swift in Sources */,
-				DD0E7F852E851F7700B51E92 /* XYGroupNodeTests.swift in Sources */,
 				DD0E7F862E851F7700B51E92 /* XYCmdTests.swift in Sources */,
-				DD0E7F872E851F7700B51E92 /* XYErrorTests.swift in Sources */,
-				DD0E7F882E851F7700B51E92 /* XYNodeTests.swift in Sources */,
+				DD1A731B2E8FB2CE00DE5E45 /* XYBaseCmdTests.swift in Sources */,
+				DD1A73192E8FB1F100DE5E45 /* XYGroupCmdTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

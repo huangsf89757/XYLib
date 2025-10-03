@@ -143,7 +143,6 @@ classDiagram
 - `.maxRetryExceeded`: 超出最大重试次数
 - `.notImplemented`: 子类未实现 run 方法
 - `.other(Error?)`: 其他错误
-- `.unknown(Error?)`: 未知错误
 
 ## 安装
 
