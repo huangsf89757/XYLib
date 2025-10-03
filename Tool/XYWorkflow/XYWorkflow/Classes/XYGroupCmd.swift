@@ -75,7 +75,12 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
         switch cancelMode {
         case .all:
             // 中断所有命令（包括正在执行的）
-            commands.forEach { $0.cancel() }
+            commands.forEach { cmd in
+                // 只有非完成状态的命令才需要取消
+                if !cmd.isCompleted {
+                    cmd.cancel()
+                }
+            }
         case .unexecuted:
             // 仅中断未执行的命令
             let unexecutedCommands = commands.filter { cmd in
@@ -83,6 +88,10 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
             }
             unexecutedCommands.forEach { $0.cancel() }
         }
+        
+        // 更新已取消命令的集合
+        let cancelledIds = commands.filter { $0.state == .cancelled }.map { $0.id }
+        cancelledCommands.formUnion(cancelledIds)
         
         finishExecution(tag: tag, state: .cancelled, result: nil, error: XYError.cancelled)
     }
@@ -142,35 +151,68 @@ extension XYGroupCmd {
     }
     
     private func executeConcurrently() async throws -> ResultType {
-        var results: [XYIdentifier: Any] = [:]
-        var tasks: [Task<Void, Never>] = []
+        let resultActor = ResultActor()
         
-        // 创建所有任务
-        for cmd in commands {
-            let task = Task {
-                // 检查取消状态
-                if isCancelled() {
+        // 使用 TaskGroup 直接管理任务，避免中间数组
+        return try await withThrowingTaskGroup(of: Void.self) { [weak self] group in
+            guard let self = self else {
+                throw XYError.cancelled
+            }
+            
+            for cmd in self.commands {
+                // 检查组是否已被取消
+                if self.isCancelled() {
                     cmd.cancel()
-                    cancelledCommands.insert(cmd.id)
-                    return
+                    await self.markCommandCancelled(cmd.id)
+                    await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
+                    continue
                 }
                 
-                do {
-                    let result = try await cmd.execute()
-                    results[cmd.id] = result
-                } catch {
-                    results[cmd.id] = error
+                group.addTask { [weak self] in
+                    guard let self = self else { return }
+                    
+                    // 再次检查以确保任务启动时仍是有效的
+                    if self.isCancelled() {
+                        cmd.cancel()
+                        await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
+                        await self.markCommandCancelled(cmd.id)
+                        return
+                    }
+                    
+                    do {
+                        let result = try await cmd.execute()
+                        await resultActor.setResult(for: cmd.id, result: result)
+                    } catch {
+                        await resultActor.setResult(for: cmd.id, result: error)
+                    }
                 }
             }
-            tasks.append(task)
+            
+            // 等待所有任务完成
+            try await group.waitForAll()
+            
+            return await resultActor.getAllResults()
         }
-        
-        // 等待所有任务完成
-        for task in tasks {
-            await task.value
-        }
-        
+    }
+}
+
+// MARK: - Result Actor
+private actor ResultActor {
+    private var results: [XYIdentifier: Any] = [:]
+    
+    func setResult(for id: XYIdentifier, result: Any) {
+        results[id] = result
+    }
+    
+    func getAllResults() -> [XYIdentifier: Any] {
         return results
+    }
+}
+
+// MARK: - Execute Helpers
+extension XYGroupCmd {
+    private func markCommandCancelled(_ id: XYIdentifier) {
+        cancelledCommands.insert(id)
     }
 }
 

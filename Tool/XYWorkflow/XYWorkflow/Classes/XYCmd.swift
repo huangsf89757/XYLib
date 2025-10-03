@@ -62,10 +62,7 @@ open class XYCmd<ResultType> {
         
         // 状态检查
         if state == .cancelled {
-            let finalError = XYError.cancelled
-            finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
-            onDidExecute?(.failure(finalError))
-            throw finalError
+            return try await handleCancellationIfNeeded(tag: tag)
         }
         if state == .executing {
             let finalError = XYError.executing
@@ -85,14 +82,19 @@ open class XYCmd<ResultType> {
             return result
         } catch {
             // 如果任务被取消，抛出取消错误
-            if executeTask.isCancelled {
-                let finalError = XYError.cancelled
-                finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
-                onDidExecute?(.failure(finalError))
-                throw finalError
+            if executeTask.isCancelled || isCancelled() {
+                return try await handleCancellationIfNeeded(tag: tag)
             }
             throw error
         }
+    }
+    
+    /// 处理取消逻辑
+    private func handleCancellationIfNeeded(tag: [String]) async throws -> ResultType {
+        let finalError = XYError.cancelled
+        finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
+        onDidExecute?(.failure(finalError))
+        throw finalError
     }
     
     private func executeImp() async throws -> ResultType {
@@ -105,23 +107,17 @@ open class XYCmd<ResultType> {
         
         // 重试循环
         while true {
+            // 执行前检查取消状态
+            if isCancelled() {
+                return try await handleCancellationIfNeeded(tag: tag)
+            }
+            
             do {
-                // 执行前检查取消状态
-                if isCancelled() {
-                    let finalError = XYError.cancelled
-                    finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
-                    onDidExecute?(.failure(finalError))
-                    throw finalError
-                }
-                
                 let result = try await executeWithTimeout()
                 
                 // 执行后检查取消状态
                 if isCancelled() {
-                    let finalError = XYError.cancelled
-                    finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
-                    onDidExecute?(.failure(finalError))
-                    throw finalError
+                    return try await handleCancellationIfNeeded(tag: tag)
                 }
                 
                 finishExecution(tag: tag, state: .succeeded, result: result, error: nil)
@@ -130,11 +126,8 @@ open class XYCmd<ResultType> {
                 
             } catch let error {
                 // 检查是否已被取消
-                if isCancelled() {
-                    let finalError = XYError.cancelled
-                    finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
-                    onDidExecute?(.failure(finalError))
-                    throw finalError
+                if isCancelled() || Task.isCancelled {
+                    return try await handleCancellationIfNeeded(tag: tag)
                 }
                 
                 // 判断是否支持重试
@@ -164,11 +157,8 @@ open class XYCmd<ResultType> {
                 // 重试延迟 - 检查取消状态
                 if let retryDelay = retryDelay, retryDelay > 0 {
                     try await Task.sleep(seconds: retryDelay)
-                    if isCancelled() {
-                        let finalError = XYError.cancelled
-                        finishExecution(tag: tag, state: .cancelled, result: nil, error: finalError)
-                        onDidExecute?(.failure(finalError))
-                        throw finalError
+                    if isCancelled() || Task.isCancelled {
+                        return try await handleCancellationIfNeeded(tag: tag)
                     }
                 }
                 
@@ -218,7 +208,7 @@ extension XYCmd {
     
     /// 是否已完成
     public var isCompleted: Bool {
-        return state == .succeeded || state == .failed
+        return state == .succeeded || state == .failed || state == .cancelled
     }
 }
 
@@ -231,6 +221,9 @@ extension XYCmd {
         
     /// 完成执行（更新状态、时间、日志）
     public func finishExecution(tag: [String], state: XYState, result: ResultType?, error: Error?) {
+        // 防止重复设置状态
+        guard self.state != .cancelled || state == .cancelled else { return }
+        
         let finishTime = Date()
         self.finishTime = finishTime
         self.state = state
@@ -289,30 +282,59 @@ extension XYCmd {
             return try await operation()
         }
         
-        return try await withThrowingTaskGroup(of: T.self) { group in
+        return try await withThrowingTaskGroup(of: T.self) { [weak self] group in
+            guard let self = self else {
+                throw XYError.cancelled
+            }
+            
             // 主操作任务
-            group.addTask {
+            let operationTask = group.addTaskUnlessCancelled {
                 return try await operation()
             }
+            
+            // 如果添加任务失败（因为group已被取消），直接抛出取消错误
+            guard operationTask != nil else {
+                throw XYError.cancelled
+            }
+            
             // 超时任务
-            group.addTask {
+            let timeoutTask = group.addTaskUnlessCancelled {
                 try await Task.sleep(seconds: seconds)
                 throw XYError.timeout
             }
-            // defer
-            defer {
+            
+            // 如果添加超时任务失败，确保取消主任务
+            guard timeoutTask != nil else {
+                throw XYError.cancelled
+            }
+            
+            // 等待第一个完成的任务
+            do {
+                if let result = try await group.next() {
+                    // 取消剩余任务
+                    group.cancelAll()
+                    return result
+                } else {
+                    // 这种情况理论上不会发生，但为了安全起见处理一下
+                    group.cancelAll()
+                    let fallbackError = NSError(
+                        domain: "XYWorkflow",
+                        code: -1,
+                        userInfo: [NSLocalizedDescriptionKey: "Timeout task group returned no result"]
+                    )
+                    throw XYError.unknown(fallbackError)
+                }
+            } catch {
+                // 取消所有任务并重新抛出错误
                 group.cancelAll()
+                
+                // 检查是否是由于取消导致的错误
+                if self.isCancelled() || Task.isCancelled {
+                    throw XYError.cancelled
+                }
+                
+                throw error
             }
-            // result
-            if let result = try await group.next() {
-                return result
-            }
-            let fallbackError = NSError(
-                domain: "XYWorkflow",
-                code: -1,
-                userInfo: [NSLocalizedDescriptionKey: "Timeout task group returned no result"]
-            )
-            throw XYError.unknown(fallbackError)
         }
     }
 }

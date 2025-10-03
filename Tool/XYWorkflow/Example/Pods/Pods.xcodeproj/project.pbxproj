@@ -9,415 +9,429 @@
 /* Begin PBXBuildFile section */
 		02D2DB67E038F3DAD4147733C3DAC7FC /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 12841E3D5818E8429FE2A314CC61BB1D /* DDASLLogCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A2F129675A123392B7D1BECE40A130A /* ConfigurationGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98750E6EB31BD132BE09F82CFC33FE8A /* ConfigurationGlobals.swift */; };
-		0D5576321088B1BEA9F7A144A27F9E1F /* CBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B000522CBE83BF49376B2884F4F57FF /* CBService.swift */; };
-		113DFBB7B9CEAB8738B6D02C7F6A02C9 /* XYBaseCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC217E335AA54DACB6191C906798B02 /* XYBaseCmd.swift */; };
+		0D5576321088B1BEA9F7A144A27F9E1F /* CBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5CAFA225F0145F31DC1006A612A0AB /* CBService.swift */; };
 		13DCDFFC9554DA1A0F87C94C7589198A /* DDLog+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080384FDE0C5D53404B354A59978ED3D /* DDLog+Combine.swift */; };
 		14A37558E0138C9C3201C28578DA6EED /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = B6B840AC77134B17065589DD0BCCF20A /* CocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		179439396BE32AAC0EBD8AF986573053 /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B5EDA8281CEFFA99A87A8FB04FBA3562 /* DDAssertMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B54B5D6BBE60B992AD6E0B0C38B54D8 /* DDFileLogger+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = B1A374E07E1A819FC6D8DAEF6C305CA3 /* DDFileLogger+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1F2E942F3EB5C42A643D42C48D5F25A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		1E4052951B0B64F17CD1F41F8ACFC710 /* XYThreadSafeProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888C6F3AEA23CC82B1E4DAAD027B438 /* XYThreadSafeProperty.swift */; };
+		22DD3AEF71A8DFFC8C0EDB12F4C6AC56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		24D15A77ECEF55B4AF06475C61741FF9 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C110FC02D5CF1EF5979A5E55812F974 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		250DB522E2B88BC538C5B468436228DC /* SwiftLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F21D732E44D2E9362E7F9B487D6868F /* SwiftLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2733510A514D7675164F45CB18824C5B /* XYGroupCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F41EEF34C88593FC556461D2F76F3DC /* XYGroupCmd.swift */; };
 		2962C56DA00F10C519469C70EB1087B3 /* CocoaLumberjack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F28577F6BA0AD72B5C242F8910348D5 /* CocoaLumberjack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29827121EBBA5E0E0B4DF0FB3D49F62A /* XYError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCEF615799F71F801DC5382997C107 /* XYError.swift */; };
 		29BDDC01383FE4EFAE91FAD81173DB1D /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 427EF0065173EC44A25C8782F203112D /* DDMultiFormatter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2B1C41D9632BEDCFD2C938455C888D53 /* XYExtendableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D084A5152E6D9C3527D10B887B9538F /* XYExtendableNode.swift */; };
-		2D9A5590A40C85BECB08EA2A9D333B48 /* XYLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06169E5D5E6CA9DB10B27A0AF629EA20 /* XYLog.swift */; };
-		2D9DF87690C7B19EC6C3DB3AEF63DA80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
-		2F7517C7E3B15746C8BCE4D6F005E631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		2B1C41D9632BEDCFD2C938455C888D53 /* XYExtendableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA13E6C7EE14572F8448F25E0DFA32C3 /* XYExtendableNode.swift */; };
+		2D9A5590A40C85BECB08EA2A9D333B48 /* XYLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D831049B86DCA6775B1621F523F8BB3 /* XYLog.swift */; };
+		2FE87ADE670525719D8F6F4799A8CBEB /* XYAtomicFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812203D8A81FF15942942474FD972106 /* XYAtomicFlag.swift */; };
 		31D438A21BC48969CE40DA7B8F8696D6 /* DDLogMessageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743261495DCC545DC02616D137421B93 /* DDLogMessageFormat.swift */; };
 		31EC44195CE185D62C25267D912B289D /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF7F6FE1A26574C0931A1F4678CE075 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		33F23B070038F6D76D0AB67F99DDBD5E /* XYWorkflow-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3A5C1F234187E227A845F28A8880E5 /* XYWorkflow-dummy.m */; };
 		33F6C22C252F68895191E0B607CA9E40 /* DDOSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A0EB1B2568FEDFB13CE301FD673A69 /* DDOSLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		34D2EDF876CE70A35B5F9196B5620BB7 /* CBCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF6C8410F66258BAE63CC1B0F55628 /* CBCharacteristic.swift */; };
+		34D2EDF876CE70A35B5F9196B5620BB7 /* CBCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABA4D60E2AD0954E447F489D3F14F3 /* CBCharacteristic.swift */; };
 		382D7EFEA162625970C527DAFAB436AF /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E938313F120E7FE0DE1F4E1E7A9073 /* DDLog.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		39F876C4D456E72A0B9BB3A74B65FA85 /* XYUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3ABE1F7EF726B5D65F9570106A8951 /* XYUtil.swift */; };
 		3ACE372CF7B67698C061FC17C4224E8C /* Pods-XYWorkflow_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D19BE84E3C262893280AA7ADCCFFA4 /* Pods-XYWorkflow_Tests-dummy.m */; };
-		3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjackPrivacy.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */; };
-		3DB578487C35E36A4F6A389057BB2319 /* CBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D31BF58A408009652A88B14D95317 /* CBPeripheral.swift */; };
-		3EEA30B20CAFD4951156915B000BAF7A /* XYExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8981E439989D25E2395667EA4B94B /* XYExtension-dummy.m */; };
-		4006B5D7DF64C9BAFC04171D71414EA9 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B3136A8A8C558A1AD76D7C127F4AFF /* JSON.swift */; };
+		3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjack-CocoaLumberjackPrivacy in Resources */ = {isa = PBXBuildFile; fileRef = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */; };
+		3DB578487C35E36A4F6A389057BB2319 /* CBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07485CEF8D799FBFC0F1D7D2BDF646 /* CBPeripheral.swift */; };
+		3EBDF18E2FCDF8CBAA6D722F042E715F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		3EEA30B20CAFD4951156915B000BAF7A /* XYExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C2EF351A7CC7EB3BFD59E21225C23 /* XYExtension-dummy.m */; };
+		4006B5D7DF64C9BAFC04171D71414EA9 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73BF21607D1BC16ABC5E84BAC4AD9CB /* JSON.swift */; };
+		4100AEA763AEE3FA5712C6F59FB99A12 /* XYAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E793EF6D2E50653E1FA6FA69FE2B52 /* XYAtomicCounter.swift */; };
+		413DB63AE606E03D3313F72244DF26DE /* XYUtil-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 79927646A52F4744762D6B2BBD7EC2FE /* XYUtil-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		490664A35E3AA79D57C33414E1B19E66 /* DDOSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = F6AA0FB9CC109647C5FB67DEAC5B4DC7 /* DDOSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4BE961C3C95BA554FF969A8A7003723C /* XYUtil-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A729F85665EF552CCC19C55E664180B /* XYUtil-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D3C82EFA0D453FA97026D2A812C6791 /* XYLog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C4BC97AF744BA1D2323FC47432408 /* XYLog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B1CA6C986B5375FBC7F565A32EA265A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */; };
+		49160823249F442E4B1BA71A401B8055 /* XYError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B30B50CC35908E4DA8B63EE37D66D57 /* XYError.swift */; };
+		4D3C82EFA0D453FA97026D2A812C6791 /* XYLog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DB106C78F80B763C5B330A1DE6A8297 /* XYLog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BE7532AE8903F0CC0CC6E85DD345C94 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
-		6084255C446793B5C12F5AC667BD8557 /* XYThreadSafeProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD5FC258050B0F71CD952FD1A02EC12 /* XYThreadSafeProperty.swift */; };
 		60A8F48DEBBA12E03AD2AE6962675529 /* Pods-XYWorkflow_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F4AEEC35ED07CC4AEED241153423A6 /* Pods-XYWorkflow_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		621A43EBE1309E6FC30FF78B7A2C28B4 /* XYAtomicFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683915C1E9F5F03A4CF18F1A11859CC2 /* XYAtomicFlag.swift */; };
 		6321B6047A2176553365F6367D1C4BDD /* DDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 18FAC88306B5D7F5D4EFEB934EC61A5D /* DDLogMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		648D273222316EE624C1870D3CFE929A /* CBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392AB8F50B4A35A6391F372BA7E8447 /* CBError.swift */; };
+		648D273222316EE624C1870D3CFE929A /* CBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453625D691DE6D858684BE3D127A5CB /* CBError.swift */; };
 		668A968368C3BA51126BF2730ADA370E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
 		6739B9085488745EA197B1D58F789BD7 /* DDLoggerNames.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C8CADD8DD5CEA80E343BD5CE31119A5 /* DDLoggerNames.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6766DFFB8C9890EA069727D5AB2AA960 /* XYCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65EEDC2F34AE20119D8F3068CCF5D0 /* XYCmd.swift */; };
 		69AB582F7B619D2BB667DB19541AE066 /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C17F681FE8429CC90B416BC6F58F3D /* DDASLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BB53A893F6C56EC9FD53D0137813430 /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED488D9386BA2FACB7C34D7500B234 /* CocoaLumberjack.swift */; };
 		6BE4B832555B3FB32C2854A933EF5E8E /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = C7E62A4CF73CCEC13C34EF2A4D01F26A /* DDLog+LOGV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73DF1AF944E538C09126158F3574FA9A /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A734A3B280F5328427A59FCF0176C906 /* DDContextFilterLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7434AB2486CC0054C0D29F6B56775A94 /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B55ACB5E7350230A431D35292BE5B264 /* DDDispatchQueueLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7499171614FAFCD7ED5818FD8EF68279 /* XYStateObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2709050187873C52CAE51C0A54643A5 /* XYStateObservableProperty.swift */; };
-		775A5C3BA6FB410E3C8D907B7EF514FE /* CBL2CAPChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B198E6AE874FBEA4DA6F12D80661B8 /* CBL2CAPChannel.swift */; };
-		777A36995ACAE221987FCC28436C1E5E /* XYUtil-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 234514C9BF3975B8D071B003684BA6F6 /* XYUtil-dummy.m */; };
+		775A5C3BA6FB410E3C8D907B7EF514FE /* CBL2CAPChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279A8FB6CA20E1A3D60CDA40E2857F8 /* CBL2CAPChannel.swift */; };
 		7CFF9AF315C21D9265D1CF6EFFD64106 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		7E6E0C380298F827527AD6204D61D8B7 /* XYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67270C9FB36DD7B18F6E2EE489838993 /* XYState.swift */; };
-		812FA8DF3918AE9D8577565B0722803F /* CBPeripheralState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2DAB57CDCE02404BF6B18359232D6 /* CBPeripheralState.swift */; };
+		7F92B4047BB631108880165DE6BF797C /* XYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EA47A383C151AA2F69656CD2AE879 /* XYApp.swift */; };
+		812FA8DF3918AE9D8577565B0722803F /* CBPeripheralState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D1501720BCDA768131ED4ACB94A2F /* CBPeripheralState.swift */; };
 		8147E552E8FD416E40C0E37AAE8470B7 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D88D31B87B70BC95F4D5670E716D2 /* DDContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		819CFE0FAC25BFC425C1F47CC73EC4C5 /* XYNode-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C357963E931CFED82D34CDF563647A1D /* XYNode-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		828918CB7242CF3F539FC82B8B493913 /* XYLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4D8D2F8093C430D8D12AB9074C081 /* XYLogLevel.swift */; };
-		83B2B076C2FAE1A3B2D22FAFEA1652E1 /* XYAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19314AADC79DD00D2DFDB4CB808A486B /* XYAtomicCounter.swift */; };
-		83B4BB90B39B9A70738E14EBD863B489 /* XYLog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18104EFEDBCE442C146A4EA695A50FFF /* XYLog-dummy.m */; };
+		819CFE0FAC25BFC425C1F47CC73EC4C5 /* XYNode-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 69003E47B7256ACF1693B452709C82E2 /* XYNode-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		828918CB7242CF3F539FC82B8B493913 /* XYLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E23DF968E84B456DB3B63239A816B /* XYLogLevel.swift */; };
+		83B4BB90B39B9A70738E14EBD863B489 /* XYLog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAF1D8B602D3149B0D23911354DFF2 /* XYLog-dummy.m */; };
 		83E9F9062AB10C2DA301B816F8AD21E3 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B45ABA85A272E050688EAB30D7D9576D /* DDDispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		843CEAF7E6DBFF67208E30D60DE8F48D /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB7A743AD9C1A3C3CB6AA7E8A60E8E /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8BEE7F56D2E1F2283CEC98F70ECD9E19 /* DDFileLogger+Buffering.h in Headers */ = {isa = PBXBuildFile; fileRef = 913A6ECC50CCB38EBCCFD03794D81A8E /* DDFileLogger+Buffering.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8CFE162C7038E5D1265BD0CC0484AB15 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9B4478DD6AE6C2414F29F48F824E0 /* Data.swift */; };
+		8CFE162C7038E5D1265BD0CC0484AB15 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62570AE384CAD5852C7DF9E06237E858 /* Data.swift */; };
 		8F7CEC792C982D43B13666CB0677644D /* DDFileLogger+Buffering.m in Sources */ = {isa = PBXBuildFile; fileRef = 776C12BD08AEBCEB85C2830B68C16F67 /* DDFileLogger+Buffering.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		90C6D6F36FC7F036060068E40C3FA0DE /* CLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9731151D40E63D7DA76B3FFD242698FB /* CLIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		91D2F952AB2260566749C785C7584F29 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0F21A5837FB7624443E9A7016B4B66 /* DDMultiFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95B8F2F4A82C78DFF16B127288DF8612 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 296C0B43CFE32E4F467E12CD1EE43E52 /* DDTTYLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		978EF308E4C45B20C3024EB4D3918A8F /* XYUtil-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F22A526A2696C7625541D447B9CCC843 /* XYUtil-dummy.m */; };
 		9A3EE9E6D54A2018DEBAAD611774F301 /* DDAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88DC15C238ED239D57C4992C97D39D /* DDAssert.swift */; };
 		9BFA5A64B963DD542266D262EA0D39F2 /* Pods-XYWorkflow_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 257001ACDE7264F7F1CA94FE657D4794 /* Pods-XYWorkflow_Example-dummy.m */; };
 		A11B53CD11370C968EC79A951D865E4C /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0F0D9DC3ACF7938A7DD50B30622EC9 /* DDFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1ECAB1878606C14181B9829AF1936C8 /* CurrentFileNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8FE1A7E996738D1FB76E0675B53868 /* CurrentFileNameHelper.swift */; };
-		AB87BDFFB8AADC09961D5F220FC8CACC /* XYGroupCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A431271164B966557C9C212A3C6D4D /* XYGroupCmd.swift */; };
+		AD93907282E6A402A483D267B5B06B27 /* XYThreadSafeObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D83E1EF42B627B33BD4D34BB8AC128D /* XYThreadSafeObservableProperty.swift */; };
 		AEAE2538D6B4989AC1FE40F91B6D9F96 /* Pods-XYWorkflow_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AA06F1389293055E00FBBB892B6F27B /* Pods-XYWorkflow_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B327822BEE47C530A9E220A4164CE0EF /* DDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AE24956C8391FE72D92F1F685158722 /* DDLegacyMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B858637EA479217B1A18710BDDECD2B6 /* CBManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90351B4F7D66B605710F7A20EA20CC5 /* CBManagerState.swift */; };
+		B3B9B39003B57ED6D81F627E48AD0681 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		B858637EA479217B1A18710BDDECD2B6 /* CBManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106B3EA320B1D989CD88BE70CF31147D /* CBManagerState.swift */; };
 		BCA09DFA7F6ADBA38615A421AC3C6BF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		BCFD29DA447A91B8D2DA68B08E87AA7B /* XYBaseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EBFF7774DA453236FEAD0ABB4BDFA /* XYBaseNode.swift */; };
+		BCFD29DA447A91B8D2DA68B08E87AA7B /* XYBaseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3A14953351B62F3979ABAAC64D8BD8 /* XYBaseNode.swift */; };
 		C013DC70F18F2A3445CCF56B27A7E66C /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A5834D7F23296410F20A1EF746F4069F /* CLIColor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C0877A02DED9A4A72857CB632A280098 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8705EE486BBF94F0EC32EE39B0DFA720 /* Task.swift */; };
+		C0877A02DED9A4A72857CB632A280098 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0176FCFE7DA047AA01308E57EA132 /* Task.swift */; };
 		C09803A82A60E3835A78CDFEEF1138FD /* DDContextFilterLogFormatter+Deprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 716E922846F74A6D37C26A553B085360 /* DDContextFilterLogFormatter+Deprecated.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C2C2623176CCAF7882641011FC5412E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		C2D86ABA2F238F6F4B4558798714347C /* XYWorkflow-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 940298CF2760F25513118EBFF0C870BE /* XYWorkflow-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2FAD18243F4DC38723F707D31430B6F /* XYLogProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D199A5155DBA8EC9601ABE1BA26C63C5 /* XYLogProcess.swift */; };
+		C2FAD18243F4DC38723F707D31430B6F /* XYLogProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDB28C7EB0B856318DFC3A99B81A1B /* XYLogProcess.swift */; };
 		C3DE4CA7617C9BC6EB538E0A23303DBC /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C812D8E41ED891E76C8ED204F2C2A8F /* DDAbstractDatabaseLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC535568EDDC804682BA795F13659C06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		CFE81367A83AD0793D1BC583F61253BD /* XYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E792BC729400021B0FF55AE46423AD4 /* XYState.swift */; };
 		D1288C17D1FC338C01E608995322ACFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		D14E49F3FF9CF29705FD9DA0C421F740 /* XYWorkflow-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ADFBD59D148EFFB732B787B2F22AAF5 /* XYWorkflow-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3C863454612C752A1A4133C64972A5D /* DDContextFilterLogFormatter+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = 9994D3632C039077D26EA3EBA5056849 /* DDContextFilterLogFormatter+Deprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D5E154A25108956AFD152B7A1EF148BC /* XYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72FDBA4D0840B58E73B5D809DA35F6 /* XYApp.swift */; };
+		DA2117B9622EEA06876FD3FDA0C87B45 /* XYCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD79692B917EB4116243F42C8636FC2A /* XYCmd.swift */; };
+		DA25D87E249E7813D29860B009965ECC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */; };
 		DA70ABA313645BADFB5BC13FB995DCBA /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FC5A135A74A0A7C98F6CDECB05D5814 /* DDLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E294C653852ECFCB9A0ACD3DB4B59B47 /* CBCharacteristicWriteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA645A73274764165EAB354CDBE6ED6 /* CBCharacteristicWriteType.swift */; };
-		E6DB4E887BDBBCCFF75C702888D43EE8 /* XYWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5338D1CFA52C635AA0334F1442721 /* XYWorkflow.swift */; };
+		DC438855FD6F99DA339F3964706C158C /* XYStateObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5D19DF586C2AD88EB35DB8B334931E /* XYStateObservableProperty.swift */; };
+		DD10428DF906B941F62F47B3026582B5 /* XYUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7852A2729B979270E37BD11760D6CF /* XYUtil.swift */; };
+		E294C653852ECFCB9A0ACD3DB4B59B47 /* CBCharacteristicWriteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98474372998194027E09C17398397552 /* CBCharacteristicWriteType.swift */; };
 		E8516B2E1BC65E5F5711871BC1E05130 /* DDLogFlag+DDLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD817E1A88FF23497A8DF28F54CDC2 /* DDLogFlag+DDLogLevel.swift */; };
 		ECF4208B4FDB24EBFD0903F03559341C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
-		ED3276B7AE967FF35AAB7EAD23572920 /* CBCharacteristicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AC1D04F8B7AA8BB63B8EDF130B7137 /* CBCharacteristicProperties.swift */; };
-		EDF82CFC7E5095DD18EFF5472D23E66F /* XYWorkflow-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2730DE224AF4E4740A9BC3191F69BB /* XYWorkflow-dummy.m */; };
-		EEAF5E34CC66C51F7AAF176BD39AA270 /* CBDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11F9DE114147537F8E5478661877FE4 /* CBDescriptor.swift */; };
-		F10BFFC6EBF46C5F8055661461B996C8 /* XYExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CFF698102D1F0560817607F29A67115 /* XYExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED3276B7AE967FF35AAB7EAD23572920 /* CBCharacteristicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68ABC0ADD065980B72B92B74E95242 /* CBCharacteristicProperties.swift */; };
+		EEAF5E34CC66C51F7AAF176BD39AA270 /* CBDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F373967A3644E4F79702E4FB984852 /* CBDescriptor.swift */; };
+		F10BFFC6EBF46C5F8055661461B996C8 /* XYExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24E7F14A1E8A508CBB797114C7909647 /* XYExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2F780BBE10356D8AD1769AD41D3E8C3 /* DDLoggerNames.m in Sources */ = {isa = PBXBuildFile; fileRef = F5515269532235616CA06FF94F505FB7 /* DDLoggerNames.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F3910E7CA34940275B5BB60AAA444CE5 /* XYThreadSafeObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481BB8A45685A6D6A5CE5B0A994EAB5 /* XYThreadSafeObservableProperty.swift */; };
 		F444D092BF8FE6EFC762403391F242FB /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E6758080DB93D95738E9DCB7B1EB97 /* DDASLLogCapture.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F66042CD85DF9049060403EF0627FEC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		F849034AFD5DC433CA53D576CE47099F /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CE615469F05F7C941F5FBEFB9E9B2 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F966047D69DDC4F4FEB47511108D5C70 /* WCSessionActivationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280C5C6021E3E18A271A19BB5C4D779 /* WCSessionActivationState.swift */; };
-		FA919C2F6B66DA491F08E4B6939814F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		F966047D69DDC4F4FEB47511108D5C70 /* WCSessionActivationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C20D6472E8CF1F959C77AA17853D68D /* WCSessionActivationState.swift */; };
 		FAF7BC346ABB4E0168FB3B224BC71E55 /* CocoaLumberjack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC6AA16E3C9B3334B0740874B7B178E /* CocoaLumberjack-dummy.m */; };
 		FC9B186C8E1F1813B9C786EF8D28E735 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		FCD340243E2B41D6984ABA676759239C /* XYLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCC06E8FD4BFB412E20CA61E275CFD /* XYLogger.swift */; };
-		FF6A8EE1FF17937673F3D768F8FF917A /* XYNode-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EC99D9EAA6B5F52A2C4C75F1819227 /* XYNode-dummy.m */; };
+		FC9F92F127D9A4D31DA1D8AFCBE370E1 /* XYBaseCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253B680BB01C7197D427181E8518814C /* XYBaseCmd.swift */; };
+		FCD340243E2B41D6984ABA676759239C /* XYLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3EA2C4C7E2FE91788617ECC7F40DF /* XYLogger.swift */; };
+		FF6A8EE1FF17937673F3D768F8FF917A /* XYNode-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2095241AC0B3D61E88BE3C07DF5DB957 /* XYNode-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		056FB62E6AAC1058A40341CAE1E118EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
-		};
-		1B5780396E267A64901BEA70580112D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
-			remoteInfo = XYUtil;
-		};
-		3AC2238571D3AF757AFF32C2A44585AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FF440CCD4A7A54E01AA64886329310D1;
-			remoteInfo = XYNode;
-		};
-		5D3F1D83015F5DD55C32A0FB2D73C4D3 /* PBXContainerItemProxy */ = {
+		0295D89427F7F3654FA9397294AE4C1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E95654B155D25890BE8E26081FCA8265;
 			remoteInfo = CocoaLumberjack;
 		};
-		771A6F7123C9FB85D1CEB04D979876CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
-		};
-		7CA7A41DD5E116D60FA7A9D40541F764 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
-		};
-		82E0A021E1BC1022A1CDD419BEA33E8C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
-			remoteInfo = XYLog;
-		};
-		8640664D323B6947B553291CF5B87388 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
-			remoteInfo = XYUtil;
-		};
-		9ED3DC8D1660F858DBFD56CC103B8988 /* PBXContainerItemProxy */ = {
+		03B1E64BBCE211E14D5B5A2ED9FEA58C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FF440CCD4A7A54E01AA64886329310D1;
 			remoteInfo = XYNode;
 		};
-		A48882EF5CAA9BBFF2492429A9B5F31F /* PBXContainerItemProxy */ = {
+		192DA5D93429FCD06955395152B0D501 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
+			remoteInfo = XYLog;
+		};
+		1A1A0015331D181C6A57D023A27BC127 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
 			remoteInfo = XYUtil;
 		};
-		BCE3EF4A2AF4A36EF58063175790D4CE /* PBXContainerItemProxy */ = {
+		1AB5BC036061689D3E34B5B061BA0A4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF440CCD4A7A54E01AA64886329310D1;
+			remoteInfo = XYNode;
+		};
+		204017EA05135D435541DFE3BCF5FA06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E95654B155D25890BE8E26081FCA8265;
+			remoteInfo = CocoaLumberjack;
+		};
+		2683D22FB3F0BFC4D5CA3101074F90EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 276021C4482165D46E0CBBEFB822FE95;
 			remoteInfo = "CocoaLumberjack-CocoaLumberjackPrivacy";
 		};
-		C19EBF16C909E6306DF01F3E084851B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
-		};
-		CA89FFFA0E3DCD01185D2CF6CC690238 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A8B0F82816B59C9625656835C20DEA5F;
-			remoteInfo = XYWorkflow;
-		};
-		CF0156C358889D97675379354BB5D8CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
-			remoteInfo = XYLog;
-		};
-		D1954904674533FED38FAF462D9B9815 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
-			remoteInfo = XYLog;
-		};
-		D6916A4CC241AF94895C4DEC16A6C438 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E95654B155D25890BE8E26081FCA8265;
-			remoteInfo = CocoaLumberjack;
-		};
-		D80000E6AE8EB36D6A00C4345A913274 /* PBXContainerItemProxy */ = {
+		36CBE4D91489386E13B594CE67761AEB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
 			remoteInfo = XYUtil;
 		};
-		DA5EF69A8567AE9A443FF488008E5646 /* PBXContainerItemProxy */ = {
+		3B8496E45E1F5E75695359EDDA69E729 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
 			remoteInfo = XYExtension;
 		};
-		F348A36D0C1D6315D91F397165626465 /* PBXContainerItemProxy */ = {
+		450C5E8DA143ECCBDB5064D20CABA136 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
+			remoteInfo = XYLog;
+		};
+		69528EBE2FFF61E4F351890625ADB85E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
+			remoteInfo = XYUtil;
+		};
+		90E93598907E82C25925576970348C0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
+		A1A3AC8EA423240EDC6FD8CACA4E6F6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AA1436E5BB6024DA4120D1117F463AE8;
 			remoteInfo = "Pods-XYWorkflow_Example";
 		};
+		A277F062D5C684F5DF27B6CF08348368 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
+			remoteInfo = XYUtil;
+		};
+		C92A5A092C8B394197C3AD1EC8F2C8B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8B0F82816B59C9625656835C20DEA5F;
+			remoteInfo = XYWorkflow;
+		};
+		E22332CBAC9B615D01D8B41337386F41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
+		E267A3B9B1C229764CDD20420E7B1AB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
+			remoteInfo = XYLog;
+		};
+		E496C3C9AEFA05A30432050475598E6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
+		F9DB0387C2E2313E56A3BFBB3F96BEEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00C4EAF2E9E3FEC87B16B5192541B650 /* XYUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.debug.xcconfig; sourceTree = "<group>"; };
+		00E7609AB8E0ECC97BC31A5B2E87C60C /* XYLog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-prefix.pch"; sourceTree = "<group>"; };
 		038A2A9843BDA839BA13B7C3E40CF5FE /* Pods-XYWorkflow_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYWorkflow_Tests-Info.plist"; sourceTree = "<group>"; };
-		06169E5D5E6CA9DB10B27A0AF629EA20 /* XYLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLog.swift; path = XYLog/Classes/XYLog.swift; sourceTree = "<group>"; };
-		06B643AE2185B6AFED07E6429E373620 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		080384FDE0C5D53404B354A59978ED3D /* DDLog+Combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDLog+Combine.swift"; path = "Sources/CocoaLumberjackSwift/DDLog+Combine.swift"; sourceTree = "<group>"; };
-		0BD5FC258050B0F71CD952FD1A02EC12 /* XYThreadSafeProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeProperty.swift; sourceTree = "<group>"; };
 		0C0F0D9DC3ACF7938A7DD50B30622EC9 /* DDFileLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDFileLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDFileLogger.h; sourceTree = "<group>"; };
 		0C110FC02D5CF1EF5979A5E55812F974 /* DDFileLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDFileLogger.m; path = Sources/CocoaLumberjack/DDFileLogger.m; sourceTree = "<group>"; };
-		0D084A5152E6D9C3527D10B887B9538F /* XYExtendableNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYExtendableNode.swift; path = XYNode/Classes/XYExtendableNode.swift; sourceTree = "<group>"; };
+		0C3A14953351B62F3979ABAAC64D8BD8 /* XYBaseNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYBaseNode.swift; path = XYNode/Classes/XYBaseNode.swift; sourceTree = "<group>"; };
 		0FC5A135A74A0A7C98F6CDECB05D5814 /* DDLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDLog.h; sourceTree = "<group>"; };
 		100CAD2D5EBC77D7DABCE9B43C6B5225 /* Pods-XYWorkflow_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYWorkflow_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		110D31BF58A408009652A88B14D95317 /* CBPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheral.swift; sourceTree = "<group>"; };
+		106B3EA320B1D989CD88BE70CF31147D /* CBManagerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBManagerState.swift; sourceTree = "<group>"; };
 		12841E3D5818E8429FE2A314CC61BB1D /* DDASLLogCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogCapture.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDASLLogCapture.h; sourceTree = "<group>"; };
-		18104EFEDBCE442C146A4EA695A50FFF /* XYLog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYLog-dummy.m"; sourceTree = "<group>"; };
+		1388DA5BC828C6B862B4B375ED077817 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		14B191E7CEBF782EF52D4F586F0F9CE5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		167E23DF968E84B456DB3B63239A816B /* XYLogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogLevel.swift; path = XYLog/Classes/XYLogLevel.swift; sourceTree = "<group>"; };
+		17C64061C49CFCBCD6E6D9516B91FB17 /* XYNode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYNode.debug.xcconfig; sourceTree = "<group>"; };
 		182CE615469F05F7C941F5FBEFB9E9B2 /* DDASLLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = Sources/CocoaLumberjack/DDASLLogger.m; sourceTree = "<group>"; };
+		18DDB28C7EB0B856318DFC3A99B81A1B /* XYLogProcess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogProcess.swift; path = XYLog/Classes/XYLogProcess.swift; sourceTree = "<group>"; };
 		18FAC88306B5D7F5D4EFEB934EC61A5D /* DDLogMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogMacros.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDLogMacros.h; sourceTree = "<group>"; };
-		19314AADC79DD00D2DFDB4CB808A486B /* XYAtomicCounter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicCounter.swift; sourceTree = "<group>"; };
-		1C0F85AED5097BF50791C7D683C015BC /* XYUtil-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-prefix.pch"; sourceTree = "<group>"; };
 		1C8CADD8DD5CEA80E343BD5CE31119A5 /* DDLoggerNames.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLoggerNames.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDLoggerNames.h; sourceTree = "<group>"; };
 		1CDB7A743AD9C1A3C3CB6AA7E8A60E8E /* DDTTYLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = Sources/CocoaLumberjack/DDTTYLogger.m; sourceTree = "<group>"; };
-		1D5264A4354BED31438EE355A1041EB2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1DC217E335AA54DACB6191C906798B02 /* XYBaseCmd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYBaseCmd.swift; path = XYWorkflow/Classes/XYBaseCmd.swift; sourceTree = "<group>"; };
-		1E6D2E4F393EA342C48FCDDC4A1ED905 /* XYNode-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYNode-Info.plist"; sourceTree = "<group>"; };
+		1D831049B86DCA6775B1621F523F8BB3 /* XYLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLog.swift; path = XYLog/Classes/XYLog.swift; sourceTree = "<group>"; };
 		1F28577F6BA0AD72B5C242F8910348D5 /* CocoaLumberjack-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaLumberjack-umbrella.h"; sourceTree = "<group>"; };
 		2027DEDBC7E2CE96B058059D345131B7 /* Pods-XYWorkflow_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYWorkflow_Example.release.xcconfig"; sourceTree = "<group>"; };
-		2280C5C6021E3E18A271A19BB5C4D779 /* WCSessionActivationState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WCSessionActivationState.swift; sourceTree = "<group>"; };
-		234514C9BF3975B8D071B003684BA6F6 /* XYUtil-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYUtil-dummy.m"; sourceTree = "<group>"; };
+		2095241AC0B3D61E88BE3C07DF5DB957 /* XYNode-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYNode-dummy.m"; sourceTree = "<group>"; };
 		23F4AEEC35ED07CC4AEED241153423A6 /* Pods-XYWorkflow_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYWorkflow_Tests-umbrella.h"; sourceTree = "<group>"; };
+		24E7F14A1E8A508CBB797114C7909647 /* XYExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-umbrella.h"; sourceTree = "<group>"; };
+		253B680BB01C7197D427181E8518814C /* XYBaseCmd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYBaseCmd.swift; path = XYWorkflow/Classes/XYBaseCmd.swift; sourceTree = "<group>"; };
 		257001ACDE7264F7F1CA94FE657D4794 /* Pods-XYWorkflow_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYWorkflow_Example-dummy.m"; sourceTree = "<group>"; };
-		25BE76C2C99508500F110A6537086AA0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		28A0EB1B2568FEDFB13CE301FD673A69 /* DDOSLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDOSLogger.m; path = Sources/CocoaLumberjack/DDOSLogger.m; sourceTree = "<group>"; };
 		296C0B43CFE32E4F467E12CD1EE43E52 /* DDTTYLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDTTYLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDTTYLogger.h; sourceTree = "<group>"; };
+		2A8432547C3F290B997540D1E9971CD9 /* XYExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.debug.xcconfig; sourceTree = "<group>"; };
 		2D5E27886B725B64765B20DB3B1E7E5B /* Pods-XYWorkflow_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYWorkflow_Example-Info.plist"; sourceTree = "<group>"; };
-		2F7A2F2500491CA195802BDDAC3E9CA9 /* XYNode-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYNode-prefix.pch"; sourceTree = "<group>"; };
-		30E4D8D2F8093C430D8D12AB9074C081 /* XYLogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogLevel.swift; path = XYLog/Classes/XYLogLevel.swift; sourceTree = "<group>"; };
 		3373175401969F7D54AB05C987672CAF /* CocoaLumberjack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CocoaLumberjack.modulemap; sourceTree = "<group>"; };
-		339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/CocoaLumberjack/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		34FCEF615799F71F801DC5382997C107 /* XYError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYError.swift; path = XYWorkflow/Classes/XYError.swift; sourceTree = "<group>"; };
-		3522B5A88C9D821180FEB1C188437F2B /* XYWorkflow-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYWorkflow-prefix.pch"; sourceTree = "<group>"; };
+		339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/CocoaLumberjack/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		349023F81296819A166E20FF0158C49B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		35F0176FCFE7DA047AA01308E57EA132 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		3A6655DD6A31725841C7F6EFC6437130 /* Pods-XYWorkflow_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYWorkflow_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3A7E8B6B0C1C23FFA4FC7E77EEE49853 /* XYExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYExtension-Info.plist"; sourceTree = "<group>"; };
 		3AA06F1389293055E00FBBB892B6F27B /* Pods-XYWorkflow_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYWorkflow_Example-umbrella.h"; sourceTree = "<group>"; };
 		3ABD817E1A88FF23497A8DF28F54CDC2 /* DDLogFlag+DDLogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDLogFlag+DDLogLevel.swift"; path = "Sources/CocoaLumberjackSwift/DDLogFlag+DDLogLevel.swift"; sourceTree = "<group>"; };
-		3B7F3093A099236F6BF26C93E5A6AD0C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3D5218070DBD1D0DC4D09CC6EB0CAACA /* XYLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYLog.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3FEF8F91A7319CDB825F53557A46E527 /* XYExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.release.xcconfig; sourceTree = "<group>"; };
+		3B7D1501720BCDA768131ED4ACB94A2F /* CBPeripheralState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheralState.swift; sourceTree = "<group>"; };
+		3C528A4CE3A9EBC80C33E1EB903FE323 /* XYLog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYLog-Info.plist"; sourceTree = "<group>"; };
+		3F682EF8C0E2234904F95A051D33E282 /* XYNode.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYNode.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		40F9F0635FDBAEA4FA33705CC1AEAD8A /* XYWorkflow.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYWorkflow.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		424FE30AF787991DC7B745E7DB1515DE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		427EF0065173EC44A25C8782F203112D /* DDMultiFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDMultiFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDMultiFormatter.m; sourceTree = "<group>"; };
-		438EBFF7774DA453236FEAD0ABB4BDFA /* XYBaseNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYBaseNode.swift; path = XYNode/Classes/XYBaseNode.swift; sourceTree = "<group>"; };
-		43EC99D9EAA6B5F52A2C4C75F1819227 /* XYNode-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYNode-dummy.m"; sourceTree = "<group>"; };
-		4AC6720A49F0395D133E1ABE568AC94B /* XYWorkflow-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYWorkflow-Info.plist"; sourceTree = "<group>"; };
+		44D0A60DD7D2C8A082EA45C0A0C4D1AF /* XYNode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYNode.modulemap; sourceTree = "<group>"; };
+		466AE4ADE5B2824BFAEA41369EC0F01B /* XYWorkflow-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYWorkflow-Info.plist"; sourceTree = "<group>"; };
+		47031B547C045FA3B9E419EC735A4215 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		4888C6F3AEA23CC82B1E4DAAD027B438 /* XYThreadSafeProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeProperty.swift; sourceTree = "<group>"; };
+		4ADFBD59D148EFFB732B787B2F22AAF5 /* XYWorkflow-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYWorkflow-umbrella.h"; sourceTree = "<group>"; };
 		4B36353546ED40E72479C01FC16C0C15 /* Pods-XYWorkflow_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYWorkflow_Example.modulemap"; sourceTree = "<group>"; };
+		4C20D6472E8CF1F959C77AA17853D68D /* WCSessionActivationState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WCSessionActivationState.swift; sourceTree = "<group>"; };
+		4D5C2EF351A7CC7EB3BFD59E21225C23 /* XYExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYExtension-dummy.m"; sourceTree = "<group>"; };
+		4D83E1EF42B627B33BD4D34BB8AC128D /* XYThreadSafeObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeObservableProperty.swift; sourceTree = "<group>"; };
 		4E0F21A5837FB7624443E9A7016B4B66 /* DDMultiFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDMultiFormatter.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDMultiFormatter.h; sourceTree = "<group>"; };
 		50E938313F120E7FE0DE1F4E1E7A9073 /* DDLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = Sources/CocoaLumberjack/DDLog.m; sourceTree = "<group>"; };
-		519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaLumberjackPrivacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		52AC1D04F8B7AA8BB63B8EDF130B7137 /* CBCharacteristicProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicProperties.swift; sourceTree = "<group>"; };
+		519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "CocoaLumberjack-CocoaLumberjackPrivacy"; path = CocoaLumberjackPrivacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B08D3E70AEEF5142ACB5DA665BD76B /* CocoaLumberjack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaLumberjack.release.xcconfig; sourceTree = "<group>"; };
+		5633E0CDC729A4620459E2ECDEA29331 /* XYExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-prefix.pch"; sourceTree = "<group>"; };
+		572A194C22946653E20ED47C0CB3392B /* XYExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYExtension.modulemap; sourceTree = "<group>"; };
 		584D744A57409C57CE982BF93563F201 /* Pods-XYWorkflow_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYWorkflow_Tests.modulemap"; sourceTree = "<group>"; };
-		58FE1190A61EC92193B2ACC1431A1D65 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5A01898E42A546FB10D7926807F0C8E1 /* XYUtil.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYUtil.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		5A729F85665EF552CCC19C55E664180B /* XYUtil-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-umbrella.h"; sourceTree = "<group>"; };
 		5AE24956C8391FE72D92F1F685158722 /* DDLegacyMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLegacyMacros.h; path = "Sources/CocoaLumberjack/Supporting Files/DDLegacyMacros.h"; sourceTree = "<group>"; };
-		5B000522CBE83BF49376B2884F4F57FF /* CBService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBService.swift; sourceTree = "<group>"; };
-		5B0F7DB804B35370E71FF2844195E329 /* XYLog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-prefix.pch"; sourceTree = "<group>"; };
-		5CFF698102D1F0560817607F29A67115 /* XYExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-umbrella.h"; sourceTree = "<group>"; };
-		5F8C4BC97AF744BA1D2323FC47432408 /* XYLog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-umbrella.h"; sourceTree = "<group>"; };
-		64643DF3CAB3B5F07692E5016D8164FB /* XYLog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYLog-Info.plist"; sourceTree = "<group>"; };
+		605FA46DC23C3FD50B7A0B04D2E3B80E /* XYExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.release.xcconfig; sourceTree = "<group>"; };
+		614F97D3BB22E7973A06C6C6AA47D983 /* XYLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.debug.xcconfig; sourceTree = "<group>"; };
+		62570AE384CAD5852C7DF9E06237E858 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		66ED488D9386BA2FACB7C34D7500B234 /* CocoaLumberjack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CocoaLumberjack.swift; path = Sources/CocoaLumberjackSwift/CocoaLumberjack.swift; sourceTree = "<group>"; };
-		67270C9FB36DD7B18F6E2EE489838993 /* XYState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYState.swift; path = XYWorkflow/Classes/XYState.swift; sourceTree = "<group>"; };
 		67E6758080DB93D95738E9DCB7B1EB97 /* DDASLLogCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogCapture.m; path = Sources/CocoaLumberjack/DDASLLogCapture.m; sourceTree = "<group>"; };
-		683915C1E9F5F03A4CF18F1A11859CC2 /* XYAtomicFlag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicFlag.swift; sourceTree = "<group>"; };
-		6A3ABE1F7EF726B5D65F9570106A8951 /* XYUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYUtil.swift; path = XYUtil/Classes/XYUtil.swift; sourceTree = "<group>"; };
+		69003E47B7256ACF1693B452709C82E2 /* XYNode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYNode-umbrella.h"; sourceTree = "<group>"; };
 		6C812D8E41ED891E76C8ED204F2C2A8F /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAbstractDatabaseLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		6CA645A73274764165EAB354CDBE6ED6 /* CBCharacteristicWriteType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicWriteType.swift; sourceTree = "<group>"; };
+		6DB106C78F80B763C5B330A1DE6A8297 /* XYLog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-umbrella.h"; sourceTree = "<group>"; };
+		6DCF60A120945FF2172BD60CB66F6DF5 /* XYWorkflow.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYWorkflow.modulemap; sourceTree = "<group>"; };
 		716E922846F74A6D37C26A553B085360 /* DDContextFilterLogFormatter+Deprecated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DDContextFilterLogFormatter+Deprecated.m"; path = "Sources/CocoaLumberjack/Extensions/DDContextFilterLogFormatter+Deprecated.m"; sourceTree = "<group>"; };
 		72EAD7D06A88B165512FA213CCD07201 /* ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist"; sourceTree = "<group>"; };
+		7399A19C671933ED34977B3DFC5DA5A7 /* XYWorkflow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYWorkflow.release.xcconfig; sourceTree = "<group>"; };
 		743261495DCC545DC02616D137421B93 /* DDLogMessageFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DDLogMessageFormat.swift; path = Sources/CocoaLumberjackSwift/DDLogMessageFormat.swift; sourceTree = "<group>"; };
 		776C12BD08AEBCEB85C2830B68C16F67 /* DDFileLogger+Buffering.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DDFileLogger+Buffering.m"; path = "Sources/CocoaLumberjack/Extensions/DDFileLogger+Buffering.m"; sourceTree = "<group>"; };
-		7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79927646A52F4744762D6B2BBD7EC2FE /* XYUtil-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-umbrella.h"; sourceTree = "<group>"; };
+		7B30B50CC35908E4DA8B63EE37D66D57 /* XYError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYError.swift; path = XYWorkflow/Classes/XYError.swift; sourceTree = "<group>"; };
+		7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYExtension; path = XYExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C5CAFA225F0145F31DC1006A612A0AB /* CBService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBService.swift; sourceTree = "<group>"; };
+		7D5C037D2BB8752C71E353B5B7B04155 /* XYUtil.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYUtil.modulemap; sourceTree = "<group>"; };
+		7E853CF997F37A0A083C5F95EA122002 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		7F07485CEF8D799FBFC0F1D7D2BDF646 /* CBPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheral.swift; sourceTree = "<group>"; };
 		7F21D732E44D2E9362E7F9B487D6868F /* SwiftLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftLogLevel.h; path = Sources/CocoaLumberjackSwiftSupport/include/CocoaLumberjackSwiftSupport/SwiftLogLevel.h; sourceTree = "<group>"; };
+		806ECA183AE24129AA9237D85FFE05B6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		807E49C5C665AC141EE13D7B52AA78E9 /* Pods-XYWorkflow_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYWorkflow_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		812203D8A81FF15942942474FD972106 /* XYAtomicFlag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicFlag.swift; sourceTree = "<group>"; };
 		8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8705EE486BBF94F0EC32EE39B0DFA720 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		89D2DAB57CDCE02404BF6B18359232D6 /* CBPeripheralState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheralState.swift; sourceTree = "<group>"; };
+		8279A8FB6CA20E1A3D60CDA40E2857F8 /* CBL2CAPChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBL2CAPChannel.swift; sourceTree = "<group>"; };
+		85F373967A3644E4F79702E4FB984852 /* CBDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBDescriptor.swift; sourceTree = "<group>"; };
 		8C3D88D31B87B70BC95F4D5670E716D2 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDContextFilterLogFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		8EFCC2AFA0CA10C84DFDDA20C68B45B4 /* XYExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-prefix.pch"; sourceTree = "<group>"; };
+		8C81F956939569771ECB45399B44B440 /* XYExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYExtension-Info.plist"; sourceTree = "<group>"; };
+		8E7852A2729B979270E37BD11760D6CF /* XYUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYUtil.swift; path = XYUtil/Classes/XYUtil.swift; sourceTree = "<group>"; };
+		8F7459704BF6134BA0FC918AB1C171F8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		913A6ECC50CCB38EBCCFD03794D81A8E /* DDFileLogger+Buffering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDFileLogger+Buffering.h"; path = "Sources/CocoaLumberjack/include/CocoaLumberjack/DDFileLogger+Buffering.h"; sourceTree = "<group>"; };
-		9282DF317521405DD34688D6F7ABC774 /* XYNode.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYNode.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9392AB8F50B4A35A6391F372BA7E8447 /* CBError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBError.swift; sourceTree = "<group>"; };
-		940298CF2760F25513118EBFF0C870BE /* XYWorkflow-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYWorkflow-umbrella.h"; sourceTree = "<group>"; };
-		971151F8747250BA22D4F581B375A2DF /* XYWorkflow.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYWorkflow.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		91B7BE538F7BCF2FE1EE220082CA0657 /* XYNode-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYNode-Info.plist"; sourceTree = "<group>"; };
+		9453625D691DE6D858684BE3D127A5CB /* CBError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBError.swift; sourceTree = "<group>"; };
+		952EA47A383C151AA2F69656CD2AE879 /* XYApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYApp.swift; path = XYUtil/Classes/XYApp.swift; sourceTree = "<group>"; };
 		9731151D40E63D7DA76B3FFD242698FB /* CLIColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLIColor.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/CLIColor.h; sourceTree = "<group>"; };
+		97E793EF6D2E50653E1FA6FA69FE2B52 /* XYAtomicCounter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicCounter.swift; sourceTree = "<group>"; };
+		98474372998194027E09C17398397552 /* CBCharacteristicWriteType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicWriteType.swift; sourceTree = "<group>"; };
 		98750E6EB31BD132BE09F82CFC33FE8A /* ConfigurationGlobals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfigurationGlobals.swift; path = Sources/CocoaLumberjackSwift/ConfigurationGlobals.swift; sourceTree = "<group>"; };
 		9879C0FC3967144AA3AF9F0C886AEB97 /* CocoaLumberjack-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CocoaLumberjack-Info.plist"; sourceTree = "<group>"; };
 		9994D3632C039077D26EA3EBA5056849 /* DDContextFilterLogFormatter+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDContextFilterLogFormatter+Deprecated.h"; path = "Sources/CocoaLumberjack/include/CocoaLumberjack/DDContextFilterLogFormatter+Deprecated.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E71A9BE69A3C6F1F1E5DC3C78C91C42 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A1A431271164B966557C9C212A3C6D4D /* XYGroupCmd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYGroupCmd.swift; path = XYWorkflow/Classes/XYGroupCmd.swift; sourceTree = "<group>"; };
-		A1D5F12F76962B86207124D4D0718A09 /* XYWorkflow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYWorkflow.debug.xcconfig; sourceTree = "<group>"; };
-		A3AF6C8410F66258BAE63CC1B0F55628 /* CBCharacteristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
-		A3CEA6D4595CD3C2408FD7F273D041C5 /* Pods_XYWorkflow_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYWorkflow_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4129254D6EF98414AE1FBE32B848A7F /* XYLog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYLog.modulemap; sourceTree = "<group>"; };
+		9A5B292958122D0A8B789595ECF2BDBC /* XYUtil-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYUtil-Info.plist"; sourceTree = "<group>"; };
+		9D33B7C15D7D6A3B352BB6FFF9EDC681 /* XYNode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYNode.release.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E792BC729400021B0FF55AE46423AD4 /* XYState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYState.swift; path = XYWorkflow/Classes/XYState.swift; sourceTree = "<group>"; };
+		9F41EEF34C88593FC556461D2F76F3DC /* XYGroupCmd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYGroupCmd.swift; path = XYWorkflow/Classes/XYGroupCmd.swift; sourceTree = "<group>"; };
+		A3CEA6D4595CD3C2408FD7F273D041C5 /* Pods-XYWorkflow_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-XYWorkflow_Example"; path = Pods_XYWorkflow_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5834D7F23296410F20A1EF746F4069F /* CLIColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLIColor.m; path = Sources/CocoaLumberjack/CLI/CLIColor.m; sourceTree = "<group>"; };
 		A734A3B280F5328427A59FCF0176C906 /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDContextFilterLogFormatter.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
 		A80CD886C85F95A260D0A44A65ADB903 /* Pods-XYWorkflow_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYWorkflow_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYLog; path = XYLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABEAF1D8B602D3149B0D23911354DFF2 /* XYLog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYLog-dummy.m"; sourceTree = "<group>"; };
+		ABF51E6D62693AA9644053C931C1BA02 /* XYWorkflow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYWorkflow.debug.xcconfig; sourceTree = "<group>"; };
 		AC444C41845961B4408608545064F369 /* Pods-XYWorkflow_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYWorkflow_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		AED1F1DF473C8C18384C950D71FE97D8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B1A374E07E1A819FC6D8DAEF6C305CA3 /* DDFileLogger+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDFileLogger+Internal.h"; path = "Sources/CocoaLumberjack/DDFileLogger+Internal.h"; sourceTree = "<group>"; };
-		B1B3136A8A8C558A1AD76D7C127F4AFF /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		B20636CD90058E406B92EDCB60189EB3 /* XYUtil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.release.xcconfig; sourceTree = "<group>"; };
-		B23745E84958B66B24BEFACF53AD8FB6 /* XYExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYExtension.modulemap; sourceTree = "<group>"; };
+		B1ABA4D60E2AD0954E447F489D3F14F3 /* CBCharacteristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
+		B214B3E506A142D3CD5DE9404A13AE0A /* XYUtil.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYUtil.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B45ABA85A272E050688EAB30D7D9576D /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDDispatchQueueLogFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		B54A10662B33C6205E46214C7567175C /* CocoaLumberjack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaLumberjack-prefix.pch"; sourceTree = "<group>"; };
 		B55ACB5E7350230A431D35292BE5B264 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDDispatchQueueLogFormatter.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		B5EDA8281CEFFA99A87A8FB04FBA3562 /* DDAssertMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAssertMacros.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDAssertMacros.h; sourceTree = "<group>"; };
 		B6B840AC77134B17065589DD0BCCF20A /* CocoaLumberjack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = "Sources/CocoaLumberjack/Supporting Files/CocoaLumberjack.h"; sourceTree = "<group>"; };
-		B6BF9E15FDDE0EE17FDCCD7E860EB19F /* XYWorkflow.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYWorkflow.modulemap; sourceTree = "<group>"; };
-		B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD2730DE224AF4E4740A9BC3191F69BB /* XYWorkflow-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYWorkflow-dummy.m"; sourceTree = "<group>"; };
+		B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYUtil; path = XYUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA13E6C7EE14572F8448F25E0DFA32C3 /* XYExtendableNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYExtendableNode.swift; path = XYNode/Classes/XYExtendableNode.swift; sourceTree = "<group>"; };
+		BBF8A6CE08BC3CA6EF8D13EF4466CA44 /* XYNode-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYNode-prefix.pch"; sourceTree = "<group>"; };
+		BC8DDBBFEB1C81088DF011124122D836 /* XYLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYLog.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BD79692B917EB4116243F42C8636FC2A /* XYCmd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYCmd.swift; path = XYWorkflow/Classes/XYCmd.swift; sourceTree = "<group>"; };
+		BD82ECAF524FF7F31FE960353B7CBAA5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		BEF5127F7CDAEDDEF8B230D62756EDF5 /* XYExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BFE2A3B0FBA36A397A41EAB98F590F61 /* Pods-XYWorkflow_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYWorkflow_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C0C17F681FE8429CC90B416BC6F58F3D /* DDASLLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDASLLogger.h; sourceTree = "<group>"; };
-		C0C8981E439989D25E2395667EA4B94B /* XYExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYExtension-dummy.m"; sourceTree = "<group>"; };
-		C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1E42F24378A9F9648D8494AAE5080C6 /* XYLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.release.xcconfig; sourceTree = "<group>"; };
+		C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaLumberjack; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2AE64E21B24B9D3FC0478C8BD0E58E1 /* XYUtil-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-prefix.pch"; sourceTree = "<group>"; };
 		C34E9F1084E1A99D727BE2806BDA686D /* Pods-XYWorkflow_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYWorkflow_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C357963E931CFED82D34CDF563647A1D /* XYNode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYNode-umbrella.h"; sourceTree = "<group>"; };
-		C4F65B8C837E5412EDA8848CB356DDAC /* XYNode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4A3EA2C4C7E2FE91788617ECC7F40DF /* XYLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogger.swift; path = XYLog/Classes/XYLogger.swift; sourceTree = "<group>"; };
+		C4C65EBDAEC0DAE17B575F86300597C4 /* XYUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.debug.xcconfig; sourceTree = "<group>"; };
+		C4F65B8C837E5412EDA8848CB356DDAC /* XYNode */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYNode; path = XYNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C73BF21607D1BC16ABC5E84BAC4AD9CB /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		C7E62A4CF73CCEC13C34EF2A4D01F26A /* DDLog+LOGV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDLog+LOGV.h"; path = "Sources/CocoaLumberjack/include/CocoaLumberjack/DDLog+LOGV.h"; sourceTree = "<group>"; };
+		CA68ABC0ADD065980B72B92B74E95242 /* CBCharacteristicProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicProperties.swift; sourceTree = "<group>"; };
 		CA88DC15C238ED239D57C4992C97D39D /* DDAssert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DDAssert.swift; path = Sources/CocoaLumberjackSwift/DDAssert.swift; sourceTree = "<group>"; };
-		CB00508D779DE55C6C70F73C38A89303 /* XYUtil-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYUtil-Info.plist"; sourceTree = "<group>"; };
-		CB5DF3528E0B0CC0BB3EDD7BE20DC992 /* XYWorkflow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYWorkflow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB6F325254FE3F5E0F8B6669768D7E24 /* XYNode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYNode.release.xcconfig; sourceTree = "<group>"; };
-		CDC1D825B8CE67C7DF1EC0BB24D659CE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		CE65EEDC2F34AE20119D8F3068CCF5D0 /* XYCmd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYCmd.swift; path = XYWorkflow/Classes/XYCmd.swift; sourceTree = "<group>"; };
-		D199A5155DBA8EC9601ABE1BA26C63C5 /* XYLogProcess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogProcess.swift; path = XYLog/Classes/XYLogProcess.swift; sourceTree = "<group>"; };
+		CB5DF3528E0B0CC0BB3EDD7BE20DC992 /* XYWorkflow */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYWorkflow; path = XYWorkflow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC45F2F847A411E70B585B764E7FB67 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		CF3A5C1F234187E227A845F28A8880E5 /* XYWorkflow-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYWorkflow-dummy.m"; sourceTree = "<group>"; };
 		D25A86F438E4014453445D92E521B3AA /* Pods-XYWorkflow_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XYWorkflow_Example-frameworks.sh"; sourceTree = "<group>"; };
-		D3A318B1BEC16B1BCE127C713F70922C /* XYLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.debug.xcconfig; sourceTree = "<group>"; };
-		D481BB8A45685A6D6A5CE5B0A994EAB5 /* XYThreadSafeObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeObservableProperty.swift; sourceTree = "<group>"; };
-		D6BBB83528B7430DCD16164D93F82597 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D90351B4F7D66B605710F7A20EA20CC5 /* CBManagerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBManagerState.swift; sourceTree = "<group>"; };
 		DCC6AA16E3C9B3334B0740874B7B178E /* CocoaLumberjack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaLumberjack-dummy.m"; sourceTree = "<group>"; };
-		DCD117D94DAA8929A4489983109E72F1 /* XYWorkflow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYWorkflow.release.xcconfig; sourceTree = "<group>"; };
-		E11F9DE114147537F8E5478661877FE4 /* CBDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBDescriptor.swift; sourceTree = "<group>"; };
 		E2D19BE84E3C262893280AA7ADCCFFA4 /* Pods-XYWorkflow_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYWorkflow_Tests-dummy.m"; sourceTree = "<group>"; };
-		E41001BE4F0E06197DBF15FF71EB5C11 /* XYExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.debug.xcconfig; sourceTree = "<group>"; };
-		E5D3332ED361D37EBB2EAF744B16EBD1 /* XYLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.release.xcconfig; sourceTree = "<group>"; };
-		E5F68E5E2F73D6BF8DAE895C88852B87 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		EAC9B4478DD6AE6C2414F29F48F824E0 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		E2E77B135C01ABA829F78C1F3D4A1306 /* XYUtil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.release.xcconfig; sourceTree = "<group>"; };
+		E4491DA40B31F4C6132D79DC52FA152E /* XYWorkflow-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYWorkflow-prefix.pch"; sourceTree = "<group>"; };
 		EC8FE1A7E996738D1FB76E0675B53868 /* CurrentFileNameHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrentFileNameHelper.swift; path = Sources/CocoaLumberjackSwift/CurrentFileNameHelper.swift; sourceTree = "<group>"; };
 		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EE6D47AD4716BBFEDA0CC7EAA66BE653 /* XYUtil.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYUtil.modulemap; sourceTree = "<group>"; };
-		EF72FDBA4D0840B58E73B5D809DA35F6 /* XYApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYApp.swift; path = XYUtil/Classes/XYApp.swift; sourceTree = "<group>"; };
-		F2709050187873C52CAE51C0A54643A5 /* XYStateObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYStateObservableProperty.swift; sourceTree = "<group>"; };
-		F4A7213837C2675511E3C55895748059 /* XYNode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYNode.debug.xcconfig; sourceTree = "<group>"; };
+		F22A526A2696C7625541D447B9CCC843 /* XYUtil-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYUtil-dummy.m"; sourceTree = "<group>"; };
 		F5515269532235616CA06FF94F505FB7 /* DDLoggerNames.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLoggerNames.m; path = Sources/CocoaLumberjack/DDLoggerNames.m; sourceTree = "<group>"; };
 		F6AA0FB9CC109647C5FB67DEAC5B4DC7 /* DDOSLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDOSLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDOSLogger.h; sourceTree = "<group>"; };
-		F7B198E6AE874FBEA4DA6F12D80661B8 /* CBL2CAPChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBL2CAPChannel.swift; sourceTree = "<group>"; };
-		F7B233D4A3F9D5B884AB81D9061C871C /* Pods_XYWorkflow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYWorkflow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9A5338D1CFA52C635AA0334F1442721 /* XYWorkflow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYWorkflow.swift; path = XYWorkflow/Classes/XYWorkflow.swift; sourceTree = "<group>"; };
+		F7B233D4A3F9D5B884AB81D9061C871C /* Pods-XYWorkflow_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-XYWorkflow_Tests"; path = Pods_XYWorkflow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA748D11D15267A8F29409BDBFAA28E4 /* CocoaLumberjack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaLumberjack.debug.xcconfig; sourceTree = "<group>"; };
-		FAFCC06E8FD4BFB412E20CA61E275CFD /* XYLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogger.swift; path = XYLog/Classes/XYLogger.swift; sourceTree = "<group>"; };
-		FE6089C003A2CF4FC9009A827C016357 /* XYNode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYNode.modulemap; sourceTree = "<group>"; };
-		FF00392203711A5D62C2A5B266A49887 /* XYExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FE5D19DF586C2AD88EB35DB8B334931E /* XYStateObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYStateObservableProperty.swift; sourceTree = "<group>"; };
+		FFC231204E7A63EB1894BC5EE861492A /* XYLog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYLog.modulemap; sourceTree = "<group>"; };
 		FFF7F6FE1A26574C0931A1F4678CE075 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDAbstractDatabaseLogger.m; path = Sources/CocoaLumberjack/DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A80BFF07BFC362D7D58DF713239CDA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EBDF18E2FCDF8CBAA6D722F042E715F /* Foundation.framework in Frameworks */,
+				B3B9B39003B57ED6D81F627E48AD0681 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ED8FE87B1A0245D898D249EFF1F970E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		416294A62E23BF6C20FADA146CE01565 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,28 +441,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		484FB5225958E3C36F93753D97442D55 /* Frameworks */ = {
+		7D84DB7C8AF547105EFA51C09AEC2E95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		50ACDA0211F986D6DDE710D5BAF163A6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2F7517C7E3B15746C8BCE4D6F005E631 /* Foundation.framework in Frameworks */,
-				1F2E942F3EB5C42A643D42C48D5F25A4 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		64051E9C0E7687B737F249780B9BF299 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA919C2F6B66DA491F08E4B6939814F2 /* Foundation.framework in Frameworks */,
-				2D9DF87690C7B19EC6C3DB3AEF63DA80 /* UIKit.framework in Frameworks */,
+				22DD3AEF71A8DFFC8C0EDB12F4C6AC56 /* Foundation.framework in Frameworks */,
+				CC535568EDDC804682BA795F13659C06 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,19 +495,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03C08A675CDC764BEF23ED171E7BA255 /* XYExtension */ = {
-			isa = PBXGroup;
-			children = (
-				893FD806792293D41ACA600332047C08 /* CoreBluetooth */,
-				247C20A0A6F6841F110C34C2A20C3E14 /* Foundation */,
-				7A812F06D3686A4B2B59FD1A0FF8E9C2 /* Pod */,
-				DA8689AFD89FF9554E3A877951084B4E /* Support Files */,
-				53070DB3E8AA0D2089D60A3DF50F4E8D /* WatchConnectivity */,
-			);
-			name = XYExtension;
-			path = ../../../../Basic/XYExtension;
-			sourceTree = "<group>";
-		};
 		10F9A4906E9F47F43D393F1C699EC063 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,17 +520,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		247C20A0A6F6841F110C34C2A20C3E14 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				EAC9B4478DD6AE6C2414F29F48F824E0 /* Data.swift */,
-				B1B3136A8A8C558A1AD76D7C127F4AFF /* JSON.swift */,
-				8705EE486BBF94F0EC32EE39B0DFA720 /* Task.swift */,
-			);
-			name = Foundation;
-			path = XYExtension/Classes/Foundation;
-			sourceTree = "<group>";
-		};
 		29063E47D2C4A8B6C5F70C8629590C52 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,45 +543,80 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		53070DB3E8AA0D2089D60A3DF50F4E8D /* WatchConnectivity */ = {
+		335F50F84079F1282796EF8BA94C3A32 /* XYUtil */ = {
 			isa = PBXGroup;
 			children = (
-				2280C5C6021E3E18A271A19BB5C4D779 /* WCSessionActivationState.swift */,
+				952EA47A383C151AA2F69656CD2AE879 /* XYApp.swift */,
+				8E7852A2729B979270E37BD11760D6CF /* XYUtil.swift */,
+				D89CA38908C439CA6D8CB37257D39E16 /* Pod */,
+				A1E4E1B6DEAFCD713F2D5525DD42AA3B /* Support Files */,
+				6AD2D5FAE5C21F9313CA9E6A2A6C0961 /* Wrapper */,
 			);
-			name = WatchConnectivity;
-			path = XYExtension/Classes/WatchConnectivity;
+			name = XYUtil;
+			path = ../../../XYUtil;
 			sourceTree = "<group>";
 		};
-		5850E2033605B6C0120068EBF95AD44D /* XYNode */ = {
+		4014E67E8043684CE8A9AB19C3A4389F /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				438EBFF7774DA453236FEAD0ABB4BDFA /* XYBaseNode.swift */,
-				0D084A5152E6D9C3527D10B887B9538F /* XYExtendableNode.swift */,
-				D99EEAF930561FB920329F99AECD7E5D /* Pod */,
-				BEDA2D9E7AF6C42963B01EFBB64D17F7 /* Support Files */,
-			);
-			name = XYNode;
-			path = ../../../XYNode;
-			sourceTree = "<group>";
-		};
-		5A933934CCA669DCBCB163C0B603E839 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				06B643AE2185B6AFED07E6429E373620 /* LICENSE */,
-				58FE1190A61EC92193B2ACC1431A1D65 /* README.md */,
-				971151F8747250BA22D4F581B375A2DF /* XYWorkflow.podspec */,
+				BD82ECAF524FF7F31FE960353B7CBAA5 /* LICENSE */,
+				14B191E7CEBF782EF52D4F586F0F9CE5 /* README.md */,
+				BC8DDBBFEB1C81088DF011124122D836 /* XYLog.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		5D3C79146E40207B03D6312710920056 /* Pod */ = {
+		4D90BC2A77DFE743E5E75E20064CD9A6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D6BBB83528B7430DCD16164D93F82597 /* LICENSE */,
-				9E71A9BE69A3C6F1F1E5DC3C78C91C42 /* README.md */,
-				5A01898E42A546FB10D7926807F0C8E1 /* XYUtil.podspec */,
+				6DCF60A120945FF2172BD60CB66F6DF5 /* XYWorkflow.modulemap */,
+				CF3A5C1F234187E227A845F28A8880E5 /* XYWorkflow-dummy.m */,
+				466AE4ADE5B2824BFAEA41369EC0F01B /* XYWorkflow-Info.plist */,
+				E4491DA40B31F4C6132D79DC52FA152E /* XYWorkflow-prefix.pch */,
+				4ADFBD59D148EFFB732B787B2F22AAF5 /* XYWorkflow-umbrella.h */,
+				ABF51E6D62693AA9644053C931C1BA02 /* XYWorkflow.debug.xcconfig */,
+				7399A19C671933ED34977B3DFC5DA5A7 /* XYWorkflow.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/XYWorkflow";
+			sourceTree = "<group>";
+		};
+		4F3638C573E8AD2595AC288AEC7AA82C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				7E853CF997F37A0A083C5F95EA122002 /* LICENSE */,
+				806ECA183AE24129AA9237D85FFE05B6 /* README.md */,
+				3F682EF8C0E2234904F95A051D33E282 /* XYNode.podspec */,
 			);
 			name = Pod;
+			sourceTree = "<group>";
+		};
+		5975328F906A6D821BA2FFB9F87FB07B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFC231204E7A63EB1894BC5EE861492A /* XYLog.modulemap */,
+				ABEAF1D8B602D3149B0D23911354DFF2 /* XYLog-dummy.m */,
+				3C528A4CE3A9EBC80C33E1EB903FE323 /* XYLog-Info.plist */,
+				00E7609AB8E0ECC97BC31A5B2E87C60C /* XYLog-prefix.pch */,
+				6DB106C78F80B763C5B330A1DE6A8297 /* XYLog-umbrella.h */,
+				614F97D3BB22E7973A06C6C6AA47D983 /* XYLog.debug.xcconfig */,
+				C1E42F24378A9F9648D8494AAE5080C6 /* XYLog.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../Tool/XYWorkflow/Example/Pods/Target Support Files/XYLog";
+			sourceTree = "<group>";
+		};
+		65FBA8C11463B228519E4124AF9B3480 /* XYExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F5A6906014AE76B21CF8E024AB52FF3B /* CoreBluetooth */,
+				9573B895187E45DD70FA53E3C6D2D684 /* Foundation */,
+				C5EA8E3A12599183ACA7E5D337396E52 /* Pod */,
+				DEE6CC84111AB840E2302CED4D14E0DD /* Support Files */,
+				6E862E656B90DCAD4D0E5F906EB66F5F /* WatchConnectivity */,
+			);
+			name = XYExtension;
+			path = ../../../../Basic/XYExtension;
 			sourceTree = "<group>";
 		};
 		68A02523E9CA94990008CFCF34E41924 /* CocoaLumberjack */ = {
@@ -617,7 +626,30 @@
 				739984D59905F09E034C9E1BC984225B /* Support Files */,
 				29063E47D2C4A8B6C5F70C8629590C52 /* Swift */,
 			);
+			name = CocoaLumberjack;
 			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		6AD2D5FAE5C21F9313CA9E6A2A6C0961 /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				97E793EF6D2E50653E1FA6FA69FE2B52 /* XYAtomicCounter.swift */,
+				812203D8A81FF15942942474FD972106 /* XYAtomicFlag.swift */,
+				FE5D19DF586C2AD88EB35DB8B334931E /* XYStateObservableProperty.swift */,
+				4D83E1EF42B627B33BD4D34BB8AC128D /* XYThreadSafeObservableProperty.swift */,
+				4888C6F3AEA23CC82B1E4DAAD027B438 /* XYThreadSafeProperty.swift */,
+			);
+			name = Wrapper;
+			path = XYUtil/Classes/Wrapper;
+			sourceTree = "<group>";
+		};
+		6E862E656B90DCAD4D0E5F906EB66F5F /* WatchConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				4C20D6472E8CF1F959C77AA17853D68D /* WCSessionActivationState.swift */,
+			);
+			name = WatchConnectivity;
+			path = XYExtension/Classes/WatchConnectivity;
 			sourceTree = "<group>";
 		};
 		739984D59905F09E034C9E1BC984225B /* Support Files */ = {
@@ -636,62 +668,16 @@
 			path = "../Target Support Files/CocoaLumberjack";
 			sourceTree = "<group>";
 		};
-		752E70F52B07A06C6307BD4DC24031B4 /* Support Files */ = {
+		896F73D818C187979A63E15085EFB8C1 /* XYNode */ = {
 			isa = PBXGroup;
 			children = (
-				B6BF9E15FDDE0EE17FDCCD7E860EB19F /* XYWorkflow.modulemap */,
-				BD2730DE224AF4E4740A9BC3191F69BB /* XYWorkflow-dummy.m */,
-				4AC6720A49F0395D133E1ABE568AC94B /* XYWorkflow-Info.plist */,
-				3522B5A88C9D821180FEB1C188437F2B /* XYWorkflow-prefix.pch */,
-				940298CF2760F25513118EBFF0C870BE /* XYWorkflow-umbrella.h */,
-				A1D5F12F76962B86207124D4D0718A09 /* XYWorkflow.debug.xcconfig */,
-				DCD117D94DAA8929A4489983109E72F1 /* XYWorkflow.release.xcconfig */,
+				0C3A14953351B62F3979ABAAC64D8BD8 /* XYBaseNode.swift */,
+				BA13E6C7EE14572F8448F25E0DFA32C3 /* XYExtendableNode.swift */,
+				4F3638C573E8AD2595AC288AEC7AA82C /* Pod */,
+				D73FBAE3DB65F093386BEF87F86DAFCC /* Support Files */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/XYWorkflow";
-			sourceTree = "<group>";
-		};
-		7A812F06D3686A4B2B59FD1A0FF8E9C2 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				CDC1D825B8CE67C7DF1EC0BB24D659CE /* LICENSE */,
-				1D5264A4354BED31438EE355A1041EB2 /* README.md */,
-				FF00392203711A5D62C2A5B266A49887 /* XYExtension.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		7DE90F827EC13484188DD32A567927F5 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EE6D47AD4716BBFEDA0CC7EAA66BE653 /* XYUtil.modulemap */,
-				234514C9BF3975B8D071B003684BA6F6 /* XYUtil-dummy.m */,
-				CB00508D779DE55C6C70F73C38A89303 /* XYUtil-Info.plist */,
-				1C0F85AED5097BF50791C7D683C015BC /* XYUtil-prefix.pch */,
-				5A729F85665EF552CCC19C55E664180B /* XYUtil-umbrella.h */,
-				00C4EAF2E9E3FEC87B16B5192541B650 /* XYUtil.debug.xcconfig */,
-				B20636CD90058E406B92EDCB60189EB3 /* XYUtil.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../XYWorkflow/Example/Pods/Target Support Files/XYUtil";
-			sourceTree = "<group>";
-		};
-		893FD806792293D41ACA600332047C08 /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				A3AF6C8410F66258BAE63CC1B0F55628 /* CBCharacteristic.swift */,
-				52AC1D04F8B7AA8BB63B8EDF130B7137 /* CBCharacteristicProperties.swift */,
-				6CA645A73274764165EAB354CDBE6ED6 /* CBCharacteristicWriteType.swift */,
-				E11F9DE114147537F8E5478661877FE4 /* CBDescriptor.swift */,
-				9392AB8F50B4A35A6391F372BA7E8447 /* CBError.swift */,
-				F7B198E6AE874FBEA4DA6F12D80661B8 /* CBL2CAPChannel.swift */,
-				D90351B4F7D66B605710F7A20EA20CC5 /* CBManagerState.swift */,
-				110D31BF58A408009652A88B14D95317 /* CBPeripheral.swift */,
-				89D2DAB57CDCE02404BF6B18359232D6 /* CBPeripheralState.swift */,
-				5B000522CBE83BF49376B2884F4F57FF /* CBService.swift */,
-			);
-			name = CoreBluetooth;
-			path = XYExtension/Classes/CoreBluetooth;
+			name = XYNode;
+			path = ../../../XYNode;
 			sourceTree = "<group>";
 		};
 		9418AAB13DBD1A08324EADA86C262D09 /* Core */ = {
@@ -736,16 +722,30 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		9D6B4AE97A0630E9DE14B5EFB0C38413 /* Development Pods */ = {
+		9573B895187E45DD70FA53E3C6D2D684 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				03C08A675CDC764BEF23ED171E7BA255 /* XYExtension */,
-				FC54B5BE1D5FF0180FE8DD9F5E5A686C /* XYLog */,
-				5850E2033605B6C0120068EBF95AD44D /* XYNode */,
-				CF9C473F13C1F14BCD5FAF7486EA6C1E /* XYUtil */,
-				E898633E3AE101EC8967AAD31D6AA688 /* XYWorkflow */,
+				62570AE384CAD5852C7DF9E06237E858 /* Data.swift */,
+				C73BF21607D1BC16ABC5E84BAC4AD9CB /* JSON.swift */,
+				35F0176FCFE7DA047AA01308E57EA132 /* Task.swift */,
 			);
-			name = "Development Pods";
+			name = Foundation;
+			path = XYExtension/Classes/Foundation;
+			sourceTree = "<group>";
+		};
+		A1E4E1B6DEAFCD713F2D5525DD42AA3B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D5C037D2BB8752C71E353B5B7B04155 /* XYUtil.modulemap */,
+				F22A526A2696C7625541D447B9CCC843 /* XYUtil-dummy.m */,
+				9A5B292958122D0A8B789595ECF2BDBC /* XYUtil-Info.plist */,
+				C2AE64E21B24B9D3FC0478C8BD0E58E1 /* XYUtil-prefix.pch */,
+				79927646A52F4744762D6B2BBD7EC2FE /* XYUtil-umbrella.h */,
+				C4C65EBDAEC0DAE17B575F86300597C4 /* XYUtil.debug.xcconfig */,
+				E2E77B135C01ABA829F78C1F3D4A1306 /* XYUtil.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../XYWorkflow/Example/Pods/Target Support Files/XYUtil";
 			sourceTree = "<group>";
 		};
 		A2DF5CBF081A706375C1C8D2BD40E3DC /* Pods-XYWorkflow_Tests */ = {
@@ -764,29 +764,28 @@
 			path = "Target Support Files/Pods-XYWorkflow_Tests";
 			sourceTree = "<group>";
 		};
-		AADC414BC516B5E080B064F0EC260A8E /* Pod */ = {
+		AA2563A878E6DEB0229CF402BC9916AC /* XYLog */ = {
 			isa = PBXGroup;
 			children = (
-				25BE76C2C99508500F110A6537086AA0 /* LICENSE */,
-				3B7F3093A099236F6BF26C93E5A6AD0C /* README.md */,
-				3D5218070DBD1D0DC4D09CC6EB0CAACA /* XYLog.podspec */,
+				1D831049B86DCA6775B1621F523F8BB3 /* XYLog.swift */,
+				C4A3EA2C4C7E2FE91788617ECC7F40DF /* XYLogger.swift */,
+				167E23DF968E84B456DB3B63239A816B /* XYLogLevel.swift */,
+				18DDB28C7EB0B856318DFC3A99B81A1B /* XYLogProcess.swift */,
+				4014E67E8043684CE8A9AB19C3A4389F /* Pod */,
+				5975328F906A6D821BA2FFB9F87FB07B /* Support Files */,
 			);
-			name = Pod;
+			name = XYLog;
+			path = ../../../../Server/XYLog;
 			sourceTree = "<group>";
 		};
-		BEDA2D9E7AF6C42963B01EFBB64D17F7 /* Support Files */ = {
+		C5EA8E3A12599183ACA7E5D337396E52 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				FE6089C003A2CF4FC9009A827C016357 /* XYNode.modulemap */,
-				43EC99D9EAA6B5F52A2C4C75F1819227 /* XYNode-dummy.m */,
-				1E6D2E4F393EA342C48FCDDC4A1ED905 /* XYNode-Info.plist */,
-				2F7A2F2500491CA195802BDDAC3E9CA9 /* XYNode-prefix.pch */,
-				C357963E931CFED82D34CDF563647A1D /* XYNode-umbrella.h */,
-				F4A7213837C2675511E3C55895748059 /* XYNode.debug.xcconfig */,
-				CB6F325254FE3F5E0F8B6669768D7E24 /* XYNode.release.xcconfig */,
+				CDC45F2F847A411E70B585B764E7FB67 /* LICENSE */,
+				424FE30AF787991DC7B745E7DB1515DE /* README.md */,
+				BEF5127F7CDAEDDEF8B230D62756EDF5 /* XYExtension.podspec */,
 			);
-			name = "Support Files";
-			path = "../XYWorkflow/Example/Pods/Target Support Files/XYNode";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		CAA2BEB003F0D90773E6C23382A40F26 /* Pods-XYWorkflow_Example */ = {
@@ -819,7 +818,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				9D6B4AE97A0630E9DE14B5EFB0C38413 /* Development Pods */,
+				DE9C6648ABF431609EBA664B80D1C7B6 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				320ED2F2348655F220D240EB856D3CE1 /* Pods */,
 				F0AD4B9449306D3B6C5E83981E327A16 /* Products */,
@@ -827,55 +826,68 @@
 			);
 			sourceTree = "<group>";
 		};
-		CF9C473F13C1F14BCD5FAF7486EA6C1E /* XYUtil */ = {
+		D73FBAE3DB65F093386BEF87F86DAFCC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				EF72FDBA4D0840B58E73B5D809DA35F6 /* XYApp.swift */,
-				6A3ABE1F7EF726B5D65F9570106A8951 /* XYUtil.swift */,
-				5D3C79146E40207B03D6312710920056 /* Pod */,
-				7DE90F827EC13484188DD32A567927F5 /* Support Files */,
-				FFB72A34949DC79274C79665C0A9D5A8 /* Wrapper */,
+				44D0A60DD7D2C8A082EA45C0A0C4D1AF /* XYNode.modulemap */,
+				2095241AC0B3D61E88BE3C07DF5DB957 /* XYNode-dummy.m */,
+				91B7BE538F7BCF2FE1EE220082CA0657 /* XYNode-Info.plist */,
+				BBF8A6CE08BC3CA6EF8D13EF4466CA44 /* XYNode-prefix.pch */,
+				69003E47B7256ACF1693B452709C82E2 /* XYNode-umbrella.h */,
+				17C64061C49CFCBCD6E6D9516B91FB17 /* XYNode.debug.xcconfig */,
+				9D33B7C15D7D6A3B352BB6FFF9EDC681 /* XYNode.release.xcconfig */,
 			);
-			name = XYUtil;
-			path = ../../../XYUtil;
+			name = "Support Files";
+			path = "../XYWorkflow/Example/Pods/Target Support Files/XYNode";
 			sourceTree = "<group>";
 		};
-		D99EEAF930561FB920329F99AECD7E5D /* Pod */ = {
+		D89CA38908C439CA6D8CB37257D39E16 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				AED1F1DF473C8C18384C950D71FE97D8 /* LICENSE */,
-				E5F68E5E2F73D6BF8DAE895C88852B87 /* README.md */,
-				9282DF317521405DD34688D6F7ABC774 /* XYNode.podspec */,
+				8F7459704BF6134BA0FC918AB1C171F8 /* LICENSE */,
+				349023F81296819A166E20FF0158C49B /* README.md */,
+				B214B3E506A142D3CD5DE9404A13AE0A /* XYUtil.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		DA8689AFD89FF9554E3A877951084B4E /* Support Files */ = {
+		DE9C6648ABF431609EBA664B80D1C7B6 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B23745E84958B66B24BEFACF53AD8FB6 /* XYExtension.modulemap */,
-				C0C8981E439989D25E2395667EA4B94B /* XYExtension-dummy.m */,
-				3A7E8B6B0C1C23FFA4FC7E77EEE49853 /* XYExtension-Info.plist */,
-				8EFCC2AFA0CA10C84DFDDA20C68B45B4 /* XYExtension-prefix.pch */,
-				5CFF698102D1F0560817607F29A67115 /* XYExtension-umbrella.h */,
-				E41001BE4F0E06197DBF15FF71EB5C11 /* XYExtension.debug.xcconfig */,
-				3FEF8F91A7319CDB825F53557A46E527 /* XYExtension.release.xcconfig */,
+				65FBA8C11463B228519E4124AF9B3480 /* XYExtension */,
+				AA2563A878E6DEB0229CF402BC9916AC /* XYLog */,
+				896F73D818C187979A63E15085EFB8C1 /* XYNode */,
+				335F50F84079F1282796EF8BA94C3A32 /* XYUtil */,
+				EE4D51012FAFA6AC4716E48165A7241F /* XYWorkflow */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		DEE6CC84111AB840E2302CED4D14E0DD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				572A194C22946653E20ED47C0CB3392B /* XYExtension.modulemap */,
+				4D5C2EF351A7CC7EB3BFD59E21225C23 /* XYExtension-dummy.m */,
+				8C81F956939569771ECB45399B44B440 /* XYExtension-Info.plist */,
+				5633E0CDC729A4620459E2ECDEA29331 /* XYExtension-prefix.pch */,
+				24E7F14A1E8A508CBB797114C7909647 /* XYExtension-umbrella.h */,
+				2A8432547C3F290B997540D1E9971CD9 /* XYExtension.debug.xcconfig */,
+				605FA46DC23C3FD50B7A0B04D2E3B80E /* XYExtension.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../../Tool/XYWorkflow/Example/Pods/Target Support Files/XYExtension";
 			sourceTree = "<group>";
 		};
-		E898633E3AE101EC8967AAD31D6AA688 /* XYWorkflow */ = {
+		EE4D51012FAFA6AC4716E48165A7241F /* XYWorkflow */ = {
 			isa = PBXGroup;
 			children = (
-				1DC217E335AA54DACB6191C906798B02 /* XYBaseCmd.swift */,
-				CE65EEDC2F34AE20119D8F3068CCF5D0 /* XYCmd.swift */,
-				34FCEF615799F71F801DC5382997C107 /* XYError.swift */,
-				A1A431271164B966557C9C212A3C6D4D /* XYGroupCmd.swift */,
-				67270C9FB36DD7B18F6E2EE489838993 /* XYState.swift */,
-				F9A5338D1CFA52C635AA0334F1442721 /* XYWorkflow.swift */,
-				5A933934CCA669DCBCB163C0B603E839 /* Pod */,
-				752E70F52B07A06C6307BD4DC24031B4 /* Support Files */,
+				253B680BB01C7197D427181E8518814C /* XYBaseCmd.swift */,
+				BD79692B917EB4116243F42C8636FC2A /* XYCmd.swift */,
+				7B30B50CC35908E4DA8B63EE37D66D57 /* XYError.swift */,
+				9F41EEF34C88593FC556461D2F76F3DC /* XYGroupCmd.swift */,
+				9E792BC729400021B0FF55AE46423AD4 /* XYState.swift */,
+				F67E707A60367CB4A10508E44B765F80 /* Pod */,
+				4D90BC2A77DFE743E5E75E20064CD9A6 /* Support Files */,
 			);
 			name = XYWorkflow;
 			path = ../..;
@@ -884,59 +896,45 @@
 		F0AD4B9449306D3B6C5E83981E327A16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack.framework */,
-				519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */,
-				A3CEA6D4595CD3C2408FD7F273D041C5 /* Pods_XYWorkflow_Example.framework */,
-				F7B233D4A3F9D5B884AB81D9061C871C /* Pods_XYWorkflow_Tests.framework */,
-				7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension.framework */,
-				A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog.framework */,
-				C4F65B8C837E5412EDA8848CB356DDAC /* XYNode.framework */,
-				B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil.framework */,
-				CB5DF3528E0B0CC0BB3EDD7BE20DC992 /* XYWorkflow.framework */,
+				C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */,
+				519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */,
+				A3CEA6D4595CD3C2408FD7F273D041C5 /* Pods-XYWorkflow_Example */,
+				F7B233D4A3F9D5B884AB81D9061C871C /* Pods-XYWorkflow_Tests */,
+				7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */,
+				A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */,
+				C4F65B8C837E5412EDA8848CB356DDAC /* XYNode */,
+				B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil */,
+				CB5DF3528E0B0CC0BB3EDD7BE20DC992 /* XYWorkflow */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC54B5BE1D5FF0180FE8DD9F5E5A686C /* XYLog */ = {
+		F5A6906014AE76B21CF8E024AB52FF3B /* CoreBluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				06169E5D5E6CA9DB10B27A0AF629EA20 /* XYLog.swift */,
-				FAFCC06E8FD4BFB412E20CA61E275CFD /* XYLogger.swift */,
-				30E4D8D2F8093C430D8D12AB9074C081 /* XYLogLevel.swift */,
-				D199A5155DBA8EC9601ABE1BA26C63C5 /* XYLogProcess.swift */,
-				AADC414BC516B5E080B064F0EC260A8E /* Pod */,
-				FCF1771404D5FD1162CFB92B920DBD36 /* Support Files */,
+				B1ABA4D60E2AD0954E447F489D3F14F3 /* CBCharacteristic.swift */,
+				CA68ABC0ADD065980B72B92B74E95242 /* CBCharacteristicProperties.swift */,
+				98474372998194027E09C17398397552 /* CBCharacteristicWriteType.swift */,
+				85F373967A3644E4F79702E4FB984852 /* CBDescriptor.swift */,
+				9453625D691DE6D858684BE3D127A5CB /* CBError.swift */,
+				8279A8FB6CA20E1A3D60CDA40E2857F8 /* CBL2CAPChannel.swift */,
+				106B3EA320B1D989CD88BE70CF31147D /* CBManagerState.swift */,
+				7F07485CEF8D799FBFC0F1D7D2BDF646 /* CBPeripheral.swift */,
+				3B7D1501720BCDA768131ED4ACB94A2F /* CBPeripheralState.swift */,
+				7C5CAFA225F0145F31DC1006A612A0AB /* CBService.swift */,
 			);
-			name = XYLog;
-			path = ../../../../Server/XYLog;
+			name = CoreBluetooth;
+			path = XYExtension/Classes/CoreBluetooth;
 			sourceTree = "<group>";
 		};
-		FCF1771404D5FD1162CFB92B920DBD36 /* Support Files */ = {
+		F67E707A60367CB4A10508E44B765F80 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				A4129254D6EF98414AE1FBE32B848A7F /* XYLog.modulemap */,
-				18104EFEDBCE442C146A4EA695A50FFF /* XYLog-dummy.m */,
-				64643DF3CAB3B5F07692E5016D8164FB /* XYLog-Info.plist */,
-				5B0F7DB804B35370E71FF2844195E329 /* XYLog-prefix.pch */,
-				5F8C4BC97AF744BA1D2323FC47432408 /* XYLog-umbrella.h */,
-				D3A318B1BEC16B1BCE127C713F70922C /* XYLog.debug.xcconfig */,
-				E5D3332ED361D37EBB2EAF744B16EBD1 /* XYLog.release.xcconfig */,
+				1388DA5BC828C6B862B4B375ED077817 /* LICENSE */,
+				47031B547C045FA3B9E419EC735A4215 /* README.md */,
+				40F9F0635FDBAEA4FA33705CC1AEAD8A /* XYWorkflow.podspec */,
 			);
-			name = "Support Files";
-			path = "../../Tool/XYWorkflow/Example/Pods/Target Support Files/XYLog";
-			sourceTree = "<group>";
-		};
-		FFB72A34949DC79274C79665C0A9D5A8 /* Wrapper */ = {
-			isa = PBXGroup;
-			children = (
-				19314AADC79DD00D2DFDB4CB808A486B /* XYAtomicCounter.swift */,
-				683915C1E9F5F03A4CF18F1A11859CC2 /* XYAtomicFlag.swift */,
-				F2709050187873C52CAE51C0A54643A5 /* XYStateObservableProperty.swift */,
-				D481BB8A45685A6D6A5CE5B0A994EAB5 /* XYThreadSafeObservableProperty.swift */,
-				0BD5FC258050B0F71CD952FD1A02EC12 /* XYThreadSafeProperty.swift */,
-			);
-			name = Wrapper;
-			path = XYUtil/Classes/Wrapper;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -982,6 +980,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		900E76E5148ECC178C644C9F7BB68C30 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413DB63AE606E03D3313F72244DF26DE /* XYUtil-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC2D4380DF70F17A2C9D4ADF50F53B4B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1011,19 +1017,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E967D2AD2828DB9C37DF958B1BE71649 /* Headers */ = {
+		F9EB27661E4785DF7D2215C2BB13A903 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BE961C3C95BA554FF969A8A7003723C /* XYUtil-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F0C24C12D7B40232527F60387A651159 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2D86ABA2F238F6F4B4558798714347C /* XYWorkflow-umbrella.h in Headers */,
+				D14E49F3FF9CF29705FD9DA0C421F740 /* XYWorkflow-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,11 +1030,11 @@
 /* Begin PBXNativeTarget section */
 		276021C4482165D46E0CBBEFB822FE95 /* CocoaLumberjack-CocoaLumberjackPrivacy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 775FD477E36FEEEED80A85C325156E08 /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */;
+			buildConfigurationList = 70746AA422DF1F945E70D5FE084974BD /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */;
 			buildPhases = (
-				65A857461EBD3D7D03181E018CE6A681 /* Sources */,
-				484FB5225958E3C36F93753D97442D55 /* Frameworks */,
-				980B36222FD34F2EA6734F53C6CDADEA /* Resources */,
+				F6BB901ABD9B40B61A2330A35E9FDB6D /* Sources */,
+				3ED8FE87B1A0245D898D249EFF1F970E /* Frameworks */,
+				83395C21F3DD42DDD793833D60146836 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1044,7 +1042,7 @@
 			);
 			name = "CocoaLumberjack-CocoaLumberjackPrivacy";
 			productName = CocoaLumberjackPrivacy;
-			productReference = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */;
+			productReference = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */;
 			productType = "com.apple.product-type.bundle";
 		};
 		2EAB133D9818DBBACF03C99B112F2BF2 /* Pods-XYWorkflow_Tests */ = {
@@ -1059,11 +1057,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				C9DC340E56F9694FA23B4BA74104D095 /* PBXTargetDependency */,
+				5077B27519F4A09AF44C9597D931FF8F /* PBXTargetDependency */,
 			);
 			name = "Pods-XYWorkflow_Tests";
 			productName = Pods_XYWorkflow_Tests;
-			productReference = F7B233D4A3F9D5B884AB81D9061C871C /* Pods_XYWorkflow_Tests.framework */;
+			productReference = F7B233D4A3F9D5B884AB81D9061C871C /* Pods-XYWorkflow_Tests */;
 			productType = "com.apple.product-type.framework";
 		};
 		606F4BA4318CD0324FB40536167C5A47 /* XYExtension */ = {
@@ -1081,26 +1079,26 @@
 			);
 			name = XYExtension;
 			productName = XYExtension;
-			productReference = 7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension.framework */;
+			productReference = 7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */;
 			productType = "com.apple.product-type.framework";
 		};
 		62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44269247D022CFF8EB1F36B4F964EEFF /* Build configuration list for PBXNativeTarget "XYUtil" */;
+			buildConfigurationList = B1987DAD6F2296C185BE1F8D28C12C42 /* Build configuration list for PBXNativeTarget "XYUtil" */;
 			buildPhases = (
-				E967D2AD2828DB9C37DF958B1BE71649 /* Headers */,
-				B3BAD14C547B63B6AA920FAF7EF968C5 /* Sources */,
-				50ACDA0211F986D6DDE710D5BAF163A6 /* Frameworks */,
-				6936E40390F93BA1A9407D9F04B5E642 /* Resources */,
+				900E76E5148ECC178C644C9F7BB68C30 /* Headers */,
+				D054A42A194E321486D6425FB4A1043D /* Sources */,
+				7D84DB7C8AF547105EFA51C09AEC2E95 /* Frameworks */,
+				243B2A6CC9472CCD4D39F137E8D72D8F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6855CC49F9155D5DDC5361696FD09711 /* PBXTargetDependency */,
+				7FE4F2DE7FA3E77D993FB6B2A77B64CD /* PBXTargetDependency */,
 			);
 			name = XYUtil;
 			productName = XYUtil;
-			productReference = B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil.framework */;
+			productReference = B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil */;
 			productType = "com.apple.product-type.framework";
 		};
 		A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */ = {
@@ -1115,35 +1113,35 @@
 			buildRules = (
 			);
 			dependencies = (
-				5146ED1DC68E9D5B038BCB3AA79E4723 /* PBXTargetDependency */,
-				7DFA0113DE7428421DAC98B46C39B408 /* PBXTargetDependency */,
-				EDEF558C632B7BAF48EAC22D51B57FE9 /* PBXTargetDependency */,
+				48BA5E8037A43252F820FCA11BF123C9 /* PBXTargetDependency */,
+				6F08E59EC12787544968D1DC49B7EAB1 /* PBXTargetDependency */,
+				D559552368E32D67E962D0B72DC70D96 /* PBXTargetDependency */,
 			);
 			name = XYLog;
 			productName = XYLog;
-			productReference = A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog.framework */;
+			productReference = A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */;
 			productType = "com.apple.product-type.framework";
 		};
 		A8B0F82816B59C9625656835C20DEA5F /* XYWorkflow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD98D6734C66CA210326D331EAD1FFA3 /* Build configuration list for PBXNativeTarget "XYWorkflow" */;
+			buildConfigurationList = 03F6484088878A1B2DA02506D6755074 /* Build configuration list for PBXNativeTarget "XYWorkflow" */;
 			buildPhases = (
-				F0C24C12D7B40232527F60387A651159 /* Headers */,
-				8894452B5439388CECCFEF9470318B2E /* Sources */,
-				64051E9C0E7687B737F249780B9BF299 /* Frameworks */,
-				BB0431AF234485CF567E5B9795B1B280 /* Resources */,
+				F9EB27661E4785DF7D2215C2BB13A903 /* Headers */,
+				80002B236C06982064442806FD7F5D58 /* Sources */,
+				3A80BFF07BFC362D7D58DF713239CDA5 /* Frameworks */,
+				18731DD3ED3ADE39037CEEA4E401B559 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FD57C87194F771DB2FCA6BF1E34AE023 /* PBXTargetDependency */,
-				5CC6F893A7C7CC81490923BBC12002DE /* PBXTargetDependency */,
-				1A8680F471150F0119F856E8C10251C3 /* PBXTargetDependency */,
-				562909AAE849817D8B4B60BA8CFC5691 /* PBXTargetDependency */,
+				AD2D3B8219AEF5D3B4BCF78C147AE8EB /* PBXTargetDependency */,
+				D83254F240EB9F181D06C5D3BEA5A313 /* PBXTargetDependency */,
+				83B78EDC7AACF4538F21D8974788A8DC /* PBXTargetDependency */,
+				146576B70F0717E8D043F1A47B269083 /* PBXTargetDependency */,
 			);
 			name = XYWorkflow;
 			productName = XYWorkflow;
-			productReference = CB5DF3528E0B0CC0BB3EDD7BE20DC992 /* XYWorkflow.framework */;
+			productReference = CB5DF3528E0B0CC0BB3EDD7BE20DC992 /* XYWorkflow */;
 			productType = "com.apple.product-type.framework";
 		};
 		AA1436E5BB6024DA4120D1117F463AE8 /* Pods-XYWorkflow_Example */ = {
@@ -1158,16 +1156,16 @@
 			buildRules = (
 			);
 			dependencies = (
-				7B369DA49EA3C48FD157964550CD6C0B /* PBXTargetDependency */,
-				1F4E6D49C2701DDB2EB3BE58E0DC9794 /* PBXTargetDependency */,
-				925DF293B867147C11EFE36691DB6083 /* PBXTargetDependency */,
-				CCCB4D833E6EDDAA58B3B5664F2C2101 /* PBXTargetDependency */,
-				BFA92663A334B2247700F8DDD9EF8ADF /* PBXTargetDependency */,
-				2C35BCD78CE71F2968A9DF177C23B127 /* PBXTargetDependency */,
+				0E85C39D75F5EA79AF48AA7EA62B638B /* PBXTargetDependency */,
+				CE28227E4F98F08C4F08FCBA096F04E9 /* PBXTargetDependency */,
+				AEC2410A0B771F78BDCA1D799E4CAF7E /* PBXTargetDependency */,
+				D996A632505E284A2E6363CEC1104AB9 /* PBXTargetDependency */,
+				A5BE4D76C4EDD25EC0808FB38C4499C1 /* PBXTargetDependency */,
+				FD871E8DE8497CCEC6A5C203F4300C29 /* PBXTargetDependency */,
 			);
 			name = "Pods-XYWorkflow_Example";
 			productName = Pods_XYWorkflow_Example;
-			productReference = A3CEA6D4595CD3C2408FD7F273D041C5 /* Pods_XYWorkflow_Example.framework */;
+			productReference = A3CEA6D4595CD3C2408FD7F273D041C5 /* Pods-XYWorkflow_Example */;
 			productType = "com.apple.product-type.framework";
 		};
 		E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */ = {
@@ -1182,11 +1180,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				6DEE60E19E8A365270E455E2C97B36DD /* PBXTargetDependency */,
+				0CB5B7FE6526425F77B3CCD6F9AF46C9 /* PBXTargetDependency */,
 			);
 			name = CocoaLumberjack;
 			productName = CocoaLumberjack;
-			productReference = C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack.framework */;
+			productReference = C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */;
 			productType = "com.apple.product-type.framework";
 		};
 		FF440CCD4A7A54E01AA64886329310D1 /* XYNode */ = {
@@ -1201,13 +1199,13 @@
 			buildRules = (
 			);
 			dependencies = (
-				3609598A41E847476ACC659AB337E754 /* PBXTargetDependency */,
-				C3B42EF010C305A1C712B886CE9275F9 /* PBXTargetDependency */,
-				A621BC210A862A9D67B2E60C2D7FED59 /* PBXTargetDependency */,
+				C73FE0FCCDB2576E164D9E43147D5AC5 /* PBXTargetDependency */,
+				6DD11B9328157BE1C04DC70703CEF4CD /* PBXTargetDependency */,
+				988ED35A7F934BC78D6040B0AF7EDA64 /* PBXTargetDependency */,
 			);
 			name = XYNode;
 			productName = XYNode;
-			productReference = C4F65B8C837E5412EDA8848CB356DDAC /* XYNode.framework */;
+			productReference = C4F65B8C837E5412EDA8848CB356DDAC /* XYNode */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1228,6 +1226,8 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = F0AD4B9449306D3B6C5E83981E327A16 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1246,15 +1246,22 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		18731DD3ED3ADE39037CEEA4E401B559 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		208CA54F7A9B2296A366628AEDB45C82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjackPrivacy.bundle in Resources */,
+				3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjack-CocoaLumberjackPrivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6936E40390F93BA1A9407D9F04B5E642 /* Resources */ = {
+		243B2A6CC9472CCD4D39F137E8D72D8F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1265,6 +1272,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83395C21F3DD42DDD793833D60146836 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA25D87E249E7813D29860B009965ECC /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1282,14 +1297,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		980B36222FD34F2EA6734F53C6CDADEA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B1CA6C986B5375FBC7F565A32EA265A /* PrivacyInfo.xcprivacy in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B4A775B09CC6A5E208F3AC68B2A56345 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1298,13 +1305,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B9D610FA1EEE172B86FA196F4651DDBB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB0431AF234485CF567E5B9795B1B280 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1343,10 +1343,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65A857461EBD3D7D03181E018CE6A681 /* Sources */ = {
+		80002B236C06982064442806FD7F5D58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9F92F127D9A4D31DA1D8AFCBE370E1 /* XYBaseCmd.swift in Sources */,
+				DA2117B9622EEA06876FD3FDA0C87B45 /* XYCmd.swift in Sources */,
+				49160823249F442E4B1BA71A401B8055 /* XYError.swift in Sources */,
+				2733510A514D7675164F45CB18824C5B /* XYGroupCmd.swift in Sources */,
+				CFE81367A83AD0793D1BC583F61253BD /* XYState.swift in Sources */,
+				33F23B070038F6D76D0AB67F99DDBD5E /* XYWorkflow-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1372,40 +1378,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8894452B5439388CECCFEF9470318B2E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				113DFBB7B9CEAB8738B6D02C7F6A02C9 /* XYBaseCmd.swift in Sources */,
-				6766DFFB8C9890EA069727D5AB2AA960 /* XYCmd.swift in Sources */,
-				29827121EBBA5E0E0B4DF0FB3D49F62A /* XYError.swift in Sources */,
-				AB87BDFFB8AADC09961D5F220FC8CACC /* XYGroupCmd.swift in Sources */,
-				7E6E0C380298F827527AD6204D61D8B7 /* XYState.swift in Sources */,
-				E6DB4E887BDBBCCFF75C702888D43EE8 /* XYWorkflow.swift in Sources */,
-				EDF82CFC7E5095DD18EFF5472D23E66F /* XYWorkflow-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3BAD14C547B63B6AA920FAF7EF968C5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5E154A25108956AFD152B7A1EF148BC /* XYApp.swift in Sources */,
-				83B2B076C2FAE1A3B2D22FAFEA1652E1 /* XYAtomicCounter.swift in Sources */,
-				621A43EBE1309E6FC30FF78B7A2C28B4 /* XYAtomicFlag.swift in Sources */,
-				7499171614FAFCD7ED5818FD8EF68279 /* XYStateObservableProperty.swift in Sources */,
-				F3910E7CA34940275B5BB60AAA444CE5 /* XYThreadSafeObservableProperty.swift in Sources */,
-				6084255C446793B5C12F5AC667BD8557 /* XYThreadSafeProperty.swift in Sources */,
-				39F876C4D456E72A0B9BB3A74B65FA85 /* XYUtil.swift in Sources */,
-				777A36995ACAE221987FCC28436C1E5E /* XYUtil-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C026515AF8C4C683D45C39EBC4C9AA13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3ACE372CF7B67698C061FC17C4224E8C /* Pods-XYWorkflow_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D054A42A194E321486D6425FB4A1043D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F92B4047BB631108880165DE6BF797C /* XYApp.swift in Sources */,
+				4100AEA763AEE3FA5712C6F59FB99A12 /* XYAtomicCounter.swift in Sources */,
+				2FE87ADE670525719D8F6F4799A8CBEB /* XYAtomicFlag.swift in Sources */,
+				DC438855FD6F99DA339F3964706C158C /* XYStateObservableProperty.swift in Sources */,
+				AD93907282E6A402A483D267B5B06B27 /* XYThreadSafeObservableProperty.swift in Sources */,
+				1E4052951B0B64F17CD1F41F8ACFC710 /* XYThreadSafeProperty.swift in Sources */,
+				DD10428DF906B941F62F47B3026582B5 /* XYUtil.swift in Sources */,
+				978EF308E4C45B20C3024EB4D3918A8F /* XYUtil-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1439,165 +1431,136 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6BB901ABD9B40B61A2330A35E9FDB6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1A8680F471150F0119F856E8C10251C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYNode;
-			target = FF440CCD4A7A54E01AA64886329310D1 /* XYNode */;
-			targetProxy = 3AC2238571D3AF757AFF32C2A44585AF /* PBXContainerItemProxy */;
-		};
-		1F4E6D49C2701DDB2EB3BE58E0DC9794 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYExtension;
-			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = 056FB62E6AAC1058A40341CAE1E118EF /* PBXContainerItemProxy */;
-		};
-		2C35BCD78CE71F2968A9DF177C23B127 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYWorkflow;
-			target = A8B0F82816B59C9625656835C20DEA5F /* XYWorkflow */;
-			targetProxy = CA89FFFA0E3DCD01185D2CF6CC690238 /* PBXContainerItemProxy */;
-		};
-		3609598A41E847476ACC659AB337E754 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYExtension;
-			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = C19EBF16C909E6306DF01F3E084851B8 /* PBXContainerItemProxy */;
-		};
-		5146ED1DC68E9D5B038BCB3AA79E4723 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaLumberjack;
-			target = E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */;
-			targetProxy = D6916A4CC241AF94895C4DEC16A6C438 /* PBXContainerItemProxy */;
-		};
-		562909AAE849817D8B4B60BA8CFC5691 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYUtil;
-			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
-			targetProxy = 1B5780396E267A64901BEA70580112D4 /* PBXContainerItemProxy */;
-		};
-		5CC6F893A7C7CC81490923BBC12002DE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYLog;
-			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
-			targetProxy = 82E0A021E1BC1022A1CDD419BEA33E8C /* PBXContainerItemProxy */;
-		};
-		6855CC49F9155D5DDC5361696FD09711 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYExtension;
-			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = 7CA7A41DD5E116D60FA7A9D40541F764 /* PBXContainerItemProxy */;
-		};
-		6DEE60E19E8A365270E455E2C97B36DD /* PBXTargetDependency */ = {
+		0CB5B7FE6526425F77B3CCD6F9AF46C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CocoaLumberjack-CocoaLumberjackPrivacy";
 			target = 276021C4482165D46E0CBBEFB822FE95 /* CocoaLumberjack-CocoaLumberjackPrivacy */;
-			targetProxy = BCE3EF4A2AF4A36EF58063175790D4CE /* PBXContainerItemProxy */;
+			targetProxy = 2683D22FB3F0BFC4D5CA3101074F90EB /* PBXContainerItemProxy */;
 		};
-		7B369DA49EA3C48FD157964550CD6C0B /* PBXTargetDependency */ = {
+		0E85C39D75F5EA79AF48AA7EA62B638B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CocoaLumberjack;
 			target = E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */;
-			targetProxy = 5D3F1D83015F5DD55C32A0FB2D73C4D3 /* PBXContainerItemProxy */;
+			targetProxy = 0295D89427F7F3654FA9397294AE4C1B /* PBXContainerItemProxy */;
 		};
-		7DFA0113DE7428421DAC98B46C39B408 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYExtension;
-			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = DA5EF69A8567AE9A443FF488008E5646 /* PBXContainerItemProxy */;
-		};
-		925DF293B867147C11EFE36691DB6083 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYLog;
-			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
-			targetProxy = D1954904674533FED38FAF462D9B9815 /* PBXContainerItemProxy */;
-		};
-		A621BC210A862A9D67B2E60C2D7FED59 /* PBXTargetDependency */ = {
+		146576B70F0717E8D043F1A47B269083 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XYUtil;
 			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
-			targetProxy = A48882EF5CAA9BBFF2492429A9B5F31F /* PBXContainerItemProxy */;
+			targetProxy = A277F062D5C684F5DF27B6CF08348368 /* PBXContainerItemProxy */;
 		};
-		BFA92663A334B2247700F8DDD9EF8ADF /* PBXTargetDependency */ = {
+		48BA5E8037A43252F820FCA11BF123C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = XYUtil;
-			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
-			targetProxy = D80000E6AE8EB36D6A00C4345A913274 /* PBXContainerItemProxy */;
+			name = CocoaLumberjack;
+			target = E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */;
+			targetProxy = 204017EA05135D435541DFE3BCF5FA06 /* PBXContainerItemProxy */;
 		};
-		C3B42EF010C305A1C712B886CE9275F9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYLog;
-			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
-			targetProxy = CF0156C358889D97675379354BB5D8CD /* PBXContainerItemProxy */;
-		};
-		C9DC340E56F9694FA23B4BA74104D095 /* PBXTargetDependency */ = {
+		5077B27519F4A09AF44C9597D931FF8F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-XYWorkflow_Example";
 			target = AA1436E5BB6024DA4120D1117F463AE8 /* Pods-XYWorkflow_Example */;
-			targetProxy = F348A36D0C1D6315D91F397165626465 /* PBXContainerItemProxy */;
+			targetProxy = A1A3AC8EA423240EDC6FD8CACA4E6F6D /* PBXContainerItemProxy */;
 		};
-		CCCB4D833E6EDDAA58B3B5664F2C2101 /* PBXTargetDependency */ = {
+		6DD11B9328157BE1C04DC70703CEF4CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = XYNode;
-			target = FF440CCD4A7A54E01AA64886329310D1 /* XYNode */;
-			targetProxy = 9ED3DC8D1660F858DBFD56CC103B8988 /* PBXContainerItemProxy */;
+			name = XYLog;
+			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
+			targetProxy = E267A3B9B1C229764CDD20420E7B1AB9 /* PBXContainerItemProxy */;
 		};
-		EDEF558C632B7BAF48EAC22D51B57FE9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYUtil;
-			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
-			targetProxy = 8640664D323B6947B553291CF5B87388 /* PBXContainerItemProxy */;
-		};
-		FD57C87194F771DB2FCA6BF1E34AE023 /* PBXTargetDependency */ = {
+		6F08E59EC12787544968D1DC49B7EAB1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XYExtension;
 			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = 771A6F7123C9FB85D1CEB04D979876CC /* PBXContainerItemProxy */;
+			targetProxy = 90E93598907E82C25925576970348C0F /* PBXContainerItemProxy */;
+		};
+		7FE4F2DE7FA3E77D993FB6B2A77B64CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = F9DB0387C2E2313E56A3BFBB3F96BEEE /* PBXContainerItemProxy */;
+		};
+		83B78EDC7AACF4538F21D8974788A8DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYNode;
+			target = FF440CCD4A7A54E01AA64886329310D1 /* XYNode */;
+			targetProxy = 1AB5BC036061689D3E34B5B061BA0A4C /* PBXContainerItemProxy */;
+		};
+		988ED35A7F934BC78D6040B0AF7EDA64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYUtil;
+			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
+			targetProxy = 36CBE4D91489386E13B594CE67761AEB /* PBXContainerItemProxy */;
+		};
+		A5BE4D76C4EDD25EC0808FB38C4499C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYUtil;
+			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
+			targetProxy = 69528EBE2FFF61E4F351890625ADB85E /* PBXContainerItemProxy */;
+		};
+		AD2D3B8219AEF5D3B4BCF78C147AE8EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = 3B8496E45E1F5E75695359EDDA69E729 /* PBXContainerItemProxy */;
+		};
+		AEC2410A0B771F78BDCA1D799E4CAF7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYLog;
+			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
+			targetProxy = 192DA5D93429FCD06955395152B0D501 /* PBXContainerItemProxy */;
+		};
+		C73FE0FCCDB2576E164D9E43147D5AC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = E22332CBAC9B615D01D8B41337386F41 /* PBXContainerItemProxy */;
+		};
+		CE28227E4F98F08C4F08FCBA096F04E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = E496C3C9AEFA05A30432050475598E6D /* PBXContainerItemProxy */;
+		};
+		D559552368E32D67E962D0B72DC70D96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYUtil;
+			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
+			targetProxy = 1A1A0015331D181C6A57D023A27BC127 /* PBXContainerItemProxy */;
+		};
+		D83254F240EB9F181D06C5D3BEA5A313 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYLog;
+			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
+			targetProxy = 450C5E8DA143ECCBDB5064D20CABA136 /* PBXContainerItemProxy */;
+		};
+		D996A632505E284A2E6363CEC1104AB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYNode;
+			target = FF440CCD4A7A54E01AA64886329310D1 /* XYNode */;
+			targetProxy = 03B1E64BBCE211E14D5B5A2ED9FEA58C /* PBXContainerItemProxy */;
+		};
+		FD871E8DE8497CCEC6A5C203F4300C29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYWorkflow;
+			target = A8B0F82816B59C9625656835C20DEA5F /* XYWorkflow */;
+			targetProxy = C92A5A092C8B394197C3AD1EC8F2C8B9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0B8E0CDA5848EEB0CA2028B7D92993CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1D5F12F76962B86207124D4D0718A09 /* XYWorkflow.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYWorkflow/XYWorkflow-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYWorkflow/XYWorkflow-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYWorkflow/XYWorkflow.modulemap";
-				PRODUCT_MODULE_NAME = XYWorkflow;
-				PRODUCT_NAME = XYWorkflow;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		1626D21494F400FD831FA3AB089749BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FEF8F91A7319CDB825F53557A46E527 /* XYExtension.release.xcconfig */;
+			baseConfigurationReference = 605FA46DC23C3FD50B7A0B04D2E3B80E /* XYExtension.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1634,7 +1597,7 @@
 		};
 		1A5D8A974E3004957EA63C09ABF2CB96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5D3332ED361D37EBB2EAF744B16EBD1 /* XYLog.release.xcconfig */;
+			baseConfigurationReference = C1E42F24378A9F9648D8494AAE5080C6 /* XYLog.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1668,79 +1631,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		1E8C51CCECE9156AD81601E52802F6A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCD117D94DAA8929A4489983109E72F1 /* XYWorkflow.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYWorkflow/XYWorkflow-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYWorkflow/XYWorkflow-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYWorkflow/XYWorkflow.modulemap";
-				PRODUCT_MODULE_NAME = XYWorkflow;
-				PRODUCT_NAME = XYWorkflow;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		21AFAD12F7CCDB6C49487CF46F5C837F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00C4EAF2E9E3FEC87B16B5192541B650 /* XYUtil.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYUtil/XYUtil-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYUtil/XYUtil-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYUtil/XYUtil.modulemap";
-				PRODUCT_MODULE_NAME = XYUtil;
-				PRODUCT_NAME = XYUtil;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		42DF9F41E89320C9023F22639889CC0C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1881,26 +1771,46 @@
 			};
 			name = Debug;
 		};
-		617B2F77333649F539D585BAD53B7A42 /* Release */ = {
+		59FDDC0F5D65A3AF02ADEE06B823C026 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54B08D3E70AEEF5142ACB5DA665BD76B /* CocoaLumberjack.release.xcconfig */;
+			baseConfigurationReference = 7399A19C671933ED34977B3DFC5DA5A7 /* XYWorkflow.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CocoaLumberjack";
-				IBSC_MODULE = CocoaLumberjack;
-				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = CocoaLumberjackPrivacy;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYWorkflow/XYWorkflow-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYWorkflow/XYWorkflow-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYWorkflow/XYWorkflow.modulemap";
+				PRODUCT_MODULE_NAME = XYWorkflow;
+				PRODUCT_NAME = XYWorkflow;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		7141ADC2B02481189E99A2D2B9F37747 /* Release */ = {
+		5C4EE0F940FAB78AF950959C1292C37E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20636CD90058E406B92EDCB60189EB3 /* XYUtil.release.xcconfig */;
+			baseConfigurationReference = E2E77B135C01ABA829F78C1F3D4A1306 /* XYUtil.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1935,20 +1845,39 @@
 			};
 			name = Release;
 		};
-		75A4D67BF2552DD5288D6C73278F3A40 /* Debug */ = {
+		83DE5D274F3B9B6FE74F4EDEB51EA851 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA748D11D15267A8F29409BDBFAA28E4 /* CocoaLumberjack.debug.xcconfig */;
+			baseConfigurationReference = C4C65EBDAEC0DAE17B575F86300597C4 /* XYUtil.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CocoaLumberjack";
-				IBSC_MODULE = CocoaLumberjack;
-				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = CocoaLumberjackPrivacy;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYUtil/XYUtil-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYUtil/XYUtil-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYUtil/XYUtil.modulemap";
+				PRODUCT_MODULE_NAME = XYUtil;
+				PRODUCT_NAME = XYUtil;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -2007,7 +1936,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -2124,7 +2054,7 @@
 		};
 		AD0DD40E6E91CC28670762CA31953D80 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A318B1BEC16B1BCE127C713F70922C /* XYLog.debug.xcconfig */;
+			baseConfigurationReference = 614F97D3BB22E7973A06C6C6AA47D983 /* XYLog.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2160,7 +2090,7 @@
 		};
 		B02C787606904A9D28B440949A1C6D24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E41001BE4F0E06197DBF15FF71EB5C11 /* XYExtension.debug.xcconfig */;
+			baseConfigurationReference = 2A8432547C3F290B997540D1E9971CD9 /* XYExtension.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2194,9 +2124,79 @@
 			};
 			name = Debug;
 		};
+		BE351CEE62FD511A927F279861D40E4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA748D11D15267A8F29409BDBFAA28E4 /* CocoaLumberjack.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CocoaLumberjack";
+				IBSC_MODULE = CocoaLumberjack;
+				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = CocoaLumberjackPrivacy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C369DF7E205BB6A93037FCE6849E513B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABF51E6D62693AA9644053C931C1BA02 /* XYWorkflow.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYWorkflow/XYWorkflow-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYWorkflow/XYWorkflow-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYWorkflow/XYWorkflow.modulemap";
+				PRODUCT_MODULE_NAME = XYWorkflow;
+				PRODUCT_NAME = XYWorkflow;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C76193C7CC77C8D1692A67DDD08BEFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54B08D3E70AEEF5142ACB5DA665BD76B /* CocoaLumberjack.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CocoaLumberjack";
+				IBSC_MODULE = CocoaLumberjack;
+				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = CocoaLumberjackPrivacy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		D5905004CE80CC7E0EA30B42286B8A85 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4A7213837C2675511E3C55895748059 /* XYNode.debug.xcconfig */;
+			baseConfigurationReference = 17C64061C49CFCBCD6E6D9516B91FB17 /* XYNode.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2232,7 +2232,7 @@
 		};
 		E56A23FFF88E29F8CFE3955AD81BA72F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB6F325254FE3F5E0F8B6669768D7E24 /* XYNode.release.xcconfig */;
+			baseConfigurationReference = 9D33B7C15D7D6A3B352BB6FFF9EDC681 /* XYNode.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2316,6 +2316,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		03F6484088878A1B2DA02506D6755074 /* Build configuration list for PBXNativeTarget "XYWorkflow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C369DF7E205BB6A93037FCE6849E513B /* Debug */,
+				59FDDC0F5D65A3AF02ADEE06B823C026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		181A33D90CA542AF126D089E82D15B3F /* Build configuration list for PBXNativeTarget "XYNode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2334,15 +2343,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44269247D022CFF8EB1F36B4F964EEFF /* Build configuration list for PBXNativeTarget "XYUtil" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				21AFAD12F7CCDB6C49487CF46F5C837F /* Debug */,
-				7141ADC2B02481189E99A2D2B9F37747 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2352,11 +2352,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		775FD477E36FEEEED80A85C325156E08 /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */ = {
+		70746AA422DF1F945E70D5FE084974BD /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75A4D67BF2552DD5288D6C73278F3A40 /* Debug */,
-				617B2F77333649F539D585BAD53B7A42 /* Release */,
+				BE351CEE62FD511A927F279861D40E4C /* Debug */,
+				C76193C7CC77C8D1692A67DDD08BEFBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2379,11 +2379,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD98D6734C66CA210326D331EAD1FFA3 /* Build configuration list for PBXNativeTarget "XYWorkflow" */ = {
+		B1987DAD6F2296C185BE1F8D28C12C42 /* Build configuration list for PBXNativeTarget "XYUtil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B8E0CDA5848EEB0CA2028B7D92993CC /* Debug */,
-				1E8C51CCECE9156AD81601E52802F6A2 /* Release */,
+				83DE5D274F3B9B6FE74F4EDEB51EA851 /* Debug */,
+				5C4EE0F940FAB78AF950959C1292C37E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

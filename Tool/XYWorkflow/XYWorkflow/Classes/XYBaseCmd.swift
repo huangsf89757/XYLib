@@ -40,11 +40,41 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
                     return
                 }
                 
+                // 检查是否已经被取消
+                guard !strongSelf.isCancelled() else {
+                    continuation.resume(throwing: XYError.cancelled)
+                    return
+                }
+                
                 var hasResumed = false
-                block { result in
-                    guard !hasResumed, strongSelf.state != .cancelled, !Task.isCancelled else {
-                        return // 防止多次回调和检查取消状态
+                let cancellationObserver = Task {
+                    // 监听任务取消
+                    while !Task.isCancelled {
+                        try? await Task.sleep(nanoseconds: 1_000_000) // 1ms
                     }
+                    // 任务被取消时，确保continuation被调用
+                    guard !hasResumed else { return }
+                    hasResumed = true
+                    continuation.resume(throwing: XYError.cancelled)
+                }
+                
+                block { [weak strongSelf] result in
+                    // 取消观察任务
+                    cancellationObserver.cancel()
+                    
+                    // 防止多次回调和检查取消状态
+                    guard !hasResumed else { return }
+                    guard let strongSelf = strongSelf else {
+                        hasResumed = true
+                        continuation.resume(throwing: XYError.cancelled)
+                        return
+                    }
+                    guard strongSelf.state != .cancelled else {
+                        hasResumed = true
+                        continuation.resume(throwing: XYError.cancelled)
+                        return
+                    }
+                    
                     hasResumed = true
                     switch result {
                     case .success(let value):

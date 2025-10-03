@@ -56,10 +56,15 @@ extension XYError: Equatable {
             return true
         case let (.other(lhsErr), .other(rhsErr)),
              let (.unknown(lhsErr), .unknown(rhsErr)):
-            guard let lhsErr = lhsErr as NSError?, let rhsErr = rhsErr as NSError? else {
-                return lhsErr == nil && rhsErr == nil
+            // 处理nil错误的情况
+            if lhsErr == nil && rhsErr == nil {
+                return true
             }
-            return lhsErr.domain == rhsErr.domain && lhsErr.code == rhsErr.code
+            // 处理NSError类型的错误
+            guard let lhsNSError = lhsErr as NSError?, let rhsNSError = rhsErr as NSError? else {
+                return false
+            }
+            return lhsNSError.domain == rhsNSError.domain && lhsNSError.code == rhsNSError.code
         default:
             return false
         }
