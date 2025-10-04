@@ -23,6 +23,7 @@ public final class XYCentralManagerAgent: NSObject {
         super.init()
         initCenterManager()
         addObservers()
+        scheduleCleanupTask()
     }
     /// 初始化
     /// CBCentralManagerOptionShowPowerAlertKey
@@ -47,6 +48,10 @@ public final class XYCentralManagerAgent: NSObject {
     public var connectTimeout: TimeInterval = 30
     /// 自动恢复挂起前的状态
     public var autoRestore: Bool = true
+    /// 外围设备超时时间（用于清理长时间未出现的设备）
+    public var peripheralTimeout: TimeInterval = 600 // 10分钟
+    /// 清理任务间隔
+    private var cleanupInterval: TimeInterval = 300 // 5分钟
     
     // MARK: centralManager
     /// 持有的中央设备
@@ -65,6 +70,10 @@ public final class XYCentralManagerAgent: NSObject {
     /// 连接超时Task
     public internal(set) var connectTimeoutTaskMap = [UUID: DispatchWorkItem]()
     
+    // MARK: connection pool
+    /// 连接池管理器
+    public let connectionPool = XYConnectionPool.shared
+    
     // MARK: plugin
     public weak var delegate: XYCentralManagerDelegate?
     
@@ -77,6 +86,13 @@ extension XYCentralManagerAgent: CBCentralManagerDelegate {
         var logTag = [Self.logTag, "didUpdateState()"]
         let state = central.state
         XYLog.info(tag: logTag, content: "central.state=\(state.info)")
+        
+        // iOS 13+ 添加授权状态检查
+        if #available(iOS 13.0, *) {
+            let authorization = central.authorization
+            XYLog.info(tag: logTag, content: "central.authorization=\(authorization.rawValue)")
+        }
+        
         delegate?.centralManagerDidUpdateState(central)
         if state == .poweredOn, let scanServiceUUIDs = scanServiceUUIDs {
             logTag = [Self.logTag, "statrScan().stateUpdated"]
@@ -100,20 +116,20 @@ extension XYCentralManagerAgent {
     // 恢复扫描
     // 挂起前正在扫描的
     private func restoreScan(logTag: [String], dict: [String : Any]) {
+        let logTag = [Self.logTag, "statrScan().restore"]
+        guard let serviceUUIDs = dict[CBCentralManagerRestoredStateScanServicesKey] as? [CBUUID] else { return }
+        let options = dict[CBCentralManagerRestoredStateScanOptionsKey] as? [String: Any]
+        _scanForPeripherals(withServices: serviceUUIDs, options: options, logTag: logTag)
+    }
+
+    // 恢复连接
+    // 挂起前正在连接/已连接的
+    private func restoreConnect(logTag: [String], dict: [String : Any]) {
         let logTag = [Self.logTag, "didConnectPeripheral().restore"]
         guard let peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] else { return }
         peripherals.forEach { peripheral in
             _centralManager(centralManager, didConnect: peripheral, logTag: logTag)
         }
-    }
-    
-    // 恢复连接
-    // 挂起前正在连接/已连接的
-    private func restoreConnect(logTag: [String], dict: [String : Any]) {
-        let logTag = [Self.logTag, "statrScan().restore"]
-        guard let serviceUUIDs = dict[CBCentralManagerRestoredStateScanServicesKey] as? [CBUUID] else { return }
-        let options = dict[CBCentralManagerRestoredStateScanOptionsKey] as? [String: Any]
-        _scanForPeripherals(withServices: serviceUUIDs, options: options, logTag: logTag)
     }
 }
 
@@ -125,7 +141,7 @@ extension XYCentralManagerAgent {
     public func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?, options: [String : Any]? = nil) {
         let logTag = [Self.logTag, "statrScan()"]
         guard centralManager.state == .poweredOn else {
-            XYLog.info(tag: logTag, process: .fail("central.state=\(centralManager.state.info)"))
+            XYLog.info(tag: logTag, process: .fail, content: "central.state=\(centralManager.state.info)")
             return
         }
         _scanForPeripherals(withServices: serviceUUIDs, options: options, logTag: logTag)
@@ -172,6 +188,7 @@ extension XYCentralManagerAgent {
         }
         discoveredPeripherals[uuid] = peripheralAgent
         delegate?.centralManager?(central, didDiscover: peripheral, advertisementData: advertisementData, rssi: RSSI)
+        delegate?.centralManager(central, didTryAddDiscoveredPeripheral: uuid, peripheral: peripheral)
     }
 }
 
@@ -182,9 +199,9 @@ extension XYCentralManagerAgent {
         let connectTimeoutTask = connectTimeoutTaskMap[uuid]
         connectTimeoutTask?.cancel()
         let task = DispatchWorkItem { [weak self] in
-            XYLog.info(tag: logTag, process: .fail("TimeoutTask Handel (\(uuid))"))
+            XYLog.info(tag: logTag, process: .fail, content: "TimeoutTask Handel (\(uuid)"))
             guard let centralManager = self?.centralManager else { return }
-            self?.delegate?.centralManager(centralManager, discoveredPeripheralsDidRemove: uuid)
+            self?.delegate?.centralManager(centralManager, didTryRemoveDiscoveredPeripheral: uuid)
             let peripheralAgent = self?.discoveredPeripherals[uuid]
             guard let peripheral = peripheralAgent?.peripheral else { return }
             self?.delegate?.centralManager(centralManager, didConnectTimeout: peripheral)
@@ -213,7 +230,7 @@ extension XYCentralManagerAgent {
     /// CBConnectPeripheralOptionNotifyOnNotificationKey
     /// CBConnectPeripheralOptionRequiresANCS
     /// CBConnectPeripheralOptionStartDelayKey
-    public func connect(_ peripheral: CBPeripheral, options: [String : Any]? = nil) {
+    public func connect(_ peripheral: CBPeripheral, options: [String : Any]? = nil, priority: XYConnectionPool.ConnectionPriority = .normal) {
         let logTag = [Self.logTag, "connectPeripheral()"]
         if let options = options {
             XYLog.info(tag: logTag, process: .begin, content: "options=\(options.toJSONString() ?? "nil")")
@@ -221,9 +238,16 @@ extension XYCentralManagerAgent {
             XYLog.info(tag: logTag, process: .begin)
         }
         guard centralManager.state == .poweredOn else {
-            XYLog.info(tag: logTag, process: .fail("central.state=\(centralManager.state.info)"))
+            XYLog.info(tag: logTag, process: .fail, content: "central.state=\(centralManager.state.info)")
             return
         }
+        
+        // 尝试添加到连接池
+        guard connectionPool.addConnection(peripheral, priority: priority) else {
+            XYLog.info(tag: logTag, process: .fail, content: "Failed to add to connection pool")
+            return
+        }
+        
         // 连接前判断状态
         switch peripheral.state {
         case .disconnected:
@@ -235,10 +259,10 @@ extension XYCentralManagerAgent {
             XYLog.info(tag: logTag, process: .succ, content: "this peripheral is already connected")
             return
         case .disconnecting:
-            XYLog.info(tag: logTag, process: .fail("this peripheral is disconnecting"))
+            XYLog.info(tag: logTag, process: .fail, content: "this peripheral is disconnecting")
             return
         @unknown default:
-            XYLog.info(tag: logTag, process: .fail("@unknown ERROR"))
+            XYLog.info(tag: logTag, process: .fail, content: "@unknown ERROR")
             return
         }
         // 超时任务
@@ -246,7 +270,8 @@ extension XYCentralManagerAgent {
         // 连接
         let uuid = peripheral.identifier
         lastPeripheralAgent = discoveredPeripherals[uuid]
-        delegate?.centralManager(centralManager, discoveredPeripheralsDidAdd: uuid, peripheral: peripheral)
+        // 更新为新的方法名
+        delegate?.centralManager(centralManager, didTryAddDiscoveredPeripheral: uuid, peripheral: peripheral)
         centralManager.connect(peripheral, options: options)
         delegate?.centralManager(centralManager, didTryConnect: peripheral, options: options)
     }
@@ -256,11 +281,28 @@ extension XYCentralManagerAgent {
         let logTag = [Self.logTag, "disconnectPeripheral()"]
         XYLog.info(tag: logTag, process: .begin)
         guard centralManager.state == .poweredOn else {
-            XYLog.info(tag: logTag, process: .fail("central.state=\(centralManager.state.info)"))
+            XYLog.info(tag: logTag, process: .fail, content: "central.state=\(centralManager.state.info)")
             return
         }
         centralManager.cancelPeripheralConnection(peripheral)
+        // 从连接池中移除
+        connectionPool.removeConnection(peripheral)
         delegate?.centralManager(centralManager, didTryCancelPeripheralConnection: peripheral)
+    }
+    
+    /// 获取当前连接的外设列表
+    public func getConnectedPeripherals() -> [CBPeripheral] {
+        return centralManager?.retrieveConnectedPeripherals(withServices: []) ?? []
+    }
+    
+    /// 根据服务UUID获取当前连接的外设列表
+    public func getConnectedPeripherals(withServices serviceUUIDs: [CBUUID]) -> [CBPeripheral] {
+        return centralManager?.retrieveConnectedPeripherals(withServices: serviceUUIDs) ?? []
+    }
+    
+    /// 获取当前扫描状态
+    public var isScanning: Bool {
+        return centralManager?.isScanning ?? false
     }
 }
 
@@ -274,6 +316,8 @@ extension XYCentralManagerAgent {
     private func _centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral, logTag: [String]) {
         XYLog.info(tag: logTag, content: "peripheral=\(peripheral.info)")
         cancelConnectTimeoutTask(logTag: logTag, for: peripheral)
+        // 添加到连接池
+        connectionPool.addConnection(peripheral)
         delegate?.centralManager?(central, didConnect: peripheral)
     }
 
@@ -286,6 +330,8 @@ extension XYCentralManagerAgent {
             XYLog.info(tag: logTag, content: "peripheral=\(peripheral.info)")
         }
         cancelConnectTimeoutTask(logTag: logTag, for: peripheral)
+        // 从连接池中移除
+        connectionPool.removeConnection(peripheral)
         delegate?.centralManager?(central, didFailToConnect: peripheral, error: error)
     }
 
@@ -297,6 +343,8 @@ extension XYCentralManagerAgent {
         } else {
             XYLog.info(tag: logTag, content: "peripheral=\(peripheral.info)")
         }
+        // 从连接池中移除
+        connectionPool.removeConnection(peripheral)
         delegate?.centralManager?(central, didDisconnectPeripheral: peripheral, error: error)
     }
     
@@ -307,6 +355,10 @@ extension XYCentralManagerAgent {
             XYLog.info(tag: logTag, content: "peripheral=\(peripheral.info)", "timestamp=\(timestamp)", "isReconnecting=\(isReconnecting)", "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag, content: "peripheral=\(peripheral.info)", "timestamp=\(timestamp)", "isReconnecting=\(isReconnecting)")
+        }
+        // 如果不是重连，则从连接池中移除
+        if !isReconnecting {
+            connectionPool.removeConnection(peripheral)
         }
         delegate?.centralManager?(central, didDisconnectPeripheral: peripheral, timestamp: timestamp, isReconnecting: isReconnecting, error: error)
     }
@@ -330,6 +382,37 @@ extension XYCentralManagerAgent {
                 return
             }
             return
+        }
+    }
+}
+
+// MARK: - cleanup
+extension XYCentralManagerAgent {
+    /// 定时清理超时的外围设备
+    private func scheduleCleanupTask() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + cleanupInterval) { [weak self] in
+            self?.cleanupTimeoutPeripherals()
+            // 重新调度清理任务
+            self?.scheduleCleanupTask()
+        }
+    }
+    
+    /// 清理超时的外围设备
+    private func cleanupTimeoutPeripherals() {
+        let now = Date()
+        var removedPeripherals: [UUID] = []
+        
+        for (uuid, peripheralAgent) in discoveredPeripherals {
+            // 如果设备超时未出现，则移除
+            if now.timeIntervalSince(peripheralAgent.discoverDate) > peripheralTimeout {
+                removedPeripherals.append(uuid)
+            }
+        }
+        
+        // 批量移除超时设备
+        for uuid in removedPeripherals {
+            discoveredPeripherals.removeValue(forKey: uuid)
+            XYLog.info(tag: [Self.logTag, "cleanup"], content: "Removed timeout peripheral: \(uuid)")
         }
     }
 }

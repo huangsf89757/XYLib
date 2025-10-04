@@ -52,7 +52,7 @@ extension XYCgmsBleManager {
         let uuid = peripheral.identifier
         XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuid.uuidString)")
         guard let peripheralAgent = XYCentralManagerAgent.shared.discoveredPeripherals[uuid] else {
-            XYLog.info(tag: logTag, process: .fail("peripheralAgent=nil"))
+            XYLog.info(tag: logTag, process: .fail, content: "peripheralAgent=nil")
             return
         }
         let services = peripheral.services ?? []
@@ -79,7 +79,7 @@ extension XYCgmsBleManager {
         let uuid = peripheral.identifier
         XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuid.uuidString)")
         guard let peripheralAgent = XYCentralManagerAgent.shared.discoveredPeripherals[uuid] else {
-            XYLog.info(tag: logTag, process: .fail("peripheralAgent=nil"))
+            XYLog.info(tag: logTag, process: .fail, content: "peripheralAgent=nil")
             return
         }
         let characteristics = service.characteristics ?? []

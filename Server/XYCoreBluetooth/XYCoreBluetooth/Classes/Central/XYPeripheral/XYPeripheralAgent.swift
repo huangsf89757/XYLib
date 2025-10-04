@@ -11,7 +11,7 @@ import XYExtension
 import XYUtil
 import XYLog
 
-public final class XYPeripheralAgent: NSObject {
+public final class XYPeripheralAgent: NSObject, CBPeripheralDelegate {
     // MARK: log
     public static let logTag = "Ble.P"
     
@@ -26,6 +26,8 @@ public final class XYPeripheralAgent: NSObject {
     public let discoverDate: Date
     /// 日志记录时间
     public var logDate: Date?
+    /// 特征缓存
+    private var characteristicCache: [String: CBCharacteristic] = [:]
     
     // MARK: plugin
     public weak var delegate: XYPeripheralDelegate?
@@ -48,6 +50,12 @@ public final class XYPeripheralAgent: NSObject {
 // MARK: - func
 extension XYPeripheralAgent {
     public func getCharacteristic(uuidString: String) -> CBCharacteristic? {
+        // 先从缓存中查找
+        if let cached = characteristicCache[uuidString] {
+            return cached
+        }
+        
+        // 缓存未命中，执行查找
         var target: CBCharacteristic?
         let services = peripheral.services ?? []
         for service in services {
@@ -55,39 +63,18 @@ extension XYPeripheralAgent {
             for characteristic in characteristics {
                 if characteristic.uuid.uuidString == uuidString {
                     target = characteristic
+                    // 存入缓存
+                    characteristicCache[uuidString] = characteristic
                     break
                 }
             }
         }
         return target
     }
-}
-
-// MARK: - CBPeripheralDelegate
-extension XYPeripheralAgent: CBPeripheralDelegate {
-    // delegate
-    public func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
-        let logTag = [Self.logTag, "didUpdateName()"]
-        XYLog.info(tag: logTag)
-        delegate?.peripheralDidUpdateName?(peripheral)
-    }
     
-    // delegate
-    public func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
-        let logTag = [Self.logTag, "didModifyServices()"]
-        XYLog.info(tag: logTag, content: "invalidatedServices=\(invalidatedServices)")
-        delegate?.peripheral?(peripheral, didModifyServices: invalidatedServices)
-    }
-
-    // delegate
-    public func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: (any Error)?) {
-        let logTag = [Self.logTag, "didUpdateRSSI()"]
-        if let error = error {
-            XYLog.info(tag: logTag, content: "error=\(error.info)")
-        } else {
-            XYLog.info(tag: logTag)
-        }
-        delegate?.peripheralDidUpdateRSSI?(peripheral, error: error)
+    /// 清除特征缓存（当服务或特征发生变化时调用）
+    public func clearCharacteristicCache() {
+        characteristicCache.removeAll()
     }
 }
 
@@ -130,6 +117,8 @@ extension XYPeripheralAgent {
             XYLog.info(tag: logTag, content: "error=\(error.info)")
         } else {
             XYLog.info(tag: logTag)
+            // 发现服务成功时清除特征缓存
+            clearCharacteristicCache()
         }
         delegate?.peripheral?(peripheral, didDiscoverServices: error)
     }
@@ -185,7 +174,10 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "readValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)")
         guard characteristic.properties.contains(.read) else {
-            XYLog.info(tag: logTag, process: .fail("properties dose not contain read"))
+            let error = NSError(domain: "XYCoreBluetooth", code: -1, userInfo: [NSLocalizedDescriptionKey: "Characteristic does not support read operation"])
+            XYLog.info(tag: logTag, process: .fail, content: "properties dose not contain read")
+            // 即使属性检查失败，也调用委托方法，让调用者处理错误
+            delegate?.peripheral?(peripheral, didUpdateValueFor: characteristic, error: error)
             return
         }
         peripheral.readValue(for: characteristic)
@@ -210,18 +202,37 @@ extension XYPeripheralAgent {
     public func writeValue(data: Data, for characteristic: CBCharacteristic, type: CBCharacteristicWriteType) {
         let logTag = [Self.logTag, "writeValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "characteristic=\(characteristic.info)", "type=\(type.info)")
+        
+        var propertyCheckFailed = false
+        var errorMessage = ""
+        
         switch type {
         case .withResponse:
             guard characteristic.properties.contains(.write) else {
-                XYLog.info(tag: logTag, process: .fail("properties dose not contain write"))
-                return
+                propertyCheckFailed = true
+                errorMessage = "properties dose not contain write"
+                break
             }
         case .withoutResponse:
             guard characteristic.properties.contains(.writeWithoutResponse) else {
-                XYLog.info(tag: logTag, process: .fail("properties dose not contain withoutResponse"))
-                return
+                propertyCheckFailed = true
+                errorMessage = "properties dose not contain withoutResponse"
+                break
             }
+        @unknown default:
+            propertyCheckFailed = true
+            errorMessage = "unknown write type"
+            break
         }
+        
+        if propertyCheckFailed {
+            let error = NSError(domain: "XYCoreBluetooth", code: -2, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+            XYLog.info(tag: logTag, process: .fail, content:errorMessage)
+            // 即使属性检查失败，也调用委托方法，让调用者处理错误
+            delegate?.peripheral?(peripheral, didWriteValueFor: characteristic, error: error)
+            return
+        }
+        
         peripheral.writeValue(data, for: characteristic, type: type)
         delegate?.peripheral(peripheral, didTryWriteValue: data, for: characteristic, type: type)
     }
@@ -245,7 +256,10 @@ extension XYPeripheralAgent {
         let logTag = [Self.logTag, "setNotifyValueForCharacteristic()"]
         XYLog.info(tag: logTag, process: .begin, content: "enabled=\(enabled)", "characteristic=\(characteristic.info)")
         guard characteristic.properties.canSubscribe else {
-            XYLog.info(tag: logTag, process: .fail("subscribe not supported (no notify/indicate)"))
+            let error = NSError(domain: "XYCoreBluetooth", code: -3, userInfo: [NSLocalizedDescriptionKey: "subscribe not supported (no notify/indicate)"])
+            XYLog.info(tag: logTag, process: .fail, content: "subscribe not supported (no notify/indicate)")
+            // 即使属性检查失败，也调用委托方法，让调用者处理错误
+            delegate?.peripheral?(peripheral, didUpdateNotificationStateFor: characteristic, error: error)
             return
         }
         peripheral.setNotifyValue(enabled, for: characteristic)

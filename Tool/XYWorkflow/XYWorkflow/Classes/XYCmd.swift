@@ -186,7 +186,7 @@ open class XYCmd<ResultType>: XYExecutable {
     open func run() async throws -> ResultType {
         let tag = [logTag, "run"]
         let error = XYError.notImplemented
-        XYLog.info(id: id, tag: tag, process: .fail(error.info))
+        XYLog.info(id: id, tag: tag, process: .fail, content:error.info)
         throw error
     }
     

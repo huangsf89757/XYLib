@@ -11,7 +11,7 @@ public enum XYLogProcess {
     case begin              // 开始
     case doing              // 过程中
     case succ               // 成功
-    case fail(String?)      // 失败
+    case fail               // 失败
     
     public var desc: String {
         switch self {
@@ -20,13 +20,9 @@ public enum XYLogProcess {
         case .doing:
             return "$D"
         case .succ:
-            return "✅"
-        case .fail(let string):
-            if let string = string {
-                return "❌:\(string)"
-            } else {
-                return "❌"
-            }
+            return "$S"
+        case .fail:
+            return "$F"
         }
     }
 }

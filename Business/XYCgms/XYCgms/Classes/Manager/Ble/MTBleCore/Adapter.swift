@@ -37,7 +37,7 @@ extension XYCgmsBleManager {
             let logTag = [Self.logTag, "Core", "readyToConnectBlock"]
             XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuidString)")
             guard let uuid = UUID(uuidString: uuidString) else {
-                XYLog.info(tag: logTag, process: .fail("uuid=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "uuid=nil")
                 return false
             }
             let peripherals = XYCentralManagerAgent.shared.centralManager.retrievePeripherals(withIdentifiers: [uuid])
@@ -48,13 +48,13 @@ extension XYCgmsBleManager {
             let logTag = [Self.logTag, "Core", "connectBlock"]
             XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuidString)")
             guard let uuid = UUID(uuidString: uuidString) else {
-                XYLog.info(tag: logTag, process: .fail("uuid=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "uuid=nil")
                 MTBleAdapter.shared().onConnectFailure()
                 return
             }
             let peripherals = XYCentralManagerAgent.shared.centralManager.retrievePeripherals(withIdentifiers: [uuid])
             guard let peripheral = peripherals.first else {
-                XYLog.info(tag: logTag, process: .fail("retrievePeripheral=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "retrievePeripheral=nil")
                 MTBleAdapter.shared().onConnectFailure()
                 return
             }
@@ -72,7 +72,7 @@ extension XYCgmsBleManager {
             [weak self] in
             let logTag = [Self.logTag, "Core", "disconnectBlock"]
             guard let peripheralAgent = XYCentralManagerAgent.shared.lastPeripheralAgent else {
-                XYLog.info(tag: logTag, process: .fail("lastPeripheralAgent=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "lastPeripheralAgent=nil")
                 return
             }
             XYCentralManagerAgent.shared.cancelPeripheralConnection(peripheralAgent.peripheral)
@@ -82,16 +82,16 @@ extension XYCgmsBleManager {
             let logTag = [Self.logTag, "Core", "writeBlock"]
             XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuidString)", "data=\(data.toHexString())")
             guard let uuidString = uuidString else {
-                XYLog.info(tag: logTag, process: .fail("uuid=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "uuid=nil")
                 return
             }
             guard let peripheralAgent = XYCentralManagerAgent.shared.lastPeripheralAgent else {
-                XYLog.info(tag: logTag, process: .fail("lastPeripheralAgent=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "lastPeripheralAgent=nil")
                 return
             }
             let characteristic = peripheralAgent.getCharacteristic(uuidString: uuidString)
             guard let characteristic = characteristic else {
-                XYLog.info(tag: logTag, process: .fail("characteristic=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "characteristic=nil")
                 return
             }
             var type: CBCharacteristicWriteType?
@@ -102,7 +102,7 @@ extension XYCgmsBleManager {
                 type = .withoutResponse
             }
             guard let type = type else {
-                XYLog.info(tag: logTag, process: .fail("type=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "type=nil")
                 return
             }
             peripheralAgent.writeValue(data: data, for: characteristic, type: type)
@@ -112,16 +112,16 @@ extension XYCgmsBleManager {
             let logTag = [Self.logTag, "Core", "readBlock"]
             XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuidString)")
             guard let uuidString = uuidString else {
-                XYLog.info(tag: logTag, process: .fail("uuid=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "uuid=nil")
                 return
             }
             guard let peripheralAgent = XYCentralManagerAgent.shared.lastPeripheralAgent else {
-                XYLog.info(tag: logTag, process: .fail("lastPeripheralAgent=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "lastPeripheralAgent=nil")
                 return
             }
             let characteristic = peripheralAgent.getCharacteristic(uuidString: uuidString)
             guard let characteristic = characteristic else {
-                XYLog.info(tag: logTag, process: .fail("characteristic=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "characteristic=nil")
                 return
             }
             peripheralAgent.readValue(for: characteristic)
@@ -131,16 +131,16 @@ extension XYCgmsBleManager {
             let logTag = [Self.logTag, "Core", "enableBlock"]
             XYLog.info(tag: logTag, process: .begin, content: "uuidString=\(uuidString)")
             guard let uuidString = uuidString else {
-                XYLog.info(tag: logTag, process: .fail("uuid=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "uuid=nil")
                 return
             }
             guard let peripheralAgent = XYCentralManagerAgent.shared.lastPeripheralAgent else {
-                XYLog.info(tag: logTag, process: .fail("lastPeripheralAgent=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "lastPeripheralAgent=nil")
                 return
             }
             let characteristic = peripheralAgent.getCharacteristic(uuidString: uuidString)
             guard let characteristic = characteristic else {
-                XYLog.info(tag: logTag, process: .fail("characteristic=nil"))
+                XYLog.info(tag: logTag, process: .fail, content: "characteristic=nil")
                 return
             }
             peripheralAgent.setNotifyValue(enabled: true, for: characteristic)

@@ -496,9 +496,22 @@ pod 'XYWorkflow'
 
 ## 要求
 
-- iOS 14.0+ / watchOS 9.0+
-- Xcode 13.0+
-- Swift 5.5+
+| 平台 | 最低版本 |
+|------|----------|
+| iOS | 14.0+ |
+| watchOS | 9.0+ |
+
+依赖库：
+| 模块 | 依赖库 | 版本 |
+|------|--------|------|
+| Basic | XYExtension | 1.0.0 |
+| Server | XYLog<br>XYUtil | 1.0.0<br>1.0.0 |
+| Tool | XYNode | 1.0.0 |
+| Business | / | / |
+| Third | / | / |
+
+框架：
+- Foundation
 
 
 ## 作者

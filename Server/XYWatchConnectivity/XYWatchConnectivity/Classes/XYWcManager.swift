@@ -38,7 +38,7 @@ public final class XYWcManager: NSObject {
     public func activate() {
         let logTag = [Self.logTag, "activate()"]
         guard let session = session else {
-            XYLog.info(tag: logTag, process: .fail("session=nil"))
+            XYLog.info(tag: logTag, process: .fail, content: "session=nil")
             return
         }
         session.delegate = self
@@ -127,22 +127,22 @@ extension XYWcManager {
     /// - Returns: 会话对象
     func getUsefulSession(logTag: [String], mustReachable: Bool) -> WCSession? {
         guard let session = session else {
-            XYLog.info(tag: logTag, process: .fail("session=nil"))
+            XYLog.info(tag: logTag, process: .fail, content: "session=nil")
             return nil
         }
         guard session.activationState == .activated else {
-            XYLog.info(tag: logTag, process: .fail("activationState!=activated"))
+            XYLog.info(tag: logTag, process: .fail, content: "activationState!=activated")
             return nil
         }
         
 #if os(watchOS)
     
         guard session.isCompanionAppInstalled else {
-            XYLog.info(tag: logTag, process: .fail("isCompanionAppInstalled=false"))
+            XYLog.info(tag: logTag, process: .fail, content: "isCompanionAppInstalled=false")
             return nil
         }
         if mustReachable, session.iOSDeviceNeedsUnlockAfterRebootForReachability {
-            XYLog.info(tag: logTag, process: .fail("iOSDeviceNeedsUnlockAfterRebootForReachability=true"))
+            XYLog.info(tag: logTag, process: .fail, content: "iOSDeviceNeedsUnlockAfterRebootForReachability=true")
             return nil
         }
         
@@ -150,11 +150,11 @@ extension XYWcManager {
 #elseif os(iOS)
     
         guard session.isWatchAppInstalled else {
-            XYLog.info(tag: logTag, process: .fail("isWatchAppInstalled=false"))
+            XYLog.info(tag: logTag, process: .fail, content: "isWatchAppInstalled=false")
             return nil
         }
         guard session.isPaired else {
-            XYLog.info(tag: logTag, process: .fail("isPaired=false"))
+            XYLog.info(tag: logTag, process: .fail, content: "isPaired=false")
             return nil
         }
     
@@ -162,7 +162,7 @@ extension XYWcManager {
         
         if mustReachable {
             guard session.isReachable else {
-                XYLog.info(tag: logTag, process: .fail("isReachable=false"))
+                XYLog.info(tag: logTag, process: .fail, content: "isReachable=false")
                 return nil
             }
         }
@@ -182,7 +182,7 @@ extension XYWcManager {
         do {
             try session.updateApplicationContext(dict)
         } catch let error {
-            XYLog.info(tag: logTag, process: .fail("error=\(error.info)"))
+            XYLog.info(tag: logTag, process: .fail, content: "error=\(error.info)")
         }
         XYLog.info(tag: logTag, process: .succ)
         plugins.forEach { plugin in
@@ -209,7 +209,7 @@ extension XYWcManager {
         let logTag = [Self.logTag, Self.logTagSender, "sendMessageDict()"]
         XYLog.info(tag: logTag, process: .begin, content: "dict=\(dict.toJSONString())")
         guard isValidUserInfo(dict) else {
-            XYLog.info(tag: logTag, process: .fail("isValidUserInfo=false"))
+            XYLog.info(tag: logTag, process: .fail, content: "isValidUserInfo=false")
             return
         }
         guard let session = getUsefulSession(logTag: logTag, mustReachable: true) else { return }
@@ -223,7 +223,7 @@ extension XYWcManager {
         }
         session.sendMessage(dict, replyHandler: newReplyHandler, errorHandler: {
             error in
-            XYLog.info(tag: logTag, process: .fail("error=\(error.info)"))
+            XYLog.info(tag: logTag, process: .fail, content: "error=\(error.info)")
         })
         if replyHandler != nil {
             XYLog.info(tag: logTag, process: .succ)
@@ -272,7 +272,7 @@ extension XYWcManager {
         }
         session.sendMessageData(data, replyHandler: newReplyHandler, errorHandler: {
             error in
-            XYLog.info(tag: logTag, process: .fail("error=\(error.info)"))
+            XYLog.info(tag: logTag, process: .fail, content: "error=\(error.info)")
         })
         if replyHandler != nil {
             XYLog.info(tag: logTag, process: .succ)
@@ -313,7 +313,7 @@ extension XYWcManager {
         let logTag = [Self.logTag, Self.logTagSender, "transferCurrentComplicationUserInfo()"]
         XYLog.info(tag: logTag, process: .begin, content: "userInfo=\(dict.toJSONString())")
         guard isValidUserInfo(dict) else {
-            XYLog.info(tag: logTag, process: .fail("isValidUserInfo=false"))
+            XYLog.info(tag: logTag, process: .fail, content: "isValidUserInfo=false")
             return
         }
         guard let session = getUsefulSession(logTag: logTag, mustReachable: false) else { return }
@@ -335,7 +335,7 @@ extension XYWcManager {
         let logTag = [Self.logTag, Self.logTagSender, "transferUserInfo()"]
         XYLog.info(tag: logTag, process: .begin, content: "userInfo=\(dict.toJSONString())")
         guard isValidUserInfo(dict) else {
-            XYLog.info(tag: logTag, process: .fail("isValidUserInfo=false"))
+            XYLog.info(tag: logTag, process: .fail, content: "isValidUserInfo=false")
             return
         }
         guard let session = getUsefulSession(logTag: logTag, mustReachable: false) else { return }
@@ -383,7 +383,7 @@ extension XYWcManager {
         XYLog.info(tag: logTag, process: .begin, content: "url=\(url)")
         guard let session = getUsefulSession(logTag: logTag, mustReachable: false) else { return nil }
         guard FileManager.default.fileExists(atPath: url.path) else {
-            XYLog.info(tag: logTag, process: .fail("fileNotExist"))
+            XYLog.info(tag: logTag, process: .fail, content: "fileNotExist")
             onDone?(.failure(NSError(domain: "WC", code: -1, userInfo: [NSLocalizedDescriptionKey: "fileNotExist"])))
             return nil
         }

@@ -15,8 +15,8 @@ public protocol XYCentralManagerDelegate: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnectTimeout peripheral: CBPeripheral)
     func centralManager(_ central: CBCentralManager, didTryCancelPeripheralConnection peripheral: CBPeripheral)
     
-    func centralManager(_ central: CBCentralManager, discoveredPeripheralsDidAdd uuid: UUID, peripheral: CBPeripheral)
-    func centralManager(_ central: CBCentralManager, discoveredPeripheralsDidRemove uuid: UUID)
+    func centralManager(_ central: CBCentralManager, didTryAddDiscoveredPeripheral uuid: UUID, peripheral: CBPeripheral)
+    func centralManager(_ central: CBCentralManager, didTryRemoveDiscoveredPeripheral uuid: UUID)
 }
 
 public extension XYCentralManagerDelegate {
@@ -26,6 +26,6 @@ public extension XYCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnectTimeout peripheral: CBPeripheral) {}
     func centralManager(_ central: CBCentralManager, didTryCancelPeripheralConnection peripheral: CBPeripheral) {}
     
-    func centralManager(_ central: CBCentralManager, discoveredPeripheralsDidAdd uuid: UUID, peripheral: CBPeripheral) {}
-    func centralManager(_ central: CBCentralManager, discoveredPeripheralsDidRemove uuid: UUID) {}
+    func centralManager(_ central: CBCentralManager, didTryAddDiscoveredPeripheral uuid: UUID, peripheral: CBPeripheral) {}
+    func centralManager(_ central: CBCentralManager, didTryRemoveDiscoveredPeripheral uuid: UUID) {}
 }
