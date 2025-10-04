@@ -1,7 +1,7 @@
 import XCTest
 @testable import XYNode
 
-class XYBaseNodeTests: XCTestCase {
+class XYNodeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -17,7 +17,7 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试节点初始化
     func testNodeInitialization() {
-        let node = XYBaseNode<String>(value: "root")
+        let node = XYNode<String>(value: "root")
         XCTAssertNil(node.parent, "新节点的父节点应该为nil")
         XCTAssertTrue(node.children.isEmpty, "新节点的子节点数组应该为空")
         XCTAssertTrue(node.isRoot, "没有父节点的节点应该是根节点")
@@ -34,8 +34,8 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试添加子节点
     func testAppendChild() {
-        let parentNode = XYBaseNode<Int>(value: 0)
-        let childNode = XYBaseNode<Int>(value: 1)
+        let parentNode = XYNode<Int>(value: 0)
+        let childNode = XYNode<Int>(value: 1)
         
         parentNode.append(child: childNode)
         
@@ -47,10 +47,10 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试添加多个子节点
     func testAppendChildren() {
-        let parentNode = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let child3 = XYBaseNode<String>(value: "child3")
+        let parentNode = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let child3 = XYNode<String>(value: "child3")
         
         parentNode.append(children: [child1, child2, child3])
         
@@ -68,10 +68,10 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试在指定位置插入子节点
     func testInsertChildAtIndex() {
-        let parentNode = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let child3 = XYBaseNode<String>(value: "child3")
+        let parentNode = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let child3 = XYNode<String>(value: "child3")
         
         parentNode.append(children: [child1, child3])
         parentNode.insert(child: child2, at: 1)
@@ -87,9 +87,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试根据索引移除子节点
     func testRemoveChildAtIndex() {
-        let parentNode = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let parentNode = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         parentNode.append(children: [child1, child2])
         let removedNode = parentNode.removeChild(at: 0)
@@ -103,9 +103,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试移除第一个子节点
     func testRemoveFirstChild() {
-        let parentNode = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let parentNode = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         parentNode.append(children: [child1, child2])
         let removedNode = parentNode.removeFirst()
@@ -117,9 +117,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试移除最后一个子节点
     func testRemoveLastChild() {
-        let parentNode = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let parentNode = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         parentNode.append(children: [child1, child2])
         let removedNode = parentNode.removeLast()
@@ -131,9 +131,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试移除所有子节点
     func testRemoveAllChildren() {
-        let parentNode = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let parentNode = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         parentNode.append(children: [child1, child2])
         let removedNodes = parentNode.removeAll()
@@ -150,9 +150,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试根据索引查找子节点
     func testFindChildAtIndex() {
-        let parentNode = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let parentNode = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         parentNode.append(children: [child1, child2])
         let foundNode = parentNode.findChild(at: 1)
@@ -166,7 +166,7 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试标签功能
     func testTags() {
-        let node = XYBaseNode<String>(value: "test")
+        let node = XYNode<String>(value: "test")
         
         XCTAssertFalse(node.hasTag("tag1"), "节点初始时不应该包含任何标签")
         
@@ -181,9 +181,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试获取从根到当前节点的路径
     func testGetPathToRoot() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         root.append(child: child1)
         child1.append(child: child2)
@@ -197,9 +197,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试判断祖先关系
     func testIsAncestor() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         root.append(child: child1)
         child1.append(child: child2)
@@ -215,11 +215,11 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试获取所有后代节点
     func testGetAllDescendants() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let grandchild1 = XYBaseNode<String>(value: "grandchild1")
-        let grandchild2 = XYBaseNode<String>(value: "grandchild2")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let grandchild1 = XYNode<String>(value: "grandchild1")
+        let grandchild2 = XYNode<String>(value: "grandchild2")
         
         root.append(children: [child1, child2])
         child1.append(children: [grandchild1, grandchild2])
@@ -234,10 +234,10 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试根据标识符查找后代节点
     func testFindDescendantWithIdentifier() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let grandchild1 = XYBaseNode<String>(value: "grandchild1")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let grandchild1 = XYNode<String>(value: "grandchild1")
         
         child1.identifier = "child1"
         child2.identifier = "child2"
@@ -256,10 +256,10 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试通过identifier查找节点的缓存功能
     func testFindNodeWithIdentifier() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let grandchild1 = XYBaseNode<String>(value: "grandchild1")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let grandchild1 = XYNode<String>(value: "grandchild1")
         
         // 设置标识符
         child1.identifier = "child1"
@@ -285,11 +285,11 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试通过tag查找节点数组的缓存功能
     func testFindNodesWithTag() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let grandchild1 = XYBaseNode<String>(value: "grandchild1")
-        let grandchild2 = XYBaseNode<String>(value: "grandchild2")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let grandchild1 = XYNode<String>(value: "grandchild1")
+        let grandchild2 = XYNode<String>(value: "grandchild2")
         
         // 添加标签
         child1.addTag("tagA")
@@ -326,9 +326,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试在添加子节点时更新缓存
     func testCacheUpdateOnAddingChildren() {
-        let root = XYBaseNode<String>(value: "root")
-        let child = XYBaseNode<String>(value: "child")
-        let grandchild = XYBaseNode<String>(value: "grandchild")
+        let root = XYNode<String>(value: "root")
+        let child = XYNode<String>(value: "child")
+        let grandchild = XYNode<String>(value: "grandchild")
         
         // 最初查找不存在的节点
         XCTAssertNil(root.findNode(withIdentifier: "child"), "添加前应该找不到child节点")
@@ -356,9 +356,9 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试在移除子节点时更新缓存
     func testCacheUpdateOnRemovingChildren() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
         
         // 设置标识符和标签
         child1.identifier = "child1"
@@ -390,8 +390,8 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试在修改节点标识符时更新缓存
     func testCacheUpdateOnChangingIdentifier() {
-        let root = XYBaseNode<String>(value: "root")
-        let child = XYBaseNode<String>(value: "child")
+        let root = XYNode<String>(value: "root")
+        let child = XYNode<String>(value: "child")
         
         child.identifier = "oldIdentifier"
         root.append(child: child)
@@ -411,8 +411,8 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试在修改节点标签时更新缓存
     func testCacheUpdateOnChangingTags() {
-        let root = XYBaseNode<String>(value: "root")
-        let child = XYBaseNode<String>(value: "child")
+        let root = XYNode<String>(value: "root")
+        let child = XYNode<String>(value: "child")
         
         child.addTag("oldTag")
         root.append(child: child)
@@ -439,16 +439,16 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试深度优先遍历
     func testTraverseDFS() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let grandchild1 = XYBaseNode<String>(value: "grandchild1")
-        let grandchild2 = XYBaseNode<String>(value: "grandchild2")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let grandchild1 = XYNode<String>(value: "grandchild1")
+        let grandchild2 = XYNode<String>(value: "grandchild2")
         
         root.append(children: [child1, child2])
         child1.append(children: [grandchild1, grandchild2])
         
-        var traversalOrder: [XYBaseNode<String>] = []
+        var traversalOrder: [XYNode<String>] = []
         root.traverseDFS { node in
             traversalOrder.append(node)
             return true
@@ -464,16 +464,16 @@ class XYBaseNodeTests: XCTestCase {
     
     /// 测试广度优先遍历
     func testTraverseBFS() {
-        let root = XYBaseNode<String>(value: "root")
-        let child1 = XYBaseNode<String>(value: "child1")
-        let child2 = XYBaseNode<String>(value: "child2")
-        let grandchild1 = XYBaseNode<String>(value: "grandchild1")
-        let grandchild2 = XYBaseNode<String>(value: "grandchild2")
+        let root = XYNode<String>(value: "root")
+        let child1 = XYNode<String>(value: "child1")
+        let child2 = XYNode<String>(value: "child2")
+        let grandchild1 = XYNode<String>(value: "grandchild1")
+        let grandchild2 = XYNode<String>(value: "grandchild2")
         
         root.append(children: [child1, child2])
         child1.append(children: [grandchild1, grandchild2])
         
-        var traversalOrder: [XYBaseNode<String>] = []
+        var traversalOrder: [XYNode<String>] = []
         root.traverseBFS { node in
             traversalOrder.append(node)
             return true

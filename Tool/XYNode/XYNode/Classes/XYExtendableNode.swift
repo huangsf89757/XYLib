@@ -5,27 +5,29 @@
 //  Created by hsf on 2025/9/30.
 //
 
-// IMPORT: System
+// Module: System
 import Foundation
-// IMPORT: Basic
-// IMPORT: Server
+// Module: Basic
+// Module: Server
 import XYLog
-// IMPORT: Tool
-// IMPORT: Business
-// IMPORT: Third
+// Module: Tool
+// Module: Business
+// Module: Third
 
 // MARK: - ExpandStrategy
 /// 展开/收起策略
-public enum XYExpandStrategy {
+public extension XYExtendableNode {
+    enum Strategy {
     /// 保留子节点的展开状态（记忆模式）
     case preserve
     /// 重置子节点状态：收起时强制子节点收起，展开时子节点默认收起
     case reset
+    }
 }
 
 // MARK: - XYExtendableNode
 /// 支持展开/收起及可见性计算的树节点（适用于 UI 场景）
-open class XYExtendableNode<T>: XYBaseNode<T> {
+open class XYExtendableNode<T>: XYNode<T> {
     // MARK: var
     /// 是否处于展开状态（默认为 false，即收起）
     public var isExpanded: Bool = false
@@ -46,7 +48,7 @@ extension XYExtendableNode {
         guard let parent = self.parent else { return true }
         
         // 迭代方式：从当前节点向上遍历到根，检查每个祖先是否展开
-        var current: XYBaseNode<T>? = parent
+        var current: XYNode<T>? = parent
         while let node = current {
             guard let extendableNode = node as? XYExtendableNode<T> else {
                 return false
@@ -86,7 +88,7 @@ extension XYExtendableNode {
     /// - Parameters:
     ///   - strategy: 展开策略（默认 `.preserve`）
     ///   - recursively: 是否递归应用策略到所有后代（仅对 `.reset` 有意义）
-    public func expand(strategy: XYExpandStrategy = .preserve,
+    public func expand(strategy: Strategy = .preserve,
                        recursively: Bool = false) {
         isExpanded = true
         if case .reset = strategy {
@@ -107,7 +109,7 @@ extension XYExtendableNode {
     /// - Parameters:
     ///   - strategy: 收起策略（默认 `.preserve`）
     ///   - recursively: 是否递归应用策略到所有后代
-    public func collapse(strategy: XYExpandStrategy = .preserve,
+    public func collapse(strategy: Strategy = .preserve,
                          recursively: Bool = false) {
         isExpanded = false
         if case .reset = strategy {
@@ -130,7 +132,7 @@ extension XYExtendableNode {
     ///   - recursively: 是否递归
     /// - Returns: 新的展开状态
     @discardableResult
-    public func toggleExpand(strategy: XYExpandStrategy = .preserve,
+    public func toggleExpand(strategy: Strategy = .preserve,
                              recursively: Bool = false) -> Bool {
         if isExpanded {
             collapse(strategy: strategy, recursively: recursively)

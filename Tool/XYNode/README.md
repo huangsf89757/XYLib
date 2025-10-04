@@ -17,7 +17,7 @@
   - [架构](#架构)
   - [类图](#类图)
   - [核心类](#核心类)
-    - [XYBaseNode](#xybasenode)
+    - [XYNode](#xynode)
       - [介绍](#介绍)
       - [特点](#特点)
       - [适用场景](#适用场景)
@@ -44,16 +44,20 @@ XYNode 是一个用于构建和管理树形数据结构的 iOS 框架。它提�
 - 标识符和标签系统：支持通过标识符快速查找节点，通过标签分组管理
 - 缓存优化：内置缓存机制提升查找性能
 - 可扩展节点：支持展开/收起状态管理，适用于 UI 场景
+- 路径查找：支持获取从根节点到指定节点的路径
+- 遍历功能：支持深度优先和广度优先遍历
 
 
 ## 特性
 
-- **基础节点**: [XYBaseNode](#xybasenode) 提供树节点的基本功能
+- **基础节点**: [XYNode](#xynode) 提供树节点的基本功能
 - **可扩展节点**: [XYExtendableNode](#xyextendablenode) 支持展开/收起状态管理
 - **层级管理**: 自动维护节点层级信息和深度
 - **标识符系统**: 支持通过唯一标识符快速查找节点
 - **标签系统**: 支持通过标签对节点进行分组管理
 - **缓存优化**: 内置缓存机制提升查找性能
+- **路径查找**: 支持获取从根节点到指定节点的路径
+- **多种遍历方式**: 支持深度优先遍历(DFS)和广度优先遍历(BFS)
 - **跨平台**: 支持 iOS 和 watchOS 平台
 
 
@@ -61,51 +65,67 @@ XYNode 是一个用于构建和管理树形数据结构的 iOS 框架。它提�
 
 XYNode 采用面向对象设计，核心组件包括：
 
-1. **XYBaseNode**: 基础树节点类，提供节点的基本操作功能
-2. **XYExtendableNode**: 可扩展节点类，继承自 XYBaseNode，增加展开/收起功能
+1. **XYNode**: 基础树节点类，提供节点的基本操作功能
+2. **XYExtendableNode**: 可扩展节点类，继承自 XYNode，增加展开/收起功能
 
 架构特点：
 - 面向对象设计，易于扩展和维护
 - 支持泛型，可存储任意类型的数据
 - 内置缓存机制，提升查找性能
 - 支持标识符和标签系统，便于节点管理
+- 支持路径查找和多种遍历方式
 
 
 ## 类图
 
 ```mermaid
 classDiagram
-    class XYBaseNode~T~ {
+    class XYNode~T~ {
         +T? value
         +[String: Any] userInfo
         +XYIdentifier? identifier
         +Set~XYTag~ tags
-        +XYBaseNode~T~? parent
-        +[XYBaseNode~T~] children
+        +XYNode~T~? parent
+        +[XYNode~T~] children
         +String level
         +Bool isRoot
         +Bool isLeaf
         +Int levelDepth
-        +append(child: XYBaseNode~T~)
-        +append(children: [XYBaseNode~T~])
-        +insert(child: XYBaseNode~T~, at: Int)
-        +insert(children: [XYBaseNode~T~], at: Int)
-        +removeChild(at: Int) XYBaseNode~T~?
-        +removeFirst() XYBaseNode~T~?
-        +removeLast() XYBaseNode~T~?
-        +removeAll() [XYBaseNode~T~]
+        +append(child: XYNode~T~)
+        +append(children: [XYNode~T~])
+        +insert(child: XYNode~T~, at: Int)
+        +insert(children: [XYNode~T~], at: Int)
+        +removeChild(at: Int) XYNode~T~?
+        +removeFirst() XYNode~T~?
+        +removeLast() XYNode~T~?
+        +removeAll() [XYNode~T~]
+        +replaceChild(at: Int, with: XYNode~T~) XYNode~T~?
+        +findChild(at: Int) XYNode~T~?
+        +findChildren(in: Range~Int~) [XYNode~T~]
+        +findNode(withIdentifier: String) XYNode~T~?
+        +findNodes(withTag: String) [XYNode~T~]
+        +hasTag(_: String) Bool
+        +addTag(_: String) 
+        +removeTag(_: String)
+        +getPathToRoot() [XYNode~T~]
+        +isAncestor(of: XYNode~T~) Bool
+        +getAllDescendants() [XYNode~T~]
+        +findDescendant(withIdentifier: String) XYNode~T~?
+        +traverseDFS(_: (XYNode~T~) -> Bool)
+        +traverseBFS(_: (XYNode~T~) -> Bool)
     }
     
     class XYExtendableNode~T~ {
         +Bool isExpanded
         +Bool isVisible
         +Bool isExpandable
-        +expand(strategy: XYExpandStrategy, recursively: Bool)
-        +collapse(strategy: XYExpandStrategy, recursively: Bool)
         +getVisibleDescendants() [XYExtendableNode~T~]
+        +expand(strategy: Strategy, recursively: Bool)
+        +collapse(strategy: Strategy, recursively: Bool)
+        +toggleExpand(strategy: Strategy, recursively: Bool) Bool
     }
     
-    class XYExpandStrategy {
+    class Strategy {
         <<enumeration>>
         +preserve
         +reset
@@ -121,21 +141,21 @@ classDiagram
         String
     }
     
-    XYBaseNode <|-- XYExtendableNode
-    XYExtendableNode --> XYExpandStrategy
+    XYNode <|-- XYExtendableNode
+    XYExtendableNode --> Strategy
     
 ```
 
 ## 核心类
 
-### XYBaseNode
+### XYNode
 
 <details>
-<summary>点击查看 XYBaseNode 详情</summary>
+<summary>点击查看 XYNode 详情</summary>
 
 #### 介绍
 
-XYBaseNode 是基础树节点类，提供节点的基本操作功能，包括增删改查、层级管理、标识符和标签系统等。
+XYNode 是基础树节点类，提供节点的基本操作功能，包括增删改查、层级管理、标识符和标签系统等。
 
 #### 特点
 
@@ -144,6 +164,7 @@ XYBaseNode 是基础树节点类，提供节点的基本操作功能，包括增
 - 支持通过唯一标识符快速查找节点
 - 支持通过标签对节点进行分组管理
 - 内置缓存机制，提升查找性能
+- 支持路径查找和多种遍历方式
 
 #### 适用场景
 
@@ -153,9 +174,9 @@ XYBaseNode 是基础树节点类，提供节点的基本操作功能，包括增
 
 ```swift
 // 创建节点
-let rootNode = XYBaseNode<String>(value: "Root")
-let childNode1 = XYBaseNode<String>(value: "Child 1")
-let childNode2 = XYBaseNode<String>(value: "Child 2")
+let rootNode = XYNode<String>(value: "Root")
+let childNode1 = XYNode<String>(value: "Child 1")
+let childNode2 = XYNode<String>(value: "Child 2")
 
 // 添加子节点
 rootNode.append(child: childNode1)
@@ -169,14 +190,19 @@ childNode1.tags.insert("tag1")
 childNode2.tags.insert("tag2")
 
 // 查找节点
-if let foundNode = rootNode.findNode(by: "child1") {
+if let foundNode = rootNode.findNode(withIdentifier: "child1") {
     print("找到节点: \(foundNode.value ?? "")")
 }
 
-// 遍历节点
-rootNode.traverse { node in
+// 遍历节点 (深度优先)
+rootNode.traverseDFS { node in
     print("节点值: \(node.value ?? "")")
+    return true
 }
+
+// 获取路径
+let path = childNode1.getPathToRoot()
+print("路径长度: \(path.count)")
 ```
 
 </details>
@@ -188,11 +214,11 @@ rootNode.traverse { node in
 
 #### 介绍
 
-XYExtendableNode 是可扩展节点类，继承自 XYBaseNode，增加展开/收起功能，特别适用于 UI 场景。
+XYExtendableNode 是可扩展节点类，继承自 XYNode，增加展开/收起功能，特别适用于 UI 场景。
 
 #### 特点
 
-- 继承 XYBaseNode 的所有功能
+- 继承 XYNode 的所有功能
 - 支持节点展开/收起状态管理
 - 提供可见性计算功能
 - 支持不同的展开策略
@@ -226,6 +252,9 @@ let visibleDescendants = rootNode.getVisibleDescendants()
 for descendant in visibleDescendants {
     print("可见后代节点: \(descendant.value ?? "")")
 }
+
+// 切换展开状态
+rootNode.toggleExpand()
 ```
 
 </details>
@@ -252,8 +281,8 @@ pod 'XYNode'
 | 模块 | 依赖库 | 版本 |
 |------|--------|------|
 | Basic | XYExtension | 1.0.0 |
-| Server | XYLog<br>XYUtil | 1.0.0<br>1.0.0 |
-| Tool | / | / |
+| Server | XYLog | 1.0.0 |
+| Tool | XYUtil | 1.0.0 |
 | Business | / | / |
 | Third | / | / |
 

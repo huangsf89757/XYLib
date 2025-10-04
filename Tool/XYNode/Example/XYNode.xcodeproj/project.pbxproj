@@ -14,7 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		AA654C9618DB73F61774C8BD /* Pods_XYNode_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F506D1C15D72BA0253B1020 /* Pods_XYNode_Tests.framework */; };
 		DDA9AD7C2E8BD00200D2284F /* XYExtendableNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9AD7B2E8BD00200D2284F /* XYExtendableNodeTests.swift */; };
-		DDA9AD7D2E8BD00200D2284F /* XYBaseNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9AD7A2E8BD00200D2284F /* XYBaseNodeTests.swift */; };
+		DDA9AD7D2E8BD00200D2284F /* XYNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9AD7A2E8BD00200D2284F /* XYNodeTests.swift */; };
 		FA03FAA7C1CBF52CB310389D /* Pods_XYNode_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC473EA05715B4BD4948AA6 /* Pods_XYNode_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71A333979C2671F0F8C3BF31 /* XYNode.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XYNode.podspec; path = ../XYNode.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B3FC3757C5C18CCC922CA5E9 /* Pods-XYNode_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYNode_Example.debug.xcconfig"; path = "Target Support Files/Pods-XYNode_Example/Pods-XYNode_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		DDA9AD7A2E8BD00200D2284F /* XYBaseNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBaseNodeTests.swift; sourceTree = "<group>"; };
+		DDA9AD7A2E8BD00200D2284F /* XYNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYNodeTests.swift; sourceTree = "<group>"; };
 		DDA9AD7B2E8BD00200D2284F /* XYExtendableNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYExtendableNodeTests.swift; sourceTree = "<group>"; };
 		F7167A712333EFCE8AD5792D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		FCC473EA05715B4BD4948AA6 /* Pods_XYNode_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYNode_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +117,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				DDA9AD7A2E8BD00200D2284F /* XYBaseNodeTests.swift */,
+				DDA9AD7A2E8BD00200D2284F /* XYNodeTests.swift */,
 				DDA9AD7B2E8BD00200D2284F /* XYExtendableNodeTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -354,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA9AD7C2E8BD00200D2284F /* XYExtendableNodeTests.swift in Sources */,
-				DDA9AD7D2E8BD00200D2284F /* XYBaseNodeTests.swift in Sources */,
+				DDA9AD7D2E8BD00200D2284F /* XYNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

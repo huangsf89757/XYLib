@@ -1,23 +1,23 @@
 //
-//  XYBaseNode.swift
+//  XYNode.swift
 //  XYUtil
 //
 //  Created by hsf on 2025/9/30.
 //
 
-// IMPORT: System
+// Module: System
 import Foundation
-// IMPORT: Basic
-// IMPORT: Server
+// Module: Basic
+// Module: Server
 import XYLog
-// IMPORT: Tool
+// Module: Tool
 import XYUtil
-// IMPORT: Business
-// IMPORT: Third
+// Module: Business
+// Module: Third
 
-// MARK: - XYBaseNode
+// MARK: - XYNode
 /// 基础树节点（最简实现）
-open class XYBaseNode<T> {
+open class XYNode<T> {
     // MARK: var
     /// 节点值
     public internal(set) var value: T?
@@ -56,7 +56,7 @@ open class XYBaseNode<T> {
     }
     
     /// 父节点
-    public weak var parent: XYBaseNode<T>? {
+    public weak var parent: XYNode<T>? {
         didSet {
             // 父节点变化时，可能需要更新缓存
             if let root = getRoot() {
@@ -66,7 +66,7 @@ open class XYBaseNode<T> {
     }
     
     /// 子节点
-    public internal(set) var children: [XYBaseNode<T>] = []
+    public internal(set) var children: [XYNode<T>] = []
     
     /// 是否为根节点（无父节点）
     public var isRoot: Bool { parent == nil }
@@ -86,10 +86,10 @@ open class XYBaseNode<T> {
     
     // MARK: Cache
     /// 缓存：根据identifier快速查找节点
-    private var identifierCache: [XYIdentifier: XYBaseNode<T>] = [:]
+    private var identifierCache: [XYIdentifier: XYNode<T>] = [:]
     
     /// 缓存：根据tag快速查找节点数组
-    private var tagCache: [XYTag: [XYBaseNode<T>]] = [:]
+    private var tagCache: [XYTag: [XYNode<T>]] = [:]
     
     /// 标记缓存是否有效
     private var isCacheValid = false
@@ -101,17 +101,17 @@ open class XYBaseNode<T> {
 }
 
 // MARK: - 增删改查
-extension XYBaseNode {
+extension XYNode {
     // MARK: Add
     /// 添加一个子节点到节点末尾
     /// - Parameter child: 要添加的子节点
-    public func append(child: XYBaseNode<T>) {
+    public func append(child: XYNode<T>) {
         append(children: [child])
     }
     
     /// 添加多个子节点到节点末尾
     /// - Parameter children: 要添加的子节点数组
-    public func append(children: [XYBaseNode<T>]) {
+    public func append(children: [XYNode<T>]) {
         insert(children: children, at: self.children.count)
     }
     
@@ -119,7 +119,7 @@ extension XYBaseNode {
     /// - Parameters:
     ///   - child: 要插入的子节点
     ///   - index: 插入位置的索引
-    public func insert(child: XYBaseNode<T>, at index: Int) {
+    public func insert(child: XYNode<T>, at index: Int) {
         insert(children: [child], at: index)
     }
     
@@ -127,7 +127,7 @@ extension XYBaseNode {
     /// - Parameters:
     ///   - children: 要插入的子节点数组
     ///   - index: 插入位置的索引
-    public func insert(children: [XYBaseNode<T>], at index: Int) {
+    public func insert(children: [XYNode<T>], at index: Int) {
         guard index >= 0 && index <= self.children.count else { return }
         for child in children {
             child.parent = self
@@ -149,7 +149,7 @@ extension XYBaseNode {
     /// - Parameter index: 要移除的子节点索引
     /// - Returns: 被移除的节点，如果索引无效则返回nil
     @discardableResult
-    public func removeChild(at index: Int) -> XYBaseNode<T>? {
+    public func removeChild(at index: Int) -> XYNode<T>? {
         guard index >= 0 && index < children.count else { return nil }
         let removed = children.remove(at: index)
         removed.parent = nil
@@ -168,21 +168,21 @@ extension XYBaseNode {
     /// 移除第一个子节点，并断开父子关系
     /// - Returns: 被移除的节点，如果无子节点则返回nil
     @discardableResult
-    public func removeFirst() -> XYBaseNode<T>? {
+    public func removeFirst() -> XYNode<T>? {
         return children.isEmpty ? nil : removeChild(at: 0)
     }
     
     /// 移除最后一个子节点，并断开父子关系
     /// - Returns: 被移除的节点，如果无子节点则返回nil
     @discardableResult
-    public func removeLast() -> XYBaseNode<T>? {
+    public func removeLast() -> XYNode<T>? {
         return children.isEmpty ? nil : removeChild(at: children.count - 1)
     }
     
     /// 移除所有子节点，并断开所有父子关系
     /// - Returns: 被移除的所有节点数组
     @discardableResult
-    public func removeAll() -> [XYBaseNode<T>] {
+    public func removeAll() -> [XYNode<T>] {
         let removed = children
         children = []
         for node in removed {
@@ -201,7 +201,7 @@ extension XYBaseNode {
     /// - Parameter range: 要移除的节点范围
     /// - Returns: 被移除的节点数组
     @discardableResult
-    public func removeChildren(in range: Range<Int>) -> [XYBaseNode<T>] {
+    public func removeChildren(in range: Range<Int>) -> [XYNode<T>] {
         guard !children.isEmpty,
               range.lowerBound >= 0,
               range.upperBound <= children.count else { return [] }
@@ -232,7 +232,7 @@ extension XYBaseNode {
     ///   - child: 新的子节点
     /// - Returns: 被替换的原节点，如果索引无效则返回nil
     @discardableResult
-    public func replaceChild(at index: Int, with child: XYBaseNode<T>) -> XYBaseNode<T>? {
+    public func replaceChild(at index: Int, with child: XYNode<T>) -> XYNode<T>? {
         guard index >= 0 && index < children.count else { return nil }
         let oldChild = children[index]
         oldChild.parent = nil  // 断开旧连接
@@ -253,7 +253,7 @@ extension XYBaseNode {
     /// 根据索引查找子节点
     /// - Parameter index: 要查找的节点索引
     /// - Returns: 对应索引的子节点，如果索引无效则返回nil
-    public func findChild(at index: Int) -> XYBaseNode<T>? {
+    public func findChild(at index: Int) -> XYNode<T>? {
         guard index >= 0 && index < children.count else { return nil }
         return children[index]
     }
@@ -261,7 +261,7 @@ extension XYBaseNode {
     /// 查找指定范围内的子节点
     /// - Parameter range: 要查找的节点范围
     /// - Returns: 对应范围的子节点数组
-    public func findChildren(in range: Range<Int>) -> [XYBaseNode<T>] {
+    public func findChildren(in range: Range<Int>) -> [XYNode<T>] {
         guard !children.isEmpty,
               range.lowerBound >= 0,
               range.upperBound <= children.count else { return [] }
@@ -271,7 +271,7 @@ extension XYBaseNode {
     /// 根据identifier查找节点（使用缓存优化）
     /// - Parameter identifier: 目标节点的identifier
     /// - Returns: 找到的节点，未找到返回nil
-    public func findNode(withIdentifier identifier: String) -> XYBaseNode<T>? {
+    public func findNode(withIdentifier identifier: String) -> XYNode<T>? {
         buildCacheIfNeeded()
         return identifierCache[identifier]
     }
@@ -279,16 +279,16 @@ extension XYBaseNode {
     /// 根据tag查找节点数组（使用缓存优化）
     /// - Parameter tag: 目标节点的tag
     /// - Returns: 包含该tag的所有节点数组
-    public func findNodes(withTag tag: String) -> [XYBaseNode<T>] {
+    public func findNodes(withTag tag: String) -> [XYNode<T>] {
         buildCacheIfNeeded()
         return tagCache[tag] ?? []
     }
 }
 
 // MARK: - Cache Management
-extension XYBaseNode {
+extension XYNode {
     /// 构建子树的缓存
-    private func buildCacheForSubtree(node: XYBaseNode<T>) {
+    private func buildCacheForSubtree(node: XYNode<T>) {
         // 添加当前节点到缓存
         if let identifier = node.identifier {
             addToIdentifierCache(node: node, identifier: identifier)
@@ -305,21 +305,21 @@ extension XYBaseNode {
     }
     
     /// 将节点添加到identifier缓存
-    private func addToIdentifierCache(node: XYBaseNode<T>, identifier: XYIdentifier) {
+    private func addToIdentifierCache(node: XYNode<T>, identifier: XYIdentifier) {
         if let root = getRoot() {
             root.identifierCache[identifier] = node
         }
     }
     
     /// 从identifier缓存中移除节点
-    private func removeFromIdentifierCache(node: XYBaseNode<T>, identifier: XYIdentifier) {
+    private func removeFromIdentifierCache(node: XYNode<T>, identifier: XYIdentifier) {
         if let root = getRoot() {
             root.identifierCache[identifier] = nil
         }
     }
     
     /// 将节点添加到tag缓存
-    private func addToTagCache(node: XYBaseNode<T>, tag: XYTag) {
+    private func addToTagCache(node: XYNode<T>, tag: XYTag) {
         if let root = getRoot() {
             if root.tagCache[tag] == nil {
                 root.tagCache[tag] = []
@@ -332,7 +332,7 @@ extension XYBaseNode {
     }
     
     /// 从tag缓存中移除节点
-    private func removeFromTagCache(node: XYBaseNode<T>, tag: XYTag) {
+    private func removeFromTagCache(node: XYNode<T>, tag: XYTag) {
         if let root = getRoot() {
             root.tagCache[tag]?.removeAll { $0 === node }
             // 如果tag对应的数组为空，则移除该tag
@@ -343,7 +343,7 @@ extension XYBaseNode {
     }
     
     /// 从所有缓存中移除节点
-    private func removeFromCache(node: XYBaseNode<T>) {
+    private func removeFromCache(node: XYNode<T>) {
         // 移除identifier缓存
         if let identifier = node.identifier {
             removeFromIdentifierCache(node: node, identifier: identifier)
@@ -361,8 +361,8 @@ extension XYBaseNode {
     }
     
     /// 获取根节点
-    private func getRoot() -> XYBaseNode<T>? {
-        var current: XYBaseNode<T>? = self
+    private func getRoot() -> XYNode<T>? {
+        var current: XYNode<T>? = self
         while let parent = current?.parent {
             current = parent
         }
@@ -391,7 +391,7 @@ extension XYBaseNode {
 }
 
 // MARK: - Level Management
-extension XYBaseNode {
+extension XYNode {
     /// 刷新当前节点及其所有后代的 level 字符串
     /// 通常在树结构变更后调用（如移动节点）
     public func refreshLevel() {
@@ -434,7 +434,7 @@ extension XYBaseNode {
 }
 
 // MARK: - Tag
-extension XYBaseNode {
+extension XYNode {
     /// 检查是否包含指定标签
     public func hasTag(_ tag: String) -> Bool {
         return tags.contains(tag)
@@ -452,12 +452,12 @@ extension XYBaseNode {
 }
 
 // MARK: - Path & Relationship
-extension XYBaseNode {
+extension XYNode {
     /// 获取从根到当前节点的路径（包含自身）
     /// - Returns: 路径数组，索引 0 为根节点
-    public func getPathToRoot() -> [XYBaseNode<T>] {
-        var path: [XYBaseNode<T>] = []
-        var current: XYBaseNode<T>? = self
+    public func getPathToRoot() -> [XYNode<T>] {
+        var path: [XYNode<T>] = []
+        var current: XYNode<T>? = self
         while let node = current {
             path.append(node)
             current = node.parent
@@ -466,8 +466,8 @@ extension XYBaseNode {
     }
     
     /// 判断当前节点是否是指定节点的祖先
-    public func isAncestor(of node: XYBaseNode<T>) -> Bool {
-        var current: XYBaseNode<T>? = node.parent
+    public func isAncestor(of node: XYNode<T>) -> Bool {
+        var current: XYNode<T>? = node.parent
         while let parent = current {
             if parent === self { return true }
             current = parent.parent
@@ -477,10 +477,10 @@ extension XYBaseNode {
 }
 
 // MARK: - Find
-extension XYBaseNode {
+extension XYNode {
     /// 获取所有后代节点（递归，**不包含当前节点**）
-    public func getAllDescendants() -> [XYBaseNode<T>] {
-        var descendants: [XYBaseNode<T>] = []
+    public func getAllDescendants() -> [XYNode<T>] {
+        var descendants: [XYNode<T>] = []
         for child in children {
             descendants.append(child)
             descendants.append(contentsOf: child.getAllDescendants())
@@ -491,7 +491,7 @@ extension XYBaseNode {
     /// 查找具有指定标识符的后代节点（深度优先）
     /// - Parameter identifier: 目标节点的 identifier
     /// - Returns: 找到的节点，未找到返回 nil
-    public func findDescendant(withIdentifier identifier: String) -> XYBaseNode<T>? {
+    public func findDescendant(withIdentifier identifier: String) -> XYNode<T>? {
         for child in children {
             if child.identifier == identifier {
                 return child
@@ -505,10 +505,10 @@ extension XYBaseNode {
 }
 
 // MARK: - Traverse
-extension XYBaseNode {
+extension XYNode {
     /// 深度优先遍历（DFS），从当前节点开始（从左到右顺序）
     /// - Parameter closure: 遍历回调，返回 `false` 表示停止遍历
-    public func traverseDFS(_ closure: (XYBaseNode<T>) -> Bool) {
+    public func traverseDFS(_ closure: (XYNode<T>) -> Bool) {
         var stack = [self]
         while let node = stack.popLast() {
             guard closure(node) else { return }
@@ -519,7 +519,7 @@ extension XYBaseNode {
 
     /// 广度优先遍历（BFS），从当前节点开始（从左到右顺序）
     /// - Parameter closure: 遍历回调，返回 `false` 表示停止遍历
-    public func traverseBFS(_ closure: (XYBaseNode<T>) -> Bool) {
+    public func traverseBFS(_ closure: (XYNode<T>) -> Bool) {
         var queue = [self]
         while let node = queue.first {
             queue.removeFirst()
