@@ -199,7 +199,7 @@ extension XYCentralManagerAgent {
         let connectTimeoutTask = connectTimeoutTaskMap[uuid]
         connectTimeoutTask?.cancel()
         let task = DispatchWorkItem { [weak self] in
-            XYLog.info(tag: logTag, process: .fail, content: "TimeoutTask Handel (\(uuid)"))
+            XYLog.info(tag: logTag, process: .fail, content: "TimeoutTask Handel (\(uuid))")
             guard let centralManager = self?.centralManager else { return }
             self?.delegate?.centralManager(centralManager, didTryRemoveDiscoveredPeripheral: uuid)
             let peripheralAgent = self?.discoveredPeripherals[uuid]

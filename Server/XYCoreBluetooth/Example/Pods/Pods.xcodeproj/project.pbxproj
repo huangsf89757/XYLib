@@ -19,7 +19,6 @@
 		179439396BE32AAC0EBD8AF986573053 /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B5EDA8281CEFFA99A87A8FB04FBA3562 /* DDAssertMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B54B5D6BBE60B992AD6E0B0C38B54D8 /* DDFileLogger+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = B1A374E07E1A819FC6D8DAEF6C305CA3 /* DDFileLogger+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1CBA030A9F58D35B418E06ADF032B7B0 /* CBDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9E3E731D4D63BCF2C539D6E04C9B9 /* CBDescriptor.swift */; };
-		1CF9CA9BC7B4D6FB004DF79A3BD5306F /* XYCentralManagerCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268A8960FA4163DCCEE0EAE4246591F /* XYCentralManagerCmd.swift */; };
 		2042E11A17D7BB06A29B06DE4CFF7F1E /* CBCharacteristicWriteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71026752686063667313FCC35C13040 /* CBCharacteristicWriteType.swift */; };
 		24D15A77ECEF55B4AF06475C61741FF9 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C110FC02D5CF1EF5979A5E55812F974 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		250DB522E2B88BC538C5B468436228DC /* SwiftLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F21D732E44D2E9362E7F9B487D6868F /* SwiftLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -354,7 +353,6 @@
 		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		EF4FAF2F856CE0B4A0E27FD63A8113EA /* XYExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F1A997A916E19039B884390CA7CFA04A /* CBPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheral.swift; sourceTree = "<group>"; };
-		F268A8960FA4163DCCEE0EAE4246591F /* XYCentralManagerCmd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentralManagerCmd.swift; sourceTree = "<group>"; };
 		F55122C7CE18B86C7A20B4D55A3D4112 /* XYLog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-umbrella.h"; sourceTree = "<group>"; };
 		F5515269532235616CA06FF94F505FB7 /* DDLoggerNames.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLoggerNames.m; path = Sources/CocoaLumberjack/DDLoggerNames.m; sourceTree = "<group>"; };
 		F6AA0FB9CC109647C5FB67DEAC5B4DC7 /* DDOSLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDOSLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDOSLogger.h; sourceTree = "<group>"; };
@@ -530,7 +528,6 @@
 			isa = PBXGroup;
 			children = (
 				34F03886B4095083E9848543E16B36E8 /* XYCentralManagerAgent.swift */,
-				F268A8960FA4163DCCEE0EAE4246591F /* XYCentralManagerCmd.swift */,
 				1C33FCCCB0D68E971019B5DD3A9789ED /* XYCentralManagerDelegate.swift */,
 			);
 			path = XYCentralManager;
@@ -1329,7 +1326,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E264C042F78C94E95FDA0EDFA9B4AD67 /* XYCentralManagerAgent.swift in Sources */,
-				1CF9CA9BC7B4D6FB004DF79A3BD5306F /* XYCentralManagerCmd.swift in Sources */,
 				5DFA5F93B2710FF6C36E6842480E500A /* XYCentralManagerDelegate.swift in Sources */,
 				4082DE67ECAC535A2FAAE10AFDB6617C /* XYConnectionPool.swift in Sources */,
 				F4229B80D07C9C8136C103711482A714 /* XYCoreBluetooth-dummy.m in Sources */,
