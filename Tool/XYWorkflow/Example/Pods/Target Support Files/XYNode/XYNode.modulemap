@@ -1,6 +1,0 @@
-framework module XYNode {
-  umbrella header "XYNode-umbrella.h"
-
-  export *
-  module * { export * }
-}

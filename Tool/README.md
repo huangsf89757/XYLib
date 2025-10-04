@@ -13,7 +13,7 @@
   - [组件列表](#组件列表)
     - [XYNode](#xynode)
     - [XYUtil](#xyutil)
-    - [XYWorkflow](#xyworkflow)
+    - [XYCmd](#xycmd)
   - [架构](#架构)
   - [依赖关系](#依赖关系)
   - [功能特点](#功能特点)
@@ -31,7 +31,7 @@ Tool 组件是 XYLib 的通用工具组件集合，旨在提供可复用的基�
 主要功能包括：
 - 节点操作能力（XYNode）
 - 常用工具方法（XYUtil）
-- 工作流或状态机管理（XYWorkflow）
+- 工作流或状态机管理（XYCmd）
 
 ## 组件列表
 
@@ -56,7 +56,7 @@ Tool 组件是 XYLib 的通用工具组件集合，旨在提供可复用的基�
 - 原子操作类（计数器、布尔标志等）
 - 状态管理与观察者模式
 
-### XYWorkflow
+### XYCmd
 
 工作流或状态机管理模块，用于构建和执行复杂的工作流。
 
@@ -72,11 +72,11 @@ Tool 组件是 XYLib 的通用工具组件集合，旨在提供可复用的基�
 
 Tool 组件采用模块化设计，主要包括以下三个核心模块：
 
-```mermaid
+``mermaid
 graph TD
     A[Tool 组件] --> B[XYNode]
     A --> C[XYUtil]
-    A --> D[XYWorkflow]
+    A --> D[XYCmd]
     
     subgraph Tool
         B
@@ -99,9 +99,9 @@ graph TD
 
 Tool 组件内部各模块的依赖关系：
 
-```mermaid
+``mermaid
 graph TD
-    A[XYWorkflow] --> B[XYLog]
+    A[XYCmd] --> B[XYLog]
     
     C[XYLog] --> D[XYUtil]
     C --> E[CocoaLumberjack]
@@ -135,7 +135,7 @@ graph TD
 ```
 
 依赖说明：
-- `XYWorkflow` 依赖 `XYLog` 记录执行流程
+- `XYCmd` 依赖 `XYLog` 记录执行流程
 - `XYLog` 依赖 `XYUtil` 提供基础工具支持，并使用 `CocoaLumberjack` 作为底层日志框架
 - `XYUtil` 依赖 `XYExtension` 提供扩展能力
 
@@ -154,25 +154,25 @@ Tool 组件提供通用的工具功能，可在各种场景中复用：
 
 1. 使用 XYNode 处理树形数据结构
 2. 使用 XYUtil 简化常见的开发任务
-3. 使用 XYWorkflow 管理复杂的工作流和状态转换
+3. 使用 XYCmd 管理复杂的工作流和状态转换
 
 ## 安装
 
 各个组件可通过 [CocoaPods](https://cocoapods.org) 单独安装：
 
-```ruby
+``ruby
 pod 'XYNode'
 pod 'XYUtil'
-pod 'XYWorkflow'
+pod 'XYCmd'
 ```
 
 也可选择性安装需要的组件：
 
-```ruby
+``ruby
 # 只安装需要的组件
 pod 'XYUtil'      # 如果只需要通用工具
 pod 'XYNode'      # 如果只需要节点操作功能
-pod 'XYWorkflow'  # 如果只需要工作流管理功能
+pod 'XYCmd'  # 如果只需要工作流管理功能
 ```
 
 ## 要求

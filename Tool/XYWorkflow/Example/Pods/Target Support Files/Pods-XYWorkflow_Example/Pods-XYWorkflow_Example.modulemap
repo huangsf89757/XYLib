@@ -1,6 +1,0 @@
-framework module Pods_XYWorkflow_Example {
-  umbrella header "Pods-XYWorkflow_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

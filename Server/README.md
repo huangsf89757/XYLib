@@ -52,7 +52,7 @@ Server 组件内部各模块的依赖关系：
 ```mermaid
 graph TD
     A[XYCoreBluetooth] --> B[XYLog]
-    A --> C[XYWorkflow]
+    A --> C[XYCmd]
     
     D[XYWatchConnectivity] --> B
     

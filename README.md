@@ -68,7 +68,7 @@ graph TD
     A --> F[XYLog]
     
     B --> F
-    B --> G[XYWorkflow]
+    B --> G[XYCmd]
     
     C --> F
     
