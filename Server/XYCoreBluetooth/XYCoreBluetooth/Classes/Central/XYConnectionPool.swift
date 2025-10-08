@@ -9,10 +9,24 @@ import Foundation
 import CoreBluetooth
 import XYLog
 
+// MARK: - ConnectionPriority
+/// 连接优先级枚举
+public extension XYConnectionPool {
+    enum ConnectionPriority {
+        case low
+        case normal
+        case high
+    }
+}
+
+// MARK: - XYConnectionPool
 /// 连接池管理器，用于管理多个蓝牙连接
 public class XYConnectionPool {
+    // MARK: - Singleton
     public static let shared = XYConnectionPool()
+    private init() {}
     
+    // MARK: - Properties
     /// 最大连接数
     public var maxConnections: Int = 5
     
@@ -24,15 +38,6 @@ public class XYConnectionPool {
     
     /// 连接池状态变化回调
     public var onPoolStatusChanged: ((Int, Int) -> Void)? // (current, max)
-    
-    private init() {}
-    
-    /// 连接优先级枚举
-    public enum ConnectionPriority {
-        case low
-        case normal
-        case high
-    }
     
     /// 添加连接
     /// - Parameters:
