@@ -29,7 +29,7 @@ open class XYCentralManager: NSObject {
     }
     
     // MARK: init
-    public init(delegate: (any XYCentralManagerDelegate)?, queue: dispatch_queue_t?, options: [String : Any]? = nil) {
+    public init(delegate: (any XYCentralManagerDelegate)?, queue: dispatch_queue_t? = nil, options: [String : Any]? = nil) {
         super.init()
         centralManager = CBCentralManager(delegate: delegate, queue: queue, options: options)
         centralManager.delegate = self
@@ -208,15 +208,16 @@ extension XYCentralManager {
         var content_params = "void"
         if let params {
             content_params = "\n" + params.map { (key, value) in
-                "- \(key) = \(value)"
+                "   - \(key) = \(value)"
             }.joined(separator: "\n")
         }
         var content_returns = "void"
         if let returns {
-            content_returns = "\n" + "> \(returns)"
+            content_returns = "\n" + "  > \(returns)"
         }
         let content = """
-            \(function)
+            
+            func \(function)
             params: \(content_params)
             return: \(content_returns)
             """

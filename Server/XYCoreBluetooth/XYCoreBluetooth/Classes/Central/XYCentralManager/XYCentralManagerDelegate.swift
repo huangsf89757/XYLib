@@ -36,7 +36,7 @@ public protocol XYCentralManagerDelegate: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, registerForConnectionEventsWithOptions options: [CBConnectionEventMatchingOption: Any]?)
 }
 
-extension XYCentralManagerDelegate {
+public extension XYCentralManagerDelegate {
     @available(iOS 7.0, *)
     func centralManager(_ central: CBCentralManager, retrievePeripheralsWithIdentifiers identifiers: [UUID], returns peripherals: [CBPeripheral]) {}
     
