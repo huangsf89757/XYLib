@@ -1,0 +1,148 @@
+{
+  "" : {
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/XYExtension-master.dia",
+    "emit-module-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/XYExtension-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/XYExtension-master-emit-module.dia",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/XYExtension-master.swiftdeps"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBCharacteristic.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristic~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBCharacteristicProperties.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicProperties~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBCharacteristicWriteType.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBCharacteristicWriteType~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBDescriptor.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBDescriptor~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBError.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBError~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBL2CAPChannel.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBL2CAPChannel~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBManagerState.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBManagerState~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBPeripheral.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheral~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBPeripheralState.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBPeripheralState~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBService.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/CBService~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/Foundation/Data.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Data~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/Foundation/JSON.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/JSON~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/Foundation/Task.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/Task~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/WatchConnectivity/WCSessionActivationState.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYExtension.build/Objects-normal/arm64/WCSessionActivationState~partial.swiftmodule"
+  }
+}

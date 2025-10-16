@@ -1,0 +1,78 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s10Foundation4DataV11XYExtensionE12toDictionary7optionsSDySSypGSgSo20NSJSONReadingOptionsV_tF",
+            "_$sSo12CBDescriptorC11XYExtensionE4infoSSvg",
+            "_$sSa11XYExtensionE10toJSONData8prettify10Foundation4DataVSgSb_tF",
+            "_$s10Foundation4DataV11XYExtensionE12toJSONString8encodingSSSgSSAAE8EncodingV_tF",
+            "_$sSo16CBCharacteristicC11XYExtensionE4infoSSvg",
+            "_$sSo25CBCharacteristicWriteTypeV11XYExtensionE4infoSSvg",
+            "_$sSo17CBPeripheralStateV11XYExtensionE4infoSSvg",
+            "_$ss5ErrorP11XYExtensionE4infoSSvg",
+            "_$sSa11XYExtensionE12toJSONString8prettifySSSgSb_tF",
+            "_$sSo14CBManagerStateV11XYExtensionE4infoSSvg",
+            "_$ss5ErrorP11XYExtensionE4infoSSvpMV",
+            "_$sSo7CBErrorV11XYExtensionE4infoSSvpMV",
+            "_$sSo14CBL2CAPChannelC11XYExtensionE4infoSSvg",
+            "_$sSo17CBPeripheralStateV11XYExtensionE4infoSSvpMV",
+            "_$sSo14CBL2CAPChannelC11XYExtensionE4infoSSvpMV",
+            "_$sSo26CBCharacteristicPropertiesV11XYExtensionE12canSubscribeSbvg",
+            "_$sSo26CBCharacteristicPropertiesV11XYExtensionE30requiresEncryptionForSubscribeSbvpMV",
+            "_$sSo12CBDescriptorC11XYExtensionE4infoSSvpMV",
+            "_$sSo9CBServiceC11XYExtensionE4infoSSvg",
+            "_$sScT11XYExtensions5NeverORszACRs_rlE5sleep7secondsySd_tYaKFZ",
+            "_$sSo26CBCharacteristicPropertiesV11XYExtensionE30requiresEncryptionForSubscribeSbvg",
+            "_$sSo25CBCharacteristicWriteTypeV11XYExtensionE4infoSSvpMV",
+            "_$sScT11XYExtensions5NeverORszACRs_rlE5sleep7secondsySd_tYaKFZTu",
+            "_$sSo12CBPeripheralC11XYExtensionE4infoSSvpMV",
+            "_$sSo14CBManagerStateV11XYExtensionE4infoSSvpMV",
+            "_XYExtensionVersionNumber",
+            "_$sSS11XYExtensionE10toJSONData8encoding10Foundation4DataVSgSSADE8EncodingV_tF",
+            "_$sSo26CBCharacteristicPropertiesV11XYExtensionE12canSubscribeSbvpMV",
+            "_$sSo24WCSessionActivationStateV11XYExtensionE4infoSSvg",
+            "_$sSS11XYExtensionE12toDictionary7optionsSDySSypGSgSo20NSJSONReadingOptionsV_tF",
+            "_$sSo9CBServiceC11XYExtensionE4infoSSvpMV",
+            "_XYExtensionVersionString",
+            "_$sSD11XYExtensionE10toJSONData8prettify10Foundation4DataVSgSb_tF",
+            "_$s10Foundation4DataV11XYExtensionE11toHexString9separatorS2S_tF",
+            "_$sSo12CBPeripheralC11XYExtensionE4infoSSvg",
+            "_$sSo24WCSessionActivationStateV11XYExtensionE4infoSSvpMV",
+            "_$sSo16CBCharacteristicC11XYExtensionE4infoSSvpMV",
+            "_$sSo7CBErrorV11XYExtensionE4infoSSvg",
+            "_$sSD11XYExtensionE12toJSONString8prettifySSSgSb_tF"
+          ],
+          "objc_class": [
+            "PodsDummy_XYExtension"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/XYExtension.framework/XYExtension"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

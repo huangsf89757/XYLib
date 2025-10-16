@@ -1,0 +1,15 @@
+Target dependency graph (6 targets)
+Target 'XYCoreBluetooth' in project 'Pods'
+➜ Explicit dependency on target 'XYExtension' in project 'Pods'
+➜ Explicit dependency on target 'XYLog' in project 'Pods'
+➜ Explicit dependency on target 'XYUtil' in project 'Pods'
+Target 'XYLog' in project 'Pods'
+➜ Explicit dependency on target 'CocoaLumberjack' in project 'Pods'
+➜ Explicit dependency on target 'XYExtension' in project 'Pods'
+➜ Explicit dependency on target 'XYUtil' in project 'Pods'
+Target 'XYUtil' in project 'Pods'
+➜ Explicit dependency on target 'XYExtension' in project 'Pods'
+Target 'CocoaLumberjack' in project 'Pods'
+➜ Explicit dependency on target 'CocoaLumberjack-CocoaLumberjackPrivacy' in project 'Pods'
+Target 'CocoaLumberjack-CocoaLumberjackPrivacy' in project 'Pods' (no dependencies)
+Target 'XYExtension' in project 'Pods' (no dependencies)

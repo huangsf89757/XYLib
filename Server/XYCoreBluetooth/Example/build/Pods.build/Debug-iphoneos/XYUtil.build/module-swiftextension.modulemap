@@ -1,0 +1,5 @@
+
+module XYUtil.Swift {
+  header "XYUtil-Swift.h"
+  requires objc
+}

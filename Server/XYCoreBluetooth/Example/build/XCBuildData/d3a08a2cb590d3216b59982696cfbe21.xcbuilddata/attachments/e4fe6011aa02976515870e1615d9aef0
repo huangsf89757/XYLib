@@ -1,0 +1,14 @@
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBCharacteristic.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBCharacteristicProperties.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBCharacteristicWriteType.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBDescriptor.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBError.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBL2CAPChannel.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBManagerState.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBPeripheral.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBPeripheralState.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/CoreBluetooth/CBService.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/Foundation/Data.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/Foundation/JSON.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/Foundation/Task.swift
+/Users/huangshanfeng/Desktop/XYLib/Basic/XYExtension/XYExtension/Classes/WatchConnectivity/WCSessionActivationState.swift

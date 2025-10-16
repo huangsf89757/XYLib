@@ -1,0 +1,4 @@
+
+module XYUtil.__Swift {
+  exclude header "XYUtil-Swift.h"
+}

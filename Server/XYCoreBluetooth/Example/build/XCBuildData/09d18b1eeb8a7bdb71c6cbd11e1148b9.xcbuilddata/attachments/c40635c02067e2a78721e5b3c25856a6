@@ -1,0 +1,5 @@
+
+module XYExtension.Swift {
+  header "XYExtension-Swift.h"
+  requires objc
+}

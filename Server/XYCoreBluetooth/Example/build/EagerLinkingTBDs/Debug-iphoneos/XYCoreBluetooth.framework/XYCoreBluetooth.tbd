@@ -1,0 +1,99 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s15XYCoreBluetooth16XYCentralManagerC8stopScanyyFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerCN",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8stopScanyyF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC3tagSSvgZ",
+            "_XYCoreBluetoothVersionNumber",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD14DidUpdateStateyySo09CBCentralD0CF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvsTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0So09CBCentralD0CSgvM",
+            "_$s15XYCoreBluetooth16XYCentralManagerCMn",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvpWvd",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_16didFailToConnect5errorySo09CBCentralD0C_So12CBPeripheralCs5Error_pSgtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerCfD",
+            "_$s15XYCoreBluetooth16XYCentralManagerC6sharedACvau",
+            "_$s15XYCoreBluetooth16XYCentralManagerC27registerForConnectionEvents7optionsySDySo31CBConnectionEventMatchingOptionaypGSg_tFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC18scanForPeripherals12withServices7optionsySaySo6CBUUIDCGSg_SDySSypGSgtFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_10didConnectySo09CBCentralD0C_So12CBPeripheralCtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_16willRestoreStateySo09CBCentralD0C_SDySSypGtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvg",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_29didUpdateANCSAuthorizationForySo09CBCentralD0C_So12CBPeripheralCtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC17initCentralMangerSo09CBCentralD0CyF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC26cancelPeripheralConnectionyySo12CBPeripheralCF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC26cancelPeripheralConnectionyySo12CBPeripheralCFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvgTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC28retrieveConnectedPeripherals12withServicesSaySo12CBPeripheralCGSaySo6CBUUIDCG_tFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0So09CBCentralD0CSgvpWvd",
+            "_$s15XYCoreBluetooth16XYCentralManagerC18scanForPeripherals12withServices7optionsySaySo6CBUUIDCGSg_SDySSypGSgtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC3tagSSvpZ",
+            "_XYCoreBluetoothVersionString",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0So09CBCentralD0CSgvgTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC19retrievePeripherals15withIdentifiersSaySo12CBPeripheralCGSay10Foundation4UUIDVG_tF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC28retrieveConnectedPeripherals12withServicesSaySo12CBPeripheralCGSaySo6CBUUIDCG_tF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC10isScanningSbvpMV",
+            "_$s15XYCoreBluetooth16XYCentralManagerC6sharedACvpZMV",
+            "_$s15XYCoreBluetooth16XYCentralManagerCMa",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvpMV",
+            "_$s15XYCoreBluetooth16XYCentralManagerC7connect_7optionsySo12CBPeripheralC_SDySSypGSgtFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0So09CBCentralD0CSgvpMV",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_23didDisconnectPeripheral5errorySo09CBCentralD0C_So12CBPeripheralCs5Error_pSgtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvM",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvpfi",
+            "_$s15XYCoreBluetooth16XYCentralManagerC17initCentralMangerSo09CBCentralD0CyFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvs",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0So09CBCentralD0CSgvs",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_23connectionEventDidOccur3forySo09CBCentralD0C_So012CBConnectionG0VSo12CBPeripheralCtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC3tagSSvau",
+            "_$s15XYCoreBluetooth16XYCentralManagerC10isScanningSbvgTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC8delegateAA0cD8Delegate_pSgvMTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0So09CBCentralD0CSgvpfi",
+            "_$s15XYCoreBluetooth16XYCentralManagerC6sharedACvgZ",
+            "_$s15XYCoreBluetooth16XYCentralManagerCACyc33_F2BD9A1D86F0D06EA5405C4DA08281DFLlfC",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_23didDisconnectPeripheral9timestamp14isReconnecting5errorySo09CBCentralD0C_So12CBPeripheralCSdSbs5Error_pSgtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0_11didDiscover17advertisementData4rssiySo09CBCentralD0C_So12CBPeripheralCSDySSypGSo8NSNumberCtF",
+            "_$s15XYCoreBluetooth16XYCentralManagerC19retrievePeripherals15withIdentifiersSaySo12CBPeripheralCGSay10Foundation4UUIDVG_tFTq",
+            "_$s15XYCoreBluetooth16XYCentralManagerC7connect_7optionsySo12CBPeripheralC_SDySSypGSgtF",
+            "_$s15XYCoreBluetooth24XYCentralManagerDelegateMp",
+            "_$s15XYCoreBluetooth16XYCentralManagerC07centralD0So09CBCentralD0CSgvg",
+            "_$s15XYCoreBluetooth16XYCentralManagerC6sharedACvpZ",
+            "_$s15XYCoreBluetooth16XYCentralManagerC10isScanningSbvg",
+            "_$s15XYCoreBluetooth16XYCentralManagerC27registerForConnectionEvents7optionsySDySo31CBConnectionEventMatchingOptionaypGSg_tF"
+          ],
+          "objc_class": [
+            "PodsDummy_XYCoreBluetooth",
+            "_TtC15XYCoreBluetooth16XYCentralManager"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/XYCoreBluetooth.framework/XYCoreBluetooth"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

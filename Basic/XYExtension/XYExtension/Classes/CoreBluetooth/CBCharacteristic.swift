@@ -1,6 +1,6 @@
 //
 //  CBCharacteristic.swift
-//  MTCgmsKit
+//  XYExtension
 //
 //  Created by hsf on 2025/8/28.
 //
@@ -10,6 +10,11 @@ import CoreBluetooth
 
 public extension CBCharacteristic {
     var info: String {
-        return "{\(uuid.uuidString); \(isNotifying); \(value?.toHexString() ?? "value=nil")}"
+        let dict: [String: Any] = [
+            "uuid": uuid.uuidString,
+            "isNotifying": isNotifying,
+            "value": value?.toHexString() ?? "nil"
+        ]
+        return dict.toJSONString() ?? "nil"
     }
 }

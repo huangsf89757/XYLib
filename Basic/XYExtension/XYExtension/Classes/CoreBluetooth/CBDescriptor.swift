@@ -10,7 +10,10 @@ import CoreBluetooth
 
 public extension CBDescriptor {
     var info: String {
-        return "{\(uuid.uuidString)}"
+        let dict: [String: Any] = [
+            "uuid": uuid.uuidString,
+        ]
+        return dict.toJSONString() ?? "nil"
     }
 }
 

@@ -1,6 +1,6 @@
 //
 //  CBService.swift
-//  MTCgmsKit
+//  XYExtension
 //
 //  Created by hsf on 2025/8/28.
 //
@@ -10,6 +10,10 @@ import CoreBluetooth
 
 public extension CBService {
     var info: String {
-        return "{\(uuid.uuidString); \(isPrimary)}"
+        let dict: [String: Any] = [
+            "uuid": uuid.uuidString,
+            "isPrimary": isPrimary,
+        ]
+        return dict.toJSONString() ?? "nil"
     }
 }

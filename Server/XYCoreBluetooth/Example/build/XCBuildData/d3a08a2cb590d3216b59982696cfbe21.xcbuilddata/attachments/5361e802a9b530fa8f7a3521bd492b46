@@ -1,0 +1,5 @@
+
+module XYLog.Swift {
+  header "XYLog-Swift.h"
+  requires objc
+}

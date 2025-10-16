@@ -1,0 +1,140 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s5XYLog8XYLoggerC6record4file8function4line2id5level3tag7process7contentySS_S3SSgSSA2MSayypGtF",
+            "_$s5XYLog19XYLoggerFileManagerC6suffixSSvg",
+            "_$s5XYLog19XYLoggerFileManagerC06newLogC4NameSSvg",
+            "_$s5XYLog19XYLoggerFileManagerC13dateFormatterSo06NSDateF0Cvg",
+            "_$s5XYLog8XYLoggerCMa",
+            "_$s5XYLogAACMn",
+            "_$s5XYLog0A5LevelON",
+            "_XYLogVersionString",
+            "_$s5XYLog19XYLoggerFileManagerC14_dateFormatterSo06NSDateF0CSgvs",
+            "_$s5XYLogAAC4info4file8function4line2id3tag7process7contentySS_SSSiSSSgSaySSGSgAA0A7ProcessOSgypdtFZ",
+            "_$s5XYLog19XYLoggerFileManagerC14_dateFormatterSo06NSDateF0CSgvpfi",
+            "_$s5XYLogAAC5debug4file8function4line2id3tag7process7contentySS_SSSiSSSgSaySSGSgAA0A7ProcessOSgypdtFZ",
+            "_$s5XYLog0A5LevelO6symbolSSvg",
+            "_$s5XYLog21XYLoggerFileFormatterC04dateD0So06NSDateD0CvpMV",
+            "_$s5XYLog21XYLoggerFileFormatterCfD",
+            "_$s5XYLog19XYLoggerFileManagerC14_dateFormatterSo06NSDateF0CSgvM",
+            "_$s5XYLogAAC6loggerAA8XYLoggerCvau",
+            "_$s5XYLogAAC6loggerAA8XYLoggerCvsZ",
+            "_$s5XYLog0A7ProcessO9hashValueSivg",
+            "_$s5XYLog0A5LevelO6symbolSSvpMV",
+            "_$s5XYLog0A7ProcessON",
+            "_$s5XYLog0A5LevelO9hashValueSivpMV",
+            "_$s5XYLogAAC6enableSbvau",
+            "_$s5XYLogAAC6enableSbvgZ",
+            "_$s5XYLog0A7ProcessO4descSSvpMV",
+            "_$s5XYLog0A7ProcessOSQAAMc",
+            "_$s5XYLog19XYLoggerFileManagerC6suffixSSvpfi",
+            "_$s5XYLog19XYLoggerFileManagerC13logsDirectoryACSSSg_tcfc",
+            "_$s5XYLog0A7ProcessOMa",
+            "_$s5XYLog19XYLoggerFileManagerC05isLogC08withNameSbSS_tF",
+            "_$s5XYLog0A5LevelOSQAAMc",
+            "_$s5XYLogAAC6enableSbvsZ",
+            "_$s5XYLog8XYLoggerCACycfC",
+            "_$s5XYLog21XYLoggerFileFormatterCN",
+            "_$s5XYLogAACABycfC",
+            "_$s5XYLogAAC5error4file8function4line2id3tag7process7contentySS_SSSiSSSgSaySSGSgAA0A7ProcessOSgypdtFZ",
+            "_$s5XYLogAAC6loggerAA8XYLoggerCvgZ",
+            "_$s5XYLog0A5LevelOMn",
+            "_$s5XYLogAAC6enableSbvMZ",
+            "_$s5XYLogAAC6enableSbvpZMV",
+            "_$s5XYLogAACABycfc",
+            "_$s5XYLog0A5LevelO4hash4intoys6HasherVz_tF",
+            "_$s5XYLog19XYLoggerFileManagerC6suffixSSvpMV",
+            "_$s5XYLogAACABycfCTq",
+            "_$s5XYLog0A5LevelO21__derived_enum_equalsySbAC_ACtFZ",
+            "_$s5XYLog0A7ProcessOMn",
+            "_$s5XYLog8XYLoggerCMm",
+            "_$s5XYLog8XYLoggerC6record4file8function4line2id5level3tag7process7contentySS_S3SSgSSA2MSayypGtFTq",
+            "_$s5XYLog19XYLoggerFileManagerC13logsDirectoryACSSSg_tcfC",
+            "_$s5XYLog0A7ProcessO21__derived_enum_equalsySbAC_ACtFZ",
+            "_$s5XYLog0A7ProcessOSHAAMc",
+            "_$s5XYLog8XYLoggerCN",
+            "_$s5XYLog21XYLoggerFileFormatterC6format7messageSSSgSo12DDLogMessageC_tF",
+            "_$s5XYLog21XYLoggerFileFormatterC04dateD0So06NSDateD0Cvg",
+            "_$s5XYLog21XYLoggerFileFormatterC04dateD0So06NSDateD0CvpWvd",
+            "_$s5XYLog0A5LevelOMa",
+            "_$s5XYLog0A5LevelOSHAAMc",
+            "_$s5XYLogAAC6enableSbvpZ",
+            "_$s5XYLog8XYLoggerC5setupyyF",
+            "_$s5XYLog21XYLoggerFileFormatterC04withD0ACSo06NSDateD0CSg_tcfC",
+            "_$s5XYLogAAC5fatal4file8function4line2id3tag7process7contentySS_SSSiSSSgSaySSGSgAA0A7ProcessOSgypdtFZ",
+            "_$s5XYLog21XYLoggerFileFormatterC04withD0ACSo06NSDateD0CSg_tcfc",
+            "_$s5XYLogAACMa",
+            "_$s5XYLog0A7ProcessO4descSSvg",
+            "_$s5XYLog21XYLoggerFileFormatterC04withD0ACSo06NSDateD0CSg_tcfCTq",
+            "_$s5XYLogAACMm",
+            "_$s5XYLog21XYLoggerFileFormatterC04dateD0So06NSDateD0Cvpfi",
+            "_$s5XYLogAACN",
+            "_$s5XYLog8XYLoggerC5setupyyFTq",
+            "_$s5XYLogAACfD",
+            "_$s5XYLogAAC6loggerAA8XYLoggerCvpZMV",
+            "_$s5XYLog21XYLoggerFileFormatterCMn",
+            "_$s5XYLog21XYLoggerFileFormatterCMa",
+            "_$s5XYLogAAC6loggerAA8XYLoggerCvpZ",
+            "_$s5XYLog19XYLoggerFileManagerCfD",
+            "_$s5XYLog19XYLoggerFileManagerCMa",
+            "_$s5XYLog8XYLoggerCfd",
+            "_$s5XYLogAACfd",
+            "_$s5XYLogAAC7warning4file8function4line2id3tag7process7contentySS_SSSiSSSgSaySSGSgAA0A7ProcessOSgypdtFZ",
+            "_$s5XYLog8XYLoggerCMn",
+            "_$s5XYLog0A7ProcessO9hashValueSivpMV",
+            "_$s5XYLog0A5LevelO9hashValueSivg",
+            "_$s5XYLogAAC6loggerAA8XYLoggerCvMZ",
+            "_$s5XYLog21XYLoggerFileFormatterCACycfC",
+            "_$s5XYLog19XYLoggerFileManagerC14_dateFormatterSo06NSDateF0CSgvg",
+            "_$s5XYLogAAC7verbose4file8function4line2id3tag7process7contentySS_SSSiSSSgSaySSGSgAA0A7ProcessOSgypdtFZ",
+            "_XYLogVersionNumber",
+            "_$s5XYLog19XYLoggerFileManagerC6suffixSSvpWvd",
+            "_$s5XYLog0A7ProcessO4hash4intoys6HasherVz_tF",
+            "_$s5XYLog21XYLoggerFileFormatterCACycfc",
+            "_$s5XYLog19XYLoggerFileManagerC13dateFormatterSo06NSDateF0CvpMV",
+            "_$s5XYLog19XYLoggerFileManagerCMn",
+            "_$s5XYLogAAC6record4file8function4line2id5level3tag7process7contentySS_SSSiSSSgAA0A5LevelOSaySSGSgAA0A7ProcessOSgypdtFZ",
+            "_$s5XYLog19XYLoggerFileManagerCN",
+            "_$s5XYLog8XYLoggerCACycfCTq",
+            "_$s5XYLog19XYLoggerFileManagerC14_dateFormatterSo06NSDateF0CSgvpMV",
+            "_$s5XYLog8XYLoggerCACycfc",
+            "_$s5XYLog19XYLoggerFileManagerC14_dateFormatterSo06NSDateF0CSgvpWvd",
+            "_$s5XYLog8XYLoggerCfD"
+          ],
+          "objc_class": [
+            "_TtC5XYLog19XYLoggerFileManager",
+            "PodsDummy_XYLog",
+            "_TtC5XYLog21XYLoggerFileFormatter"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/XYLog.framework/XYLog"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

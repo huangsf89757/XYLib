@@ -1,0 +1,11 @@
+framework module XYCoreBluetooth {
+  umbrella header "XYCoreBluetooth-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module XYCoreBluetooth.Swift {
+  header "XYCoreBluetooth-Swift.h"
+  requires objc
+}

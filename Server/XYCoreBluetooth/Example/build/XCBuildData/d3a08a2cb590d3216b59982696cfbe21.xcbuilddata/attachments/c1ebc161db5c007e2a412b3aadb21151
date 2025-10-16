@@ -1,0 +1,23 @@
+{
+  "version": 0,
+  "use-external-names": false,
+  "case-sensitive": false,
+  "roots": [{
+    "type": "directory",
+    "name": "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Debug-iphoneos/XYCoreBluetooth/XYCoreBluetooth.framework/Modules",
+    "contents": [{
+      "type": "file",
+      "name": "module.modulemap",
+      "external-contents": "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    "type": "directory",
+    "name": "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Debug-iphoneos/XYCoreBluetooth/XYCoreBluetooth.framework/Headers",
+    "contents": [{
+      "type": "file",
+      "name": "XYCoreBluetooth-Swift.h",
+      "external-contents": "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/unextended-interface-header.h",
+    }]
+  }]
+}

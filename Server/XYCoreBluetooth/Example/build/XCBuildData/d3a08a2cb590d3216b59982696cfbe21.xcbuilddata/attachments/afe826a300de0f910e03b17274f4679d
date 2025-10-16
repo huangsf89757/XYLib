@@ -1,0 +1,48 @@
+{
+  "" : {
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog-master.dia",
+    "emit-module-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog-master-emit-module.dia",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog-master.swiftdeps"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYLog/XYLog/Classes/XYLog.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLog~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYLog/XYLog/Classes/XYLogLevel.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogLevel~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYLog/XYLog/Classes/XYLogProcess.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogProcess~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYLog/XYLog/Classes/XYLogger.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYLog.build/Objects-normal/arm64/XYLogger~partial.swiftmodule"
+  }
+}

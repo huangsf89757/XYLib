@@ -1,0 +1,4 @@
+
+module XYLog.__Swift {
+  exclude header "XYLog-Swift.h"
+}

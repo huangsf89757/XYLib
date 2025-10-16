@@ -1,0 +1,4 @@
+
+module CocoaLumberjack.__Swift {
+  exclude header "CocoaLumberjack-Swift.h"
+}

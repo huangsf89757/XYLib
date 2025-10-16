@@ -1,0 +1,78 @@
+{
+  "" : {
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack-master.dia",
+    "emit-module-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack-master-emit-module.dia",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack-master.swiftdeps"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/Pods/CocoaLumberjack/Sources/CocoaLumberjackSwift/CocoaLumberjack.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CocoaLumberjack~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/Pods/CocoaLumberjack/Sources/CocoaLumberjackSwift/ConfigurationGlobals.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/ConfigurationGlobals~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/Pods/CocoaLumberjack/Sources/CocoaLumberjackSwift/CurrentFileNameHelper.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/CurrentFileNameHelper~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/Pods/CocoaLumberjack/Sources/CocoaLumberjackSwift/DDAssert.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDAssert~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/Pods/CocoaLumberjack/Sources/CocoaLumberjackSwift/DDLog+Combine.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLog+Combine~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/Pods/CocoaLumberjack/Sources/CocoaLumberjackSwift/DDLogFlag+DDLogLevel.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogFlag+DDLogLevel~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/Pods/CocoaLumberjack/Sources/CocoaLumberjackSwift/DDLogMessageFormat.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64/DDLogMessageFormat~partial.swiftmodule"
+  }
+}

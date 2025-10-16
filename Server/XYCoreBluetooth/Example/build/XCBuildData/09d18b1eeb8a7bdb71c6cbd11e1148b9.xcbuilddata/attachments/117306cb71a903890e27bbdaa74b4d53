@@ -1,0 +1,5 @@
+
+module XYCoreBluetooth.Swift {
+  header "XYCoreBluetooth-Swift.h"
+  requires objc
+}

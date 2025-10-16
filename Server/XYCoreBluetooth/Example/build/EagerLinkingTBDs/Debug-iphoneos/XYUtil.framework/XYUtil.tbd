@@ -1,0 +1,161 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s6XYUtil25XYStateObservablePropertyCMa",
+            "_$s6XYUtil12XYAtomicFlagC6toggleSbyF",
+            "_$s6XYUtil15XYAtomicCounterC5value5labelACSi_SSSgtcfc",
+            "_$s6XYUtil12XYAtomicFlagC5isSetSbvg",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValuexvsTq",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValuexvs",
+            "_$s6XYUtil15XYAtomicCounterC5reset2toS2i_tF",
+            "_$s6XYUtil5XYAppCfd",
+            "_XYUtilVersionString",
+            "_$s6XYUtil5XYAppC7versionSSvpZMV",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC14removeObserver4withy10Foundation4UUIDV_tF",
+            "_$s6XYUtil15XYAtomicCounterCMa",
+            "_$s6XYUtil15XYAtomicCounterCMn",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValuexvg",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC18removeAllObserversyyFTq",
+            "_$s6XYUtil15XYAtomicCounterCfD",
+            "_$s6XYUtil25XYStateObservablePropertyC18removeAllObserversyyFTq",
+            "_$s6XYUtil12XYAtomicFlagC3setSbyF",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyCMa",
+            "_$s6XYUtil25XYStateObservablePropertyC18removeAllObserversyyF",
+            "_$s6XYUtil20XYThreadSafePropertyC12wrappedValuexvpMV",
+            "_$s6XYUtil15XYAtomicCounterC3addyS2iF",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValuexvM",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValuexvM",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC5value33_F8EFCAC96BA71F38F54410199B44EE41LLxvM",
+            "_$s6XYUtil5XYAppC3keySSvgZ",
+            "_$s6XYUtil15XYAtomicCounterC5value33_040D3F448DAC391722B95A4379440023LLSivpfi",
+            "_$s6XYUtil5XYAppCACycfCTq",
+            "_$s6XYUtil20XYThreadSafePropertyCfd",
+            "_$s6XYUtil20XYThreadSafePropertyCfD",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValuexvgTq",
+            "_$s6XYUtil25XYStateObservablePropertyCfd",
+            "_$s6XYUtil5XYAppC4logoSo7UIImageCSgvgZ",
+            "_$s6XYUtil5XYAppC5buildSSvgZ",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValue5labelACyxGx_SSSgtcfC",
+            "_$s6XYUtil12XYAtomicFlagC4flag33_350B899FBA066FB34A40F2D0B7F1E92BLLSbvpfi",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValuexvg",
+            "_$s6XYUtil20XYThreadSafePropertyC12wrappedValuexvg",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValuexvpMV",
+            "_$s6XYUtil20XYThreadSafePropertyCMn",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValuexvs",
+            "_$s6XYUtil15XYAtomicCounterC9incrementSiyF",
+            "_$s6XYUtil25XYStateObservablePropertyC11addObserver3for_10Foundation4UUIDVqd___yx_xtctRld__ClFTq",
+            "_$s6XYUtil12XYAtomicFlagCfD",
+            "_$s6XYUtil5XYAppCMn",
+            "_$s6XYUtil15XYAtomicCounterC5value5labelACSi_SSSgtcfC",
+            "_$s6XYUtil25XYStateObservablePropertyC9observers33_C6FB0B8C48737250648274A981B7F8A8LLSDy10Foundation4UUIDVAA13ObserverTokenAELLCyxGGvpfi",
+            "_$s6XYUtil25XYStateObservablePropertyC11addObserver3for_10Foundation4UUIDVqd___yx_xtctRld__ClF",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValue5labelACyxGx_SSSgtcfCTq",
+            "_$s6XYUtil5XYAppC4nameSSvpZMV",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC9observers33_F8EFCAC96BA71F38F54410199B44EE41LLSDy10Foundation4UUIDVyx_xtcGvg",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC5value33_F8EFCAC96BA71F38F54410199B44EE41LLxvg",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValuexvsTq",
+            "_$s6XYUtil5XYAppCfD",
+            "_$s6XYUtil5XYAppC4logoSo7UIImageCSgvpZMV",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyCfd",
+            "_$s6XYUtil25XYStateObservablePropertyC9observers33_C6FB0B8C48737250648274A981B7F8A8LLSDy10Foundation4UUIDVAA13ObserverTokenAELLCyxGGvg",
+            "_$s6XYUtil5XYAppC5buildSSvpZMV",
+            "_$s6XYUtil12XYAtomicFlagC5value5labelACSb_SSSgtcfCTq",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC11addObservery10Foundation4UUIDVyx_xtcF",
+            "_$s6XYUtil25XYStateObservablePropertyC5value33_C6FB0B8C48737250648274A981B7F8A8LLxvg",
+            "_$s6XYUtil25XYStateObservablePropertyC5value33_C6FB0B8C48737250648274A981B7F8A8LLxvM",
+            "_$s6XYUtil15XYAtomicCounterC7currentSivg",
+            "_$s6XYUtil5XYAppC8bundleIdSSvpZMV",
+            "_$s6XYUtil5XYAppCMa",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValuexvgTq",
+            "_$s6XYUtil5XYAppCACycfc",
+            "_$s6XYUtil12XYAtomicFlagCN",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyCfD",
+            "_$s6XYUtil15XYAtomicCounterC5value5labelACSi_SSSgtcfCTq",
+            "_$s6XYUtil25XYStateObservablePropertyCMn",
+            "_$s6XYUtil20XYThreadSafePropertyC12wrappedValue5labelACyxGx_SSSgtcfC",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValuexvpMV",
+            "_$s6XYUtil5XYAppC3keySSvpZMV",
+            "_$s6XYUtil25XYStateObservablePropertyC9observers33_C6FB0B8C48737250648274A981B7F8A8LLSDy10Foundation4UUIDVAA13ObserverTokenAELLCyxGGvM",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValue5labelACyxGx_SSSgtcfc",
+            "_XYUtilVersionNumber",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValue5labelACyxGx_SSSgtcfc",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValue5labelACyxGx_SSSgtcfC",
+            "_$s6XYUtil15XYAtomicCounterC7currentSivpMV",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC9observers33_F8EFCAC96BA71F38F54410199B44EE41LLSDy10Foundation4UUIDVyx_xtcGvs",
+            "_$s6XYUtil12XYAtomicFlagC5value5labelACSb_SSSgtcfc",
+            "_$s6XYUtil20XYThreadSafePropertyC4readyqd__qd__xKXEKlF",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC18removeAllObserversyyF",
+            "_$s6XYUtil25XYStateObservablePropertyC5value33_C6FB0B8C48737250648274A981B7F8A8LLxvs",
+            "_$s6XYUtil15XYAtomicCounterCfd",
+            "_$s6XYUtil20XYThreadSafePropertyC12wrappedValue5labelACyxGx_SSSgtcfc",
+            "_$s6XYUtil12XYAtomicFlagC5isSetSbvpMV",
+            "_$s6XYUtil25XYStateObservablePropertyC14removeObserver4withy10Foundation4UUIDV_tFTq",
+            "_$s6XYUtil12XYAtomicFlagCMn",
+            "_$s6XYUtil5XYAppCMm",
+            "_$s6XYUtil25XYStateObservablePropertyC12wrappedValuexvMTq",
+            "_$s6XYUtil12XYAtomicFlagCMm",
+            "_$s6XYUtil20XYThreadSafePropertyCMa",
+            "_$s6XYUtil5XYAppCN",
+            "_$s6XYUtil25XYStateObservablePropertyCfD",
+            "_$s6XYUtil5XYAppC7versionSSvgZ",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC14removeObserver4withy10Foundation4UUIDV_tFTq",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC5value33_F8EFCAC96BA71F38F54410199B44EE41LLxvs",
+            "_$s6XYUtil20XYThreadSafePropertyC12wrappedValuexvs",
+            "_$s6XYUtil25XYStateObservablePropertyC9observers33_C6FB0B8C48737250648274A981B7F8A8LLSDy10Foundation4UUIDVAA13ObserverTokenAELLCyxGGvs",
+            "_$s6XYUtil12XYAtomicFlagC5value5labelACSb_SSSgtcfC",
+            "_$s6XYUtil12XYAtomicFlagC13compareAndSet8expected8newValueS2b_SbtF",
+            "_$s6XYUtil5XYAppC4nameSSvgZ",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValue5labelACyxGx_SSSgtcfCTq",
+            "_$s6XYUtil5XYAppC8bundleIdSSvgZ",
+            "_$s6XYUtil25XYStateObservablePropertyC14removeObserver4withy10Foundation4UUIDV_tF",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC12wrappedValuexvMTq",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC9observers33_F8EFCAC96BA71F38F54410199B44EE41LLSDy10Foundation4UUIDVyx_xtcGvM",
+            "_$s6XYUtil15XYAtomicCounterC9decrementSiyF",
+            "_$s6XYUtil12XYAtomicFlagC5resetSbyF",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC11addObservery10Foundation4UUIDVyx_xtcFTq",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyCMn",
+            "_$s6XYUtil15XYAtomicCounterCN",
+            "_$s6XYUtil20XYThreadSafePropertyC8withLockyqd__qd__xzKXEKlF",
+            "_$s6XYUtil15XYAtomicCounterCMm",
+            "_$s6XYUtil12XYAtomicFlagCMa",
+            "_$s6XYUtil20XYThreadSafePropertyC12wrappedValue5labelACyxGx_SSSgtcfCTq",
+            "_$s6XYUtil20XYThreadSafePropertyC12wrappedValuexvM",
+            "_$s6XYUtil30XYThreadSafeObservablePropertyC9observers33_F8EFCAC96BA71F38F54410199B44EE41LLSDy10Foundation4UUIDVyx_xtcGvpfi",
+            "_$s6XYUtil5XYAppCACycfC",
+            "_$s6XYUtil12XYAtomicFlagCfd"
+          ],
+          "objc_class": [
+            "PodsDummy_XYUtil"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/XYUtil.framework/XYUtil"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

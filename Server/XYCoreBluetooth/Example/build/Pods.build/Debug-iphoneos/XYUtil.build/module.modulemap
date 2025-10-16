@@ -1,0 +1,11 @@
+framework module XYUtil {
+  umbrella header "XYUtil-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module XYUtil.Swift {
+  header "XYUtil-Swift.h"
+  requires objc
+}

@@ -1,0 +1,28 @@
+{
+  "" : {
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCoreBluetooth-master.dia",
+    "emit-module-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCoreBluetooth-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCoreBluetooth-master-emit-module.dia",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCoreBluetooth-master.swiftdeps"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/XYCoreBluetooth/Classes/Central/XYCentralManager/XYCentralManager.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManager~partial.swiftmodule"
+  },
+  "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/XYCoreBluetooth/Classes/Central/XYCentralManager/XYCentralManagerDelegate.swift" : {
+    "const-values" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate.swiftconstvalues",
+    "dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate.d",
+    "diagnostics" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate.o",
+    "llvm-bc" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate.bc",
+    "object" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate.o",
+    "swift-dependencies" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate.swiftdeps",
+    "swiftmodule" : "/Users/huangshanfeng/Desktop/XYLib/Server/XYCoreBluetooth/Example/build/Pods.build/Debug-iphoneos/XYCoreBluetooth.build/Objects-normal/arm64/XYCentralManagerDelegate~partial.swiftmodule"
+  }
+}

@@ -1,0 +1,4 @@
+
+module XYCoreBluetooth.__Swift {
+  exclude header "XYCoreBluetooth-Swift.h"
+}

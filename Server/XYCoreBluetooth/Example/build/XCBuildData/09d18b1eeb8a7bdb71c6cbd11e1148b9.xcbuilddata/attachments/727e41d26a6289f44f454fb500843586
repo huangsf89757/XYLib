@@ -1,0 +1,4 @@
+
+module XYExtension.__Swift {
+  exclude header "XYExtension-Swift.h"
+}
