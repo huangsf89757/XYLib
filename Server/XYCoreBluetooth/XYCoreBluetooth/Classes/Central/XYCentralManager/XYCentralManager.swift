@@ -47,6 +47,7 @@ open class XYCentralManager: NSObject {
         debug(params:[
             "identifiers": identifiers.map{ $0.uuidString }.toJSONString() ?? "[]",
         ], returns: peripherals.map{ $0.info }.toJSONString())
+        self.delegate?.centralManager(centralManager, retrievePeripheralsWithIdentifiers: identifiers, returns: peripherals)
         return peripherals
     }
 
@@ -56,6 +57,7 @@ open class XYCentralManager: NSObject {
         debug(params:[
             "serviceUUIDs": serviceUUIDs.map{ $0.uuidString }.toJSONString() ?? "[]",
         ], returns: peripherals.map{ $0.info }.toJSONString())
+        self.delegate?.centralManager(centralManager, retrieveConnectedPeripheralsWithServices: serviceUUIDs, returns: peripherals)
         return peripherals
     }
     
@@ -65,11 +67,13 @@ open class XYCentralManager: NSObject {
             "serviceUUIDs": serviceUUIDs?.map{ $0.uuidString }.toJSONString() ?? "nil",
             "options": options?.toJSONString() ?? "nil",
         ])
+        self.delegate?.centralManager(centralManager, scanForPeripheralsWithServices: serviceUUIDs, options: options)
     }
     
     open func stopScan() {
         centralManager.stopScan()
         debug()
+        self.delegate?.centralManager(centralManager, stopScan: ())
     }
     
     open func connect(_ peripheral: CBPeripheral, options: [String : Any]? = nil) {
@@ -78,6 +82,7 @@ open class XYCentralManager: NSObject {
             "peripheral": peripheral.info,
             "options": options?.toJSONString() ?? "nil",
         ])
+        self.delegate?.centralManager(centralManager, connect: peripheral, options: options)
     }
     
     open func cancelPeripheralConnection(_ peripheral: CBPeripheral) {
@@ -85,6 +90,7 @@ open class XYCentralManager: NSObject {
         debug(params:[
             "peripheral": peripheral.info,
         ])
+        self.delegate?.centralManager(centralManager, cancelPeripheralConnection: peripheral)
     }
 
     @available(iOS 13.0, *)
@@ -93,6 +99,7 @@ open class XYCentralManager: NSObject {
         debug(params:[
             "options": options?.toJSONString() ?? "nil",
         ])
+        self.delegate?.centralManager(centralManager, registerForConnectionEventsWithOptions: options)
     }
 }
 
