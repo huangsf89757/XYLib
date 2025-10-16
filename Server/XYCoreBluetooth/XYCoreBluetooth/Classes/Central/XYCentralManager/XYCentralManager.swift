@@ -20,7 +20,7 @@ import XYUtil
 // MARK: - XYCentralManager
 /// 蓝牙中心管理器类，封装了CBCentralManager的功能，提供蓝牙设备扫描、连接等操作
 open class XYCentralManager: NSObject {
-    // MARK: var
+    // MARK: Property
     /// CBCentralManager实例，用于管理蓝牙中心设备
     public private(set) var centralManager: CBCentralManager!
     /// 代理对象，用于处理蓝牙事件回调
@@ -32,7 +32,7 @@ open class XYCentralManager: NSObject {
         return centralManager.isScanning
     }
     
-    // MARK: init
+    // MARK: Life Cycle
     /// 初始化蓝牙中心管理器
     /// - Parameters:
     ///   - delegate: 代理对象，用于处理蓝牙事件回调
@@ -50,7 +50,7 @@ open class XYCentralManager: NSObject {
         ])
     }
     
-    // MARK: retrieve
+    // MARK: Retrieve
     /// 根据标识符检索已知的蓝牙外设
     /// - Parameter identifiers: 外设标识符数组
     /// - Returns: 匹配的外设数组
@@ -77,7 +77,7 @@ open class XYCentralManager: NSObject {
         return peripherals
     }
     
-    // MARK: scan
+    // MARK: Scan
     /// 开始扫描蓝牙外设
     /// - Parameters:
     ///   - serviceUUIDs: 要扫描的服务UUID数组，为nil时扫描所有设备
@@ -98,7 +98,7 @@ open class XYCentralManager: NSObject {
         self.delegate?.centralManager(centralManager, stopScan: ())
     }
     
-    // MARK: connect
+    // MARK: Connect
     /// 连接指定的蓝牙外设
     /// - Parameters:
     ///   - peripheral: 要连接的外设
@@ -122,7 +122,7 @@ open class XYCentralManager: NSObject {
         self.delegate?.centralManager(centralManager, cancelPeripheralConnection: peripheral)
     }
 
-    // MARK: register
+    // MARK: Event
     /// 注册连接事件（iOS 13.0+）
     /// - Parameter options: 连接事件匹配选项，默认为nil
     @available(iOS 13.0, *)
