@@ -8,22 +8,44 @@
 import Foundation
 
 public extension Dictionary {
-    /// 字典 转 JSON data
-    func toJSONData(prettify: Bool = false) -> Data? {
+    /// 字典转 JSON Data
+    /// - Parameters:
+    ///   - prettify: 是否格式化输出
+    ///   - sortedKeys: 是否按键排序（iOS 11+ / macOS 10.13+）
+    func toJSONData(prettify: Bool = false, sortedKeys: Bool = true) -> Data? {
         guard JSONSerialization.isValidJSONObject(self) else {
             return nil
         }
-        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
-            .WritingOptions()
+        
+        var options: JSONSerialization.WritingOptions = []
+        if prettify {
+            options.insert(.prettyPrinted)
+        }
+        if sortedKeys {
+            options.insert(.sortedKeys)
+        }
+        
         return try? JSONSerialization.data(withJSONObject: self, options: options)
     }
 
-    /// 字典 转 JSON string
-    func toJSONString(prettify: Bool = false) -> String? {
+    /// 字典转 JSON String
+    /// - Parameters:
+    ///   - prettify: 是否格式化输出
+    ///   - sortedKeys: 是否按键排序（iOS 11+ / macOS 10.13+）
+    func toJSONString(prettify: Bool = false, sortedKeys: Bool = true) -> String? {
         guard JSONSerialization.isValidJSONObject(self) else { return nil }
-        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
-            .WritingOptions()
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
+        
+        var options: JSONSerialization.WritingOptions = []
+        if prettify {
+            options.insert(.prettyPrinted)
+        }
+        if sortedKeys {
+            options.insert(.sortedKeys)
+        }
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else {
+            return nil
+        }
         return String(data: jsonData, encoding: .utf8)
     }
 }
