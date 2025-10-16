@@ -8,387 +8,405 @@
 
 /* Begin PBXBuildFile section */
 		02D2DB67E038F3DAD4147733C3DAC7FC /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 12841E3D5818E8429FE2A314CC61BB1D /* DDASLLogCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		033A7D5D0EA9DB9F53E5BD0D1C9B1FC0 /* XYUtil-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A399948769A604AA13974367756165 /* XYUtil-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0571DC9CD2D5AE31AFA7CCEBAB4F9F08 /* CBCharacteristicWriteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82145E9E117EB03A7C0DCDAEFF86300E /* CBCharacteristicWriteType.swift */; };
+		058B4B11600E045E63C1A40B4EA97DC7 /* XYPeripheralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800F2344F3D215DBDF0BECC06208B8F /* XYPeripheralManagerDelegate.swift */; };
+		060C9B7805A04CE3C431178C872EA8F1 /* CBATTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC39F1B6812E006456272C67442B3C /* CBATTRequest.swift */; };
 		0A2F129675A123392B7D1BECE40A130A /* ConfigurationGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98750E6EB31BD132BE09F82CFC33FE8A /* ConfigurationGlobals.swift */; };
-		0B09AB0E10530652021EFE50725536BC /* CBCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0385DBC8EA3416CD1D7AD86B4B46EC94 /* CBCharacteristic.swift */; };
-		0BCF585F85E99ECCA58052355464A81C /* CBL2CAPChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED647646F6485929BAEECA597F8F13F /* CBL2CAPChannel.swift */; };
-		0C1A4F95F19720B4F24297162E4A3E25 /* CBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CC5BC4A5D87878BA267795192251F /* CBError.swift */; };
-		11AF41B52AB8DA7D1957129E6EAA54F4 /* CBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CDB17BEE861F20DCB15D78CB358912 /* CBService.swift */; };
-		1314E97DCE919AF5350684DD820DFAA6 /* XYStateObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B2A95146D78B5500C2F855C779841 /* XYStateObservableProperty.swift */; };
 		13DCDFFC9554DA1A0F87C94C7589198A /* DDLog+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080384FDE0C5D53404B354A59978ED3D /* DDLog+Combine.swift */; };
 		14A37558E0138C9C3201C28578DA6EED /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = B6B840AC77134B17065589DD0BCCF20A /* CocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		179439396BE32AAC0EBD8AF986573053 /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B5EDA8281CEFFA99A87A8FB04FBA3562 /* DDAssertMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B54B5D6BBE60B992AD6E0B0C38B54D8 /* DDFileLogger+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = B1A374E07E1A819FC6D8DAEF6C305CA3 /* DDFileLogger+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1C858FC9FF7F331041DD8C745C33B53B /* CBPeripheralState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43057F00078EA213173624CA982CC58 /* CBPeripheralState.swift */; };
-		2369DFC1F6B5CC29CEFCCFBA14104EB5 /* XYLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A55F92E8AB85E77C53AF8D484878188 /* XYLogLevel.swift */; };
+		1D1A98B5F8EC545F6C7F5D61E9E1AD4A /* CBL2CAPChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053D4F0B4ED00B542C804DA3EF4751C /* CBL2CAPChannel.swift */; };
+		1E0E45264BEDED7C3E9CCC8B48A7551B /* CBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384FF93679C333B22C0F7CE9374D5973 /* CBError.swift */; };
+		234CC5DCC312AFF05A94BC2EC59B9899 /* CBDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CF662EFCB200B41DC4F2B7014C8111 /* CBDescriptor.swift */; };
 		24D15A77ECEF55B4AF06475C61741FF9 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C110FC02D5CF1EF5979A5E55812F974 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		250DB522E2B88BC538C5B468436228DC /* SwiftLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F21D732E44D2E9362E7F9B487D6868F /* SwiftLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26B9886BC1BD2ECA1F41ABEA5289303D /* XYAtomicFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9640B927A31A81BA345F76B87D5CC441 /* XYAtomicFlag.swift */; };
 		27B1250C55C1BB82521BBA06A79EFEA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		285FD087118CCF8DAA08FD2970B1B131 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		288AF15BB8F8AAA00583B578AEF26EBF /* CBPeripheralState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02496E2EA66F335D04EB2642E08C430 /* CBPeripheralState.swift */; };
 		2962C56DA00F10C519469C70EB1087B3 /* CocoaLumberjack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F28577F6BA0AD72B5C242F8910348D5 /* CocoaLumberjack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29BDDC01383FE4EFAE91FAD81173DB1D /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 427EF0065173EC44A25C8782F203112D /* DDMultiFormatter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2CC538EDD6742566D2DF91B76BABD26B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
-		2F69DC7CC415F74BF96D0C8483B0C54A /* XYCoreBluetooth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DABEF6998DF7B643F085DB504973EA8C /* XYCoreBluetooth-dummy.m */; };
-		302FD0AF88C7C417E86672E97EB41F30 /* XYLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D8B2EDE78E03DB5AFBE8EFDD4CF807 /* XYLogger.swift */; };
+		31C0302382B3928703E808443DA4C4AB /* XYExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C99DE2253080CB472C08DCC0B95D2 /* XYExtension-dummy.m */; };
 		31D438A21BC48969CE40DA7B8F8696D6 /* DDLogMessageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743261495DCC545DC02616D137421B93 /* DDLogMessageFormat.swift */; };
 		31EC44195CE185D62C25267D912B289D /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF7F6FE1A26574C0931A1F4678CE075 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		327B7BD1E81DA124024219542170D1DB /* Pods-XYCoreBluetooth_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C320C985F54F7F22BF397C49B592614 /* Pods-XYCoreBluetooth_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33F6C22C252F68895191E0B607CA9E40 /* DDOSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A0EB1B2568FEDFB13CE301FD673A69 /* DDOSLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		36A4587C95CE21CAEB41542D32F8B9A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		382D7EFEA162625970C527DAFAB436AF /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E938313F120E7FE0DE1F4E1E7A9073 /* DDLog.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		38878147D6815BEA44088289CE6FCFDF /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D27131E2C6336525C477643BB9C698 /* JSON.swift */; };
+		3981BB4D0CD4C3E534577156ACDD77F6 /* WCSessionActivationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B2CDFEB4138845E3F528C72F2D974A /* WCSessionActivationState.swift */; };
 		3AC6859136F7FA936DB5A510873689E4 /* Pods-XYCoreBluetooth_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D790056E15E6354331F46C6F5E883D6 /* Pods-XYCoreBluetooth_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjackPrivacy.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */; };
-		4044037F02F0A0321E7EB5E9E46AC471 /* WCSessionActivationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9C8BF90867410DADB5BAA64A2AE6C /* WCSessionActivationState.swift */; };
-		4100B1F6C5A77948A9BF6D92BAE5C3B2 /* CBCharacteristicWriteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71026752686063667313FCC35C13040 /* CBCharacteristicWriteType.swift */; };
-		44BB642F42FACED805815BA6F3BA94EE /* XYCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678A4E47B37ED8D8B4CBBD23CBF371C6 /* XYCentralManager.swift */; };
-		45C35724915E8DDFFE6B7A74CA857245 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BB8BED519D9D6494EF108AA36E56C /* Task.swift */; };
-		474560A5DD6CD852100087F03C9BF06B /* XYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E906DC059749912E007F702D904CB11 /* XYApp.swift */; };
+		3AE899206DA1065E10AB39C437E296F5 /* XYExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD5E710488201495F1571A9A629CCCA /* XYExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjack-CocoaLumberjackPrivacy in Resources */ = {isa = PBXBuildFile; fileRef = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */; };
+		3B4D4FC1392E01D581FF8DE180D08126 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B71F948574C884FF3C436CD8E034 /* Task.swift */; };
+		3ED1457CFEB2B54EDF18EE0882A401F2 /* XYCoreBluetooth-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D06F70DF4D8455C022330E1DB599AB0 /* XYCoreBluetooth-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4156F7B936FC4D8AD7F104663A887346 /* XYCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD726E57634F8177D57CDBC43CE6048 /* XYCentralManager.swift */; };
+		452F612C4A31C277035E5418591C9002 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
 		490664A35E3AA79D57C33414E1B19E66 /* DDOSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = F6AA0FB9CC109647C5FB67DEAC5B4DC7 /* DDOSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		493518CDAAC614F527FFDF6DCF47D9DD /* XYUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBB2C640E8BE66A34D079A46063454 /* XYUtil.swift */; };
-		4B881712CF4D809DF7A3EA4BD62CBC4E /* XYThreadSafeProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5625394445D50B5B228796AB018A5BE6 /* XYThreadSafeProperty.swift */; };
-		501D833CB9206D1202403C67716CDAEC /* CBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A997A916E19039B884390CA7CFA04A /* CBPeripheral.swift */; };
-		542C6EC0AC636E07F71CF58E2197359C /* XYUtil-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 100EE8578206A04E0DB5F8BC5768C7ED /* XYUtil-dummy.m */; };
-		5684C4E5D9FDA14A00C6473ECD78BECC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
-		60085ED7C40A9B28AA1987D12D3E1B7B /* XYExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7666F8F7219BE8DFD29AABED6C8935E /* XYExtension-dummy.m */; };
-		61EDA1D44749B604F683E6675CD37BA7 /* XYLog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F55122C7CE18B86C7A20B4D55A3D4112 /* XYLog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		590C906C97793933A12A7C1366A2960F /* XYPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = D895C369ADE19ED7AE417582B62B2570 /* XYPeripheral.swift */; };
+		5923187452E8D4D3445331549B022B91 /* XYThreadSafeProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F66F58FA5E75777D68B8FC0063F867 /* XYThreadSafeProperty.swift */; };
+		59B592C6B299D3DD23E88F0779DE7417 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		5A6F5E58AB88D56C528681BC8BFCE87D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		5AC008E492CB54C5E4F2E6CE19C8BE16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		5F99B939A8A11C5A1B1242ABDF7BABAC /* XYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C2CD1481877CBE5B8C86909A28F5AA /* XYApp.swift */; };
 		61F36CDFE2D4C664571DDA9306F4FE83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		6321B6047A2176553365F6367D1C4BDD /* DDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 18FAC88306B5D7F5D4EFEB934EC61A5D /* DDLogMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6739B9085488745EA197B1D58F789BD7 /* DDLoggerNames.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C8CADD8DD5CEA80E343BD5CE31119A5 /* DDLoggerNames.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69AB582F7B619D2BB667DB19541AE066 /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C17F681FE8429CC90B416BC6F58F3D /* DDASLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A4440F561B9D32E35DC3F3FDC85E95F /* XYCoreBluetooth-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62AC3F2927B0186D772899E7B1E245AA /* XYCoreBluetooth-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BB53A893F6C56EC9FD53D0137813430 /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED488D9386BA2FACB7C34D7500B234 /* CocoaLumberjack.swift */; };
 		6BE4B832555B3FB32C2854A933EF5E8E /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = C7E62A4CF73CCEC13C34EF2A4D01F26A /* DDLog+LOGV.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6CB410AE18B02CFE969E9D414F2806DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
 		73DF1AF944E538C09126158F3574FA9A /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A734A3B280F5328427A59FCF0176C906 /* DDContextFilterLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7434AB2486CC0054C0D29F6B56775A94 /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B55ACB5E7350230A431D35292BE5B264 /* DDDispatchQueueLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76C2D397247030B19A9B2793A005DB2A /* XYExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D25DB8D3E0FF9AEE10456B5807CC1F2 /* XYExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FF45D589DE7F4248A8C2ACBB45F0DDB /* XYAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433D350ACD58E2A748C40260C58E0BBB /* XYAtomicCounter.swift */; };
 		8147E552E8FD416E40C0E37AAE8470B7 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D88D31B87B70BC95F4D5670E716D2 /* DDContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		83E9F9062AB10C2DA301B816F8AD21E3 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B45ABA85A272E050688EAB30D7D9576D /* DDDispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		843CEAF7E6DBFF67208E30D60DE8F48D /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB7A743AD9C1A3C3CB6AA7E8A60E8E /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8A612CC7F89BE307BFC8A5EE1EE11417 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555A63D649C6EA40A7748EE95EF941D /* Data.swift */; };
+		862B25BEC0A794CB50C22F581561C208 /* XYLog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458C4A125DFB158520B6B04B5EB6E1CB /* XYLog-dummy.m */; };
+		866F73FA507D22EC55E4C0D677990D0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		88C6E61806537B8C338FDED1C9CD5877 /* XYAtomicFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC2EE77B57349668DB3308D2E003CC /* XYAtomicFlag.swift */; };
 		8BEE7F56D2E1F2283CEC98F70ECD9E19 /* DDFileLogger+Buffering.h in Headers */ = {isa = PBXBuildFile; fileRef = 913A6ECC50CCB38EBCCFD03794D81A8E /* DDFileLogger+Buffering.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F7CEC792C982D43B13666CB0677644D /* DDFileLogger+Buffering.m in Sources */ = {isa = PBXBuildFile; fileRef = 776C12BD08AEBCEB85C2830B68C16F67 /* DDFileLogger+Buffering.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		908F0722AAAB40CC7432A2BC3881DE98 /* CBCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A745481736A2251C40449ADF7A1ED06 /* CBCentralManager.swift */; };
 		90C6D6F36FC7F036060068E40C3FA0DE /* CLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9731151D40E63D7DA76B3FFD242698FB /* CLIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		91D2F952AB2260566749C785C7584F29 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0F21A5837FB7624443E9A7016B4B66 /* DDMultiFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		91EBB4E4E15E10FE35AF93AF1F654DF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		95B8F2F4A82C78DFF16B127288DF8612 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 296C0B43CFE32E4F467E12CD1EE43E52 /* DDTTYLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		97891795C645A87584814572F1F864E4 /* XYAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40837CAE68D211D303EC0F6BF1C93B05 /* XYAtomicCounter.swift */; };
+		96DAC49B2E6ABC9522C6F7AAF5962ED8 /* XYCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770349B2C789EE6DDA23781C10DAD484 /* XYCentral.swift */; };
 		9A3EE9E6D54A2018DEBAAD611774F301 /* DDAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88DC15C238ED239D57C4992C97D39D /* DDAssert.swift */; };
 		9FDC781DCF783BE33690CB17B64BF9DA /* Pods-XYCoreBluetooth_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B220163CD2987671D15C47338E0FD5AF /* Pods-XYCoreBluetooth_Example-dummy.m */; };
+		A041CF06EEB437FA6209C94CFFC2316B /* CBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691E43F0223D7E8E13ACD6FD00857C1 /* CBPeripheral.swift */; };
 		A11B53CD11370C968EC79A951D865E4C /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0F0D9DC3ACF7938A7DD50B30622EC9 /* DDFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A14048DE314FC17A871B24778C91AAB5 /* XYCentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F55C6504BE190B70E821DCC179E364A /* XYCentralManagerDelegate.swift */; };
 		A1ECAB1878606C14181B9829AF1936C8 /* CurrentFileNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8FE1A7E996738D1FB76E0675B53868 /* CurrentFileNameHelper.swift */; };
-		A21FB24371EF72C3D6CF1B1B32D99075 /* XYCentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C5CA274A494BC2128656C91630D7 /* XYCentralManagerDelegate.swift */; };
-		A3F78364232C31976A8F8E61CCA71DD6 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02D8411C155E89D669EA348AA45E64 /* JSON.swift */; };
-		AFB5798AAC94D55BB40B3441261B212D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		B0418E016017771421B8EF1B6D78E661 /* XYUtil-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B8C68B4309590ED9B74FBE00E88910E /* XYUtil-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B218905200103D009F9CB904650A0A8D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */; };
+		A3257AFA9CBCA05503808A1ECF538864 /* XYLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE01B88FDB394F32727977FE65393B5 /* XYLogLevel.swift */; };
+		A4B2C638C5406CE1BF296D75922DBC92 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */; };
+		A4B92793533C9A9721B9A62354BBA018 /* XYLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE7A1B78106DE035F11C54EDE1E7A02 /* XYLogger.swift */; };
+		A6794C72EA335CD251D9F88C28615562 /* CBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802DBDC0C81460EFBB88B299C4AB954 /* CBService.swift */; };
+		A7048EAE75256E27883ED538309EAFBC /* XYPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84907806426F72C7F6D066C8205F7C /* XYPeripheralDelegate.swift */; };
 		B327822BEE47C530A9E220A4164CE0EF /* DDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AE24956C8391FE72D92F1F685158722 /* DDLegacyMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA831AE75A99F21040BD7BF84A872DE4 /* XYLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DC70B7ECA61C7BBA32D8FB535A7886 /* XYLog.swift */; };
-		BE7C2012BE94D8A1FF49EAC951065C54 /* XYLog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A758E5A5C4CA5CD9881A98B0F7C38F55 /* XYLog-dummy.m */; };
 		C013DC70F18F2A3445CCF56B27A7E66C /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A5834D7F23296410F20A1EF746F4069F /* CLIColor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C09803A82A60E3835A78CDFEEF1138FD /* DDContextFilterLogFormatter+Deprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 716E922846F74A6D37C26A553B085360 /* DDContextFilterLogFormatter+Deprecated.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C1AF315192F8BA9BD217210EFDD79977 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBF358E61DF836392ED67C25100C46D /* Data.swift */; };
+		C2ED792F9D724C669F019DAEE892EB86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		C37F1008668173F1B07E7C1262DE02D8 /* XYThreadSafeObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678A9939E93037856799EFC5D7A4B0F7 /* XYThreadSafeObservableProperty.swift */; };
 		C3DE4CA7617C9BC6EB538E0A23303DBC /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C812D8E41ED891E76C8ED204F2C2A8F /* DDAbstractDatabaseLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C67B549CA6EF05F4A1DA2E98218C7156 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		D02B0F876C9056E9318651A02AFB0A15 /* CBDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9E3E731D4D63BCF2C539D6E04C9B9 /* CBDescriptor.swift */; };
+		C76D23FA7F0C07E813B4DCFFCEA2C961 /* XYCoreBluetooth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3968A51136F9A61434C3AD0A1117CE36 /* XYCoreBluetooth-dummy.m */; };
+		CDD8F0593427DCE402FF4092E94C8E72 /* XYPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA60D63D4A76D0F0A93DA9274E332F6 /* XYPeripheralManager.swift */; };
+		CDFE3443176DC463F513AFD7180C6ABB /* CBManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687C353C37DCDEF61E54DFAF825C5896 /* CBManagerState.swift */; };
+		D0EE27BB433DC3C47F2DCC9026997178 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
 		D0FA0E5E663DB75D52D692976721D0FA /* Pods-XYCoreBluetooth_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1451CCCB1B22C0FD3D4944F7C0B6AC /* Pods-XYCoreBluetooth_Tests-dummy.m */; };
+		D386F27AEB1998B45414986397330757 /* XYBleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040613FA0DE070A91CB0E185DCDCB4FB /* XYBleLog.swift */; };
 		D3C863454612C752A1A4133C64972A5D /* DDContextFilterLogFormatter+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = 9994D3632C039077D26EA3EBA5056849 /* DDContextFilterLogFormatter+Deprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5DC74F42C93D059FE8EC1A9E9449EB9 /* XYUtil-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB480A91EF37076BB029B14BD0C5EC /* XYUtil-dummy.m */; };
+		D9DEB9B3934DA46E8DF07D47A658348A /* CBPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A5CAB8D6349D01FC11F16A3509EC19 /* CBPeripheralManager.swift */; };
 		DA70ABA313645BADFB5BC13FB995DCBA /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FC5A135A74A0A7C98F6CDECB05D5814 /* DDLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DB70ED129E135CAC8F5DC15A83C54897 /* XYLogProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F0B6A658FD6A1C823915F73A943E9 /* XYLogProcess.swift */; };
-		DD212DBD2EA0913C00155A9D /* CBCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD212DBC2EA0913C00155A9D /* CBCentralManager.swift */; };
-		E37B8EC3332E0D72A8F700D11A5D80E7 /* CBManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B9669652F33DD050B8574414233E8 /* CBManagerState.swift */; };
+		DDC89C363DA3750DD017886DCAB7FB23 /* CBCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609DC9FE03D5F9623548FD14BE3B9973 /* CBCentral.swift */; };
 		E8516B2E1BC65E5F5711871BC1E05130 /* DDLogFlag+DDLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD817E1A88FF23497A8DF28F54CDC2 /* DDLogFlag+DDLogLevel.swift */; };
+		E8BA42366B7FEA1A905CBE503C44B4B7 /* XYLog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 30C12CF2A5F88CBCB30604888F816037 /* XYLog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EBA19C0B6EDBDB5A728BEB151089CBF6 /* XYStateObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C31151BCC0CA6566B28A6D1CDD1D4A /* XYStateObservableProperty.swift */; };
+		F1623674AAD28563494824FBD1B83171 /* XYLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4604CB841D1AD5E66E8396308828AFD /* XYLog.swift */; };
+		F2BF9DAA88B594C2AB06616173095423 /* CBCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBC78F8ECCD6B4F8D063AD61AF92BB5 /* CBCharacteristic.swift */; };
 		F2F780BBE10356D8AD1769AD41D3E8C3 /* DDLoggerNames.m in Sources */ = {isa = PBXBuildFile; fileRef = F5515269532235616CA06FF94F505FB7 /* DDLoggerNames.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F444D092BF8FE6EFC762403391F242FB /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E6758080DB93D95738E9DCB7B1EB97 /* DDASLLogCapture.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F530E496C456802FFB6C3C00CAF466B8 /* CBCharacteristicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0DC04ACC97CFA6C7B6CAE8CBF88F9 /* CBCharacteristicProperties.swift */; };
 		F66042CD85DF9049060403EF0627FEC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		F6F996048D8D4B69BCB06E8911A7630A /* XYLogProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD00729AAA8477DEACA3DC86780A7D /* XYLogProcess.swift */; };
+		F6FEDE868A6970EE5B4073BFAE186055 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		F849034AFD5DC433CA53D576CE47099F /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CE615469F05F7C941F5FBEFB9E9B2 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FA4173F3D3B1DA5C9C8594B4FD82F375 /* XYThreadSafeObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDCF2CDC2275EE5CA008615E135D14 /* XYThreadSafeObservableProperty.swift */; };
 		FAF7BC346ABB4E0168FB3B224BC71E55 /* CocoaLumberjack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC6AA16E3C9B3334B0740874B7B178E /* CocoaLumberjack-dummy.m */; };
-		FE3BC3494882C3B9EE3299FB7952322A /* CBCharacteristicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94533B032F1508D89848EDC28177BE0 /* CBCharacteristicProperties.swift */; };
+		FB2F116020E3337B4DA3B9CB6DBA1DFC /* XYUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D782EF2427C008224AF91E95F4F741 /* XYUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2E4638A1E10BABB8034426CC44E50E66 /* PBXContainerItemProxy */ = {
+		1169CA8E70FBC771AAA745F4714CF8C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E95654B155D25890BE8E26081FCA8265;
 			remoteInfo = CocoaLumberjack;
 		};
-		3F30328654A590B824B059561CD31904 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
-		};
-		40515D8CA2D06209C233FCAC348D5D30 /* PBXContainerItemProxy */ = {
+		5CF5F78293E7060F902ABA575E10BF52 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
 			remoteInfo = XYLog;
 		};
-		4CFD2044423A94A228899283C95ADFC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
-		};
-		75A110334C95038E83BF543B0B253221 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
-			remoteInfo = XYLog;
-		};
-		8B0EA611438E9313084A0E858F1F4ACC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
-			remoteInfo = XYUtil;
-		};
-		A757BD7CAD3BDED4ADB0085E767197DE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
-			remoteInfo = XYUtil;
-		};
-		B3E6EB2C4A731416BC820B4968E401BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
-			remoteInfo = XYUtil;
-		};
-		BA62CA064F7ED18066463C3625397F89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 276021C4482165D46E0CBBEFB822FE95;
-			remoteInfo = "CocoaLumberjack-CocoaLumberjackPrivacy";
-		};
-		C07A57F92368F3CEE6B5F91A4FD97D52 /* PBXContainerItemProxy */ = {
+		5E98E3DA2E4533BF15C47448ACF2C829 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4442F2BEBFD86828A412FEEBA8126F7A;
 			remoteInfo = XYCoreBluetooth;
 		};
-		C48183F7C8ED0A9739A276299E1EF904 /* PBXContainerItemProxy */ = {
+		68D1F2CADC1E2A2BEF72F8EC1AF03F31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
+			remoteGlobalIDString = 276021C4482165D46E0CBBEFB822FE95;
+			remoteInfo = "CocoaLumberjack-CocoaLumberjackPrivacy";
 		};
-		D2E9D8CD198203A420A82A6FE1C55BB5 /* PBXContainerItemProxy */ = {
+		7C8B9F73BD800CEC6B096C16463A8D16 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
-			remoteInfo = XYExtension;
+			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
+			remoteInfo = XYUtil;
 		};
-		E2D548A989C0C77D390D735FCDADFBA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 62E4C7CEC16DBEBBD1F76EE2C39279ED;
-			remoteInfo = "Pods-XYCoreBluetooth_Example";
-		};
-		FBC4CEA50AE5E0A42A73A92F0012FA47 /* PBXContainerItemProxy */ = {
+		9CDFC4E610419AA4FF9C58B3B3FF0897 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E95654B155D25890BE8E26081FCA8265;
 			remoteInfo = CocoaLumberjack;
 		};
+		AC342C873C93735D059EEBF08D21749D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62E4C7CEC16DBEBBD1F76EE2C39279ED;
+			remoteInfo = "Pods-XYCoreBluetooth_Example";
+		};
+		C4D23848740173937D7844EE5CC44919 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
+		C4F6BC1ADBCB00346C8F3952794C6D96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
+			remoteInfo = XYUtil;
+		};
+		D9D57FFD10EE8279AEF50C53381BFCD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
+		E8E4214E1638425C943B013BC75EF2D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
+		E98BB9683F0ACE0B3DB7A9CA0BFB4385 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62657DE7A83C714D7765207A6F97E8D9;
+			remoteInfo = XYUtil;
+		};
+		F4D27E4C883A52A43027D06034C3F64B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3BBBD0AF3E51B0B83A19D57DECC5732;
+			remoteInfo = XYLog;
+		};
+		F98B8E4EBBED27301BA44CD546454561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 606F4BA4318CD0324FB40536167C5A47;
+			remoteInfo = XYExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0385DBC8EA3416CD1D7AD86B4B46EC94 /* CBCharacteristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
+		01C6C694BD6897CB7BAB531F7D28CB9E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		02C31151BCC0CA6566B28A6D1CDD1D4A /* XYStateObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYStateObservableProperty.swift; sourceTree = "<group>"; };
+		040613FA0DE070A91CB0E185DCDCB4FB /* XYBleLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYBleLog.swift; path = XYCoreBluetooth/Classes/XYBleLog.swift; sourceTree = "<group>"; };
+		05996604C59B2A137ADD35232DDDF9ED /* XYLog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-prefix.pch"; sourceTree = "<group>"; };
+		07F66F58FA5E75777D68B8FC0063F867 /* XYThreadSafeProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeProperty.swift; sourceTree = "<group>"; };
 		080384FDE0C5D53404B354A59978ED3D /* DDLog+Combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDLog+Combine.swift"; path = "Sources/CocoaLumberjackSwift/DDLog+Combine.swift"; sourceTree = "<group>"; };
 		09AFEE6227E3678552F136A1045EB384 /* Pods-XYCoreBluetooth_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYCoreBluetooth_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		0C0F0D9DC3ACF7938A7DD50B30622EC9 /* DDFileLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDFileLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDFileLogger.h; sourceTree = "<group>"; };
 		0C110FC02D5CF1EF5979A5E55812F974 /* DDFileLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDFileLogger.m; path = Sources/CocoaLumberjack/DDFileLogger.m; sourceTree = "<group>"; };
-		0C94452AAA26CE908B14160945AD6C4B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0FC5A135A74A0A7C98F6CDECB05D5814 /* DDLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDLog.h; sourceTree = "<group>"; };
-		100EE8578206A04E0DB5F8BC5768C7ED /* XYUtil-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYUtil-dummy.m"; sourceTree = "<group>"; };
-		1056E11B90D9C7D4C32A1071ED336BFA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		11B32937E520DAE042C2EDD72B8E3A22 /* XYLog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYLog-Info.plist"; sourceTree = "<group>"; };
+		0FE01B88FDB394F32727977FE65393B5 /* XYLogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogLevel.swift; path = XYLog/Classes/XYLogLevel.swift; sourceTree = "<group>"; };
 		12841E3D5818E8429FE2A314CC61BB1D /* DDASLLogCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogCapture.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDASLLogCapture.h; sourceTree = "<group>"; };
-		162D61BEAE503DE5AE6EA8A1C5E7C40C /* XYExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYExtension-Info.plist"; sourceTree = "<group>"; };
+		15D782EF2427C008224AF91E95F4F741 /* XYUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYUtil.swift; path = XYUtil/Classes/XYUtil.swift; sourceTree = "<group>"; };
+		16A399948769A604AA13974367756165 /* XYUtil-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-umbrella.h"; sourceTree = "<group>"; };
+		180FBA57232F2B4F8F22F77C4A09B971 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		182CE448B85BE16AB988BF7E686D1817 /* Pods-XYCoreBluetooth_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYCoreBluetooth_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		182CE615469F05F7C941F5FBEFB9E9B2 /* DDASLLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = Sources/CocoaLumberjack/DDASLLogger.m; sourceTree = "<group>"; };
 		18FAC88306B5D7F5D4EFEB934EC61A5D /* DDLogMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogMacros.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDLogMacros.h; sourceTree = "<group>"; };
-		196A27F377819384257636DB7E474ADC /* XYExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.debug.xcconfig; sourceTree = "<group>"; };
+		19CF662EFCB200B41DC4F2B7014C8111 /* CBDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBDescriptor.swift; sourceTree = "<group>"; };
 		1C8CADD8DD5CEA80E343BD5CE31119A5 /* DDLoggerNames.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLoggerNames.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDLoggerNames.h; sourceTree = "<group>"; };
 		1CDB7A743AD9C1A3C3CB6AA7E8A60E8E /* DDTTYLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = Sources/CocoaLumberjack/DDTTYLogger.m; sourceTree = "<group>"; };
 		1F28577F6BA0AD72B5C242F8910348D5 /* CocoaLumberjack-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaLumberjack-umbrella.h"; sourceTree = "<group>"; };
-		22085745621B098E014453F88ECB79AA /* XYUtil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.release.xcconfig; sourceTree = "<group>"; };
 		250AB8DD316BC275E8EB1A7504F30177 /* Pods-XYCoreBluetooth_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYCoreBluetooth_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		2690678DC06B5817F38CB6E234B234D9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		2741B21E7974733B85528F08C328701C /* XYUtil.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYUtil.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		25AD3468D68F633F65628F115FA40947 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		27B2CDFEB4138845E3F528C72F2D974A /* WCSessionActivationState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WCSessionActivationState.swift; sourceTree = "<group>"; };
 		28A0EB1B2568FEDFB13CE301FD673A69 /* DDOSLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDOSLogger.m; path = Sources/CocoaLumberjack/DDOSLogger.m; sourceTree = "<group>"; };
 		296C0B43CFE32E4F467E12CD1EE43E52 /* DDTTYLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDTTYLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDTTYLogger.h; sourceTree = "<group>"; };
-		2A2F0B6A658FD6A1C823915F73A943E9 /* XYLogProcess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogProcess.swift; path = XYLog/Classes/XYLogProcess.swift; sourceTree = "<group>"; };
+		29D0DC04ACC97CFA6C7B6CAE8CBF88F9 /* CBCharacteristicProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicProperties.swift; sourceTree = "<group>"; };
+		2D06F70DF4D8455C022330E1DB599AB0 /* XYCoreBluetooth-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYCoreBluetooth-umbrella.h"; sourceTree = "<group>"; };
 		2D790056E15E6354331F46C6F5E883D6 /* Pods-XYCoreBluetooth_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYCoreBluetooth_Tests-umbrella.h"; sourceTree = "<group>"; };
-		31A3CB6D9F2C8F41441E6237FC354EB1 /* XYUtil.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYUtil.modulemap; sourceTree = "<group>"; };
+		2D8988BB072973200E00DD5328038835 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		30B4E0DE2A790877AACB07B7B3BFD5DB /* XYLog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYLog-Info.plist"; sourceTree = "<group>"; };
+		30C12CF2A5F88CBCB30604888F816037 /* XYLog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-umbrella.h"; sourceTree = "<group>"; };
 		3373175401969F7D54AB05C987672CAF /* CocoaLumberjack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CocoaLumberjack.modulemap; sourceTree = "<group>"; };
-		339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/CocoaLumberjack/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		36320EBBEF0EE3D0C87614C41FC12E1A /* XYCoreBluetooth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYCoreBluetooth-prefix.pch"; sourceTree = "<group>"; };
+		339CF5AF88920C79EB12A35DF2B82B6A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/CocoaLumberjack/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		36D27131E2C6336525C477643BB9C698 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		384FF93679C333B22C0F7CE9374D5973 /* CBError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBError.swift; sourceTree = "<group>"; };
+		3939DAEF862CC4564FDEC3D098CAA2FE /* XYUtil-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-prefix.pch"; sourceTree = "<group>"; };
+		3968A51136F9A61434C3AD0A1117CE36 /* XYCoreBluetooth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYCoreBluetooth-dummy.m"; sourceTree = "<group>"; };
 		3ABD817E1A88FF23497A8DF28F54CDC2 /* DDLogFlag+DDLogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDLogFlag+DDLogLevel.swift"; path = "Sources/CocoaLumberjackSwift/DDLogFlag+DDLogLevel.swift"; sourceTree = "<group>"; };
-		3B20A3303FEC6E6683064C19B2BF55AC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3B8C68B4309590ED9B74FBE00E88910E /* XYUtil-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-umbrella.h"; sourceTree = "<group>"; };
-		3E5F3647033846DD28B8E3434BFBF8C4 /* XYCoreBluetooth.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYCoreBluetooth.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		40837CAE68D211D303EC0F6BF1C93B05 /* XYAtomicCounter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicCounter.swift; sourceTree = "<group>"; };
+		3EE7A1B78106DE035F11C54EDE1E7A02 /* XYLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogger.swift; path = XYLog/Classes/XYLogger.swift; sourceTree = "<group>"; };
+		3F4A58AA0F1E1EED5094BD28CC39EEA9 /* XYCoreBluetooth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYCoreBluetooth-prefix.pch"; sourceTree = "<group>"; };
 		427EF0065173EC44A25C8782F203112D /* DDMultiFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDMultiFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDMultiFormatter.m; sourceTree = "<group>"; };
+		433D350ACD58E2A748C40260C58E0BBB /* XYAtomicCounter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicCounter.swift; sourceTree = "<group>"; };
+		458C4A125DFB158520B6B04B5EB6E1CB /* XYLog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYLog-dummy.m"; sourceTree = "<group>"; };
+		46A5CAB8D6349D01FC11F16A3509EC19 /* CBPeripheralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheralManager.swift; sourceTree = "<group>"; };
+		4800F2344F3D215DBDF0BECC06208B8F /* XYPeripheralManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheralManagerDelegate.swift; sourceTree = "<group>"; };
+		4D84907806426F72C7F6D066C8205F7C /* XYPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheralDelegate.swift; sourceTree = "<group>"; };
 		4E0F21A5837FB7624443E9A7016B4B66 /* DDMultiFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDMultiFormatter.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDMultiFormatter.h; sourceTree = "<group>"; };
-		4E99176AA16DB30B054F6D36BD1F2BF8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		50E938313F120E7FE0DE1F4E1E7A9073 /* DDLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = Sources/CocoaLumberjack/DDLog.m; sourceTree = "<group>"; };
-		519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaLumberjackPrivacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "CocoaLumberjack-CocoaLumberjackPrivacy"; path = CocoaLumberjackPrivacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B08D3E70AEEF5142ACB5DA665BD76B /* CocoaLumberjack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaLumberjack.release.xcconfig; sourceTree = "<group>"; };
-		5625394445D50B5B228796AB018A5BE6 /* XYThreadSafeProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeProperty.swift; sourceTree = "<group>"; };
+		55943B30B548DFFFFFAD8469208228A4 /* XYLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYLog.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		58F2BCA33E363A0AA88E8E39B90BB880 /* XYCoreBluetooth-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYCoreBluetooth-Info.plist"; sourceTree = "<group>"; };
 		5AE24956C8391FE72D92F1F685158722 /* DDLegacyMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLegacyMacros.h; path = "Sources/CocoaLumberjack/Supporting Files/DDLegacyMacros.h"; sourceTree = "<group>"; };
-		5BEDCF2CDC2275EE5CA008615E135D14 /* XYThreadSafeObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeObservableProperty.swift; sourceTree = "<group>"; };
 		5C320C985F54F7F22BF397C49B592614 /* Pods-XYCoreBluetooth_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYCoreBluetooth_Example-umbrella.h"; sourceTree = "<group>"; };
-		5D02D8411C155E89D669EA348AA45E64 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		5E99BEB6F5DFB45473EAA04A4B790DF7 /* Pods_XYCoreBluetooth_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCoreBluetooth_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		61D097A4603582A986C14A0C6C489BD3 /* XYCoreBluetooth.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYCoreBluetooth.modulemap; sourceTree = "<group>"; };
-		62AC3F2927B0186D772899E7B1E245AA /* XYCoreBluetooth-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYCoreBluetooth-umbrella.h"; sourceTree = "<group>"; };
-		62F9E3E731D4D63BCF2C539D6E04C9B9 /* CBDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBDescriptor.swift; sourceTree = "<group>"; };
-		63362C474EFF04A9BA2E6016186C9E50 /* XYLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.release.xcconfig; sourceTree = "<group>"; };
+		5E99BEB6F5DFB45473EAA04A4B790DF7 /* Pods-XYCoreBluetooth_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-XYCoreBluetooth_Example"; path = Pods_XYCoreBluetooth_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		609DC9FE03D5F9623548FD14BE3B9973 /* CBCentral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCentral.swift; sourceTree = "<group>"; };
+		6185636140A0A90F257964509B2DAA12 /* XYExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYExtension.modulemap; sourceTree = "<group>"; };
+		62C2CD1481877CBE5B8C86909A28F5AA /* XYApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYApp.swift; path = XYUtil/Classes/XYApp.swift; sourceTree = "<group>"; };
 		66ED488D9386BA2FACB7C34D7500B234 /* CocoaLumberjack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CocoaLumberjack.swift; path = Sources/CocoaLumberjackSwift/CocoaLumberjack.swift; sourceTree = "<group>"; };
-		678A4E47B37ED8D8B4CBBD23CBF371C6 /* XYCentralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYCentralManager.swift; path = XYCoreBluetooth/Classes/Central/XYCentralManager/XYCentralManager.swift; sourceTree = "<group>"; };
+		678A9939E93037856799EFC5D7A4B0F7 /* XYThreadSafeObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYThreadSafeObservableProperty.swift; sourceTree = "<group>"; };
 		67E6758080DB93D95738E9DCB7B1EB97 /* DDASLLogCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogCapture.m; path = Sources/CocoaLumberjack/DDASLLogCapture.m; sourceTree = "<group>"; };
-		68B230D792BB20597037438E552C1915 /* Pods_XYCoreBluetooth_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCoreBluetooth_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A8CC5BC4A5D87878BA267795192251F /* CBError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBError.swift; sourceTree = "<group>"; };
+		687C353C37DCDEF61E54DFAF825C5896 /* CBManagerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBManagerState.swift; sourceTree = "<group>"; };
+		68B230D792BB20597037438E552C1915 /* Pods-XYCoreBluetooth_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-XYCoreBluetooth_Tests"; path = Pods_XYCoreBluetooth_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A745481736A2251C40449ADF7A1ED06 /* CBCentralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCentralManager.swift; sourceTree = "<group>"; };
+		6ACD6933C9207292C38FD1D03B1D7C4A /* XYExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.release.xcconfig; sourceTree = "<group>"; };
 		6C812D8E41ED891E76C8ED204F2C2A8F /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAbstractDatabaseLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		6D25DB8D3E0FF9AEE10456B5807CC1F2 /* XYExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-umbrella.h"; sourceTree = "<group>"; };
-		6E2BB8BED519D9D6494EF108AA36E56C /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		6E906DC059749912E007F702D904CB11 /* XYApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYApp.swift; path = XYUtil/Classes/XYApp.swift; sourceTree = "<group>"; };
+		6E9C151C5C885342D7AB7AE700CB5C68 /* XYExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		716E922846F74A6D37C26A553B085360 /* DDContextFilterLogFormatter+Deprecated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DDContextFilterLogFormatter+Deprecated.m"; path = "Sources/CocoaLumberjack/Extensions/DDContextFilterLogFormatter+Deprecated.m"; sourceTree = "<group>"; };
 		72EAD7D06A88B165512FA213CCD07201 /* ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist"; sourceTree = "<group>"; };
 		743261495DCC545DC02616D137421B93 /* DDLogMessageFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DDLogMessageFormat.swift; path = Sources/CocoaLumberjackSwift/DDLogMessageFormat.swift; sourceTree = "<group>"; };
+		770349B2C789EE6DDA23781C10DAD484 /* XYCentral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentral.swift; sourceTree = "<group>"; };
 		776C12BD08AEBCEB85C2830B68C16F67 /* DDFileLogger+Buffering.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DDFileLogger+Buffering.m"; path = "Sources/CocoaLumberjack/Extensions/DDFileLogger+Buffering.m"; sourceTree = "<group>"; };
-		7A55F92E8AB85E77C53AF8D484878188 /* XYLogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogLevel.swift; path = XYLog/Classes/XYLogLevel.swift; sourceTree = "<group>"; };
-		7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A43B71F948574C884FF3C436CD8E034 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYExtension; path = XYExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F21D732E44D2E9362E7F9B487D6868F /* SwiftLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftLogLevel.h; path = Sources/CocoaLumberjackSwiftSupport/include/CocoaLumberjackSwiftSupport/SwiftLogLevel.h; sourceTree = "<group>"; };
+		7F55C6504BE190B70E821DCC179E364A /* XYCentralManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentralManagerDelegate.swift; sourceTree = "<group>"; };
+		7FAC39F1B6812E006456272C67442B3C /* CBATTRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBATTRequest.swift; sourceTree = "<group>"; };
 		802CE854A99E19577718C01D2F3FF0B5 /* Pods-XYCoreBluetooth_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYCoreBluetooth_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		847A0E613E261059DA1EF539354543D1 /* XYCoreBluetooth-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYCoreBluetooth-Info.plist"; sourceTree = "<group>"; };
-		86A287B11DA78EC1901D16040A228EC6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		82145E9E117EB03A7C0DCDAEFF86300E /* CBCharacteristicWriteType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicWriteType.swift; sourceTree = "<group>"; };
+		83DA7C5D384B268C2E34E9AF34788BF6 /* XYExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.debug.xcconfig; sourceTree = "<group>"; };
+		8691E43F0223D7E8E13ACD6FD00857C1 /* CBPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheral.swift; sourceTree = "<group>"; };
+		87BB3B6506D114529FE35671933A7175 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		884AD70486CC1CFA587C6DB8CD4137BE /* Pods-XYCoreBluetooth_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYCoreBluetooth_Example.modulemap"; sourceTree = "<group>"; };
-		88D8B2EDE78E03DB5AFBE8EFDD4CF807 /* XYLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogger.swift; path = XYLog/Classes/XYLogger.swift; sourceTree = "<group>"; };
-		8B208B694AA51DB7D34ECA0ABC21E13C /* XYExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-prefix.pch"; sourceTree = "<group>"; };
+		8B75CE1F9D8E2AEC22DBB74613FD45A7 /* XYLog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYLog.modulemap; sourceTree = "<group>"; };
 		8C3D88D31B87B70BC95F4D5670E716D2 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDContextFilterLogFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
 		8D3C025A9D1B913E8192D00FEA5CCDE4 /* Pods-XYCoreBluetooth_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XYCoreBluetooth_Example-frameworks.sh"; sourceTree = "<group>"; };
-		9037C5CA274A494BC2128656C91630D7 /* XYCentralManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYCentralManagerDelegate.swift; path = XYCoreBluetooth/Classes/Central/XYCentralManager/XYCentralManagerDelegate.swift; sourceTree = "<group>"; };
 		911CFCFDE5B1AB7A3145966C014846FD /* Pods-XYCoreBluetooth_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYCoreBluetooth_Tests-Info.plist"; sourceTree = "<group>"; };
 		913A6ECC50CCB38EBCCFD03794D81A8E /* DDFileLogger+Buffering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDFileLogger+Buffering.h"; path = "Sources/CocoaLumberjack/include/CocoaLumberjack/DDFileLogger+Buffering.h"; sourceTree = "<group>"; };
 		958DB8F1A0147161EA3A96B6EF9FC848 /* Pods-XYCoreBluetooth_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYCoreBluetooth_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9640B927A31A81BA345F76B87D5CC441 /* XYAtomicFlag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicFlag.swift; sourceTree = "<group>"; };
-		96D9C8BF90867410DADB5BAA64A2AE6C /* WCSessionActivationState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WCSessionActivationState.swift; sourceTree = "<group>"; };
 		9731151D40E63D7DA76B3FFD242698FB /* CLIColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLIColor.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/CLIColor.h; sourceTree = "<group>"; };
+		97850EC20808CDE4FFCB7180DBA5D37C /* XYCoreBluetooth.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYCoreBluetooth.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98750E6EB31BD132BE09F82CFC33FE8A /* ConfigurationGlobals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfigurationGlobals.swift; path = Sources/CocoaLumberjackSwift/ConfigurationGlobals.swift; sourceTree = "<group>"; };
 		9879C0FC3967144AA3AF9F0C886AEB97 /* CocoaLumberjack-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CocoaLumberjack-Info.plist"; sourceTree = "<group>"; };
 		9994D3632C039077D26EA3EBA5056849 /* DDContextFilterLogFormatter+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDContextFilterLogFormatter+Deprecated.h"; path = "Sources/CocoaLumberjack/include/CocoaLumberjack/DDContextFilterLogFormatter+Deprecated.h"; sourceTree = "<group>"; };
-		9C0B9669652F33DD050B8574414233E8 /* CBManagerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBManagerState.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9ED647646F6485929BAEECA597F8F13F /* CBL2CAPChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBL2CAPChannel.swift; sourceTree = "<group>"; };
-		9FC5B1A5E1C10A17D4837D14D58B56DD /* XYCoreBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYCoreBluetooth.release.xcconfig; sourceTree = "<group>"; };
+		9A369617E5E402E9C29EF612E9F53F4E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9ADB480A91EF37076BB029B14BD0C5EC /* XYUtil-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYUtil-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DBF358E61DF836392ED67C25100C46D /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		A0CD00729AAA8477DEACA3DC86780A7D /* XYLogProcess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLogProcess.swift; path = XYLog/Classes/XYLogProcess.swift; sourceTree = "<group>"; };
 		A2FD64261AE1250803A2E9D252418272 /* Pods-XYCoreBluetooth_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYCoreBluetooth_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A44C99DE2253080CB472C08DCC0B95D2 /* XYExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYExtension-dummy.m"; sourceTree = "<group>"; };
 		A5834D7F23296410F20A1EF746F4069F /* CLIColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLIColor.m; path = Sources/CocoaLumberjack/CLI/CLIColor.m; sourceTree = "<group>"; };
-		A6CBB2C640E8BE66A34D079A46063454 /* XYUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYUtil.swift; path = XYUtil/Classes/XYUtil.swift; sourceTree = "<group>"; };
-		A71026752686063667313FCC35C13040 /* CBCharacteristicWriteType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicWriteType.swift; sourceTree = "<group>"; };
 		A734A3B280F5328427A59FCF0176C906 /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDContextFilterLogFormatter.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		A758E5A5C4CA5CD9881A98B0F7C38F55 /* XYLog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYLog-dummy.m"; sourceTree = "<group>"; };
-		A7676D1D3D22AF25E1898E4741D3E39B /* XYLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.debug.xcconfig; sourceTree = "<group>"; };
-		A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A802DBDC0C81460EFBB88B299C4AB954 /* CBService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBService.swift; sourceTree = "<group>"; };
+		A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYLog; path = XYLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABC8F6B82F72862B25F400D1470B31A7 /* XYLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.debug.xcconfig; sourceTree = "<group>"; };
+		ABFCBE3A8CB7A64C0F43618D64BB2D74 /* XYExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYExtension-Info.plist"; sourceTree = "<group>"; };
 		AC15AD7EBCFDEDBEA61B586CCF7BE109 /* Pods-XYCoreBluetooth_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYCoreBluetooth_Example-Info.plist"; sourceTree = "<group>"; };
+		AEFC2EE77B57349668DB3308D2E003CC /* XYAtomicFlag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYAtomicFlag.swift; sourceTree = "<group>"; };
 		B17548AF4DEA82A1FA787495CD70A559 /* Pods-XYCoreBluetooth_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYCoreBluetooth_Tests.modulemap"; sourceTree = "<group>"; };
 		B1A374E07E1A819FC6D8DAEF6C305CA3 /* DDFileLogger+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDFileLogger+Internal.h"; path = "Sources/CocoaLumberjack/DDFileLogger+Internal.h"; sourceTree = "<group>"; };
 		B1B21C24F9CEB49D6E64AE1209011D77 /* Pods-XYCoreBluetooth_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYCoreBluetooth_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B220163CD2987671D15C47338E0FD5AF /* Pods-XYCoreBluetooth_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYCoreBluetooth_Example-dummy.m"; sourceTree = "<group>"; };
-		B43057F00078EA213173624CA982CC58 /* CBPeripheralState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheralState.swift; sourceTree = "<group>"; };
+		B36E158AA172F237BE33E59EE11FDCD1 /* XYUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.debug.xcconfig; sourceTree = "<group>"; };
 		B45ABA85A272E050688EAB30D7D9576D /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDDispatchQueueLogFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		B4604CB841D1AD5E66E8396308828AFD /* XYLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLog.swift; path = XYLog/Classes/XYLog.swift; sourceTree = "<group>"; };
 		B54A10662B33C6205E46214C7567175C /* CocoaLumberjack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaLumberjack-prefix.pch"; sourceTree = "<group>"; };
 		B55ACB5E7350230A431D35292BE5B264 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDDispatchQueueLogFormatter.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		B5EDA8281CEFFA99A87A8FB04FBA3562 /* DDAssertMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAssertMacros.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDAssertMacros.h; sourceTree = "<group>"; };
 		B6B840AC77134B17065589DD0BCCF20A /* CocoaLumberjack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = "Sources/CocoaLumberjack/Supporting Files/CocoaLumberjack.h"; sourceTree = "<group>"; };
-		B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7E27A3F21B57F6F3716C33ED7D6412C /* XYCoreBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYCoreBluetooth.debug.xcconfig; sourceTree = "<group>"; };
-		BB1D9FF38CF8122ED88AF6E58351F718 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		BCBF5ECDF071A48BC30B5C79BDD8C91C /* XYExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYExtension.modulemap; sourceTree = "<group>"; };
-		BE0B2A95146D78B5500C2F855C779841 /* XYStateObservableProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYStateObservableProperty.swift; sourceTree = "<group>"; };
-		C0600F8ED36EB9C1F5F84F755F6F6202 /* XYExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYExtension.release.xcconfig; sourceTree = "<group>"; };
-		C083A60AE4D4D205044B90C56F4E54F2 /* XYCoreBluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYCoreBluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYUtil; path = XYUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B780E4EB01380E185F9B2DA6A542627C /* XYUtil-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYUtil-Info.plist"; sourceTree = "<group>"; };
+		B8285B976937C1B516A7F3CAFCF2C07B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BC5BB8A398F700AE642D31FB174E35E2 /* XYUtil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.release.xcconfig; sourceTree = "<group>"; };
+		BDD726E57634F8177D57CDBC43CE6048 /* XYCentralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYCentralManager.swift; sourceTree = "<group>"; };
+		C053D4F0B4ED00B542C804DA3EF4751C /* CBL2CAPChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBL2CAPChannel.swift; sourceTree = "<group>"; };
+		C083A60AE4D4D205044B90C56F4E54F2 /* XYCoreBluetooth */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYCoreBluetooth; path = XYCoreBluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C17F681FE8429CC90B416BC6F58F3D /* DDASLLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDASLLogger.h; sourceTree = "<group>"; };
-		C1DC70B7ECA61C7BBA32D8FB535A7886 /* XYLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYLog.swift; path = XYLog/Classes/XYLog.swift; sourceTree = "<group>"; };
-		C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3CDB17BEE861F20DCB15D78CB358912 /* CBService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBService.swift; sourceTree = "<group>"; };
-		C442FA89122B51B952C9D9B6B970508E /* XYLog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYLog.modulemap; sourceTree = "<group>"; };
+		C11B926B9E1AEE4CDE85E1E33BF27168 /* XYLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYLog.release.xcconfig; sourceTree = "<group>"; };
+		C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaLumberjack; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7BD02662FFA752CDA8983D4ECA4772C /* XYExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-prefix.pch"; sourceTree = "<group>"; };
 		C7E62A4CF73CCEC13C34EF2A4D01F26A /* DDLog+LOGV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDLog+LOGV.h"; path = "Sources/CocoaLumberjack/include/CocoaLumberjack/DDLog+LOGV.h"; sourceTree = "<group>"; };
 		CA88DC15C238ED239D57C4992C97D39D /* DDAssert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DDAssert.swift; path = Sources/CocoaLumberjackSwift/DDAssert.swift; sourceTree = "<group>"; };
-		CFF81AC3F18E69C9A3A79D5C000D5B7B /* XYUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYUtil.debug.xcconfig; sourceTree = "<group>"; };
-		D1631F5B1D0B92A76308418CFF458089 /* XYLog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-prefix.pch"; sourceTree = "<group>"; };
-		D555A63D649C6EA40A7748EE95EF941D /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		D730A8666D10BA052FD02A0DFCED134F /* XYUtil-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYUtil-prefix.pch"; sourceTree = "<group>"; };
-		DABEF6998DF7B643F085DB504973EA8C /* XYCoreBluetooth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYCoreBluetooth-dummy.m"; sourceTree = "<group>"; };
+		CB2844FF0C0E1081AD78B4DF857B9DF9 /* XYCoreBluetooth.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYCoreBluetooth.modulemap; sourceTree = "<group>"; };
+		CBA992B802A98F07FD3303FBEF7D28B8 /* XYUtil.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYUtil.modulemap; sourceTree = "<group>"; };
+		CEF8F039EA5F2973C31511F3E2299E77 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		D59CCF2D8812BE0D3ACA3E3277665812 /* XYCoreBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYCoreBluetooth.debug.xcconfig; sourceTree = "<group>"; };
+		D895C369ADE19ED7AE417582B62B2570 /* XYPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheral.swift; sourceTree = "<group>"; };
 		DCC6AA16E3C9B3334B0740874B7B178E /* CocoaLumberjack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaLumberjack-dummy.m"; sourceTree = "<group>"; };
-		DD212DBC2EA0913C00155A9D /* CBCentralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBCentralManager.swift; sourceTree = "<group>"; };
-		DEAF1764FCC4EB0424B8F660E69429B7 /* XYUtil-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYUtil-Info.plist"; sourceTree = "<group>"; };
-		E70B9DCE8AE362D9BC0C8191D2AC4A59 /* XYLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYLog.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E806378F21D1A3D1B465B6143AB817D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E94533B032F1508D89848EDC28177BE0 /* CBCharacteristicProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristicProperties.swift; sourceTree = "<group>"; };
 		EB1451CCCB1B22C0FD3D4944F7C0B6AC /* Pods-XYCoreBluetooth_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYCoreBluetooth_Tests-dummy.m"; sourceTree = "<group>"; };
 		EB87614B0935186462B2E69D93F9214C /* Pods-XYCoreBluetooth_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYCoreBluetooth_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EC8FE1A7E996738D1FB76E0675B53868 /* CurrentFileNameHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrentFileNameHelper.swift; path = Sources/CocoaLumberjackSwift/CurrentFileNameHelper.swift; sourceTree = "<group>"; };
 		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EF4FAF2F856CE0B4A0E27FD63A8113EA /* XYExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F1A997A916E19039B884390CA7CFA04A /* CBPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheral.swift; sourceTree = "<group>"; };
-		F55122C7CE18B86C7A20B4D55A3D4112 /* XYLog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYLog-umbrella.h"; sourceTree = "<group>"; };
+		EF5BC1DD4B66F77EABF304AF86ACFE8F /* XYUtil.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYUtil.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F02496E2EA66F335D04EB2642E08C430 /* CBPeripheralState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBPeripheralState.swift; sourceTree = "<group>"; };
 		F5515269532235616CA06FF94F505FB7 /* DDLoggerNames.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLoggerNames.m; path = Sources/CocoaLumberjack/DDLoggerNames.m; sourceTree = "<group>"; };
 		F6AA0FB9CC109647C5FB67DEAC5B4DC7 /* DDOSLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDOSLogger.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDOSLogger.h; sourceTree = "<group>"; };
-		F7666F8F7219BE8DFD29AABED6C8935E /* XYExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYExtension-dummy.m"; sourceTree = "<group>"; };
 		FA748D11D15267A8F29409BDBFAA28E4 /* CocoaLumberjack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaLumberjack.debug.xcconfig; sourceTree = "<group>"; };
+		FC9DE08AC931D1C209E9D27FF7A10C15 /* XYCoreBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYCoreBluetooth.release.xcconfig; sourceTree = "<group>"; };
+		FDBC78F8ECCD6B4F8D063AD61AF92BB5 /* CBCharacteristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
+		FDD5E710488201495F1571A9A629CCCA /* XYExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYExtension-umbrella.h"; sourceTree = "<group>"; };
+		FFA60D63D4A76D0F0A93DA9274E332F6 /* XYPeripheralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XYPeripheralManager.swift; sourceTree = "<group>"; };
 		FFF7F6FE1A26574C0931A1F4678CE075 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDAbstractDatabaseLogger.m; path = Sources/CocoaLumberjack/DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3F70C6ABEFAF655FC4629930103E0A62 /* Frameworks */ = {
+		01E87EA52DB9116CC8708ADCAB67AECC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866F73FA507D22EC55E4C0D677990D0F /* Foundation.framework in Frameworks */,
+				59B592C6B299D3DD23E88F0779DE7417 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F9E4AD6DDEA35D0E1138E7AD7406668 /* Frameworks */ = {
+		4B157DE21BCBB52C2ED902883F88E8FC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91EBB4E4E15E10FE35AF93AF1F654DF3 /* Foundation.framework in Frameworks */,
-				6CB410AE18B02CFE969E9D414F2806DD /* UIKit.framework in Frameworks */,
+				C2ED792F9D724C669F019DAEE892EB86 /* Foundation.framework in Frameworks */,
+				D0EE27BB433DC3C47F2DCC9026997178 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6E1A60B0DA8E46AEF5301E8E33A3E302 /* Frameworks */ = {
+		5B881F615610EDE6ECF4D7676F5BAC89 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36A4587C95CE21CAEB41542D32F8B9A7 /* Foundation.framework in Frameworks */,
-				2CC538EDD6742566D2DF91B76BABD26B /* UIKit.framework in Frameworks */,
+				F6FEDE868A6970EE5B4073BFAE186055 /* Foundation.framework in Frameworks */,
+				5A6F5E58AB88D56C528681BC8BFCE87D /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7EF69C207A28C6472043D9EBE9770220 /* Frameworks */ = {
+		882A5F77DDB777C20999F91A5963A4D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFB5798AAC94D55BB40B3441261B212D /* Foundation.framework in Frameworks */,
-				5684C4E5D9FDA14A00C6473ECD78BECC /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,15 +426,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D46559D1B26CDC402E982B0996F1728C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C67B549CA6EF05F4A1DA2E98218C7156 /* Foundation.framework in Frameworks */,
-				285FD087118CCF8DAA08FD2970B1B131 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DC6D9BD491FC5D4145D700E4906B7184 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -425,22 +434,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA68DCF5055C78BF509EA75CEBDE0665 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AC008E492CB54C5E4F2E6CE19C8BE16 /* Foundation.framework in Frameworks */,
+				452F612C4A31C277035E5418591C9002 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07F86BB86709AE7A9E4B0AE7F7640CA8 /* XYUtil */ = {
-			isa = PBXGroup;
-			children = (
-				6E906DC059749912E007F702D904CB11 /* XYApp.swift */,
-				A6CBB2C640E8BE66A34D079A46063454 /* XYUtil.swift */,
-				9BE6DE200FB08F2BD7661FE7C7256D9D /* Pod */,
-				7765240B0A248BEE7842D8D7FF7E3AC0 /* Support Files */,
-				518072EF7EAC059D1870937A1332FCDC /* Wrapper */,
-			);
-			name = XYUtil;
-			path = ../../../../Tool/XYUtil;
-			sourceTree = "<group>";
-		};
 		10F9A4906E9F47F43D393F1C699EC063 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +462,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		17C5B3682162D5693BF3F18CE3A61479 /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				7FAC39F1B6812E006456272C67442B3C /* CBATTRequest.swift */,
+				609DC9FE03D5F9623548FD14BE3B9973 /* CBCentral.swift */,
+				6A745481736A2251C40449ADF7A1ED06 /* CBCentralManager.swift */,
+				FDBC78F8ECCD6B4F8D063AD61AF92BB5 /* CBCharacteristic.swift */,
+				29D0DC04ACC97CFA6C7B6CAE8CBF88F9 /* CBCharacteristicProperties.swift */,
+				82145E9E117EB03A7C0DCDAEFF86300E /* CBCharacteristicWriteType.swift */,
+				19CF662EFCB200B41DC4F2B7014C8111 /* CBDescriptor.swift */,
+				384FF93679C333B22C0F7CE9374D5973 /* CBError.swift */,
+				C053D4F0B4ED00B542C804DA3EF4751C /* CBL2CAPChannel.swift */,
+				687C353C37DCDEF61E54DFAF825C5896 /* CBManagerState.swift */,
+				8691E43F0223D7E8E13ACD6FD00857C1 /* CBPeripheral.swift */,
+				46A5CAB8D6349D01FC11F16A3509EC19 /* CBPeripheralManager.swift */,
+				F02496E2EA66F335D04EB2642E08C430 /* CBPeripheralState.swift */,
+				A802DBDC0C81460EFBB88B299C4AB954 /* CBService.swift */,
+			);
+			name = CoreBluetooth;
+			path = XYExtension/Classes/CoreBluetooth;
+			sourceTree = "<group>";
+		};
 		1DE6440B6853131A80C53DDA34375AAB /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,16 +491,6 @@
 				ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		274FBF83CD5A539A501CFDE9DE089652 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				2690678DC06B5817F38CB6E234B234D9 /* LICENSE */,
-				E806378F21D1A3D1B465B6143AB817D2 /* README.md */,
-				3E5F3647033846DD28B8E3434BFBF8C4 /* XYCoreBluetooth.podspec */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		29063E47D2C4A8B6C5F70C8629590C52 /* Swift */ = {
@@ -491,6 +508,19 @@
 			name = Swift;
 			sourceTree = "<group>";
 		};
+		2B0A85645FF30863D14E43A35DA1CF7A /* XYCoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				040613FA0DE070A91CB0E185DCDCB4FB /* XYBleLog.swift */,
+				EF83637979612848CB3F9BA201F65A1C /* Central */,
+				4150415A6554628E9579D913E3BEBC9D /* Peripheral */,
+				3724180D1E5007C4BB1D643D929AA90E /* Pod */,
+				9F73E3B7487043DD7AAFDA44B3BF1184 /* Support Files */,
+			);
+			name = XYCoreBluetooth;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		320ED2F2348655F220D240EB856D3CE1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,28 +529,99 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		3BC858E7165A4838B1ADDB2E74C35FFB /* Development Pods */ = {
+		3724180D1E5007C4BB1D643D929AA90E /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				81ED9369503C659008F66E7D9D59F44E /* XYCoreBluetooth */,
-				F39F47E3B76F754753CAFCCB65C2E167 /* XYExtension */,
-				5A0C2CB8624F59C7C77C6BCCC88B9198 /* XYLog */,
-				07F86BB86709AE7A9E4B0AE7F7640CA8 /* XYUtil */,
+				9A369617E5E402E9C29EF612E9F53F4E /* LICENSE */,
+				180FBA57232F2B4F8F22F77C4A09B971 /* README.md */,
+				97850EC20808CDE4FFCB7180DBA5D37C /* XYCoreBluetooth.podspec */,
 			);
-			name = "Development Pods";
+			name = Pod;
 			sourceTree = "<group>";
 		};
-		518072EF7EAC059D1870937A1332FCDC /* Wrapper */ = {
+		39F6C329CD03C7AB32D61B0B8A20586D /* XYCentralManager */ = {
 			isa = PBXGroup;
 			children = (
-				40837CAE68D211D303EC0F6BF1C93B05 /* XYAtomicCounter.swift */,
-				9640B927A31A81BA345F76B87D5CC441 /* XYAtomicFlag.swift */,
-				BE0B2A95146D78B5500C2F855C779841 /* XYStateObservableProperty.swift */,
-				5BEDCF2CDC2275EE5CA008615E135D14 /* XYThreadSafeObservableProperty.swift */,
-				5625394445D50B5B228796AB018A5BE6 /* XYThreadSafeProperty.swift */,
+				BDD726E57634F8177D57CDBC43CE6048 /* XYCentralManager.swift */,
+				7F55C6504BE190B70E821DCC179E364A /* XYCentralManagerDelegate.swift */,
 			);
-			name = Wrapper;
-			path = XYUtil/Classes/Wrapper;
+			name = XYCentralManager;
+			path = XYCentralManager;
+			sourceTree = "<group>";
+		};
+		3BF960F0AAC8316975D89262AC026CA2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBA992B802A98F07FD3303FBEF7D28B8 /* XYUtil.modulemap */,
+				9ADB480A91EF37076BB029B14BD0C5EC /* XYUtil-dummy.m */,
+				B780E4EB01380E185F9B2DA6A542627C /* XYUtil-Info.plist */,
+				3939DAEF862CC4564FDEC3D098CAA2FE /* XYUtil-prefix.pch */,
+				16A399948769A604AA13974367756165 /* XYUtil-umbrella.h */,
+				B36E158AA172F237BE33E59EE11FDCD1 /* XYUtil.debug.xcconfig */,
+				BC5BB8A398F700AE642D31FB174E35E2 /* XYUtil.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../Server/XYCoreBluetooth/Example/Pods/Target Support Files/XYUtil";
+			sourceTree = "<group>";
+		};
+		3F81D1AB6A0075035CD8D5DAA896D055 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6185636140A0A90F257964509B2DAA12 /* XYExtension.modulemap */,
+				A44C99DE2253080CB472C08DCC0B95D2 /* XYExtension-dummy.m */,
+				ABFCBE3A8CB7A64C0F43618D64BB2D74 /* XYExtension-Info.plist */,
+				C7BD02662FFA752CDA8983D4ECA4772C /* XYExtension-prefix.pch */,
+				FDD5E710488201495F1571A9A629CCCA /* XYExtension-umbrella.h */,
+				83DA7C5D384B268C2E34E9AF34788BF6 /* XYExtension.debug.xcconfig */,
+				6ACD6933C9207292C38FD1D03B1D7C4A /* XYExtension.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../Server/XYCoreBluetooth/Example/Pods/Target Support Files/XYExtension";
+			sourceTree = "<group>";
+		};
+		3FF7BCD0C624B07C72EC891C426ADB69 /* XYLog */ = {
+			isa = PBXGroup;
+			children = (
+				B4604CB841D1AD5E66E8396308828AFD /* XYLog.swift */,
+				3EE7A1B78106DE035F11C54EDE1E7A02 /* XYLogger.swift */,
+				0FE01B88FDB394F32727977FE65393B5 /* XYLogLevel.swift */,
+				A0CD00729AAA8477DEACA3DC86780A7D /* XYLogProcess.swift */,
+				FFE221A4DD571BC14A9F3DF28D9AE350 /* Pod */,
+				CD9E9383987945E577EF28D38AFA4CBA /* Support Files */,
+			);
+			name = XYLog;
+			path = ../../../XYLog;
+			sourceTree = "<group>";
+		};
+		4150415A6554628E9579D913E3BEBC9D /* Peripheral */ = {
+			isa = PBXGroup;
+			children = (
+				DA0F9E4FC0993620FA794DB23E07D1FF /* XYCentral */,
+				46D211C574BCE7CF00D7DF26074876E8 /* XYPeripheralManager */,
+			);
+			name = Peripheral;
+			path = XYCoreBluetooth/Classes/Peripheral;
+			sourceTree = "<group>";
+		};
+		46D211C574BCE7CF00D7DF26074876E8 /* XYPeripheralManager */ = {
+			isa = PBXGroup;
+			children = (
+				FFA60D63D4A76D0F0A93DA9274E332F6 /* XYPeripheralManager.swift */,
+				4800F2344F3D215DBDF0BECC06208B8F /* XYPeripheralManagerDelegate.swift */,
+			);
+			name = XYPeripheralManager;
+			path = XYPeripheralManager;
+			sourceTree = "<group>";
+		};
+		4DD2BCB0EEB9D7A8BB2EA29CBE0995A3 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				9DBF358E61DF836392ED67C25100C46D /* Data.swift */,
+				36D27131E2C6336525C477643BB9C698 /* JSON.swift */,
+				7A43B71F948574C884FF3C436CD8E034 /* Task.swift */,
+			);
+			name = Foundation;
+			path = XYExtension/Classes/Foundation;
 			sourceTree = "<group>";
 		};
 		5983EA39857DF7047351919F9D46C6CB /* Pods-XYCoreBluetooth_Tests */ = {
@@ -539,18 +640,17 @@
 			path = "Target Support Files/Pods-XYCoreBluetooth_Tests";
 			sourceTree = "<group>";
 		};
-		5A0C2CB8624F59C7C77C6BCCC88B9198 /* XYLog */ = {
+		680CF473417F0A7672E6C440C56E1BAB /* XYExtension */ = {
 			isa = PBXGroup;
 			children = (
-				C1DC70B7ECA61C7BBA32D8FB535A7886 /* XYLog.swift */,
-				88D8B2EDE78E03DB5AFBE8EFDD4CF807 /* XYLogger.swift */,
-				7A55F92E8AB85E77C53AF8D484878188 /* XYLogLevel.swift */,
-				2A2F0B6A658FD6A1C823915F73A943E9 /* XYLogProcess.swift */,
-				B2A338608A4FEF124F5DA69FFC34533E /* Pod */,
-				97D523EF8E932582E8AA584C1A4EBAB3 /* Support Files */,
+				17C5B3682162D5693BF3F18CE3A61479 /* CoreBluetooth */,
+				4DD2BCB0EEB9D7A8BB2EA29CBE0995A3 /* Foundation */,
+				73BD8D12B2BC0EC9810AEEA744426CB4 /* Pod */,
+				3F81D1AB6A0075035CD8D5DAA896D055 /* Support Files */,
+				7E11734D8613D0B85DD79B3C6849FF98 /* WatchConnectivity */,
 			);
-			name = XYLog;
-			path = ../../../XYLog;
+			name = XYExtension;
+			path = ../../../../Basic/XYExtension;
 			sourceTree = "<group>";
 		};
 		68A02523E9CA94990008CFCF34E41924 /* CocoaLumberjack */ = {
@@ -560,6 +660,7 @@
 				739984D59905F09E034C9E1BC984225B /* Support Files */,
 				29063E47D2C4A8B6C5F70C8629590C52 /* Swift */,
 			);
+			name = CocoaLumberjack;
 			path = CocoaLumberjack;
 			sourceTree = "<group>";
 		};
@@ -579,86 +680,48 @@
 			path = "../Target Support Files/CocoaLumberjack";
 			sourceTree = "<group>";
 		};
-		7543B5CF773D16F95AD9D26AC8CC1FD7 /* Support Files */ = {
+		73BD8D12B2BC0EC9810AEEA744426CB4 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				61D097A4603582A986C14A0C6C489BD3 /* XYCoreBluetooth.modulemap */,
-				DABEF6998DF7B643F085DB504973EA8C /* XYCoreBluetooth-dummy.m */,
-				847A0E613E261059DA1EF539354543D1 /* XYCoreBluetooth-Info.plist */,
-				36320EBBEF0EE3D0C87614C41FC12E1A /* XYCoreBluetooth-prefix.pch */,
-				62AC3F2927B0186D772899E7B1E245AA /* XYCoreBluetooth-umbrella.h */,
-				B7E27A3F21B57F6F3716C33ED7D6412C /* XYCoreBluetooth.debug.xcconfig */,
-				9FC5B1A5E1C10A17D4837D14D58B56DD /* XYCoreBluetooth.release.xcconfig */,
+				CEF8F039EA5F2973C31511F3E2299E77 /* LICENSE */,
+				2D8988BB072973200E00DD5328038835 /* README.md */,
+				6E9C151C5C885342D7AB7AE700CB5C68 /* XYExtension.podspec */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/XYCoreBluetooth";
+			name = Pod;
 			sourceTree = "<group>";
 		};
-		7765240B0A248BEE7842D8D7FF7E3AC0 /* Support Files */ = {
+		742B9C0A6EA208CC0A5124D99577ADCF /* XYPeripheral */ = {
 			isa = PBXGroup;
 			children = (
-				31A3CB6D9F2C8F41441E6237FC354EB1 /* XYUtil.modulemap */,
-				100EE8578206A04E0DB5F8BC5768C7ED /* XYUtil-dummy.m */,
-				DEAF1764FCC4EB0424B8F660E69429B7 /* XYUtil-Info.plist */,
-				D730A8666D10BA052FD02A0DFCED134F /* XYUtil-prefix.pch */,
-				3B8C68B4309590ED9B74FBE00E88910E /* XYUtil-umbrella.h */,
-				CFF81AC3F18E69C9A3A79D5C000D5B7B /* XYUtil.debug.xcconfig */,
-				22085745621B098E014453F88ECB79AA /* XYUtil.release.xcconfig */,
+				D895C369ADE19ED7AE417582B62B2570 /* XYPeripheral.swift */,
+				4D84907806426F72C7F6D066C8205F7C /* XYPeripheralDelegate.swift */,
 			);
-			name = "Support Files";
-			path = "../../Server/XYCoreBluetooth/Example/Pods/Target Support Files/XYUtil";
+			name = XYPeripheral;
+			path = XYPeripheral;
 			sourceTree = "<group>";
 		};
-		7821EF17DA30E4D41770C377CA11ADEA /* Support Files */ = {
+		7E11734D8613D0B85DD79B3C6849FF98 /* WatchConnectivity */ = {
 			isa = PBXGroup;
 			children = (
-				BCBF5ECDF071A48BC30B5C79BDD8C91C /* XYExtension.modulemap */,
-				F7666F8F7219BE8DFD29AABED6C8935E /* XYExtension-dummy.m */,
-				162D61BEAE503DE5AE6EA8A1C5E7C40C /* XYExtension-Info.plist */,
-				8B208B694AA51DB7D34ECA0ABC21E13C /* XYExtension-prefix.pch */,
-				6D25DB8D3E0FF9AEE10456B5807CC1F2 /* XYExtension-umbrella.h */,
-				196A27F377819384257636DB7E474ADC /* XYExtension.debug.xcconfig */,
-				C0600F8ED36EB9C1F5F84F755F6F6202 /* XYExtension.release.xcconfig */,
+				27B2CDFEB4138845E3F528C72F2D974A /* WCSessionActivationState.swift */,
 			);
-			name = "Support Files";
-			path = "../../Server/XYCoreBluetooth/Example/Pods/Target Support Files/XYExtension";
-			sourceTree = "<group>";
-		};
-		81ED9369503C659008F66E7D9D59F44E /* XYCoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				678A4E47B37ED8D8B4CBBD23CBF371C6 /* XYCentralManager.swift */,
-				9037C5CA274A494BC2128656C91630D7 /* XYCentralManagerDelegate.swift */,
-				274FBF83CD5A539A501CFDE9DE089652 /* Pod */,
-				7543B5CF773D16F95AD9D26AC8CC1FD7 /* Support Files */,
-			);
-			name = XYCoreBluetooth;
-			path = ../..;
+			name = WatchConnectivity;
+			path = XYExtension/Classes/WatchConnectivity;
 			sourceTree = "<group>";
 		};
 		8BBA8A109F85566B3ADE8A0E3E209871 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack.framework */,
-				519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */,
-				5E99BEB6F5DFB45473EAA04A4B790DF7 /* Pods_XYCoreBluetooth_Example.framework */,
-				68B230D792BB20597037438E552C1915 /* Pods_XYCoreBluetooth_Tests.framework */,
-				C083A60AE4D4D205044B90C56F4E54F2 /* XYCoreBluetooth.framework */,
-				7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension.framework */,
-				A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog.framework */,
-				B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil.framework */,
+				C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */,
+				519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */,
+				5E99BEB6F5DFB45473EAA04A4B790DF7 /* Pods-XYCoreBluetooth_Example */,
+				68B230D792BB20597037438E552C1915 /* Pods-XYCoreBluetooth_Tests */,
+				C083A60AE4D4D205044B90C56F4E54F2 /* XYCoreBluetooth */,
+				7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */,
+				A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */,
+				B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		8E52CB635A12E79901A98767EC02AC5C /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				BB1D9FF38CF8122ED88AF6E58351F718 /* LICENSE */,
-				86A287B11DA78EC1901D16040A228EC6 /* README.md */,
-				EF4FAF2F856CE0B4A0E27FD63A8113EA /* XYExtension.podspec */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		9418AAB13DBD1A08324EADA86C262D09 /* Core */ = {
@@ -703,85 +766,78 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		943715240A6307DEAF714A2950517F27 /* WatchConnectivity */ = {
+		9DD2342B7196FEDB514D19557B599CE1 /* XYUtil */ = {
 			isa = PBXGroup;
 			children = (
-				96D9C8BF90867410DADB5BAA64A2AE6C /* WCSessionActivationState.swift */,
+				62C2CD1481877CBE5B8C86909A28F5AA /* XYApp.swift */,
+				15D782EF2427C008224AF91E95F4F741 /* XYUtil.swift */,
+				D6418F1434CCABD936EC8BFCB6E59744 /* Pod */,
+				3BF960F0AAC8316975D89262AC026CA2 /* Support Files */,
+				BB3311578739FD2A2B99B95403CB3E7A /* Wrapper */,
 			);
-			name = WatchConnectivity;
-			path = XYExtension/Classes/WatchConnectivity;
+			name = XYUtil;
+			path = ../../../../Tool/XYUtil;
 			sourceTree = "<group>";
 		};
-		97D523EF8E932582E8AA584C1A4EBAB3 /* Support Files */ = {
+		9F73E3B7487043DD7AAFDA44B3BF1184 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C442FA89122B51B952C9D9B6B970508E /* XYLog.modulemap */,
-				A758E5A5C4CA5CD9881A98B0F7C38F55 /* XYLog-dummy.m */,
-				11B32937E520DAE042C2EDD72B8E3A22 /* XYLog-Info.plist */,
-				D1631F5B1D0B92A76308418CFF458089 /* XYLog-prefix.pch */,
-				F55122C7CE18B86C7A20B4D55A3D4112 /* XYLog-umbrella.h */,
-				A7676D1D3D22AF25E1898E4741D3E39B /* XYLog.debug.xcconfig */,
-				63362C474EFF04A9BA2E6016186C9E50 /* XYLog.release.xcconfig */,
+				CB2844FF0C0E1081AD78B4DF857B9DF9 /* XYCoreBluetooth.modulemap */,
+				3968A51136F9A61434C3AD0A1117CE36 /* XYCoreBluetooth-dummy.m */,
+				58F2BCA33E363A0AA88E8E39B90BB880 /* XYCoreBluetooth-Info.plist */,
+				3F4A58AA0F1E1EED5094BD28CC39EEA9 /* XYCoreBluetooth-prefix.pch */,
+				2D06F70DF4D8455C022330E1DB599AB0 /* XYCoreBluetooth-umbrella.h */,
+				D59CCF2D8812BE0D3ACA3E3277665812 /* XYCoreBluetooth.debug.xcconfig */,
+				FC9DE08AC931D1C209E9D27FF7A10C15 /* XYCoreBluetooth.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/XYCoreBluetooth";
+			sourceTree = "<group>";
+		};
+		BB3311578739FD2A2B99B95403CB3E7A /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				433D350ACD58E2A748C40260C58E0BBB /* XYAtomicCounter.swift */,
+				AEFC2EE77B57349668DB3308D2E003CC /* XYAtomicFlag.swift */,
+				02C31151BCC0CA6566B28A6D1CDD1D4A /* XYStateObservableProperty.swift */,
+				678A9939E93037856799EFC5D7A4B0F7 /* XYThreadSafeObservableProperty.swift */,
+				07F66F58FA5E75777D68B8FC0063F867 /* XYThreadSafeProperty.swift */,
+			);
+			name = Wrapper;
+			path = XYUtil/Classes/Wrapper;
+			sourceTree = "<group>";
+		};
+		CA004562E25FAF8A4843438539B68DF0 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B0A85645FF30863D14E43A35DA1CF7A /* XYCoreBluetooth */,
+				680CF473417F0A7672E6C440C56E1BAB /* XYExtension */,
+				3FF7BCD0C624B07C72EC891C426ADB69 /* XYLog */,
+				9DD2342B7196FEDB514D19557B599CE1 /* XYUtil */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CD9E9383987945E577EF28D38AFA4CBA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B75CE1F9D8E2AEC22DBB74613FD45A7 /* XYLog.modulemap */,
+				458C4A125DFB158520B6B04B5EB6E1CB /* XYLog-dummy.m */,
+				30B4E0DE2A790877AACB07B7B3BFD5DB /* XYLog-Info.plist */,
+				05996604C59B2A137ADD35232DDDF9ED /* XYLog-prefix.pch */,
+				30C12CF2A5F88CBCB30604888F816037 /* XYLog-umbrella.h */,
+				ABC8F6B82F72862B25F400D1470B31A7 /* XYLog.debug.xcconfig */,
+				C11B926B9E1AEE4CDE85E1E33BF27168 /* XYLog.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../XYCoreBluetooth/Example/Pods/Target Support Files/XYLog";
-			sourceTree = "<group>";
-		};
-		9BE6DE200FB08F2BD7661FE7C7256D9D /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				4E99176AA16DB30B054F6D36BD1F2BF8 /* LICENSE */,
-				3B20A3303FEC6E6683064C19B2BF55AC /* README.md */,
-				2741B21E7974733B85528F08C328701C /* XYUtil.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		B2A338608A4FEF124F5DA69FFC34533E /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				0C94452AAA26CE908B14160945AD6C4B /* LICENSE */,
-				1056E11B90D9C7D4C32A1071ED336BFA /* README.md */,
-				E70B9DCE8AE362D9BC0C8191D2AC4A59 /* XYLog.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		B6D9670BD41AF246961808BE6A01E27A /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				D555A63D649C6EA40A7748EE95EF941D /* Data.swift */,
-				5D02D8411C155E89D669EA348AA45E64 /* JSON.swift */,
-				6E2BB8BED519D9D6494EF108AA36E56C /* Task.swift */,
-			);
-			name = Foundation;
-			path = XYExtension/Classes/Foundation;
-			sourceTree = "<group>";
-		};
-		C71F436EB1825348722F60B7E63ADCCA /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				0385DBC8EA3416CD1D7AD86B4B46EC94 /* CBCharacteristic.swift */,
-				E94533B032F1508D89848EDC28177BE0 /* CBCharacteristicProperties.swift */,
-				A71026752686063667313FCC35C13040 /* CBCharacteristicWriteType.swift */,
-				62F9E3E731D4D63BCF2C539D6E04C9B9 /* CBDescriptor.swift */,
-				6A8CC5BC4A5D87878BA267795192251F /* CBError.swift */,
-				9ED647646F6485929BAEECA597F8F13F /* CBL2CAPChannel.swift */,
-				9C0B9669652F33DD050B8574414233E8 /* CBManagerState.swift */,
-				F1A997A916E19039B884390CA7CFA04A /* CBPeripheral.swift */,
-				B43057F00078EA213173624CA982CC58 /* CBPeripheralState.swift */,
-				C3CDB17BEE861F20DCB15D78CB358912 /* CBService.swift */,
-				DD212DBC2EA0913C00155A9D /* CBCentralManager.swift */,
-			);
-			name = CoreBluetooth;
-			path = XYExtension/Classes/CoreBluetooth;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				3BC858E7165A4838B1ADDB2E74C35FFB /* Development Pods */,
+				CA004562E25FAF8A4843438539B68DF0 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				320ED2F2348655F220D240EB856D3CE1 /* Pods */,
 				8BBA8A109F85566B3ADE8A0E3E209871 /* Products */,
@@ -806,6 +862,35 @@
 			path = "Target Support Files/Pods-XYCoreBluetooth_Example";
 			sourceTree = "<group>";
 		};
+		D6418F1434CCABD936EC8BFCB6E59744 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				01C6C694BD6897CB7BAB531F7D28CB9E /* LICENSE */,
+				25AD3468D68F633F65628F115FA40947 /* README.md */,
+				EF5BC1DD4B66F77EABF304AF86ACFE8F /* XYUtil.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		DA0F9E4FC0993620FA794DB23E07D1FF /* XYCentral */ = {
+			isa = PBXGroup;
+			children = (
+				770349B2C789EE6DDA23781C10DAD484 /* XYCentral.swift */,
+			);
+			name = XYCentral;
+			path = XYCentral;
+			sourceTree = "<group>";
+		};
+		EF83637979612848CB3F9BA201F65A1C /* Central */ = {
+			isa = PBXGroup;
+			children = (
+				39F6C329CD03C7AB32D61B0B8A20586D /* XYCentralManager */,
+				742B9C0A6EA208CC0A5124D99577ADCF /* XYPeripheral */,
+			);
+			name = Central;
+			path = XYCoreBluetooth/Classes/Central;
+			sourceTree = "<group>";
+		};
 		F1FB411658184BAABBF7D0F896BE25A4 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,35 +900,40 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		F39F47E3B76F754753CAFCCB65C2E167 /* XYExtension */ = {
+		FFE221A4DD571BC14A9F3DF28D9AE350 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				C71F436EB1825348722F60B7E63ADCCA /* CoreBluetooth */,
-				B6D9670BD41AF246961808BE6A01E27A /* Foundation */,
-				8E52CB635A12E79901A98767EC02AC5C /* Pod */,
-				7821EF17DA30E4D41770C377CA11ADEA /* Support Files */,
-				943715240A6307DEAF714A2950517F27 /* WatchConnectivity */,
+				87BB3B6506D114529FE35671933A7175 /* LICENSE */,
+				B8285B976937C1B516A7F3CAFCF2C07B /* README.md */,
+				55943B30B548DFFFFFAD8469208228A4 /* XYLog.podspec */,
 			);
-			name = XYExtension;
-			path = ../../../../Basic/XYExtension;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		943E552855DE7126BC5894C96726E806 /* Headers */ = {
+		0F765576FF68E78C98FF9CCDAAF5BD03 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0418E016017771421B8EF1B6D78E661 /* XYUtil-umbrella.h in Headers */,
+				3AE899206DA1065E10AB39C437E296F5 /* XYExtension-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96E7274F932D2F7D6EDD25045E2EE62A /* Headers */ = {
+		12A51470051665C470F1FC32586E4B5A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76C2D397247030B19A9B2793A005DB2A /* XYExtension-umbrella.h in Headers */,
+				033A7D5D0EA9DB9F53E5BD0D1C9B1FC0 /* XYUtil-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E34838A669220D8381F59FF56712C3F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ED1457CFEB2B54EDF18EE0882A401F2 /* XYCoreBluetooth-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,27 +966,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE9C0D33B5A20336A96534515F888DB9 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61EDA1D44749B604F683E6675CD37BA7 /* XYLog-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC12E3B07499C6E6D7BC12BACAE4FA30 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A4440F561B9D32E35DC3F3FDC85E95F /* XYCoreBluetooth-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C1CA489A1D207303C89D6210EC5038FF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				327B7BD1E81DA124024219542170D1DB /* Pods-XYCoreBluetooth_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBEC211D52B0D7A481E450B4DC66100C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8BA42366B7FEA1A905CBE503C44B4B7 /* XYLog-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,11 +995,11 @@
 /* Begin PBXNativeTarget section */
 		276021C4482165D46E0CBBEFB822FE95 /* CocoaLumberjack-CocoaLumberjackPrivacy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 850F659E37F794339E0180D8A572894D /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */;
+			buildConfigurationList = 8E10FB4E3AD04FA53D91A569A13610B8 /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */;
 			buildPhases = (
-				4E2311EAA4AE9486FB7B7B0DE842043B /* Sources */,
-				3F70C6ABEFAF655FC4629930103E0A62 /* Frameworks */,
-				21C56B6B1DBEB993B440EBBEED9492BE /* Resources */,
+				1051899B4B368851381FEC71954297B7 /* Sources */,
+				882A5F77DDB777C20999F91A5963A4D6 /* Frameworks */,
+				DC52B410B7E8E31BA3A669A4F0799606 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -925,38 +1007,38 @@
 			);
 			name = "CocoaLumberjack-CocoaLumberjackPrivacy";
 			productName = CocoaLumberjackPrivacy;
-			productReference = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjackPrivacy.bundle */;
+			productReference = 519AF98C92B517DD023896CD077EBFD4 /* CocoaLumberjack-CocoaLumberjackPrivacy */;
 			productType = "com.apple.product-type.bundle";
 		};
 		4442F2BEBFD86828A412FEEBA8126F7A /* XYCoreBluetooth */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 826EC555228D8676AC18F3A67FD18725 /* Build configuration list for PBXNativeTarget "XYCoreBluetooth" */;
+			buildConfigurationList = 86E9DE2D9CF8EEF779BBA822550B8862 /* Build configuration list for PBXNativeTarget "XYCoreBluetooth" */;
 			buildPhases = (
-				BC12E3B07499C6E6D7BC12BACAE4FA30 /* Headers */,
-				C9EBD1898B1131A7E41648FDC80DE139 /* Sources */,
-				7EF69C207A28C6472043D9EBE9770220 /* Frameworks */,
-				3BA35460AC83C9217188B3C9A7ECB0C6 /* Resources */,
+				7E34838A669220D8381F59FF56712C3F /* Headers */,
+				F810C9B5014719871AC5FB5EF1F971F9 /* Sources */,
+				4B157DE21BCBB52C2ED902883F88E8FC /* Frameworks */,
+				2300CFCBCAC04FB9DE84DD7E1ACC6F7C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ED32237006CD2440800F3778618D3432 /* PBXTargetDependency */,
-				CA60586929D8D7BE44B5430AE6C88099 /* PBXTargetDependency */,
-				2184D27DE0581485E42D34F511C056C1 /* PBXTargetDependency */,
+				1520BD76B407CDEBF1937876CAE19E84 /* PBXTargetDependency */,
+				2FE62E0030AD01E75D2AFC7E9BE9837C /* PBXTargetDependency */,
+				A77AC5F94CC198CB355215D9D5DB9DFC /* PBXTargetDependency */,
 			);
 			name = XYCoreBluetooth;
 			productName = XYCoreBluetooth;
-			productReference = C083A60AE4D4D205044B90C56F4E54F2 /* XYCoreBluetooth.framework */;
+			productReference = C083A60AE4D4D205044B90C56F4E54F2 /* XYCoreBluetooth */;
 			productType = "com.apple.product-type.framework";
 		};
 		606F4BA4318CD0324FB40536167C5A47 /* XYExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C86BA72B22A3EAE9CB5F833328352E9 /* Build configuration list for PBXNativeTarget "XYExtension" */;
+			buildConfigurationList = 36E134D9F4C39FA25922D6E33D30D04B /* Build configuration list for PBXNativeTarget "XYExtension" */;
 			buildPhases = (
-				96E7274F932D2F7D6EDD25045E2EE62A /* Headers */,
-				E6A65E5004758F515B95578CA5E8FC50 /* Sources */,
-				D46559D1B26CDC402E982B0996F1728C /* Frameworks */,
-				4D924FA64C25B719254FA45A16B05E89 /* Resources */,
+				0F765576FF68E78C98FF9CCDAAF5BD03 /* Headers */,
+				CF69BBB9AFFE2C1767979DBB0B8A8368 /* Sources */,
+				FA68DCF5055C78BF509EA75CEBDE0665 /* Frameworks */,
+				C13EA80A3255D4EDABCE53125082D8D6 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -964,26 +1046,26 @@
 			);
 			name = XYExtension;
 			productName = XYExtension;
-			productReference = 7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension.framework */;
+			productReference = 7BEE6C3F13E8CFB3258104C5B13215AA /* XYExtension */;
 			productType = "com.apple.product-type.framework";
 		};
 		62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DF18A036C8BF7240038E25C6DDAECDC /* Build configuration list for PBXNativeTarget "XYUtil" */;
+			buildConfigurationList = D33DC92B505EF5D887FA27DE3B3F16D7 /* Build configuration list for PBXNativeTarget "XYUtil" */;
 			buildPhases = (
-				943E552855DE7126BC5894C96726E806 /* Headers */,
-				107708A0BB4B3E265E07ABC690B19BE7 /* Sources */,
-				6E1A60B0DA8E46AEF5301E8E33A3E302 /* Frameworks */,
-				9E7BBBF72CA339883196E68A8B9EB55C /* Resources */,
+				12A51470051665C470F1FC32586E4B5A /* Headers */,
+				56F037D4BEE1A8524DD52694664C13EA /* Sources */,
+				5B881F615610EDE6ECF4D7676F5BAC89 /* Frameworks */,
+				106062F209EA2325C349482794B7C64F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D64B1AB8816FE37D555862A8AA3228B9 /* PBXTargetDependency */,
+				EAE64EE25EC7CC5F3D562BE877994DBB /* PBXTargetDependency */,
 			);
 			name = XYUtil;
 			productName = XYUtil;
-			productReference = B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil.framework */;
+			productReference = B6F4552150C7FBAE9A6DFC586C33DB22 /* XYUtil */;
 			productType = "com.apple.product-type.framework";
 		};
 		62E4C7CEC16DBEBBD1F76EE2C39279ED /* Pods-XYCoreBluetooth_Example */ = {
@@ -998,15 +1080,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				F18735E50D38310E1A0905F267D68086 /* PBXTargetDependency */,
-				246FA0E0C5D41EB28B465A1DD8D0EC60 /* PBXTargetDependency */,
-				33D0C54B6E28E174EF98CD4CCCD726EE /* PBXTargetDependency */,
-				512F0295E1ACBAF83DF61E601E427E6C /* PBXTargetDependency */,
-				72F5EB5483C95FC6653841FB675C4AC5 /* PBXTargetDependency */,
+				5B929D583E8B51989091CBAF365B853E /* PBXTargetDependency */,
+				CF9082265F5924C99AB2D22797F0132A /* PBXTargetDependency */,
+				F671405D1BAB7707849F84733CE5D0DA /* PBXTargetDependency */,
+				8FAEA0A1A8711CAD36254497958F484A /* PBXTargetDependency */,
+				0F8DAF12B3C1162B610E9B58DB323C2B /* PBXTargetDependency */,
 			);
 			name = "Pods-XYCoreBluetooth_Example";
 			productName = Pods_XYCoreBluetooth_Example;
-			productReference = 5E99BEB6F5DFB45473EAA04A4B790DF7 /* Pods_XYCoreBluetooth_Example.framework */;
+			productReference = 5E99BEB6F5DFB45473EAA04A4B790DF7 /* Pods-XYCoreBluetooth_Example */;
 			productType = "com.apple.product-type.framework";
 		};
 		7C9E6774750A88022D75D8A595221AFB /* Pods-XYCoreBluetooth_Tests */ = {
@@ -1021,32 +1103,32 @@
 			buildRules = (
 			);
 			dependencies = (
-				97C24218F658AEF81BD1E72AD294025D /* PBXTargetDependency */,
+				331D22F9A21DB85DD58ED149AECCDCEA /* PBXTargetDependency */,
 			);
 			name = "Pods-XYCoreBluetooth_Tests";
 			productName = Pods_XYCoreBluetooth_Tests;
-			productReference = 68B230D792BB20597037438E552C1915 /* Pods_XYCoreBluetooth_Tests.framework */;
+			productReference = 68B230D792BB20597037438E552C1915 /* Pods-XYCoreBluetooth_Tests */;
 			productType = "com.apple.product-type.framework";
 		};
 		A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35B16D9F192726336F0910DDC62910D6 /* Build configuration list for PBXNativeTarget "XYLog" */;
+			buildConfigurationList = 863744508283F0F5DC8DF84615BC76F8 /* Build configuration list for PBXNativeTarget "XYLog" */;
 			buildPhases = (
-				AE9C0D33B5A20336A96534515F888DB9 /* Headers */,
-				7DC535A8DB86BA93A38AFBE83521D41B /* Sources */,
-				4F9E4AD6DDEA35D0E1138E7AD7406668 /* Frameworks */,
-				F69552D78D79BF453CA3F944AC3ABD32 /* Resources */,
+				CBEC211D52B0D7A481E450B4DC66100C /* Headers */,
+				49ACD3F140128CC87244A27DF27D6382 /* Sources */,
+				01E87EA52DB9116CC8708ADCAB67AECC /* Frameworks */,
+				C898C876826DFF5120CBB24AB7DFD031 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				02AF945708EB60A1B94C090016A4C216 /* PBXTargetDependency */,
-				4BC3539C6ABD7139C6D114AD65817D31 /* PBXTargetDependency */,
-				366C2E5AB1D9B5DA9BF6E3B0C9AEDA96 /* PBXTargetDependency */,
+				710A1983BF52A0BEB6006978BE8C327D /* PBXTargetDependency */,
+				BEF8FABD30C8D6689F1C16C407EFA097 /* PBXTargetDependency */,
+				B590DF45C3BA2E2A60DE3F2FB0E1F58A /* PBXTargetDependency */,
 			);
 			name = XYLog;
 			productName = XYLog;
-			productReference = A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog.framework */;
+			productReference = A9E4DE2FB93D49FA6A72756879E1BBAF /* XYLog */;
 			productType = "com.apple.product-type.framework";
 		};
 		E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */ = {
@@ -1061,11 +1143,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				FFD5AE798FE6DD287628B8CA4E21CD7B /* PBXTargetDependency */,
+				544013622117028F1E2404A3CFC0309B /* PBXTargetDependency */,
 			);
 			name = CocoaLumberjack;
 			productName = CocoaLumberjack;
-			productReference = C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack.framework */;
+			productReference = C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1086,6 +1168,8 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 8BBA8A109F85566B3ADE8A0E3E209871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1103,30 +1187,22 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		106062F209EA2325C349482794B7C64F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		208CA54F7A9B2296A366628AEDB45C82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjackPrivacy.bundle in Resources */,
+				3B0FF40DF892BD293CB1F38A527279F4 /* CocoaLumberjack-CocoaLumberjackPrivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21C56B6B1DBEB993B440EBBEED9492BE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B218905200103D009F9CB904650A0A8D /* PrivacyInfo.xcprivacy in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3BA35460AC83C9217188B3C9A7ECB0C6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4D924FA64C25B719254FA45A16B05E89 /* Resources */ = {
+		2300CFCBCAC04FB9DE84DD7E1ACC6F7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1140,10 +1216,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9E7BBBF72CA339883196E68A8B9EB55C /* Resources */ = {
+		C13EA80A3255D4EDABCE53125082D8D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C898C876826DFF5120CBB24AB7DFD031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC52B410B7E8E31BA3A669A4F0799606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4B2C638C5406CE1BF296D75922DBC92 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,28 +1245,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F69552D78D79BF453CA3F944AC3ABD32 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		107708A0BB4B3E265E07ABC690B19BE7 /* Sources */ = {
+		1051899B4B368851381FEC71954297B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				474560A5DD6CD852100087F03C9BF06B /* XYApp.swift in Sources */,
-				97891795C645A87584814572F1F864E4 /* XYAtomicCounter.swift in Sources */,
-				26B9886BC1BD2ECA1F41ABEA5289303D /* XYAtomicFlag.swift in Sources */,
-				1314E97DCE919AF5350684DD820DFAA6 /* XYStateObservableProperty.swift in Sources */,
-				FA4173F3D3B1DA5C9C8594B4FD82F375 /* XYThreadSafeObservableProperty.swift in Sources */,
-				4B881712CF4D809DF7A3EA4BD62CBC4E /* XYThreadSafeProperty.swift in Sources */,
-				493518CDAAC614F527FFDF6DCF47D9DD /* XYUtil.swift in Sources */,
-				542C6EC0AC636E07F71CF58E2197359C /* XYUtil-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,10 +1284,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4E2311EAA4AE9486FB7B7B0DE842043B /* Sources */ = {
+		49ACD3F140128CC87244A27DF27D6382 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1623674AAD28563494824FBD1B83171 /* XYLog.swift in Sources */,
+				862B25BEC0A794CB50C22F581561C208 /* XYLog-dummy.m in Sources */,
+				A4B92793533C9A9721B9A62354BBA018 /* XYLogger.swift in Sources */,
+				A3257AFA9CBCA05503808A1ECF538864 /* XYLogLevel.swift in Sources */,
+				F6F996048D8D4B69BCB06E8911A7630A /* XYLogProcess.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F037D4BEE1A8524DD52694664C13EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F99B939A8A11C5A1B1242ABDF7BABAC /* XYApp.swift in Sources */,
+				7FF45D589DE7F4248A8C2ACBB45F0DDB /* XYAtomicCounter.swift in Sources */,
+				88C6E61806537B8C338FDED1C9CD5877 /* XYAtomicFlag.swift in Sources */,
+				EBA19C0B6EDBDB5A728BEB151089CBF6 /* XYStateObservableProperty.swift in Sources */,
+				C37F1008668173F1B07E7C1262DE02D8 /* XYThreadSafeObservableProperty.swift in Sources */,
+				5923187452E8D4D3445331549B022B91 /* XYThreadSafeProperty.swift in Sources */,
+				FB2F116020E3337B4DA3B9CB6DBA1DFC /* XYUtil.swift in Sources */,
+				D5DC74F42C93D059FE8EC1A9E9449EB9 /* XYUtil-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,18 +1319,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DC535A8DB86BA93A38AFBE83521D41B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA831AE75A99F21040BD7BF84A872DE4 /* XYLog.swift in Sources */,
-				BE7C2012BE94D8A1FF49EAC951065C54 /* XYLog-dummy.m in Sources */,
-				302FD0AF88C7C417E86672E97EB41F30 /* XYLogger.swift in Sources */,
-				2369DFC1F6B5CC29CEFCCFBA14104EB5 /* XYLogLevel.swift in Sources */,
-				DB70ED129E135CAC8F5DC15A83C54897 /* XYLogProcess.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8B8651017F3F65AB0D575803C4C58CD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1243,163 +1327,152 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9EBD1898B1131A7E41648FDC80DE139 /* Sources */ = {
+		CF69BBB9AFFE2C1767979DBB0B8A8368 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44BB642F42FACED805815BA6F3BA94EE /* XYCentralManager.swift in Sources */,
-				A21FB24371EF72C3D6CF1B1B32D99075 /* XYCentralManagerDelegate.swift in Sources */,
-				2F69DC7CC415F74BF96D0C8483B0C54A /* XYCoreBluetooth-dummy.m in Sources */,
+				060C9B7805A04CE3C431178C872EA8F1 /* CBATTRequest.swift in Sources */,
+				DDC89C363DA3750DD017886DCAB7FB23 /* CBCentral.swift in Sources */,
+				908F0722AAAB40CC7432A2BC3881DE98 /* CBCentralManager.swift in Sources */,
+				F2BF9DAA88B594C2AB06616173095423 /* CBCharacteristic.swift in Sources */,
+				F530E496C456802FFB6C3C00CAF466B8 /* CBCharacteristicProperties.swift in Sources */,
+				0571DC9CD2D5AE31AFA7CCEBAB4F9F08 /* CBCharacteristicWriteType.swift in Sources */,
+				234CC5DCC312AFF05A94BC2EC59B9899 /* CBDescriptor.swift in Sources */,
+				1E0E45264BEDED7C3E9CCC8B48A7551B /* CBError.swift in Sources */,
+				1D1A98B5F8EC545F6C7F5D61E9E1AD4A /* CBL2CAPChannel.swift in Sources */,
+				CDFE3443176DC463F513AFD7180C6ABB /* CBManagerState.swift in Sources */,
+				A041CF06EEB437FA6209C94CFFC2316B /* CBPeripheral.swift in Sources */,
+				D9DEB9B3934DA46E8DF07D47A658348A /* CBPeripheralManager.swift in Sources */,
+				288AF15BB8F8AAA00583B578AEF26EBF /* CBPeripheralState.swift in Sources */,
+				A6794C72EA335CD251D9F88C28615562 /* CBService.swift in Sources */,
+				C1AF315192F8BA9BD217210EFDD79977 /* Data.swift in Sources */,
+				38878147D6815BEA44088289CE6FCFDF /* JSON.swift in Sources */,
+				3B4D4FC1392E01D581FF8DE180D08126 /* Task.swift in Sources */,
+				3981BB4D0CD4C3E534577156ACDD77F6 /* WCSessionActivationState.swift in Sources */,
+				31C0302382B3928703E808443DA4C4AB /* XYExtension-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6A65E5004758F515B95578CA5E8FC50 /* Sources */ = {
+		F810C9B5014719871AC5FB5EF1F971F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B09AB0E10530652021EFE50725536BC /* CBCharacteristic.swift in Sources */,
-				FE3BC3494882C3B9EE3299FB7952322A /* CBCharacteristicProperties.swift in Sources */,
-				4100B1F6C5A77948A9BF6D92BAE5C3B2 /* CBCharacteristicWriteType.swift in Sources */,
-				D02B0F876C9056E9318651A02AFB0A15 /* CBDescriptor.swift in Sources */,
-				DD212DBD2EA0913C00155A9D /* CBCentralManager.swift in Sources */,
-				0C1A4F95F19720B4F24297162E4A3E25 /* CBError.swift in Sources */,
-				0BCF585F85E99ECCA58052355464A81C /* CBL2CAPChannel.swift in Sources */,
-				E37B8EC3332E0D72A8F700D11A5D80E7 /* CBManagerState.swift in Sources */,
-				501D833CB9206D1202403C67716CDAEC /* CBPeripheral.swift in Sources */,
-				1C858FC9FF7F331041DD8C745C33B53B /* CBPeripheralState.swift in Sources */,
-				11AF41B52AB8DA7D1957129E6EAA54F4 /* CBService.swift in Sources */,
-				8A612CC7F89BE307BFC8A5EE1EE11417 /* Data.swift in Sources */,
-				A3F78364232C31976A8F8E61CCA71DD6 /* JSON.swift in Sources */,
-				45C35724915E8DDFFE6B7A74CA857245 /* Task.swift in Sources */,
-				4044037F02F0A0321E7EB5E9E46AC471 /* WCSessionActivationState.swift in Sources */,
-				60085ED7C40A9B28AA1987D12D3E1B7B /* XYExtension-dummy.m in Sources */,
+				D386F27AEB1998B45414986397330757 /* XYBleLog.swift in Sources */,
+				96DAC49B2E6ABC9522C6F7AAF5962ED8 /* XYCentral.swift in Sources */,
+				4156F7B936FC4D8AD7F104663A887346 /* XYCentralManager.swift in Sources */,
+				A14048DE314FC17A871B24778C91AAB5 /* XYCentralManagerDelegate.swift in Sources */,
+				C76D23FA7F0C07E813B4DCFFCEA2C961 /* XYCoreBluetooth-dummy.m in Sources */,
+				590C906C97793933A12A7C1366A2960F /* XYPeripheral.swift in Sources */,
+				A7048EAE75256E27883ED538309EAFBC /* XYPeripheralDelegate.swift in Sources */,
+				CDD8F0593427DCE402FF4092E94C8E72 /* XYPeripheralManager.swift in Sources */,
+				058B4B11600E045E63C1A40B4EA97DC7 /* XYPeripheralManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		02AF945708EB60A1B94C090016A4C216 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaLumberjack;
-			target = E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */;
-			targetProxy = 2E4638A1E10BABB8034426CC44E50E66 /* PBXContainerItemProxy */;
-		};
-		2184D27DE0581485E42D34F511C056C1 /* PBXTargetDependency */ = {
+		0F8DAF12B3C1162B610E9B58DB323C2B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XYUtil;
 			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
-			targetProxy = B3E6EB2C4A731416BC820B4968E401BA /* PBXContainerItemProxy */;
+			targetProxy = C4F6BC1ADBCB00346C8F3952794C6D96 /* PBXContainerItemProxy */;
 		};
-		246FA0E0C5D41EB28B465A1DD8D0EC60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYCoreBluetooth;
-			target = 4442F2BEBFD86828A412FEEBA8126F7A /* XYCoreBluetooth */;
-			targetProxy = C07A57F92368F3CEE6B5F91A4FD97D52 /* PBXContainerItemProxy */;
-		};
-		33D0C54B6E28E174EF98CD4CCCD726EE /* PBXTargetDependency */ = {
+		1520BD76B407CDEBF1937876CAE19E84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XYExtension;
 			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = 4CFD2044423A94A228899283C95ADFC3 /* PBXContainerItemProxy */;
+			targetProxy = F98B8E4EBBED27301BA44CD546454561 /* PBXContainerItemProxy */;
 		};
-		366C2E5AB1D9B5DA9BF6E3B0C9AEDA96 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYUtil;
-			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
-			targetProxy = A757BD7CAD3BDED4ADB0085E767197DE /* PBXContainerItemProxy */;
-		};
-		4BC3539C6ABD7139C6D114AD65817D31 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYExtension;
-			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = C48183F7C8ED0A9739A276299E1EF904 /* PBXContainerItemProxy */;
-		};
-		512F0295E1ACBAF83DF61E601E427E6C /* PBXTargetDependency */ = {
+		2FE62E0030AD01E75D2AFC7E9BE9837C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XYLog;
 			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
-			targetProxy = 40515D8CA2D06209C233FCAC348D5D30 /* PBXContainerItemProxy */;
+			targetProxy = 5CF5F78293E7060F902ABA575E10BF52 /* PBXContainerItemProxy */;
 		};
-		72F5EB5483C95FC6653841FB675C4AC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYUtil;
-			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
-			targetProxy = 8B0EA611438E9313084A0E858F1F4ACC /* PBXContainerItemProxy */;
-		};
-		97C24218F658AEF81BD1E72AD294025D /* PBXTargetDependency */ = {
+		331D22F9A21DB85DD58ED149AECCDCEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-XYCoreBluetooth_Example";
 			target = 62E4C7CEC16DBEBBD1F76EE2C39279ED /* Pods-XYCoreBluetooth_Example */;
-			targetProxy = E2D548A989C0C77D390D735FCDADFBA0 /* PBXContainerItemProxy */;
+			targetProxy = AC342C873C93735D059EEBF08D21749D /* PBXContainerItemProxy */;
 		};
-		CA60586929D8D7BE44B5430AE6C88099 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYLog;
-			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
-			targetProxy = 75A110334C95038E83BF543B0B253221 /* PBXContainerItemProxy */;
-		};
-		D64B1AB8816FE37D555862A8AA3228B9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYExtension;
-			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = D2E9D8CD198203A420A82A6FE1C55BB5 /* PBXContainerItemProxy */;
-		};
-		ED32237006CD2440800F3778618D3432 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = XYExtension;
-			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
-			targetProxy = 3F30328654A590B824B059561CD31904 /* PBXContainerItemProxy */;
-		};
-		F18735E50D38310E1A0905F267D68086 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaLumberjack;
-			target = E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */;
-			targetProxy = FBC4CEA50AE5E0A42A73A92F0012FA47 /* PBXContainerItemProxy */;
-		};
-		FFD5AE798FE6DD287628B8CA4E21CD7B /* PBXTargetDependency */ = {
+		544013622117028F1E2404A3CFC0309B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CocoaLumberjack-CocoaLumberjackPrivacy";
 			target = 276021C4482165D46E0CBBEFB822FE95 /* CocoaLumberjack-CocoaLumberjackPrivacy */;
-			targetProxy = BA62CA064F7ED18066463C3625397F89 /* PBXContainerItemProxy */;
+			targetProxy = 68D1F2CADC1E2A2BEF72F8EC1AF03F31 /* PBXContainerItemProxy */;
+		};
+		5B929D583E8B51989091CBAF365B853E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CocoaLumberjack;
+			target = E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */;
+			targetProxy = 9CDFC4E610419AA4FF9C58B3B3FF0897 /* PBXContainerItemProxy */;
+		};
+		710A1983BF52A0BEB6006978BE8C327D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CocoaLumberjack;
+			target = E95654B155D25890BE8E26081FCA8265 /* CocoaLumberjack */;
+			targetProxy = 1169CA8E70FBC771AAA745F4714CF8C4 /* PBXContainerItemProxy */;
+		};
+		8FAEA0A1A8711CAD36254497958F484A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYLog;
+			target = A3BBBD0AF3E51B0B83A19D57DECC5732 /* XYLog */;
+			targetProxy = F4D27E4C883A52A43027D06034C3F64B /* PBXContainerItemProxy */;
+		};
+		A77AC5F94CC198CB355215D9D5DB9DFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYUtil;
+			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
+			targetProxy = 7C8B9F73BD800CEC6B096C16463A8D16 /* PBXContainerItemProxy */;
+		};
+		B590DF45C3BA2E2A60DE3F2FB0E1F58A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYUtil;
+			target = 62657DE7A83C714D7765207A6F97E8D9 /* XYUtil */;
+			targetProxy = E98BB9683F0ACE0B3DB7A9CA0BFB4385 /* PBXContainerItemProxy */;
+		};
+		BEF8FABD30C8D6689F1C16C407EFA097 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = D9D57FFD10EE8279AEF50C53381BFCD6 /* PBXContainerItemProxy */;
+		};
+		CF9082265F5924C99AB2D22797F0132A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYCoreBluetooth;
+			target = 4442F2BEBFD86828A412FEEBA8126F7A /* XYCoreBluetooth */;
+			targetProxy = 5E98E3DA2E4533BF15C47448ACF2C829 /* PBXContainerItemProxy */;
+		};
+		EAE64EE25EC7CC5F3D562BE877994DBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = E8E4214E1638425C943B013BC75EF2D7 /* PBXContainerItemProxy */;
+		};
+		F671405D1BAB7707849F84733CE5D0DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYExtension;
+			target = 606F4BA4318CD0324FB40536167C5A47 /* XYExtension */;
+			targetProxy = C4D23848740173937D7844EE5CC44919 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04F86FC197338C66D0FFA5E8E0E39911 /* Release */ = {
+		01B1CE5DC8EF0109F194C919C28585FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0600F8ED36EB9C1F5F84F755F6F6202 /* XYExtension.release.xcconfig */;
+			baseConfigurationReference = 54B08D3E70AEEF5142ACB5DA665BD76B /* CocoaLumberjack.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYExtension/XYExtension-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYExtension/XYExtension-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYExtension/XYExtension.modulemap";
-				PRODUCT_MODULE_NAME = XYExtension;
-				PRODUCT_NAME = XYExtension;
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CocoaLumberjack";
+				IBSC_MODULE = CocoaLumberjack;
+				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = CocoaLumberjackPrivacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1440,23 +1513,6 @@
 			};
 			name = Release;
 		};
-		14DB4A92BB34A0E08DAA3C8AF27EFE39 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA748D11D15267A8F29409BDBFAA28E4 /* CocoaLumberjack.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CocoaLumberjack";
-				IBSC_MODULE = CocoaLumberjack;
-				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/ResourceBundle-CocoaLumberjackPrivacy-CocoaLumberjack-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = CocoaLumberjackPrivacy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		15A0A851A2C71CF5F52062F799F1A0EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1B21C24F9CEB49D6E64AE1209011D77 /* Pods-XYCoreBluetooth_Tests.release.xcconfig */;
@@ -1494,9 +1550,9 @@
 			};
 			name = Release;
 		};
-		1A90C75E087A50790871940DBCF45DA2 /* Debug */ = {
+		30564179DB740497492F11A82F12F794 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFF81AC3F18E69C9A3A79D5C000D5B7B /* XYUtil.debug.xcconfig */;
+			baseConfigurationReference = 83DA7C5D384B268C2E34E9AF34788BF6 /* XYExtension.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1510,88 +1566,15 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYUtil/XYUtil-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/XYExtension/XYExtension-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYUtil/XYUtil-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/XYExtension/XYExtension-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYUtil/XYUtil.modulemap";
-				PRODUCT_MODULE_NAME = XYUtil;
-				PRODUCT_NAME = XYUtil;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		219F501DD2A7CF69D678868E7495CE02 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22085745621B098E014453F88ECB79AA /* XYUtil.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYUtil/XYUtil-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYUtil/XYUtil-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYUtil/XYUtil.modulemap";
-				PRODUCT_MODULE_NAME = XYUtil;
-				PRODUCT_NAME = XYUtil;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		22AEDF218B5F5D110107789F06E5B7CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7E27A3F21B57F6F3716C33ED7D6412C /* XYCoreBluetooth.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYCoreBluetooth/XYCoreBluetooth-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYCoreBluetooth/XYCoreBluetooth-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYCoreBluetooth/XYCoreBluetooth.modulemap";
-				PRODUCT_MODULE_NAME = XYCoreBluetooth;
-				PRODUCT_NAME = XYCoreBluetooth;
+				MODULEMAP_FILE = "Target Support Files/XYExtension/XYExtension.modulemap";
+				PRODUCT_MODULE_NAME = XYExtension;
+				PRODUCT_NAME = XYExtension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1669,6 +1652,79 @@
 			};
 			name = Debug;
 		};
+		4D079F00B91703FABCB83C4F937314E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B36E158AA172F237BE33E59EE11FDCD1 /* XYUtil.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYUtil/XYUtil-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYUtil/XYUtil-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYUtil/XYUtil.modulemap";
+				PRODUCT_MODULE_NAME = XYUtil;
+				PRODUCT_NAME = XYUtil;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		55C2B8672B9F33F96DAA928721028DFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ACD6933C9207292C38FD1D03B1D7C4A /* XYExtension.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYExtension/XYExtension-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYExtension/XYExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYExtension/XYExtension.modulemap";
+				PRODUCT_MODULE_NAME = XYExtension;
+				PRODUCT_NAME = XYExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1724,15 +1780,16 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		9D9E1DB82458CB18151BBA3DD71CCDCE /* Debug */ = {
+		8BEA4A868D2649A9EF1EF4E9839D99CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7676D1D3D22AF25E1898E4741D3E39B /* XYLog.debug.xcconfig */;
+			baseConfigurationReference = ABC8F6B82F72862B25F400D1470B31A7 /* XYLog.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1765,6 +1822,43 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		93AEDFE1CE47070265AE524EC5A8B93F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC9DE08AC931D1C209E9D27FF7A10C15 /* XYCoreBluetooth.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XYCoreBluetooth/XYCoreBluetooth-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/XYCoreBluetooth/XYCoreBluetooth-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYCoreBluetooth/XYCoreBluetooth.modulemap";
+				PRODUCT_MODULE_NAME = XYCoreBluetooth;
+				PRODUCT_NAME = XYCoreBluetooth;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		A0FF2FFBD31171C796A3DCA2246D8B1F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1838,9 +1932,9 @@
 			};
 			name = Debug;
 		};
-		D7A4D6C7988A1392ABE9745A59EB42FD /* Release */ = {
+		B5E4E1475AE72A46E87D4FA1CD31EA2E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63362C474EFF04A9BA2E6016186C9E50 /* XYLog.release.xcconfig */;
+			baseConfigurationReference = C11B926B9E1AEE4CDE85E1E33BF27168 /* XYLog.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1948,9 +2042,9 @@
 			};
 			name = Release;
 		};
-		F5E36C6C2C792EC8A915F3FBDB813F22 /* Debug */ = {
+		F2D75722AEFE843C060B97BDD57A3FF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 196A27F377819384257636DB7E474ADC /* XYExtension.debug.xcconfig */;
+			baseConfigurationReference = BC5BB8A398F700AE642D31FB174E35E2 /* XYUtil.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1964,29 +2058,30 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/XYExtension/XYExtension-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/XYUtil/XYUtil-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/XYExtension/XYExtension-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/XYUtil/XYUtil-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XYExtension/XYExtension.modulemap";
-				PRODUCT_MODULE_NAME = XYExtension;
-				PRODUCT_NAME = XYExtension;
+				MODULEMAP_FILE = "Target Support Files/XYUtil/XYUtil.modulemap";
+				PRODUCT_MODULE_NAME = XYUtil;
+				PRODUCT_NAME = XYUtil;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		F8F43E8263D1494B014F181945853DF9 /* Release */ = {
+		F83EA74492AE52C8D294C0436CA2774C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FC5B1A5E1C10A17D4837D14D58B56DD /* XYCoreBluetooth.release.xcconfig */;
+			baseConfigurationReference = D59CCF2D8812BE0D3ACA3E3277665812 /* XYCoreBluetooth.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2015,15 +2110,14 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		FB98C937C6E88AA9A3950D81E41CE6DC /* Release */ = {
+		F96AAC11159C623B72A31C67547BE8BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54B08D3E70AEEF5142ACB5DA665BD76B /* CocoaLumberjack.release.xcconfig */;
+			baseConfigurationReference = FA748D11D15267A8F29409BDBFAA28E4 /* CocoaLumberjack.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGNING_ALLOWED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CocoaLumberjack";
@@ -2036,7 +2130,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2050,20 +2144,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1C86BA72B22A3EAE9CB5F833328352E9 /* Build configuration list for PBXNativeTarget "XYExtension" */ = {
+		36E134D9F4C39FA25922D6E33D30D04B /* Build configuration list for PBXNativeTarget "XYExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F5E36C6C2C792EC8A915F3FBDB813F22 /* Debug */,
-				04F86FC197338C66D0FFA5E8E0E39911 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		35B16D9F192726336F0910DDC62910D6 /* Build configuration list for PBXNativeTarget "XYLog" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9D9E1DB82458CB18151BBA3DD71CCDCE /* Debug */,
-				D7A4D6C7988A1392ABE9745A59EB42FD /* Release */,
+				30564179DB740497492F11A82F12F794 /* Debug */,
+				55C2B8672B9F33F96DAA928721028DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2077,20 +2162,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		826EC555228D8676AC18F3A67FD18725 /* Build configuration list for PBXNativeTarget "XYCoreBluetooth" */ = {
+		863744508283F0F5DC8DF84615BC76F8 /* Build configuration list for PBXNativeTarget "XYLog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				22AEDF218B5F5D110107789F06E5B7CE /* Debug */,
-				F8F43E8263D1494B014F181945853DF9 /* Release */,
+				8BEA4A868D2649A9EF1EF4E9839D99CF /* Debug */,
+				B5E4E1475AE72A46E87D4FA1CD31EA2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		850F659E37F794339E0180D8A572894D /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */ = {
+		86E9DE2D9CF8EEF779BBA822550B8862 /* Build configuration list for PBXNativeTarget "XYCoreBluetooth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14DB4A92BB34A0E08DAA3C8AF27EFE39 /* Debug */,
-				FB98C937C6E88AA9A3950D81E41CE6DC /* Release */,
+				F83EA74492AE52C8D294C0436CA2774C /* Debug */,
+				93AEDFE1CE47070265AE524EC5A8B93F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E10FB4E3AD04FA53D91A569A13610B8 /* Build configuration list for PBXNativeTarget "CocoaLumberjack-CocoaLumberjackPrivacy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F96AAC11159C623B72A31C67547BE8BD /* Debug */,
+				01B1CE5DC8EF0109F194C919C28585FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2104,20 +2198,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DF18A036C8BF7240038E25C6DDAECDC /* Build configuration list for PBXNativeTarget "XYUtil" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1A90C75E087A50790871940DBCF45DA2 /* Debug */,
-				219F501DD2A7CF69D678868E7495CE02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		AFFC5413928D03CBBF0441AD324B89AD /* Build configuration list for PBXNativeTarget "Pods-XYCoreBluetooth_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB0739E07F1D99EB9E1D963D45B1B780 /* Debug */,
 				12C508E1C90716B82DD0120AEFD7EDCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D33DC92B505EF5D887FA27DE3B3F16D7 /* Build configuration list for PBXNativeTarget "XYUtil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D079F00B91703FABCB83C4F937314E2 /* Debug */,
+				F2D75722AEFE843C060B97BDD57A3FF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
