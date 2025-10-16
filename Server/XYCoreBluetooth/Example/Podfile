@@ -8,6 +8,7 @@ $basic = 'Basic/'
 $server = 'Server/'
 $tool = 'Tool/'
 $business = 'Business/'
+$third = 'Third/'
 
 target 'XYCoreBluetooth_Example' do
   platform :ios, '14.0'
