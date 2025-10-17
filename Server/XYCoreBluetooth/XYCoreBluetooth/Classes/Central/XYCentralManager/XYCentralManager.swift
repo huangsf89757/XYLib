@@ -26,6 +26,17 @@ open class XYCentralManager: NSObject {
     /// 代理对象，用于处理蓝牙事件回调
     public weak var delegate: (any XYCentralManagerDelegate)?
     
+    /// 授权状态
+    @available(iOS 13.1, *)
+    open class var authorization: CBManagerAuthorization {
+        return CBPeripheralManager.authorization
+    }
+    
+    /// 蓝牙状态
+    open var state: CBManagerState {
+        return centralManager.state
+    }
+    
     /// 当前是否正在扫描蓝牙设备（iOS 9.0+）
     @available(iOS 9.0, *)
     public var isScanning: Bool {
@@ -42,6 +53,7 @@ open class XYCentralManager: NSObject {
         super.init()
         centralManager = CBCentralManager(delegate: delegate, queue: queue, options: options)
         centralManager.delegate = self
+        
         self.delegate = delegate
         XYBleLog.debug(params:[
             "delegate": delegate?.description ?? "nil",

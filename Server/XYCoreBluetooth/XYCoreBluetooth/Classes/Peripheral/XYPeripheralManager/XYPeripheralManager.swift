@@ -25,7 +25,18 @@ open class XYPeripheralManager: NSObject {
     public private(set) var peripheralManager: CBPeripheralManager!
     /// 代理对象，用于处理蓝牙事件回调
     public weak var delegate: (any XYPeripheralManagerDelegate)?
-
+    
+    /// 授权状态
+    @available(iOS 13.1, *)
+    open class var authorization: CBManagerAuthorization {
+        return CBPeripheralManager.authorization
+    }
+    
+    /// 蓝牙状态
+    open var state: CBManagerState {
+        return peripheralManager.state
+    }
+    
     /// 是否正在广播
     open var isAdvertising: Bool { peripheralManager.isAdvertising }
 

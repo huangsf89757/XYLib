@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		18D99F26D618F19D94A8A5D0 /* Pods_XYCoreBluetooth_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3064BE58D1A4D9F15214C875 /* Pods_XYCoreBluetooth_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		DD212E8D2EA0F53000155A9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD212E8B2EA0F53000155A9D /* MainViewController.swift */; };
+		DD212E8E2EA0F53000155A9D /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD212E8A2EA0F53000155A9D /* CentralViewController.swift */; };
+		DD212E8F2EA0F53000155A9D /* PeripheralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD212E8C2EA0F53000155A9D /* PeripheralViewController.swift */; };
 		F98FB11B98356325244D31AA /* Pods_XYCoreBluetooth_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E312949F48EB78137453DB /* Pods_XYCoreBluetooth_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,9 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		C85C1F834653494E6F441118 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D2E312949F48EB78137453DB /* Pods_XYCoreBluetooth_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYCoreBluetooth_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD212E8A2EA0F53000155A9D /* CentralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
+		DD212E8B2EA0F53000155A9D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DD212E8C2EA0F53000155A9D /* PeripheralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewController.swift; sourceTree = "<group>"; };
 		F9202E8568CDB7B0223458D5 /* Pods-XYCoreBluetooth_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYCoreBluetooth_Tests.release.xcconfig"; path = "Target Support Files/Pods-XYCoreBluetooth_Tests/Pods-XYCoreBluetooth_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +111,9 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				DD212E8A2EA0F53000155A9D /* CentralViewController.swift */,
+				DD212E8B2EA0F53000155A9D /* MainViewController.swift */,
+				DD212E8C2EA0F53000155A9D /* PeripheralViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -341,8 +349,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				DD212E8D2EA0F53000155A9D /* MainViewController.swift in Sources */,
+				DD212E8E2EA0F53000155A9D /* CentralViewController.swift in Sources */,
+				DD212E8F2EA0F53000155A9D /* PeripheralViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
