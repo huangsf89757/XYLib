@@ -1,0 +1,6 @@
+framework module XYLog {
+  umbrella header "XYLog-watchOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

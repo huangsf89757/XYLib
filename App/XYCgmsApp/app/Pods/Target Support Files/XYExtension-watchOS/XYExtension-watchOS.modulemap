@@ -1,0 +1,6 @@
+framework module XYExtension {
+  umbrella header "XYExtension-watchOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

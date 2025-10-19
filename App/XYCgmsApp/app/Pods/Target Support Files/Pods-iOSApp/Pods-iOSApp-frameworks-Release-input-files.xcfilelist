@@ -1,0 +1,10 @@
+${PODS_ROOT}/Target Support Files/Pods-iOSApp/Pods-iOSApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CocoaLumberjack-iOS/CocoaLumberjack.framework
+${BUILT_PRODUCTS_DIR}/MTBleCore-iOS/MTBleCore.framework
+${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-iOS/XYCoreBluetooth.framework
+${BUILT_PRODUCTS_DIR}/XYExtension-iOS/XYExtension.framework
+${BUILT_PRODUCTS_DIR}/XYLog-iOS/XYLog.framework
+${BUILT_PRODUCTS_DIR}/XYNetwork-iOS/XYNetwork.framework
+${BUILT_PRODUCTS_DIR}/XYStorage-iOS/XYStorage.framework
+${BUILT_PRODUCTS_DIR}/XYUtil-iOS/XYUtil.framework
+${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-iOS/XYWatchConnectivity.framework

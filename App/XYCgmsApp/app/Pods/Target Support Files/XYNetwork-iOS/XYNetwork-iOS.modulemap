@@ -1,0 +1,6 @@
+framework module XYNetwork {
+  umbrella header "XYNetwork-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

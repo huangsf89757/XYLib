@@ -1,0 +1,6 @@
+framework module MTBleCore {
+  umbrella header "MTBleCore-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

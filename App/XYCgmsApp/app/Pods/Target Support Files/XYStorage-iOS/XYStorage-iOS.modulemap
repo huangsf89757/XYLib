@@ -1,0 +1,6 @@
+framework module XYStorage {
+  umbrella header "XYStorage-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

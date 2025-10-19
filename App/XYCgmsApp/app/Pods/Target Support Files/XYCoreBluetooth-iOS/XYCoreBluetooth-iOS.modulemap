@@ -1,0 +1,6 @@
+framework module XYCoreBluetooth {
+  umbrella header "XYCoreBluetooth-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

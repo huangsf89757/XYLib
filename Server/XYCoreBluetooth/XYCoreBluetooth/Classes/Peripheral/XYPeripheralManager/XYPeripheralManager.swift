@@ -5,6 +5,8 @@
 //  Created by hsf on 2025/10/16.
 //
 
+#if os(iOS) || os(macOS) || os(tvOS)
+
 // Module: System
 import Foundation
 import CoreBluetooth
@@ -319,4 +321,4 @@ extension XYPeripheralManager: CBPeripheralManagerDelegate {
     }
 }
 
-
+#endif

@@ -5,6 +5,8 @@
 //  Created by hsf on 2025/10/16.
 //
 
+#if os(iOS) || os(macOS) || os(tvOS)
+
 // Module: System
 import Foundation
 import CoreBluetooth
@@ -124,4 +126,4 @@ public extension XYPeripheralManagerDelegate {
     func peripheralManager(_ peripheral: CBPeripheralManager, unpublishL2CAPChannel PSM: CBL2CAPPSM) {}
 }
 
-
+#endif

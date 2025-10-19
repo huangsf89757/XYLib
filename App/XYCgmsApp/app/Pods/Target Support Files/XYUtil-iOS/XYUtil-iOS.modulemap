@@ -1,0 +1,6 @@
+framework module XYUtil {
+  umbrella header "XYUtil-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

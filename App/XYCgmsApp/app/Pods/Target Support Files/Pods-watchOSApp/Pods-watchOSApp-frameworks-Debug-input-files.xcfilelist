@@ -1,0 +1,10 @@
+${PODS_ROOT}/Target Support Files/Pods-watchOSApp/Pods-watchOSApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CocoaLumberjack-watchOS/CocoaLumberjack.framework
+${BUILT_PRODUCTS_DIR}/MTBleCore-watchOS/MTBleCore.framework
+${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-watchOS/XYCoreBluetooth.framework
+${BUILT_PRODUCTS_DIR}/XYExtension-watchOS/XYExtension.framework
+${BUILT_PRODUCTS_DIR}/XYLog-watchOS/XYLog.framework
+${BUILT_PRODUCTS_DIR}/XYNetwork-watchOS/XYNetwork.framework
+${BUILT_PRODUCTS_DIR}/XYStorage-watchOS/XYStorage.framework
+${BUILT_PRODUCTS_DIR}/XYUtil-watchOS/XYUtil.framework
+${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-watchOS/XYWatchConnectivity.framework
