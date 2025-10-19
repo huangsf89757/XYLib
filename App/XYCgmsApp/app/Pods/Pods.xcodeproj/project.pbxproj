@@ -275,6 +275,8 @@
 		46EB2E00003780 /* Pods-watchOSAppUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00003770 /* Pods-watchOSAppUITests-dummy.m */; };
 		46EB2E00003AB0 /* CocoaLumberjackPrivacy.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96D00C7620A9879434729EE8255C83A4 /* CocoaLumberjackPrivacy.bundle */; };
 		46EB2E00003AE0 /* CocoaLumberjackPrivacy.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E5B47E41A533ADE887B701BEB8CEB7D /* CocoaLumberjackPrivacy.bundle */; };
+		DD4033942EA4C85000C48702 /* XYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4033932EA4C85000C48702 /* XYApp.swift */; };
+		DD4033952EA4C85000C48702 /* XYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4033932EA4C85000C48702 /* XYApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1046,6 +1048,7 @@
 		B4A5177C05EE437C471B3D2A77FC6566 /* Pods_watchOSAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_watchOSAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFFB673BB8FD11814C7F9FDD13E8077 /* XYLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5EEA206D2F3732DA2CF630C6D9D852 /* XYNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD4033932EA4C85000C48702 /* XYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYApp.swift; sourceTree = "<group>"; };
 		E69EA2BF1E95BF76152AEC29B2D0F018 /* XYUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E901C5286403221ADE0CA3EE8B849660 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97C6B7DB8E3B78C5041B901D25BF2D1 /* Pods_iOSAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1489,6 +1492,7 @@
 			isa = PBXGroup;
 			children = (
 				46EB2E00000740 /* XYUtil.swift */,
+				DD4033932EA4C85000C48702 /* XYApp.swift */,
 				46EB2E00000950 /* Pod */,
 				46EB2E00002960 /* Support Files */,
 				46EB2E000006D0 /* Wrapper */,
@@ -3452,6 +3456,7 @@
 				46EB2E00002920 /* XYThreadSafeObservableProperty.swift in Sources */,
 				46EB2E00002930 /* XYThreadSafeProperty.swift in Sources */,
 				46EB2E00002950 /* XYUtil.swift in Sources */,
+				DD4033942EA4C85000C48702 /* XYApp.swift in Sources */,
 				46EB2E000029F0 /* XYUtil-iOS-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3466,6 +3471,7 @@
 				46EB2E00002AD0 /* XYThreadSafeObservableProperty.swift in Sources */,
 				46EB2E00002AE0 /* XYThreadSafeProperty.swift in Sources */,
 				46EB2E00002B00 /* XYUtil.swift in Sources */,
+				DD4033952EA4C85000C48702 /* XYApp.swift in Sources */,
 				46EB2E00002B90 /* XYUtil-watchOS-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
