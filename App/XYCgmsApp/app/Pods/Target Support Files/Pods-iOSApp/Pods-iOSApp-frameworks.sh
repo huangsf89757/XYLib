@@ -177,23 +177,25 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack-iOS/CocoaLumberjack.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MTBleCore-iOS/MTBleCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYApp-iOS/XYApp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-iOS/XYCoreBluetooth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYExtension-iOS/XYExtension.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYLog-iOS/XYLog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYNetwork-iOS/XYNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYStorage-iOS/XYStorage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYUser-iOS/XYUser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYUtil-iOS/XYUtil.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-iOS/XYWatchConnectivity.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack-iOS/CocoaLumberjack.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MTBleCore-iOS/MTBleCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYApp-iOS/XYApp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYCoreBluetooth-iOS/XYCoreBluetooth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYExtension-iOS/XYExtension.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYLog-iOS/XYLog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYNetwork-iOS/XYNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYStorage-iOS/XYStorage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/XYUser-iOS/XYUser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYUtil-iOS/XYUtil.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-iOS/XYWatchConnectivity.framework"
 fi

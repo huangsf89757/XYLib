@@ -2,7 +2,8 @@ PODS:
   - CocoaLumberjack/Core (3.9.0)
   - CocoaLumberjack/Swift (3.9.0):
     - CocoaLumberjack/Core
-  - MTBleCore (0.0.1)
+  - XYApp (1.0.0):
+    - XYExtension
   - XYCoreBluetooth (1.0.0):
     - XYExtension
     - XYLog
@@ -20,6 +21,8 @@ PODS:
     - XYExtension
     - XYLog
     - XYUtil
+  - XYUser (1.0.0):
+    - XYExtension
   - XYUtil (1.0.0):
     - XYExtension
   - XYWatchConnectivity (1.0.0):
@@ -28,12 +31,13 @@ PODS:
     - XYUtil
 
 DEPENDENCIES:
-  - MTBleCore (from `~/Desktop/XYLib/Third/MTBleCore/`)
+  - XYApp (from `~/Desktop/XYLib/Business/XYApp/`)
   - XYCoreBluetooth (from `~/Desktop/XYLib/Server/XYCoreBluetooth/`)
   - XYExtension (from `~/Desktop/XYLib/Basic/XYExtension/`)
   - XYLog (from `~/Desktop/XYLib/Server/XYLog/`)
   - XYNetwork (from `~/Desktop/XYLib/Server/XYNetwork/`)
   - XYStorage (from `~/Desktop/XYLib/Server/XYStorage/`)
+  - XYUser (from `~/Desktop/XYLib/Business/XYUser/`)
   - XYUtil (from `~/Desktop/XYLib/Tool/XYUtil/`)
   - XYWatchConnectivity (from `~/Desktop/XYLib/Server/XYWatchConnectivity/`)
 
@@ -42,8 +46,8 @@ SPEC REPOS:
     - CocoaLumberjack
 
 EXTERNAL SOURCES:
-  MTBleCore:
-    :path: "~/Desktop/XYLib/Third/MTBleCore/"
+  XYApp:
+    :path: "~/Desktop/XYLib/Business/XYApp/"
   XYCoreBluetooth:
     :path: "~/Desktop/XYLib/Server/XYCoreBluetooth/"
   XYExtension:
@@ -54,6 +58,8 @@ EXTERNAL SOURCES:
     :path: "~/Desktop/XYLib/Server/XYNetwork/"
   XYStorage:
     :path: "~/Desktop/XYLib/Server/XYStorage/"
+  XYUser:
+    :path: "~/Desktop/XYLib/Business/XYUser/"
   XYUtil:
     :path: "~/Desktop/XYLib/Tool/XYUtil/"
   XYWatchConnectivity:
@@ -61,15 +67,16 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
-  MTBleCore: 2c56e59161ee4e1c37f87578aa1399ffabcca0e5
+  XYApp: 3bd9b0a0847201e4a60191a4760b9151459e0b4a
   XYCoreBluetooth: 5ef9ee9b9633fbde6c52c43d794e7738fc615e54
   XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
   XYLog: 22bc8883abd56a232546d8f8c9206fa88fe193cb
   XYNetwork: 67bc5ffada98294449948ef0b042ca4f72a16094
   XYStorage: a2bdb7e36d549e3bb9d7f97cd00aabbc0ace7e29
+  XYUser: 5caf94c347f106026286beace9118f8dec638bc0
   XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23
   XYWatchConnectivity: 8bd7ad9d677d5bc66e0cf7cb5bdd3551d7a9b191
 
-PODFILE CHECKSUM: b4f988c78ec936c6227b3b9a6614a945187d83c9
+PODFILE CHECKSUM: c2a6818db8647515b3dd9b0c6a4d5185fb7b2ac8
 
 COCOAPODS: 1.16.2

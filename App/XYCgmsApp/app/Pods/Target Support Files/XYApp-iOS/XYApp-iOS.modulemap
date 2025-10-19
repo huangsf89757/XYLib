@@ -1,0 +1,6 @@
+framework module XYApp {
+  umbrella header "XYApp-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

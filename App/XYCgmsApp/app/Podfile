@@ -27,6 +27,7 @@ PATHS = {
   third:  	  LIB_ROOT + 'Third/'
 }
 
+
 # ================== 动态获取主工程平台版本 ==================
 require 'xcodeproj'
 
@@ -80,9 +81,12 @@ def comPod
 
   # Server
 
-
+  # Business
+  pod 'XYApp',            :path => PATHS[:business] + 'XYApp/'
+  pod 'XYUser',           :path => PATHS[:business] + 'XYUser/'
+  
   # Third
-  pod 'MTBleCore',         :path => PATHS[:third] + 'MTBleCore/'
+#  pod 'MTBleCore',         :path => PATHS[:third] + 'MTBleCore/'
   
 end
 
@@ -95,7 +99,8 @@ def iOSPod
   # Tool
 
   # Server
-
+  
+  # Business
 
   # Third
   
@@ -110,7 +115,8 @@ def watchOSPod
   # Tool
 
   # Server
-
+  
+  # Business
 
   # Third
   
