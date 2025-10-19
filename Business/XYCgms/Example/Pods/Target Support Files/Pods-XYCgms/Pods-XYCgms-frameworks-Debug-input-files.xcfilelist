@@ -9,4 +9,3 @@ ${BUILT_PRODUCTS_DIR}/XYNetwork-iOS/XYNetwork.framework
 ${BUILT_PRODUCTS_DIR}/XYStorage-iOS/XYStorage.framework
 ${BUILT_PRODUCTS_DIR}/XYUtil-iOS/XYUtil.framework
 ${BUILT_PRODUCTS_DIR}/XYWatchConnectivity-iOS/XYWatchConnectivity.framework
-${BUILT_PRODUCTS_DIR}/XYWorkflow-iOS/XYWorkflow.framework

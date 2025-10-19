@@ -12,24 +12,28 @@ public final class XYAlertSettings {
     // MARK: var
     /// 总开关，默认开启
     public var enable = true
-    /// 极高血糖提醒
-    public private(set) lazy var extremeHigh: XYAlertSettingContent = {
+    /// 高血糖提醒（紧急）
+    public private(set) lazy var urgentHigh: XYAlertSettingContent = {
         let content = XYAlertSettingContent()
+        content.threshold = XYCgmsThreshold.default.urgentHigh
         return content
     }()
     /// 高血糖提醒
     public private(set) lazy var high: XYAlertSettingContent = {
         let content = XYAlertSettingContent()
+        content.threshold = XYCgmsThreshold.default.high
         return content
     }()
     /// 低血糖提醒
     public private(set) lazy var low: XYAlertSettingContent = {
         let content = XYAlertSettingContent()
+        content.threshold = XYCgmsThreshold.default.low
         return content
     }()
-    /// 低血糖紧急提醒
+    /// 低血糖提醒（紧急）
     public private(set) lazy var urgentLow: XYAlertSettingContent = {
         let content = XYAlertSettingContent()
+        content.threshold = XYCgmsThreshold.default.urgentLow
         return content
     }()
     /// 血糖上升过快提醒

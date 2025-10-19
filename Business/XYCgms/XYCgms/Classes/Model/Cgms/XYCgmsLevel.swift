@@ -10,10 +10,12 @@ import Foundation
 // MARK: - 血糖等级
 public enum XYCgmsLevel: Int {
     case unknown    = -99   // 未知
-    case limitHigh  = 2     // 高血糖（限制）
+    case limitHigh  = 3     // 高血糖（限制）
+    case urgentHigh = 2     // 高血糖（紧急）
     case high       = 1     // 高血糖
     case normal     = 0     // 正常血糖
     case low        = -1    // 低血糖
-    case urgentLow  = -2    // 紧急低血糖
+    case urgentLow  = -2    // 低血糖（紧急）
     case limitLow   = -3    // 低血糖（限制）
 }
+

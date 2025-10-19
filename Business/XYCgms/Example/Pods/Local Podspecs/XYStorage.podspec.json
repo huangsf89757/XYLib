@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "XYExtension": [],
+    "XYLog": [],
     "XYUtil": []
   },
   "platforms": {

@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "XYExtension": [],
-    "XYUtil": [],
-    "XYLog": []
+    "XYLog": [],
+    "XYUtil": []
   },
   "platforms": {
     "ios": "14.0",

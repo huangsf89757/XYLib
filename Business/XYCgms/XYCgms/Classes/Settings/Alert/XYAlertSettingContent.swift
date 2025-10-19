@@ -12,8 +12,8 @@ public final class XYAlertSettingContent {
     // MARK: var
     /// 开关，默认开启
     public var enable = true
-    /// 阈值，默认0
-    public var threshold: Float = 0
+    /// 阈值
+    public var threshold: XYCgmsValue?
     /// 提醒方式，默认声音和振动
     public var method: XYAlertMethod = [.sound, .vibration]
     /// 提醒间隔，默认15分钟

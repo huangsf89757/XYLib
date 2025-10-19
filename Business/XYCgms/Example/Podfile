@@ -1,58 +1,92 @@
+# Podfile
+# CocoaPods 插件源
 source 'https://github.com/CocoaPods/Specs.git'
+
+# 启用 Swift 动态框架
 use_frameworks!
+
+# 隐藏所有 CocoaPods 警告
 inhibit_all_warnings!
 
-# 全局设置：所有Pod默认遵循主工程的平台约束
+# 关闭 deterministic UUIDs（便于版本控制查看差异）
 install! 'cocoapods', :deterministic_uuids => false
 
-# 读取主工程的配置（需根据实际项目路径调整）
-main_project_path = './XYCgms.xcodeproj'
-main_project = Xcodeproj::Project.open(main_project_path)
 
-# 从主工程获取iOS最低部署版本（默认取第一个target的配置）
+# ================== 配置常量 ==================
+# 主工程路径（请根据实际情况调整）
+MAIN_PROJECT_PATH = './XYCgms.xcodeproj'
+
+# 基础路径映射
+LIB_ROOT = '../../../'
+PATHS = {
+  basic:  LIB_ROOT + 'Basic/',
+  server: LIB_ROOT + 'Server/',
+  tool:   LIB_ROOT + 'Tool/',
+  business: LIB_ROOT + 'Business/',
+  third:  LIB_ROOT + 'Third/'
+}
+
+# ================== 动态获取主工程平台版本 ==================
+require 'xcodeproj'
+
+def get_deployment_target(project, platform_symbol, target_key)
+  project.targets.each do |target|
+    if target.platform_name == platform_symbol
+      config = target.build_configurations.first
+      return config.build_settings[target_key] if config
+    end
+  end
+  nil
+end
+
 ios_deployment_target = nil
-main_project.targets.each do |target|
-  if target.platform_name == :ios
-    # 读取主工程target的最低iOS版本
-    ios_deployment_target = target.build_configurations.first.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
-    break  # 取第一个iOS target的配置
-  end
-end
-
-# 从主工程获取watchOS最低部署版本（如果有）
 watchos_deployment_target = nil
-main_project.targets.each do |target|
-  if target.platform_name == :watchos
-    watchos_deployment_target = target.build_configurations.first.build_settings['WATCHOS_DEPLOYMENT_TARGET']
-    break
-  end
+
+begin
+  main_project = Xcodeproj::Project.open(MAIN_PROJECT_PATH)
+
+  ios_deployment_target = get_deployment_target(main_project, :ios, 'IPHONEOS_DEPLOYMENT_TARGET')
+  watchos_deployment_target = get_deployment_target(main_project, :watchos, 'WATCHOS_DEPLOYMENT_TARGET')
+
+rescue => e
+  puts "⚠️ 无法打开主工程 #{MAIN_PROJECT_PATH}，使用默认部署目标: #{e.message}"
 end
 
-# 确保获取到配置（如果未获取到则使用默认值）
+# 设置默认值（若未获取到）
 ios_deployment_target ||= '14.0'
 watchos_deployment_target ||= '9.0'
 
+puts "📱 iOS Deployment Target: #{ios_deployment_target}"
+puts "⌚️ watchOS Deployment Target: #{watchos_deployment_target}"
 
-$libPath = '../../'
 
+# ================== 公共 Pod 定义 ==================
 def comPod
+  # 主组件
   pod 'XYCgms', :path => '../'
-  pod 'XYExtension', :path => $libPath + 'XYExtension/'
-  pod 'XYUtil', :path => $libPath + 'XYUtil/'
-  pod 'XYLog', :path => $libPath + 'XYLog/'
-  pod 'XYWorkflow', :path => $libPath + 'XYWorkflow/'
-  pod 'XYCoreBluetooth', :path => $libPath + 'XYCoreBluetooth/'
-  pod 'XYWatchConnectivity', :path => $libPath + 'XYWatchConnectivity/'
-  pod 'XYStorage', :path => $libPath + 'XYStorage/'
-  pod 'XYNetwork', :path => $libPath + 'XYNetwork/'
-  pod 'MTBleCore', :path => '/Users/huangshanfeng/Desktop/MTBleCore'
+
+  # Basic
+  pod 'XYExtension', :path => PATHS[:basic] + 'XYExtension/'
+
+  # Server
+  pod 'XYLog',             :path => PATHS[:server] + 'XYLog/'
+  pod 'XYCoreBluetooth',   :path => PATHS[:server] + 'XYCoreBluetooth/'
+  pod 'XYWatchConnectivity', :path => PATHS[:server] + 'XYWatchConnectivity/'
+  pod 'XYStorage',         :path => PATHS[:server] + 'XYStorage/'
+  pod 'XYNetwork',         :path => PATHS[:server] + 'XYNetwork/'
+
+  # Tool
+  pod 'XYUtil',            :path => PATHS[:tool] + 'XYUtil/'
+
+  # Third
+  pod 'MTBleCore',         :path => PATHS[:third] + 'MTBleCore/'
   
 end
 
-# ====== iOS ====== #
+
+# ================== iOS Targets ==================
 target 'XYCgms' do
   platform :ios, ios_deployment_target
-  
   comPod
 
   target 'XYCgmsTests' do
@@ -62,42 +96,69 @@ target 'XYCgms' do
   target 'XYCgmsUITests' do
     inherit! :search_paths
   end
-  
 end
 
-# ====== watchOS ====== #
+
+# ================== watchOS Targets ==================
 target 'XYCgmsWatch Watch App' do
   platform :watchos, watchos_deployment_target
-  
   comPod
 
   target 'XYCgmsWatch Watch AppTests' do
     inherit! :search_paths
   end
-  
+
   target 'XYCgmsWatch Watch AppUITests' do
     inherit! :search_paths
   end
-  
 end
 
 
-# 动态同步所有Pod库的配置与主工程一致
+# ================== 安装后处理：同步主工程构建设置 ==================
 post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      if target.platform_name == :ios
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = ios_deployment_target
-      end
-      if target.platform_name == :watchos
-        config.build_settings['WATCHOS_DEPLOYMENT_TARGET'] = watchos_deployment_target
-      end
-      
-      # 同步架构配置
-      main_archs = main_project.targets.first.build_configurations.first.build_settings['ARCHS']
-      if main_archs
-        config.build_settings['ARCHS'] = main_archs
+  begin
+    main_project = Xcodeproj::Project.open(MAIN_PROJECT_PATH)
+    main_target = main_project.targets.first
+
+    if main_target.nil?
+      puts "⚠️ 主工程无有效 target，跳过 build settings 同步"
+      return
+    end
+
+    main_config = main_target.build_configurations.first
+    main_archs = main_config.build_settings['ARCHS']
+    main_valid_archs = main_config.build_settings['VALID_ARCHS']
+
+    # 遍历所有 Pods target
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        # 同步 deployment target
+        case target.platform_name
+        when :ios
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = ios_deployment_target
+        when :watchos
+          config.build_settings['WATCHOS_DEPLOYMENT_TARGET'] = watchos_deployment_target
+        end
+
+        # 同步架构设置（如果存在）
+        if main_archs
+          config.build_settings['ARCHS'] = main_archs
+        end
+        if main_valid_archs
+          config.build_settings['VALID_ARCHS'] = main_valid_archs
+        end
+
+        # 推荐：明确指定 build active architecture only
+        config.build_settings['ONLY_ACTIVE_ARCH'] = main_config.build_settings['ONLY_ACTIVE_ARCH'] || 'YES'
       end
     end
+
+    # 保存 Pods 项目
+    installer.pods_project.save()
+
+    puts "✅ Pods 项目已成功更新并同步构建设置"
+
+  rescue => e
+    puts "⚠️ post_install 阶段发生错误: #{e.message}"
   end
 end

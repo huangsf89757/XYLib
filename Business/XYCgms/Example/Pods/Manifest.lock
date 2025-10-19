@@ -1,6 +1,6 @@
 PODS:
-  - CocoaLumberjack/Core (3.8.5)
-  - CocoaLumberjack/Swift (3.8.5):
+  - CocoaLumberjack/Core (3.9.0)
+  - CocoaLumberjack/Swift (3.9.0):
     - CocoaLumberjack/Core
   - MTBleCore (0.0.1)
   - XYCgms (1.0.0):
@@ -16,7 +16,6 @@ PODS:
     - XYExtension
     - XYLog
     - XYUtil
-    - XYWorkflow
   - XYExtension (1.0.0)
   - XYLog (1.0.0):
     - CocoaLumberjack/Swift
@@ -24,9 +23,11 @@ PODS:
     - XYUtil
   - XYNetwork (1.0.0):
     - XYExtension
+    - XYLog
     - XYUtil
   - XYStorage (1.0.0):
     - XYExtension
+    - XYLog
     - XYUtil
   - XYUtil (1.0.0):
     - XYExtension
@@ -34,22 +35,17 @@ PODS:
     - XYExtension
     - XYLog
     - XYUtil
-  - XYWorkflow (1.0.0):
-    - XYExtension
-    - XYLog
-    - XYUtil
 
 DEPENDENCIES:
-  - MTBleCore (from `/Users/huangshanfeng/Desktop/MTBleCore`)
+  - MTBleCore (from `../../../Third/MTBleCore/`)
   - XYCgms (from `../`)
-  - XYCoreBluetooth (from `../../XYCoreBluetooth/`)
-  - XYExtension (from `../../XYExtension/`)
-  - XYLog (from `../../XYLog/`)
-  - XYNetwork (from `../../XYNetwork/`)
-  - XYStorage (from `../../XYStorage/`)
-  - XYUtil (from `../../XYUtil/`)
-  - XYWatchConnectivity (from `../../XYWatchConnectivity/`)
-  - XYWorkflow (from `../../XYWorkflow/`)
+  - XYCoreBluetooth (from `../../../Server/XYCoreBluetooth/`)
+  - XYExtension (from `../../../Basic/XYExtension/`)
+  - XYLog (from `../../../Server/XYLog/`)
+  - XYNetwork (from `../../../Server/XYNetwork/`)
+  - XYStorage (from `../../../Server/XYStorage/`)
+  - XYUtil (from `../../../Tool/XYUtil/`)
+  - XYWatchConnectivity (from `../../../Server/XYWatchConnectivity/`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -57,39 +53,36 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   MTBleCore:
-    :path: "/Users/huangshanfeng/Desktop/MTBleCore"
+    :path: "../../../Third/MTBleCore/"
   XYCgms:
     :path: "../"
   XYCoreBluetooth:
-    :path: "../../XYCoreBluetooth/"
+    :path: "../../../Server/XYCoreBluetooth/"
   XYExtension:
-    :path: "../../XYExtension/"
+    :path: "../../../Basic/XYExtension/"
   XYLog:
-    :path: "../../XYLog/"
+    :path: "../../../Server/XYLog/"
   XYNetwork:
-    :path: "../../XYNetwork/"
+    :path: "../../../Server/XYNetwork/"
   XYStorage:
-    :path: "../../XYStorage/"
+    :path: "../../../Server/XYStorage/"
   XYUtil:
-    :path: "../../XYUtil/"
+    :path: "../../../Tool/XYUtil/"
   XYWatchConnectivity:
-    :path: "../../XYWatchConnectivity/"
-  XYWorkflow:
-    :path: "../../XYWorkflow/"
+    :path: "../../../Server/XYWatchConnectivity/"
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
   MTBleCore: 2c56e59161ee4e1c37f87578aa1399ffabcca0e5
   XYCgms: efe4695e3eddaa525b3acdd82f7b2900ac731e9a
-  XYCoreBluetooth: e6d3270f2b1a3581f986e14a10f6fbac410c572c
+  XYCoreBluetooth: 5ef9ee9b9633fbde6c52c43d794e7738fc615e54
   XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
   XYLog: 22bc8883abd56a232546d8f8c9206fa88fe193cb
-  XYNetwork: a2b5b4edf88e35a5ef7b176e58f0bc881d690468
-  XYStorage: 9ef261cd24fe0816283843aa1a7be7c75066b757
+  XYNetwork: 67bc5ffada98294449948ef0b042ca4f72a16094
+  XYStorage: a2bdb7e36d549e3bb9d7f97cd00aabbc0ace7e29
   XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23
-  XYWatchConnectivity: 789125b196e7905764b855ee47000febd0b101c1
-  XYWorkflow: 89813a7237699dd98bc624d26dc2df41608a3a94
+  XYWatchConnectivity: 8bd7ad9d677d5bc66e0cf7cb5bdd3551d7a9b191
 
-PODFILE CHECKSUM: a3def0995d9965c9e34d8c2b69ac14d73dcd78b1
+PODFILE CHECKSUM: 885236c5b40b4e8d4e287c4b6b1686e644501bb6
 
 COCOAPODS: 1.16.2

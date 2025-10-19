@@ -15,13 +15,11 @@ public final class XYCgmsModel {
     /// 血糖趋势
     public var trend: XYCgmsTrend?
     
-    
     // MARK: init
-    public init(value: XYCgmsValue) {
+    public init(value: XYCgmsValue, trend: XYCgmsTrend?) {
         self.value = value
+        self.trend = trend
     }
-    
-    
     
 }
 
