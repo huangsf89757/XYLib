@@ -13,12 +13,16 @@ public final class XYCgmsModel {
     /// 血糖基准值
     public var value: XYCgmsValue
     /// 血糖趋势
-    public var trend: XYCgmsTrend?
+    public var trendValue: Float?
+    public var trend: XYCgmsTrend? {
+        guard let trendValue else { return nil }
+        return  XYCgmsTrend(value: trendValue)
+    }
     
     // MARK: init
-    public init(value: XYCgmsValue, trend: XYCgmsTrend?) {
+    public init(value: XYCgmsValue, trendValue: Float?) {
         self.value = value
-        self.trend = trend
+        self.trendValue = trendValue
     }
     
 }

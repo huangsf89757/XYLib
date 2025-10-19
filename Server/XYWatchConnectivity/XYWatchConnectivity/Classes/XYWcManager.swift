@@ -319,7 +319,7 @@ extension XYWcManager {
         guard let session = getUsefulSession(logTag: logTag, mustReachable: false) else { return }
         let remaining = session.remainingComplicationUserInfoTransfers
         guard remaining > 0 else {
-            XYLog.info(tag: logTag, process: .fail("remaining=0"), content: "try transferUserInfo()")
+            XYLog.info(tag: logTag, process: .fail, content: "try transferUserInfo()", "remaining=0")
             transferUserInfo(dict: dict)
             return
         }
