@@ -4,6 +4,7 @@ PODS:
     - CocoaLumberjack/Core
   - XYApp (1.0.0):
     - XYExtension
+    - XYUtil
   - XYCoreBluetooth (1.0.0):
     - XYExtension
     - XYLog
@@ -67,7 +68,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
-  XYApp: 3bd9b0a0847201e4a60191a4760b9151459e0b4a
+  XYApp: 89f055e9158fa526011702b561fd8e0d07342b3f
   XYCoreBluetooth: 5ef9ee9b9633fbde6c52c43d794e7738fc615e54
   XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
   XYLog: 22bc8883abd56a232546d8f8c9206fa88fe193cb

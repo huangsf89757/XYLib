@@ -95,6 +95,16 @@
 		ECE34F5D01AB4B3D78975ED7 /* Pods-iOSAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSAppUITests/Pods-iOSAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DD4033A52EA4D83900C48702 /* Exceptions for "Common" folder in "watchOSApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Common.swift,
+			);
+			target = DD40322F2EA4B44000C48702 /* watchOSApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DD4031F82EA4AFE500C48702 /* iOSApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -136,6 +146,14 @@
 			exceptions = (
 			);
 			path = watchOSAppUITests;
+			sourceTree = "<group>";
+		};
+		DD4033A02EA4D7F100C48702 /* Common */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DD4033A52EA4D83900C48702 /* Exceptions for "Common" folder in "watchOSApp" target */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -227,6 +245,7 @@
 		DD4031ED2EA4AFE500C48702 = {
 			isa = PBXGroup;
 			children = (
+				DD4033A02EA4D7F100C48702 /* Common */,
 				DD4031F82EA4AFE500C48702 /* iOSApp */,
 				DD4032062EA4AFE600C48702 /* iOSAppTests */,
 				DD4032102EA4AFE600C48702 /* iOSAppUITests */,
@@ -273,6 +292,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DD4031F82EA4AFE500C48702 /* iOSApp */,
+				DD4033A02EA4D7F100C48702 /* Common */,
 			);
 			name = iOSApp;
 			productName = XYCgmsApp;

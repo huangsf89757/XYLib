@@ -46,3 +46,10 @@ public extension XYApp {
         bundleId + ".KEY"
     }
 }
+
+
+public struct XYKey {
+    public static func generate(with component: [String], separator: String = ".") -> String {
+        return "XY" + separator + component.joined(separator: separator)
+    }
+}
