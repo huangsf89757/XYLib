@@ -1,6 +1,0 @@
-framework module XYUser {
-  umbrella header "XYUser-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

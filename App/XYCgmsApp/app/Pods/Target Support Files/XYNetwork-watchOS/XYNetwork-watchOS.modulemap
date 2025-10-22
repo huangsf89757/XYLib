@@ -1,6 +1,0 @@
-framework module XYNetwork {
-  umbrella header "XYNetwork-watchOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

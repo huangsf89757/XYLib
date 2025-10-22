@@ -1,6 +1,0 @@
-framework module Pods_watchOSAppUITests {
-  umbrella header "Pods-watchOSAppUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
