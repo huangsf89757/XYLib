@@ -54,30 +54,30 @@ public class XYWtdtAction {
         case syncLogData
 
         
-        var items: XYWtdtActionItem {
-            switch self {
-            case .pair:
-                <#code#>
-            case .unpair:
-                <#code#>
-            case .ota:
-                <#code#>
-            case .dpu:
-                <#code#>
-            case .activate:
-                <#code#>
-            case .calibrate:
-                <#code#>
-            case .syncBasicData:
-                <#code#>
-            case .syncRawData:
-                <#code#>
-            case .syncCalData:
-                <#code#>
-            case .syncLogData:
-                <#code#>
-            }
-        }
+//        var items: XYWtdtActionItem {
+//            switch self {
+//            case .pair:
+//                <#code#>
+//            case .unpair:
+//                <#code#>
+//            case .ota:
+//                <#code#>
+//            case .dpu:
+//                <#code#>
+//            case .activate:
+//                <#code#>
+//            case .calibrate:
+//                <#code#>
+//            case .syncBasicData:
+//                <#code#>
+//            case .syncRawData:
+//                <#code#>
+//            case .syncCalData:
+//                <#code#>
+//            case .syncLogData:
+//                <#code#>
+//            }
+//        }
     }
     
     /*

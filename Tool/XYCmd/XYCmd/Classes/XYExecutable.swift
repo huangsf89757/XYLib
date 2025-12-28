@@ -17,7 +17,7 @@ import XYLog
 
 
 // MARK: - XYExecutable
-public protocol XYExecutable: Identifiable {
+public protocol XYExecutable {
     associatedtype ResultType
     
     // MARK: identifier
