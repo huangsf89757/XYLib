@@ -1,5 +1,5 @@
 //
-//  XYCentralManagerDelegate.swift
+//  XYCentralManagerWrapperDelegate.swift
 //  XYCoreBluetooth
 //
 //  Created by hsf on 2025/10/14.
@@ -38,12 +38,12 @@ public final class XYBleLog {
     ///   - params: 可选的参数字典。
     ///   - returns: 可选的返回值描述。
     public static func debug(file: String = #file,
-                       function: String = #function,
-                       line: Int = #line,
-                       id: String? = nil,
-                       process: XYLogProcess? = nil,
-                       params: [String: String]? = nil,
-                       returns: String? = nil) {
+                             function: String = #function,
+                             line: Int = #line,
+                             id: String? = nil,
+                             process: XYLogProcess? = nil,
+                             params: [String: String]? = nil,
+                             returns: String? = nil) {
         var content_params = "void"
         if let params {
             content_params = "\n" + params.map { (key, value) in

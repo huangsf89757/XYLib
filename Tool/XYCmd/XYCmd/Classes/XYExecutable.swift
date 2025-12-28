@@ -5,88 +5,74 @@
 //  Created by hsf on 2025/10/3.
 //
 
+// MARK: - Import
+// System
 import Foundation
-import XYUtil
+// Basic
+// Server
 import XYLog
+// Tool
+// Business
+// Third
+
 
 // MARK: - XYExecutable
-public protocol XYExecutable {
+public protocol XYExecutable: Identifiable {
     associatedtype ResultType
     
     // MARK: identifier
-    
     /// 唯一标识
-    var id: XYIdentifier { get }
+    var id: String { get }
     
     // MARK: execution
-    
     /// 执行任务
     var executeTask: Task<ResultType, any Error>? { get }
-    
-    /// 执行开始时间
-    var executeTime: Date? { get }
-    
-    /// 执行结束时间
-    var finishTime: Date? { get }
-    
     /// 执行状态
     var state: XYState { get }
     
-    // MARK: timeout
+    // MARK: time
+    /// 执行开始时间
+    var executeTime: Date? { get }
+    /// 执行结束时间
+    var finishTime: Date? { get }
     
+    // MARK: timeout
     /// 超时时间
-    var timeout: TimeInterval { get }
+    var timeout: TimeInterval? { get }
     
     // MARK: retry
-    
     /// 最大重试次数
     var maxRetries: Int? { get }
-    
     /// 当前重试次数
     var curRetries: Int { get }
-    
     /// 重试延时时间
     var retryDelay: TimeInterval? { get }
     
-    // MARK: hock
-    
+    // MARK: hook
+    /// 即将执行
+    var onStateDidChanged: ((XYState) -> Void)? { get }
     /// 即将执行
     var onWillExecute: (() -> Void)? { get }
-    
+    /// 取消执行
+    var onDidCancelExecute: (() -> Void)? { get }
     /// 执行完成
     var onDidExecute: ((Result<ResultType, any Error>) -> Void)? { get }
-    
     /// 重试
     var onRetry: ((Error, Int) -> Void)? { get }
     
     // MARK: func
-    
     /// 开始执行
     func execute() async throws -> ResultType
-    
     /// 取消执行
     func cancel()
+    /// 重置
+    func reset()
+    /// 判断错误是否可重试
+    func checkErrorRetryEnable(error: Error) -> Bool 
 }
 
-// MARK: - State
-extension XYExecutable {
-    /// 是否正在执行
-    public var isExecuting: Bool {
-        return state == .executing
-    }
-    
-    /// 是否已完成
-    public var isCompleted: Bool {
-        return state == .succeeded || state == .failed || state == .cancelled
-    }
-    
-    /// 当前执行是否已取消
-    public var isCancelled: Bool {
-        return state == .cancelled
-    }
-}
 
-// MARK: Error
+// MARK: - Error
 extension XYExecutable {
     /// 标准化错误为 XYError（安全处理 nil）
     public func normalizeError(_ error: Error?) -> XYError {
@@ -96,26 +82,16 @@ extension XYExecutable {
         return XYError.other(error)
     }
     
-    /// 判断错误是否可重试
-    public func checkErrorRetryEnable(error: Error) -> Bool {
-        if let err = error as? XYError {
-            switch err {
-            case .timeout, .other: // 超时和其他错误可重试
-                return true
-            default:
-                return false
-            }
-        }
-        return false // 非 XYError 默认不重试
-    }
+    
 }
 
-// MARK: Timeout
+
+// MARK: - Timeout
 extension XYExecutable {
     /// 带超时的异步操作包装
-    public func withTimeout<T>(_ seconds: TimeInterval,
+    public func withTimeout<T>(_ seconds: TimeInterval?,
                                operation: @escaping () async throws -> T) async throws -> T {
-        guard seconds > 0 else {
+        guard let seconds = seconds, seconds > 0 else {
             return try await operation()
         }
         
@@ -163,7 +139,7 @@ extension XYExecutable {
                 group.cancelAll()
                 
                 // 检查是否是由于取消导致的错误
-                if self.isCancelled || Task.isCancelled {
+                if state == .cancelled || Task.isCancelled {
                     throw XYError.cancelled
                 }
                 

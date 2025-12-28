@@ -444,7 +444,7 @@ XYError 是错误枚举，处理各种命令执行错误情况。
 
 - `.timeout`: 命令执行超时
 - `.cancelled`: 命令被取消
-- `.executing`: 命令正在执行
+- `.repeated`: 命令重复执行
 - `.maxRetryExceeded`: 超出最大重试次数
 - `.notImplemented`: 子类未实现 run 方法
 - `.other(Error?)`: 其他错误

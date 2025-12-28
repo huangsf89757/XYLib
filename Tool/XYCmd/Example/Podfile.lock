@@ -5,7 +5,6 @@ PODS:
   - XYCmd (1.0.0):
     - XYExtension
     - XYLog
-    - XYUtil
   - XYExtension (1.0.0)
   - XYLog (1.0.0):
     - CocoaLumberjack/Swift
@@ -36,7 +35,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
-  XYCmd: 5448dbfe2d72857ca3aa1a4e0095e13a0cb409bd
+  XYCmd: 4dc6722c2bb2eca547acb258507e610021331bdc
   XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
   XYLog: 22bc8883abd56a232546d8f8c9206fa88fe193cb
   XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23

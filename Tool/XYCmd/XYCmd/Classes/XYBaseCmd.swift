@@ -5,10 +5,17 @@
 //  Created by hsf on 2025/9/18.
 //
 
+// MARK: - Import
+// System
 import Foundation
-import XYUtil
+// Basic
 import XYExtension
+// Server
 import XYLog
+// Tool
+// Business
+// Third
+
 
 // MARK: - XYBaseCmd
 open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
@@ -20,14 +27,14 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
     public var allowsFailureInGroup: Bool = true
     
     // MARK: init
-    public init(id: XYIdentifier = UUID().uuidString,
+    public init(id: String = UUID().uuidString,
                 timeout: TimeInterval = 10,
                 maxRetries: Int? = nil,
                 retryDelay: TimeInterval? = nil,
                 executionBlock: ((@escaping (Result<ResultType, Error>) -> Void) -> Void)? = nil) {
         self.executionBlock = executionBlock
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay)
-        self.logTag = "WorkFlow.BaseCmd"
+        self.logTag = "XYCmd.B"
     }
     
     // MARK: run
@@ -41,7 +48,7 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
             self.continuation = continuation
             block { [weak self] result in
                 guard let self = self else { return }
-                guard !self.isCompleted else { return }
+                guard !self.state.isCompleted else { return }
                 
                 switch result {
                 case .success(let value):

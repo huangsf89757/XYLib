@@ -12,6 +12,7 @@ public enum XYLogProcess {
     case doing              // 过程中
     case succ               // 成功
     case fail               // 失败
+    case unknown            // 未知
     
     public var desc: String {
         switch self {
@@ -23,6 +24,8 @@ public enum XYLogProcess {
             return "$S"
         case .fail:
             return "$F"
+        case .unknown:
+            return "$U"
         }
     }
 }

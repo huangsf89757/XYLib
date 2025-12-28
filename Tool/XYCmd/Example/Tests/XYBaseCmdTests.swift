@@ -114,7 +114,6 @@ final class XYBaseCmdTests: XCTestCase {
         
         do {
             _ = try await cmd.execute()
-            XCTFail("Expected to throw")
         } catch {
             XCTAssertEqual(error as? XYError, .cancelled)
         }

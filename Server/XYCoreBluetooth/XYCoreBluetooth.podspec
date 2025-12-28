@@ -28,6 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/hsf89757/XYCoreBluetooth.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  # 当前所处：Server
   # 公共依赖（所有平台共享）
   # Basic
   s.dependency 'XYExtension'
@@ -35,6 +36,7 @@ TODO: Add long description of the pod here.
   s.dependency 'XYLog'
   # Tool
   s.dependency 'XYUtil'
+  s.dependency 'XYCmd'
   # Business
   # Third
   

@@ -5,30 +5,21 @@
 //  Created by hsf on 2025/9/18.
 //
 
+// MARK: - Import
+// System
 import Foundation
-import XYUtil
+// Basic
 import XYExtension
+// Server
 import XYLog
+// Tool
+// Business
+// Third
 
-// MARK: - XYGroupCmd.ExecutionMode
-public extension XYGroupCmd {
-    enum ExecutionMode {
-        case serial      // 同步串行
-        case concurrent  // 异步并发
-    }
-}
-
-// MARK: - XYGroupCmd.CancelMode
-public extension XYGroupCmd {
-    enum CancelMode {
-        case all          // 取消执行所有子cmd（包括正在执行的）
-        case unexecuted   // 仅取消未执行的cmd
-    }
-}
 
 // MARK: - XYGroupCmd
-open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
-    public typealias ResultType = [XYIdentifier: Any]
+open class XYGroupCmd: XYCmd<[String: Any]> {
+    public typealias ResultType = [String: Any]
     
     // MARK: execution config
     /// 执行方式，默认：serial
@@ -44,10 +35,10 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
     /// 子命令执行结果
     public private(set) var results: ResultType = [:]
     /// 已取消的子命令
-    public private(set) var cancelledCommands: Set<XYIdentifier> = []
+    public private(set) var cancelledCommands: Set<String> = []
     
     // MARK: init
-    public init(id: XYIdentifier = UUID().uuidString,
+    public init(id: String = UUID().uuidString,
                 timeout: TimeInterval = 10,
                 maxRetries: Int? = nil,
                 retryDelay: TimeInterval? = nil,
@@ -58,7 +49,7 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
         self.interruptOnFailure = interruptOnFailure
         self.cancelMode = cancelMode
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay)
-        self.logTag = "WorkFlow.GroupCmd"
+        self.logTag = "XYCmd.G"
     }
     
     // MARK: run
@@ -77,7 +68,7 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
             // 中断所有命令（包括正在执行的）
             commands.forEach { cmd in
                 // 只有非完成状态的命令才需要取消
-                if !cmd.isCompleted {
+                if !cmd.state.isCompleted {
                     cmd.cancel()
                     results[cmd.id] = XYError.cancelled
                 }
@@ -97,13 +88,33 @@ open class XYGroupCmd: XYCmd<[XYIdentifier: Any]> {
         let cancelledIds = commands.filter { $0.state == .cancelled }.map { $0.id }
         cancelledCommands.formUnion(cancelledIds)
         
-        finishExecution(tag: tag, state: .cancelled, result: nil, error: XYError.cancelled)
+        // 取消
+        super.cancel()
     }
 }
 
+
+// MARK: - XYGroupCmd.ExecutionMode
+public extension XYGroupCmd {
+    enum ExecutionMode {
+        case serial      // 同步串行
+        case concurrent  // 异步并发
+    }
+}
+
+
+// MARK: - XYGroupCmd.CancelMode
+public extension XYGroupCmd {
+    enum CancelMode {
+        case all          // 取消执行所有子cmd（包括正在执行的）
+        case unexecuted   // 仅取消未执行的cmd
+    }
+}
+
+
 // MARK: - Execute
 extension XYGroupCmd {
-    private func executeCommands() async throws -> [XYIdentifier: Any] {
+    private func executeCommands() async throws -> [String: Any] {
         switch executionMode {
         case .serial:
             return try await executeSerially()
@@ -113,11 +124,11 @@ extension XYGroupCmd {
     }
     
     private func executeSerially() async throws -> ResultType {
-        var results: [XYIdentifier: Any] = [:]
+        var results: [String: Any] = [:]
         
         for cmd in commands {
-            // 检查取消状态
-            if isCancelled {
+            // 执行前检查
+            if state == .cancelled {
                 markCancelled(cmd: cmd)
                 results[cmd.id] = XYError.cancelled
                 continue
@@ -167,14 +178,14 @@ extension XYGroupCmd {
             
             for cmd in self.commands {
                 // 如果组已取消，直接标记并记录结果
-                if self.isCancelled {
+                if self.state == .cancelled {
                     await self.markCancelled(cmd: cmd)
                     await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
                     continue
                 }
                 
                 // 如果命令本身已被外部取消，也提前记录结果
-                if cmd.isCancelled || cmd.isCompleted {
+                if cmd.state == .cancelled || cmd.state.isCompleted {
                     await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
                     continue
                 }
@@ -183,7 +194,7 @@ extension XYGroupCmd {
                     guard let self = self else { return }
                     
                     // 再次检查组取消状态
-                    if self.isCancelled {
+                    if self.state == .cancelled {
                         await resultActor.setResult(for: cmd.id, result: XYError.cancelled)
                         await self.markCancelled(cmd: cmd)
                         return
@@ -209,18 +220,20 @@ extension XYGroupCmd {
     }
 }
 
+
 // MARK: - Result Actor
 private actor ResultActor {
-    private var results: [XYIdentifier: Any] = [:]
+    private var results: [String: Any] = [:]
     
-    func setResult(for id: XYIdentifier, result: Any) {
+    func setResult(for id: String, result: Any) {
         results[id] = result
     }
     
-    func getAllResults() -> [XYIdentifier: Any] {
+    func getAllResults() -> [String: Any] {
         return results
     }
 }
+
 
 // MARK: - Execute Helpers
 extension XYGroupCmd {
@@ -229,6 +242,7 @@ extension XYGroupCmd {
         cancelledCommands.insert(cmd.id)
     }
 }
+
 
 // MARK: - CRUD Operations
 public extension XYGroupCmd {
@@ -253,7 +267,7 @@ public extension XYGroupCmd {
     
     // MARK: Remove Commands
     @discardableResult
-    func removeCommand(withId id: XYIdentifier) -> XYExecutable? {
+    func removeCommand(withId id: String) -> XYExecutable? {
         guard state == .idle else { return nil }
         if let index = commands.firstIndex(where: { $0.id == id }) {
             return commands.remove(at: index)
@@ -261,7 +275,7 @@ public extension XYGroupCmd {
         return nil
     }
     
-    func removeCommands(withIds ids: [XYIdentifier]) {
+    func removeCommands(withIds ids: [String]) {
         guard state == .idle else { return }
         for id in ids {
             _ = removeCommand(withId: id)
@@ -275,7 +289,7 @@ public extension XYGroupCmd {
     }
     
     // MARK: Update Commands
-    func updateCommand(withId id: XYIdentifier, newCmd: any XYExecutable) -> Int? {
+    func updateCommand(withId id: String, newCmd: any XYExecutable) -> Int? {
         guard state == .idle else { return nil }
         if let index = commands.firstIndex(where: { $0.id == id }) {
             commands[index] = newCmd
@@ -285,7 +299,7 @@ public extension XYGroupCmd {
     }
     
     // MARK: Query Commands
-    func command(withId id: XYIdentifier) -> XYExecutable? {
+    func command(withId id: String) -> XYExecutable? {
         return commands.first { $0.id == id }
     }
     
@@ -310,15 +324,16 @@ public extension XYGroupCmd {
         return commands.filter { $0.state == .idle }
     }
     
-    var cancelledCommandIds: Set<XYIdentifier> {
+    var cancelledCommandIds: Set<String> {
         return cancelledCommands
     }
 }
 
+
 // MARK: - Func
 public extension XYGroupCmd {
     /// 获取结果
-    func result(forCommandId id: XYIdentifier) -> Any? {
+    func result(forCommandId id: String) -> Any? {
         return results[id]
     }
 }

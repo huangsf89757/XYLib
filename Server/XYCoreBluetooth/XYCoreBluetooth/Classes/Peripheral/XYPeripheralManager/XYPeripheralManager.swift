@@ -22,7 +22,7 @@ import XYUtil
 // MARK: - XYPeripheralManager
 /// 外设管理器封装，统一外设发布、服务管理、传输与回调日志，提供蓝牙外设广播、服务管理等功能
 open class XYPeripheralManager: NSObject {
-    // MARK: Property
+    // MARK: var
     /// CBPeripheralManager实例，用于管理蓝牙外设
     public private(set) var peripheralManager: CBPeripheralManager!
     /// 代理对象，用于处理蓝牙事件回调
@@ -42,7 +42,7 @@ open class XYPeripheralManager: NSObject {
     /// 是否正在广播
     open var isAdvertising: Bool { peripheralManager.isAdvertising }
 
-    // MARK: Life Cycle
+    // MARK: life cycle
     /// 初始化
     /// - Parameters:
     ///   - delegate: 代理
