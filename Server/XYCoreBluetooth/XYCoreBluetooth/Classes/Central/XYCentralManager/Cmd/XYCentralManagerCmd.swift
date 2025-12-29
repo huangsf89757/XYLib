@@ -1,6 +1,6 @@
 //
 //  XYCentralManagerCmd.swift
-//  CocoaLumberjack
+//  XYCoreBluetooth
 //
 //  Created by hsf on 2025/12/22.
 //

@@ -48,25 +48,43 @@ public protocol XYExecutable {
     /// 重试延时时间
     var retryDelay: TimeInterval? { get }
     
-    // MARK: hook
+    // MARK: hook var
     /// 即将执行
-    var onStateDidChanged: ((XYState) -> Void)? { get }
+    var onStateDidChanged: ((XYState, XYState) -> Void)? { get }
     /// 即将执行
     var onWillExecute: (() -> Void)? { get }
+    /// 超时
+    var onDidTimeout: (() -> Void)? { get }
     /// 取消执行
     var onDidCancelExecute: (() -> Void)? { get }
     /// 执行完成
     var onDidExecute: ((Result<ResultType, any Error>) -> Void)? { get }
     /// 重试
-    var onRetry: ((Error, Int) -> Void)? { get }
+    var onDidRetry: ((Int, Error?) -> Void)? { get }
+    
+    // MARK: hook func
+    /// 即将执行
+    func stateDidChanged(oldValue: XYState, newValue: XYState)
+    /// 即将执行
+    func willExecute()
+    /// 超时
+    func didTimeout()
+    /// 取消执行
+    func didCancelExecute()
+    /// 执行完成
+    func didExecute(result: Result<ResultType, any Error>)
+    /// 重试
+    func didRetry(index: Int, error: Error?)
     
     // MARK: func
-    /// 开始执行
-    func execute() async throws -> ResultType
-    /// 取消执行
+    /// 执行
+    @discardableResult func execute() async throws -> ResultType
+    /// 取消
     func cancel()
     /// 重置
     func reset()
+    /// 重试
+    @discardableResult func retry() async throws -> ResultType
     /// 判断错误是否可重试
     func checkErrorRetryEnable(error: Error) -> Bool 
 }
@@ -75,14 +93,12 @@ public protocol XYExecutable {
 // MARK: - Error
 extension XYExecutable {
     /// 标准化错误为 XYError（安全处理 nil）
-    public func normalizeError(_ error: Error?) -> XYError {
+    public static func normalizeError(_ error: Error?) -> XYError {
         if let err = error as? XYError {
             return err
         }
         return XYError.other(error)
     }
-    
-    
 }
 
 
@@ -96,36 +112,25 @@ extension XYExecutable {
         }
         
         return try await withThrowingTaskGroup(of: T.self) { group in
-           
-            // 主操作任务
             let operationTask = group.addTaskUnlessCancelled {
                 return try await operation()
             }
-            
-            // 如果添加任务失败（因为group已被取消），直接抛出取消错误
             guard operationTask != nil else {
                 throw XYError.cancelled
             }
-            
-            // 超时任务
             let timeoutTask = group.addTaskUnlessCancelled {
                 try await Task.sleep(seconds: seconds)
+                didTimeout()
                 throw XYError.timeout
             }
-            
-            // 如果添加超时任务失败，确保取消主任务
             guard timeoutTask != nil else {
                 throw XYError.cancelled
             }
-            
-            // 等待第一个完成的任务
             do {
                 if let result = try await group.next() {
-                    // 取消剩余任务
                     group.cancelAll()
                     return result
                 } else {
-                    // 这种情况理论上不会发生，但为了安全起见处理一下
                     group.cancelAll()
                     let fallbackError = NSError(
                         domain: "XYCmd",
@@ -135,14 +140,10 @@ extension XYExecutable {
                     throw XYError.other(fallbackError)
                 }
             } catch {
-                // 取消所有任务并重新抛出错误
                 group.cancelAll()
-                
-                // 检查是否是由于取消导致的错误
                 if state == .cancelled || Task.isCancelled {
                     throw XYError.cancelled
                 }
-                
                 throw error
             }
         }

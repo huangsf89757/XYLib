@@ -22,6 +22,7 @@ public enum XYError: Error {
     case unexpected                 // 不符合预期的
     case timeout                    // 命令操作超时
     case cancelled                  // 命令被取消
+    case retryDisable               // 不可重试
     case maxRetryExceeded           // 超出最大重试次数
     case cannotRetryError           // 不可重试错误
     case notImplemented             // 子类未实现 run
@@ -35,6 +36,7 @@ public enum XYError: Error {
         case .unexpected:           desc = "unexpected"
         case .timeout:              desc = "timeout"
         case .cancelled:            desc = "cancelled"
+        case .retryDisable:         desc = "retryDisable"
         case .maxRetryExceeded:     desc = "maxRetryExceeded"
         case .cannotRetryError:     desc = "cannotRetryError"
         case .notImplemented:       desc = "notImplemented"
@@ -50,10 +52,11 @@ public enum XYError: Error {
         case .unexpected:           return 3
         case .timeout:              return 4
         case .cancelled:            return 5
-        case .maxRetryExceeded:     return 6
-        case .cannotRetryError:     return 7
-        case .notImplemented:       return 8
-        case .other:                return 0
+        case .retryDisable:         return 6
+        case .maxRetryExceeded:     return 7
+        case .cannotRetryError:     return 8
+        case .notImplemented:       return 9
+        case .other:                return 10
         }
     }
 }
@@ -68,6 +71,7 @@ extension XYError: Equatable {
              (.unexpected, .unexpected),
              (.timeout, .timeout),
              (.cancelled, .cancelled),
+             (.retryDisable, .retryDisable),
              (.maxRetryExceeded, .maxRetryExceeded),
              (.cannotRetryError, .cannotRetryError),
              (.notImplemented, .notImplemented):
@@ -98,6 +102,7 @@ extension XYError: Hashable {
         case .unexpected:           hasher.combine("unexpected")
         case .timeout:              hasher.combine("timeout")
         case .cancelled:            hasher.combine("cancelled")
+        case .retryDisable:         hasher.combine("retryDisable")
         case .maxRetryExceeded:     hasher.combine("maxRetryExceeded")
         case .cannotRetryError:     hasher.combine("cannotRetryError")
         case .notImplemented:       hasher.combine("notImplemented")

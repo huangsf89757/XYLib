@@ -55,7 +55,7 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
                     continuation.resume(returning: value)
                 case .failure(let error):
                     // 统一错误处理
-                    let normalizedError = self.normalizeError(error)
+                    let normalizedError = Self.normalizeError(error)
                     continuation.resume(throwing: normalizedError)
                 }
             }

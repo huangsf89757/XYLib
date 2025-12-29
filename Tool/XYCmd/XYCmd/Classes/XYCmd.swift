@@ -29,8 +29,7 @@ open class XYCmd<ResultType>: XYExecutable {
     public internal(set) var executeTask: Task<ResultType, any Error>?
     public internal(set) var state: XYState = .idle {
         didSet {
-            onStateDidChanged?(state)
-            XYLog.info(id: id, tag: [logTag, "state"], content: "\(oldValue) → \(state)")
+            stateDidChanged(oldValue: oldValue, newValue: state)
         }
     }
     
@@ -46,12 +45,34 @@ open class XYCmd<ResultType>: XYExecutable {
     public internal(set) var curRetries: Int = 0
     public let retryDelay: TimeInterval?
     
-    // MARK: hook
-    public var onStateDidChanged: ((XYState) -> Void)?
+    // MARK: hook var
+    public var onStateDidChanged: ((XYState, XYState) -> Void)?
     public var onWillExecute: (() -> Void)?
+    public var onDidTimeout: (() -> Void)?
     public var onDidCancelExecute: (() -> Void)?
     public var onDidExecute: ((Result<ResultType, any Error>) -> Void)?
-    public var onRetry: ((Error, Int) -> Void)?
+    public var onDidRetry: ((Int, Error?) -> Void)?
+  
+    // MARK: hook func
+    open func stateDidChanged(oldValue: XYState, newValue: XYState) {
+        onStateDidChanged?(oldValue, newValue)
+        XYLog.info(id: id, tag: [logTag, "state"], content: "\(oldValue) → \(newValue)")
+    }
+    open func willExecute() {
+        onWillExecute?()
+    }
+    open func didTimeout() {
+        onDidTimeout?()
+    }
+    open func didCancelExecute() {
+        onDidCancelExecute?()
+    }
+    open func didExecute(result: Result<ResultType, any Error>) {
+        onDidExecute?(result)
+    }
+    open func didRetry(index: Int, error: Error?) {
+        onDidRetry?(index, error)
+    }
     
     // MARK: life cycle
     public init(id: String = UUID().uuidString,
@@ -76,7 +97,7 @@ open class XYCmd<ResultType>: XYExecutable {
         }
         _reset()
         executeTime = Date()
-        onWillExecute?()
+        willExecute()
         XYLog.info(id: id, tag: tag, process: .begin)
         do {
             return try await _execute()
@@ -91,7 +112,7 @@ open class XYCmd<ResultType>: XYExecutable {
         state = .executing
         
         let executeTask = Task {
-            return try await executeImp()
+            return try await _executeImp()
         }
         self.executeTask = executeTask
         do {
@@ -106,7 +127,7 @@ open class XYCmd<ResultType>: XYExecutable {
     }
     
     /// 执行实现
-    private func executeImp() async throws -> ResultType {
+    private func _executeImp() async throws -> ResultType {
         let tag = [logTag, "execute"]
         // 重试循环
         var retryEnable = true
@@ -128,43 +149,15 @@ open class XYCmd<ResultType>: XYExecutable {
                 executeSuccess(tag: tag, result: result)
                 return result
             } catch let error {
-                // 判断是否支持重试
-                guard let maxRetries = self.maxRetries, maxRetries > 0 else {
-                    retryEnable = false
-                    let finalError = normalizeError(error)
-                    executeFailure(tag: tag, error: finalError)
-                    throw finalError
-                }
-                // 判断当前错误是否可重试
-                guard checkErrorRetryEnable(error: error) else {
-                    retryEnable = false
-                    let finalError = XYError.cannotRetryError
-                    executeFailure(tag: tag, error: finalError)
-                    throw finalError
-                }
-                // 超出最大重试次数？
-                if curRetries >= maxRetries {
-                    retryEnable = false
-                    let finalError = XYError.maxRetryExceeded
-                    executeFailure(tag: tag, error: finalError)
-                    throw finalError
-                }
-                // 重试延迟
+                retryEnable = false
+                XYLog.info(id: id, tag: tag, content: "error=\(error.localizedDescription)")
+                try _retryEnable(tag: tag, error: error)
                 if let retryDelay = retryDelay, retryDelay > 0 {
                     try await Task.sleep(seconds: retryDelay)
                 }
-                // 重试前检查
                 try handleAbnormalIfNeeded(tag: tag)
-                // 重试
+                _tagRetry(tag: tag, error: error)
                 retryEnable = true
-                curRetries += 1
-                onRetry?(error, curRetries)
-                XYLog.info(
-                    id: id,
-                    tag: tag,
-                    process: .fail,
-                    content: "retry=\(curRetries)/\(maxRetries)", "error=\((error as? XYError)?.info ?? "Retryable error")"
-                )
             }
         }
         let finalError = XYError.unexpected
@@ -198,8 +191,8 @@ open class XYCmd<ResultType>: XYExecutable {
         // 更新状态为已取消
         state = .cancelled
         
-        // 调用取消回调
-        onDidCancelExecute?()
+        // 取消
+        didCancelExecute()
         
         // 如果是在执行中，完成执行
         if currentState == .executing {
@@ -220,7 +213,48 @@ open class XYCmd<ResultType>: XYExecutable {
         executeTask = nil
     }
     
-    // MARK: retryEnable
+    // MARK: retry
+    /// 重试
+    @discardableResult
+    open func retry() async throws -> ResultType  {
+        let tag = [logTag, "retry"]
+        try _retryEnable(tag: tag, error: nil)
+        _tagRetry(tag: tag, error: nil)
+        return try await _execute()
+    }
+    /// 是否可重试
+    private func _retryEnable(tag: [String], error: Error?) throws {
+        // 判断是否支持重试
+        guard let maxRetries = self.maxRetries, maxRetries > 0 else {
+            let finalError = XYError.retryDisable
+            executeFailure(tag: tag, error: finalError)
+            throw finalError
+        }
+        // 判断当前错误是否可重试
+        if let error = error {
+            guard checkErrorRetryEnable(error: error) else {
+                let finalError = XYError.cannotRetryError
+                executeFailure(tag: tag, error: finalError)
+                throw finalError
+            }
+        }
+        // 超出最大重试次数？
+        if curRetries >= maxRetries {
+            let finalError = XYError.maxRetryExceeded
+            executeFailure(tag: tag, error: finalError)
+            throw finalError
+        }
+    }
+    /// 标记重试
+    private func _tagRetry(tag: [String], error: Error?)  {
+        curRetries += 1
+        didRetry(index: curRetries, error: error)
+        if let error = error {
+            XYLog.info(id: id, tag: tag, content: "retry=\(curRetries)/\(maxRetries)", "error=\(error.localizedDescription)")
+        } else {
+            XYLog.info(id: id, tag: tag, content: "retry=\(curRetries)/\(maxRetries)")
+        }
+    }
     /// 判断错误是否可重试
     open func checkErrorRetryEnable(error: Error) -> Bool {
         if let err = error as? XYError {
@@ -242,14 +276,14 @@ extension XYCmd {
     func executeSuccess(tag: [String], result: ResultType) {
         guard let content = _finishExecution(state: .succeeded) else { return }
         XYLog.info(id: id, tag: tag, process: .succ, content: content)
-        onDidExecute?(.success(result))
+        didExecute(result: .success(result))
     }
     /// 执行失败
     func executeFailure(tag: [String], error: Error) {
         guard let content = _finishExecution(state: .failed) else { return }
-        let err = normalizeError(error)
+        let err = Self.normalizeError(error)
         XYLog.info(id: id, tag: tag, process: .fail, content: content, "error=\(err.info)")
-        onDidExecute?(.failure(err))
+        didExecute(result: .failure(err))
     }
     /// 执行结果
     private func _finishExecution(state: XYState) -> String? {
