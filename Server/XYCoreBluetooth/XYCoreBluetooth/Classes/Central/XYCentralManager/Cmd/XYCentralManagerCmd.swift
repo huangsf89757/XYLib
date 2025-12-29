@@ -37,7 +37,7 @@ open class XYCentralManagerCmd<ResultType>: XYCmd<ResultType> {
         self.centralManagerWrapper = centralManagerWrapper
         self.oldDelegate = centralManagerWrapper.delegate
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay)
-        self.logTag = "XYCmd.Ble.CM"
+        self.logTag = ["XYCmd", "Ble", "CM"]
     }
 }
 

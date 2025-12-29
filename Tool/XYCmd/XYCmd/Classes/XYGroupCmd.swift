@@ -49,7 +49,7 @@ open class XYGroupCmd: XYCmd<[String: Any]> {
         self.interruptOnFailure = interruptOnFailure
         self.cancelMode = cancelMode
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay)
-        self.logTag = "XYCmd.G"
+        self.logTag = ["XYCmd", "G"]
     }
     
     // MARK: run
@@ -59,7 +59,6 @@ open class XYGroupCmd: XYCmd<[String: Any]> {
     
     // MARK: cancel
     open override func cancel() {
-        let tag = [logTag, "cancel"]
         guard state != .cancelled else { return }
         
         executeTask?.cancel()

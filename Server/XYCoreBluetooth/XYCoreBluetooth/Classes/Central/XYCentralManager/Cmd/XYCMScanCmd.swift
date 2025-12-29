@@ -57,7 +57,7 @@ public class XYCMScanCmd: XYCentralManagerCmd<AsyncThrowingStream<CBPeripheral, 
         self.options = options
         self.condition = condition
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay, centralManagerWrapper: centralManagerWrapper)
-        self.logTag = "XYCmd.Ble.CM.Scan"
+        self.logTag = ["XYCmd", "Ble", "CM", "Scan"]
     }
     
     // MARK: run
@@ -65,15 +65,14 @@ public class XYCMScanCmd: XYCentralManagerCmd<AsyncThrowingStream<CBPeripheral, 
         return AsyncThrowingStream { [weak self] continuation in
             guard let self = self else { return }
             self.continuation = continuation
-            
         }
     }
     
     // MARK: hook func
     open override func willExecute() {
         super.willExecute()
-        centralManagerWrapper.delegate = self.delegate
-        centralManagerWrapper.scanForPeripherals(withServices: self.serviceUUIDs, options: self.options)
+        self.centralManagerWrapper.delegate = self.delegate
+        self.centralManagerWrapper.scanForPeripherals(withServices: self.serviceUUIDs, options: self.options)
     }
     open override func didTimeout() {
         super.didTimeout()
@@ -146,7 +145,7 @@ extension XYCMScanCmdDelegate: XYCentralManagerWrapperDelegate {
              // 可在此处 stop scan 或继续监听
          }
      } catch {
-         XYLog.error("Scan failed: $error)")
+        print("Scan failed: $error)")
      }
  }
  ```

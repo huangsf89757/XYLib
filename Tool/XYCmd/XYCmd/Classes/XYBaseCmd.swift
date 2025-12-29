@@ -34,7 +34,7 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
                 executionBlock: ((@escaping (Result<ResultType, Error>) -> Void) -> Void)? = nil) {
         self.executionBlock = executionBlock
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay)
-        self.logTag = "XYCmd.B"
+        self.logTag = ["XYCmd", "B"]
     }
     
     // MARK: run

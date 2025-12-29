@@ -1,6 +1,0 @@
-framework module XYWatchConnectivity {
-  umbrella header "XYWatchConnectivity-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
