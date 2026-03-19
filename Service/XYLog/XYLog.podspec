@@ -27,36 +27,46 @@ TODO: Add long description of the pod here.
   s.author           = { 'hsf89757' => 'hsf89757@gmail.com' }
   s.source           = { :git => 'https://github.com/hsf89757/XYLog.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  
+
+  # --- Version --- #
   s.swift_version    = '5.7'
   
-  # 当前所处：Server
-  # 公共依赖（所有平台共享）
+  # --- Target --- #
+  s.ios.deployment_target = '14.0'
+  s.watchos.deployment_target = '9.0'
+  
+  # --- Frameworks --- #
+  s.ios.frameworks = 'UIKit', 'Foundation'
+  s.watchos.frameworks = 'WatchKit', 'Foundation'
+  
+  # --- Dependency --- #
   # Basic
   s.dependency 'XYExtension'
-  # Service
+  # Service <--
   # Tool
   s.dependency 'XYUtil'
   # Business
   # Third
-  s.dependency 'CocoaLumberjack/Swift'
-  s.dependency 'Atomics'
+
+  # --- Subspec --- #
+  # default
+  s.default_subspec = 'Core'
   
-  # 公共代码
-  shared_files = 'XYLog/Classes/**/*.swift'
+  # Core
+  s.subspec 'Core' do |core|
+    core.source_files = 'XYLog/Classes/Core/**/*.swift'
+    core.frameworks = 'Foundation'
+  end
 
-  # iOS 平台配置
-  s.ios.deployment_target = '14.0'
-  s.ios.source_files = [
-    shared_files
-  ]
-  s.ios.frameworks = 'UIKit', 'Foundation'
+  # CocoaLumberjack
+  s.subspec 'CocoaLumberjack' do |wcdb|
+    wcdb.source_files = [
+      'XYLog/Classes/Core/**/*.swift',
+      'XYLog/Classes/CocoaLumberjack/**/*.swift'
+    ]
+    wcdb.dependency 'XYLog/Core'
+    wcdb.dependency 'CocoaLumberjack/Swift'
+  end
 
-  # watchOS 平台配置
-  s.watchos.deployment_target = '9.0'
-  s.watchos.source_files = [
-    shared_files
-  ]
-  s.watchos.frameworks = 'WatchKit', 'Foundation'
   
 end

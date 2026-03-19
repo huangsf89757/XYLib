@@ -28,6 +28,9 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/hsf89757/XYStorage.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  # --- Version --- #
+  s.swift_version    = '5.7'
+  
   # --- Target --- #
   s.ios.deployment_target = '14.0'
   s.watchos.deployment_target = '9.0'
