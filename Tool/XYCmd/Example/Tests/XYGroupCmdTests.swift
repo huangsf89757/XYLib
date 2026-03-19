@@ -8,11 +8,235 @@
 import XCTest
 @testable import XYCmd
 
+// MARK: - Mock Types
+
+// MARK: - Edge Case Tests
+
+extension XYGroupCmdTests {
+    
+    /// 测试空组命令的执行
+    func test_emptyGroup() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .serial)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 0)
+        XCTAssertEqual(groupCmd.commandCount, 0)
+    }
+    
+    /// 测试只有一个命令的组命令
+    func test_singleCommandGroup() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .concurrent)
+        let cmd = TestCmd()
+        
+        groupCmd.addCommand(cmd)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 1)
+        XCTAssertEqual(cmd.state, .succeeded)
+        XCTAssertEqual(results[cmd.id] as? String, "Success")
+    }
+    
+    /// 测试大量命令的并发执行
+    func test_largeNumberOfCommands_concurrent() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .concurrent)
+        let commandCount = 10
+        
+        for _ in 0..<commandCount {
+            let cmd = TestCmd()
+            cmd.delayBeforeRun = 0.01 // 每个命令有短暂延迟
+            groupCmd.addCommand(cmd)
+        }
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, commandCount)
+        XCTAssertEqual(groupCmd.commandCount, commandCount)
+        
+        // 验证所有命令都成功执行
+        XCTAssertTrue(groupCmd.allCommands.allSatisfy { $0.state == .succeeded })
+    }
+}
+
+// MARK: - Retry Tests
+
+extension XYGroupCmdTests {
+    
+    /// 测试组命令中的子命令重试功能
+    func test_subCommandRetry() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .serial)
+        
+        let cmd1 = TestCmd()
+        cmd1.errorToThrow = XYError.timeout // 会触发重试
+        cmd1.shouldSucceedOnAttempt = 2 // 在第二次尝试时成功
+        
+        // 需要将TestCmd的maxRetries设置为允许重试
+        let cmdWithRetry = XYBaseCmd<String>(maxRetries: 1, retryDelay: 0.01) { completion in
+            Task {
+                do {
+                    let result = try await cmd1.run()
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+        
+        groupCmd.addCommand(cmdWithRetry)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 1)
+        XCTAssertEqual(cmd1.runCallCount, 2) // 应该重试一次
+        XCTAssertEqual(results[cmdWithRetry.id] as? String, "Success on attempt 2")
+    }
+}
+
+// MARK: - State Tests
+
+extension XYGroupCmdTests {
+    
+    /// 测试组命令的状态转换
+    func test_stateTransitions() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .serial)
+        let cmd = TestCmd()
+        cmd.delayBeforeRun = 0.1
+        
+        XCTAssertEqual(groupCmd.state, .idle)
+        
+        groupCmd.addCommand(cmd)
+        
+        let executionTask = Task { try await groupCmd.execute() }
+        
+        // 等待命令开始执行
+        try await Task.sleep(nanoseconds: 10_000_000) // 10ms
+        XCTAssertEqual(groupCmd.state, .executing)
+        
+        // 等待命令完成
+        let results = try await executionTask.value
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 1)
+        XCTAssertEqual(cmd.state, .succeeded)
+    }
+}
+
+// MARK: - Hook Tests
+
+extension XYGroupCmdTests {
+    
+    /// 测试组命令的钩子函数
+    func test_hookFunctions() async throws {
+        var willExecuteCalled = false
+        var didExecuteCalled = false
+        var executionResult: Result<[String: Any], Error>?
+        
+        let groupCmd = XYGroupCmd(executionMode: .serial)
+        let cmd = TestCmd()
+        
+        groupCmd.onWillExecute = { willExecuteCalled = true }
+        groupCmd.onDidExecute = { result in 
+            didExecuteCalled = true
+            executionResult = result
+        }
+        
+        groupCmd.addCommand(cmd)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertTrue(willExecuteCalled)
+        XCTAssertTrue(didExecuteCalled)
+        XCTAssertNotNil(executionResult)
+        
+        // 验证钩子函数中的结果与返回结果一致
+        switch executionResult {
+        case .success(let hookResults):
+            XCTAssertEqual(hookResults.count, results.count)
+            XCTAssertEqual(hookResults[cmd.id] as? String, results[cmd.id] as? String)
+        default:
+            XCTFail("Expected success result in hook")
+        }
+    }
+}
+
 // MARK: - XYGroupCmdTests
 
 final class XYGroupCmdTests: XCTestCase {
+
+}
+
+// MARK: - Basic Execution Tests
+
+extension XYGroupCmdTests {
     
-    // 测试串行执行成功
+    /// 测试组命令的基本执行功能
+    func test_basicExecution() async throws {
+        let groupCmd = XYGroupCmd()
+        let cmd = TestCmd()
+        
+        groupCmd.addCommand(cmd)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 1)
+        XCTAssertEqual(cmd.state, .succeeded)
+    }
+    
+    /// 测试组命令的超时处理
+    func test_groupTimeout() async throws {
+        let groupCmd = XYGroupCmd(timeout: 0.1, executionMode: .serial)
+        
+        let cmd1 = TestCmd()
+        cmd1.delayBeforeRun = 0.5 // 超过组命令的超时时间
+        
+        groupCmd.addCommand(cmd1)
+        
+        do {
+            _ = try await groupCmd.execute()
+            XCTFail("Expected timeout")
+        } catch {
+            XCTAssertEqual(error as? XYError, .timeout)
+        }
+        
+        XCTAssertEqual(groupCmd.state, .failed)
+    }
+    
+    /// 测试在执行前取消组命令
+    func test_cancelBeforeExecution() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .concurrent)
+        
+        let cmd1 = TestCmd()
+        let cmd2 = TestCmd()
+        
+        groupCmd.addCommand(cmd1)
+        groupCmd.addCommand(cmd2)
+        
+        groupCmd.cancel()
+        
+        do {
+            _ = try await groupCmd.execute()
+            XCTFail("Expected to throw cancellation error")
+        } catch {
+            XCTAssertEqual(error as? XYError, .cancelled)
+        }
+        
+        XCTAssertEqual(groupCmd.state, .cancelled)
+        XCTAssertEqual(cmd1.state, .cancelled)
+        XCTAssertEqual(cmd2.state, .cancelled)
+    }
+}
+
+// MARK: - Serial Execution Tests
+
+extension XYGroupCmdTests {
+    
+    /// 测试串行执行成功
     func test_serialExecution_success() async throws {
         let groupCmd = XYGroupCmd(executionMode: .serial)
         
@@ -33,8 +257,13 @@ final class XYGroupCmdTests: XCTestCase {
         XCTAssertEqual(cmd2.state, .succeeded)
         XCTAssertEqual(cmd3.state, .succeeded)
     }
+}
+
+// MARK: - Concurrent Execution Tests
+
+extension XYGroupCmdTests {
     
-    // 测试并发执行成功
+    /// 测试并发执行成功
     func test_concurrentExecution_success() async throws {
         let groupCmd = XYGroupCmd(executionMode: .concurrent)
         
@@ -56,7 +285,44 @@ final class XYGroupCmdTests: XCTestCase {
         XCTAssertEqual(cmd3.state, .succeeded)
     }
     
-    // 测试串行执行中一个命令失败，interruptOnFailure=true
+    /// 测试并发执行中的错误处理
+    func test_concurrentExecution_withErrors() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .concurrent)
+        
+        let cmd1 = TestCmd()
+        let cmd2 = TestCmd()
+        cmd2.errorToThrow = MockError.network
+        let cmd3 = TestCmd()
+        
+        groupCmd.addCommand(cmd1)
+        groupCmd.addCommand(cmd2)
+        groupCmd.addCommand(cmd3)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 3)
+        XCTAssertNotNil(results[cmd1.id] as? String)
+        XCTAssertNotNil(results[cmd2.id] as? XYError)
+        XCTAssertNotNil(results[cmd3.id] as? String)
+        XCTAssertEqual(cmd1.state, .succeeded)
+        XCTAssertEqual(cmd2.state, .failed)
+        XCTAssertEqual(cmd3.state, .succeeded)
+        
+        // 验证cmd2的错误是正确包装的XYError
+        if let error = results[cmd2.id] as? XYError {
+            XCTAssertEqual(error, XYError.other(MockError.network))
+        } else {
+            XCTFail("Expected XYError.other for cmd2")
+        }
+    }
+}
+
+// MARK: - Failure Handling Tests
+
+extension XYGroupCmdTests {
+    
+    /// 测试串行执行中一个命令失败，interruptOnFailure=true
     func test_serialExecution_failure_withInterrupt() async throws {
         let groupCmd = XYGroupCmd(executionMode: .serial, interruptOnFailure: true)
         
@@ -95,7 +361,7 @@ final class XYGroupCmdTests: XCTestCase {
         }
     }
     
-    // 测试串行执行中一个命令失败，interruptOnFailure=false
+    /// 测试串行执行中一个命令失败，interruptOnFailure=false
     func test_serialExecution_failure_withoutInterrupt() async throws {
         let groupCmd = XYGroupCmd(executionMode: .serial, interruptOnFailure: false)
         
@@ -127,7 +393,48 @@ final class XYGroupCmdTests: XCTestCase {
         }
     }
     
-    // 测试组命令取消 - CancelMode.all
+    /// 测试取消命令的结果记录
+    func test_cancelledCommandResults() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .serial, interruptOnFailure: true)
+        
+        let cmd1 = TestCmd()
+        let cmd2 = TestCmd()
+        cmd2.errorToThrow = MockError.network // 使第二个命令失败
+        let cmd3 = TestCmd()
+        
+        groupCmd.addCommand(cmd1)
+        groupCmd.addCommand(cmd2)
+        groupCmd.addCommand(cmd3)
+        
+        let results = try await groupCmd.execute()
+        
+        // 验证结果中包含所有命令的记录
+        XCTAssertEqual(results.count, 3)
+        XCTAssertNotNil(results[cmd1.id] as? String) // 第一个命令成功
+        XCTAssertNotNil(results[cmd2.id] as? XYError) // 第二个命令失败
+        XCTAssertNotNil(results[cmd3.id] as? XYError) // 第三个命令被取消
+        
+        // 验证cmd2的错误是正确包装的XYError
+        if let error = results[cmd2.id] as? XYError {
+            XCTAssertEqual(error, XYError.other(MockError.network))
+        } else {
+            XCTFail("Expected XYError.other for cmd2")
+        }
+        
+        // 验证第三个命令的结果是cancelled错误
+        if let cancelledError = results[cmd3.id] as? XYError {
+            XCTAssertEqual(cancelledError, XYError.cancelled)
+        } else {
+            XCTFail("Expected XYError.cancelled for cmd3")
+        }
+    }
+}
+
+// MARK: - Cancellation Tests
+
+extension XYGroupCmdTests {
+    
+    /// 测试组命令取消 - CancelMode.all
     func test_groupCancel_all() async throws {
         let groupCmd = XYGroupCmd(executionMode: .concurrent, cancelMode: .all)
         
@@ -154,7 +461,7 @@ final class XYGroupCmdTests: XCTestCase {
         
         do {
             _ = try await executionTask.value
-            XCTFail("Expected to throw")
+            XCTFail("Expected to throw cancellation error")
         } catch {
             XCTAssertEqual(error as? XYError, .cancelled)
         }
@@ -166,7 +473,7 @@ final class XYGroupCmdTests: XCTestCase {
         XCTAssertTrue(cmd3.state == .cancelled || cmd3.state == .succeeded)
     }
     
-    // 测试组命令取消 - CancelMode.unexecuted
+    /// 测试组命令取消 - CancelMode.unexecuted
     func test_groupCancel_unexecuted() async throws {
         let groupCmd = XYGroupCmd(executionMode: .serial, cancelMode: .unexecuted)
         
@@ -193,7 +500,7 @@ final class XYGroupCmdTests: XCTestCase {
         
         do {
             _ = try await executionTask.value
-            XCTFail("Expected to throw")
+            XCTFail("Expected to throw cancellation error")
         } catch {
             XCTAssertEqual(error as? XYError, .cancelled)
         }
@@ -204,27 +511,60 @@ final class XYGroupCmdTests: XCTestCase {
         XCTAssertTrue(cmd3.state == .cancelled || cmd3.state == .idle) // cmd3应该被取消
     }
     
-    // 测试组命令超时
-    func test_groupTimeout() async throws {
-        let groupCmd = XYGroupCmd(timeout: 0.1, executionMode: .serial)
+    /// 测试组命令取消时的结果记录
+    func test_groupCancelResults() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .concurrent, cancelMode: .all)
         
         let cmd1 = TestCmd()
-        cmd1.delayBeforeRun = 0.5 // 超过组命令的超时时间
+        cmd1.delayBeforeRun = 0.5
+        let cmd2 = TestCmd()
+        cmd2.delayBeforeRun = 0.5
+        let cmd3 = TestCmd()
+        cmd3.delayBeforeRun = 0.5
         
         groupCmd.addCommand(cmd1)
+        groupCmd.addCommand(cmd2)
+        groupCmd.addCommand(cmd3)
         
-        do {
-            _ = try await groupCmd.execute()
-            XCTFail("Expected timeout")
-        } catch {
-            XCTAssertEqual(error as? XYError, .timeout)
+        let executionTask = Task {
+            try await groupCmd.execute()
         }
         
-        XCTAssertEqual(groupCmd.state, .failed)
+        // 等待一点时间让任务开始执行
+        try await Task.sleep(nanoseconds: 10_000_000) // 10ms
+        
+        // 取消组命令
+        groupCmd.cancel()
+        
+        do {
+            _ = try await executionTask.value
+            XCTFail("Expected to throw cancellation error")
+        } catch {
+            XCTAssertEqual(error as? XYError, .cancelled)
+        }
+        
+        XCTAssertEqual(groupCmd.state, .cancelled)
+        
+        // 验证所有命令的结果都被记录为cancelled
+        let results = groupCmd.results
+        XCTAssertEqual(results.count, 3)
+        
+        for cmd in [cmd1, cmd2, cmd3] {
+            if let resultError = results[cmd.id] as? XYError {
+                XCTAssertEqual(resultError, XYError.cancelled)
+            } else {
+                XCTFail("Expected XYError.cancelled for command \(cmd.id)")
+            }
+        }
     }
+}
+
+// MARK: - Command Management Tests
+
+extension XYGroupCmdTests {
     
-    // 测试CRUD操作
-    func test_crudOperations() async throws {
+    /// 测试命令的添加、查询、更新和删除操作
+    func test_commandManagement() async throws {
         let groupCmd = XYGroupCmd()
         
         let cmd1 = TestCmd()
@@ -275,7 +615,7 @@ final class XYGroupCmdTests: XCTestCase {
         XCTAssertEqual(groupCmd.commandCount, 0)
     }
     
-    // 测试执行后不能再修改命令
+    /// 测试执行后不能再修改命令
     func test_cannotModifyCommandsAfterExecution() async throws {
         let groupCmd = XYGroupCmd()
         let cmd1 = TestCmd()
@@ -301,140 +641,7 @@ final class XYGroupCmdTests: XCTestCase {
         XCTAssertEqual(groupCmd.command(withId: cmd1.id)?.id, cmd1.id) // 应该仍然是cmd1
     }
     
-    // 测试获取命令结果
-    func test_getCommandResult() async throws {
-        let groupCmd = XYGroupCmd()
-        
-        let cmd1 = TestCmd()
-        let cmd2 = TestCmd()
-        cmd2.errorToThrow = MockError.network
-        
-        groupCmd.addCommand(cmd1)
-        groupCmd.addCommand(cmd2)
-        
-        let results = try await groupCmd.execute()
-        
-        // 通过results字典获取结果
-        XCTAssertNotNil(results[cmd1.id])
-        XCTAssertNotNil(results[cmd2.id])
-        
-        // 通过方法获取结果
-        XCTAssertNotNil(groupCmd.result(forCommandId: cmd1.id))
-        XCTAssertNotNil(groupCmd.result(forCommandId: cmd2.id))
-        XCTAssertNil(groupCmd.result(forCommandId: "non-existent"))
-    }
-    
-    // 测试并发执行中的错误处理
-    func test_concurrentExecution_withErrors() async throws {
-        let groupCmd = XYGroupCmd(executionMode: .concurrent)
-        
-        let cmd1 = TestCmd()
-        let cmd2 = TestCmd()
-        cmd2.errorToThrow = MockError.network
-        let cmd3 = TestCmd()
-        
-        groupCmd.addCommand(cmd1)
-        groupCmd.addCommand(cmd2)
-        groupCmd.addCommand(cmd3)
-        
-        let results = try await groupCmd.execute()
-        
-        XCTAssertEqual(groupCmd.state, .succeeded)
-        XCTAssertEqual(results.count, 3)
-        XCTAssertNotNil(results[cmd1.id] as? String)
-        XCTAssertNotNil(results[cmd2.id] as? XYError)
-        XCTAssertNotNil(results[cmd3.id] as? String)
-        XCTAssertEqual(cmd1.state, .succeeded)
-        XCTAssertEqual(cmd2.state, .failed)
-        XCTAssertEqual(cmd3.state, .succeeded)
-        
-        // 验证cmd2的错误是正确包装的XYError
-        if let error = results[cmd2.id] as? XYError {
-            XCTAssertEqual(error, XYError.other(MockError.network))
-        } else {
-            XCTFail("Expected XYError.other for cmd2")
-        }
-    }
-    
-    // 测试在执行前取消组命令
-    func test_cancelBeforeExecution() async throws {
-        let groupCmd = XYGroupCmd(executionMode: .concurrent)
-        
-        let cmd1 = TestCmd()
-        let cmd2 = TestCmd()
-        
-        groupCmd.addCommand(cmd1)
-        groupCmd.addCommand(cmd2)
-        
-        groupCmd.cancel()
-        
-        do {
-            _ = try await groupCmd.execute()
-            XCTFail("Expected to throw")
-        } catch {
-            XCTAssertEqual(error as? XYError, .cancelled)
-        }
-        
-        XCTAssertEqual(groupCmd.state, .cancelled)
-        XCTAssertEqual(cmd1.state, .cancelled)
-        XCTAssertEqual(cmd2.state, .cancelled)
-    }
-    
-    // 测试混合XYBaseCmd和TestCmd命令
-    func test_mixedCommandTypes() async throws {
-        let groupCmd = XYGroupCmd(executionMode: .serial)
-        
-        let baseCmd = XYBaseCmd<String> { completion in
-            DispatchQueue.global().asyncAfter(deadline: .now() + 0.01) {
-                completion(.success("From base cmd"))
-            }
-        }
-        
-        let testCmd = TestCmd()
-        
-        groupCmd.addCommand(baseCmd)
-        groupCmd.addCommand(testCmd)
-        
-        let results = try await groupCmd.execute()
-        
-        XCTAssertEqual(groupCmd.state, .succeeded)
-        XCTAssertEqual(results.count, 2)
-        XCTAssertEqual(results[baseCmd.id] as? String, "From base cmd")
-        XCTAssertEqual(results[testCmd.id] as? String, "Success")
-        XCTAssertEqual(baseCmd.state, .succeeded)
-        XCTAssertEqual(testCmd.state, .succeeded)
-    }
-    
-    // 测试不同类型结果的命令
-    func test_differentResultTypes() async throws {
-        let groupCmd = XYGroupCmd(executionMode: .serial)
-        
-        let stringCmd = XYBaseCmd<String> { completion in
-            completion(.success("String result"))
-        }
-        
-        let intCmd = XYBaseCmd<Int> { completion in
-            completion(.success(42))
-        }
-        
-        let boolCmd = XYBaseCmd<Bool> { completion in
-            completion(.success(true))
-        }
-        
-        groupCmd.addCommand(stringCmd)
-        groupCmd.addCommand(intCmd)
-        groupCmd.addCommand(boolCmd)
-        
-        let results = try await groupCmd.execute()
-        
-        XCTAssertEqual(groupCmd.state, .succeeded)
-        XCTAssertEqual(results.count, 3)
-        XCTAssertEqual(results[stringCmd.id] as? String, "String result")
-        XCTAssertEqual(results[intCmd.id] as? Int, 42)
-        XCTAssertEqual(results[boolCmd.id] as? Bool, true)
-    }
-    
-    // 测试组命令中不同类型命令的查询功能
+    /// 测试组命令中不同类型命令的查询功能
     func test_groupCommandQueryWithDifferentTypes() async throws {
         let groupCmd = XYGroupCmd()
         
@@ -480,87 +687,91 @@ final class XYGroupCmdTests: XCTestCase {
         let executedCommands = groupCmd.executedCommands
         XCTAssertEqual(executedCommands.count, 3)
     }
+}
+
+// MARK: - Result Management Tests
+
+extension XYGroupCmdTests {
     
-    // 测试取消命令的结果记录
-    func test_cancelledCommandResults() async throws {
-        let groupCmd = XYGroupCmd(executionMode: .serial, interruptOnFailure: true)
+    /// 测试获取命令结果
+    func test_getCommandResult() async throws {
+        let groupCmd = XYGroupCmd()
         
         let cmd1 = TestCmd()
         let cmd2 = TestCmd()
-        cmd2.errorToThrow = MockError.network // 使第二个命令失败
-        let cmd3 = TestCmd()
+        cmd2.errorToThrow = MockError.network
         
         groupCmd.addCommand(cmd1)
         groupCmd.addCommand(cmd2)
-        groupCmd.addCommand(cmd3)
         
         let results = try await groupCmd.execute()
         
-        // 验证结果中包含所有命令的记录
-        XCTAssertEqual(results.count, 3)
-        XCTAssertNotNil(results[cmd1.id] as? String) // 第一个命令成功
-        XCTAssertNotNil(results[cmd2.id] as? XYError) // 第二个命令失败
-        XCTAssertNotNil(results[cmd3.id] as? XYError) // 第三个命令被取消
+        // 通过results字典获取结果
+        XCTAssertNotNil(results[cmd1.id])
+        XCTAssertNotNil(results[cmd2.id])
         
-        // 验证cmd2的错误是正确包装的XYError
-        if let error = results[cmd2.id] as? XYError {
-            XCTAssertEqual(error, XYError.other(MockError.network))
-        } else {
-            XCTFail("Expected XYError.other for cmd2")
-        }
-        
-        // 验证第三个命令的结果是cancelled错误
-        if let cancelledError = results[cmd3.id] as? XYError {
-            XCTAssertEqual(cancelledError, XYError.cancelled)
-        } else {
-            XCTFail("Expected XYError.cancelled for cmd3")
-        }
+        // 通过方法获取结果
+        XCTAssertNotNil(groupCmd.result(forCommandId: cmd1.id))
+        XCTAssertNotNil(groupCmd.result(forCommandId: cmd2.id))
+        XCTAssertNil(groupCmd.result(forCommandId: "non-existent"))
     }
+}
+
+// MARK: - Mixed Command Tests
+
+extension XYGroupCmdTests {
     
-    // 测试组命令取消时的结果记录
-    func test_groupCancelResults() async throws {
-        let groupCmd = XYGroupCmd(executionMode: .concurrent, cancelMode: .all)
+    /// 测试混合XYBaseCmd和TestCmd命令
+    func test_mixedCommandTypes() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .serial)
         
-        let cmd1 = TestCmd()
-        cmd1.delayBeforeRun = 0.5
-        let cmd2 = TestCmd()
-        cmd2.delayBeforeRun = 0.5
-        let cmd3 = TestCmd()
-        cmd3.delayBeforeRun = 0.5
-        
-        groupCmd.addCommand(cmd1)
-        groupCmd.addCommand(cmd2)
-        groupCmd.addCommand(cmd3)
-        
-        let executionTask = Task {
-            try await groupCmd.execute()
-        }
-        
-        // 等待一点时间让任务开始执行
-        try await Task.sleep(nanoseconds: 10_000_000) // 10ms
-        
-        // 取消组命令
-        groupCmd.cancel()
-        
-        do {
-            _ = try await executionTask.value
-            XCTFail("Expected to throw")
-        } catch {
-            XCTAssertEqual(error as? XYError, .cancelled)
-        }
-        
-        XCTAssertEqual(groupCmd.state, .cancelled)
-        
-        // 验证所有命令的结果都被记录为cancelled
-        let results = groupCmd.results
-        XCTAssertEqual(results.count, 3)
-        
-        for cmd in [cmd1, cmd2, cmd3] {
-            if let resultError = results[cmd.id] as? XYError {
-                XCTAssertEqual(resultError, XYError.cancelled)
-            } else {
-                XCTFail("Expected XYError.cancelled for command \(cmd.id)")
+        let baseCmd = XYBaseCmd<String> { completion in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.01) {
+                completion(.success("From base cmd"))
             }
         }
+        
+        let testCmd = TestCmd()
+        
+        groupCmd.addCommand(baseCmd)
+        groupCmd.addCommand(testCmd)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 2)
+        XCTAssertEqual(results[baseCmd.id] as? String, "From base cmd")
+        XCTAssertEqual(results[testCmd.id] as? String, "Success")
+        XCTAssertEqual(baseCmd.state, .succeeded)
+        XCTAssertEqual(testCmd.state, .succeeded)
+    }
+    
+    /// 测试不同类型结果的命令
+    func test_differentResultTypes() async throws {
+        let groupCmd = XYGroupCmd(executionMode: .serial)
+        
+        let stringCmd = XYBaseCmd<String> { completion in
+            completion(.success("String result"))
+        }
+        
+        let intCmd = XYBaseCmd<Int> { completion in
+            completion(.success(42))
+        }
+        
+        let boolCmd = XYBaseCmd<Bool> { completion in
+            completion(.success(true))
+        }
+        
+        groupCmd.addCommand(stringCmd)
+        groupCmd.addCommand(intCmd)
+        groupCmd.addCommand(boolCmd)
+        
+        let results = try await groupCmd.execute()
+        
+        XCTAssertEqual(groupCmd.state, .succeeded)
+        XCTAssertEqual(results.count, 3)
+        XCTAssertEqual(results[stringCmd.id] as? String, "String result")
+        XCTAssertEqual(results[intCmd.id] as? Int, 42)
+        XCTAssertEqual(results[boolCmd.id] as? Bool, true)
     }
 }

@@ -10,7 +10,7 @@
 import Foundation
 // Basic
 import XYExtension
-// Server
+// Service
 import XYLog
 // Tool
 // Business

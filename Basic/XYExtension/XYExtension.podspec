@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   # 当前所处：Basic
   # 公共依赖（所有平台共享）
   # Basic
-  # Server
+  # Service
   # Tool
   # Business
   # Third

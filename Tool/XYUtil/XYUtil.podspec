@@ -32,7 +32,7 @@ TODO: Add long description of the pod here.
   # 公共依赖（所有平台共享）
   # Basic
   s.dependency 'XYExtension'
-  # Server
+  # Service
   # Tool
   # Business
   # Third

@@ -10,7 +10,7 @@
 import Foundation
 // Basic
 import XYExtension
-// Server
+// Service
 import XYLog
 // Tool
 // Business
@@ -22,6 +22,7 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
     
     // MARK: var
     private var continuation: CheckedContinuation<ResultType, any Error>?
+    private var didResume = false
     public let executionBlock: ((@escaping (Result<ResultType, Error>) -> Void) -> Void)?
     /// 在group中是否允许失败
     public var allowsFailureInGroup: Bool = true
@@ -48,13 +49,13 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
             self.continuation = continuation
             block { [weak self] result in
                 guard let self = self else { return }
-                guard !self.state.isCompleted else { return }
-                
+                guard !self.state.isCompleted, !self.state.isAbnormal else { return }
+                guard !self.didResume else { return }
+                self.didResume = true
                 switch result {
                 case .success(let value):
                     continuation.resume(returning: value)
                 case .failure(let error):
-                    // 统一错误处理
                     let normalizedError = Self.normalizeError(error)
                     continuation.resume(throwing: normalizedError)
                 }
@@ -65,7 +66,9 @@ open class XYBaseCmd<ResultType>: XYCmd<ResultType> {
     // MARK: cancel
     open override func cancel() {
         super.cancel()
-        self.continuation?.resume(throwing: XYError.cancelled)
+        guard !didResume, let continuation = self.continuation else { return }
+        didResume = true
+        continuation.resume(throwing: XYError.cancelled)
     }
 }
 

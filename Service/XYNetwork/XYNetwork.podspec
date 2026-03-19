@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint XYCmd.podspec' to ensure this is a
+# Be sure to run `pod lib lint XYNetwork.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'XYCmd'
+  s.name             = 'XYNetwork'
   s.version          = '1.0.0'
-  s.summary          = 'A short description of XYCmd.'
+  s.summary          = 'A short description of XYNetwork.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,38 +21,39 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/hsf89757/XYCmd'
+  s.homepage         = 'https://github.com/hsf89757/XYNetwork'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'hsf89757' => 'hsf89757@gmail.com' }
-  s.source           = { :git => 'https://github.com/hsf89757/XYCmd.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/hsf89757/XYNetwork.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  # 当前所处：Tool
+  # 当前所处：Server
   # 公共依赖（所有平台共享）
   # Basic
   s.dependency 'XYExtension'
   # Service
   s.dependency 'XYLog'
   # Tool
+  s.dependency 'XYUtil'
   # Business
   # Third
-  
+
   # 公共代码
-  shared_files = 'XYCmd/Classes/**/*.swift'
+  shared_files = 'XYNetwork/Classes/**/*.swift'
 
   # iOS 平台配置
   s.ios.deployment_target = '14.0'
   s.ios.source_files = [
-    shared_files
+    shared_files,
   ]
   s.ios.frameworks = 'UIKit', 'Foundation'
 
   # watchOS 平台配置
   s.watchos.deployment_target = '9.0'
   s.watchos.source_files = [
-    shared_files
+    shared_files,
   ]
-  s.watchos.frameworks = 'Foundation'
+  s.watchos.frameworks = 'WatchKit', 'Foundation'
   
 end
