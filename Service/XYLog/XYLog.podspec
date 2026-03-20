@@ -60,7 +60,6 @@ TODO: Add long description of the pod here.
   # CocoaLumberjack
   s.subspec 'CocoaLumberjack' do |wcdb|
     wcdb.source_files = [
-      'XYLog/Classes/Core/**/*.swift',
       'XYLog/Classes/CocoaLumberjack/**/*.swift'
     ]
     wcdb.dependency 'XYLog/Core'
@@ -70,7 +69,6 @@ TODO: Add long description of the pod here.
   # SwiftyBeaver
   s.subspec 'SwiftyBeaver' do |wcdb|
     wcdb.source_files = [
-      'XYLog/Classes/Core/**/*.swift',
       'XYLog/Classes/SwiftyBeaver/**/*.swift'
     ]
     wcdb.dependency 'XYLog/Core'

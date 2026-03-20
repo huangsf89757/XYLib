@@ -62,7 +62,6 @@ TODO: Add long description of the pod here.
   # WCDB
   s.subspec 'WCDB' do |wcdb|
     wcdb.source_files = [
-      'XYStorage/Classes/Core/**/*.swift',
       'XYStorage/Classes/WCDB/**/*.swift'
     ]
     wcdb.dependency 'XYStorage/Core'
@@ -72,7 +71,6 @@ TODO: Add long description of the pod here.
   # GRDB
   s.subspec 'GRDB' do |grdb|
     grdb.source_files = [
-      'XYStorage/Classes/Core/**/*.swift',
       'XYStorage/Classes/GRDB/**/*.swift'
     ]
     grdb.dependency 'XYStorage/Core'
@@ -82,7 +80,6 @@ TODO: Add long description of the pod here.
   # Realm
   s.subspec 'Realm' do |realm|
     realm.source_files = [
-      'XYStorage/Classes/Core/**/*.swift',
       'XYStorage/Classes/Realm/**/*.swift'
     ]
     realm.dependency 'XYStorage/Core'

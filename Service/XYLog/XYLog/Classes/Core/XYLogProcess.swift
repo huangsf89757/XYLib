@@ -15,18 +15,33 @@ public enum XYLogProcess {
     case fail               // 失败
     case unknown            // 未知
     
-    public var desc: String {
+    public var tag: String {
         switch self {
         case .begin:
-            return "$B"
+            return "B"
         case .doing:
-            return "$D"
+            return "D"
         case .succ:
-            return "$S"
+            return "S"
         case .fail:
-            return "$F"
+            return "F"
         case .unknown:
-            return "$U"
+            return "U"
+        }
+    }
+    
+    public var symbol: String {
+        switch self {
+        case .begin:
+            return "🔫"
+        case .doing:
+            return "🏃🏻‍➡️"
+        case .succ:
+            return "👏🏻"
+        case .fail:
+            return "🏳️"
+        case .unknown:
+            return "🤷🏻"
         }
     }
 }

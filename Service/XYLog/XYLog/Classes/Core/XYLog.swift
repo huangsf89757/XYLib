@@ -18,8 +18,19 @@ public final class XYLog {
     public var enable = false
     /// 当前日志对象
     public var logger: XYLogger?
-    /// 当前日志量
-    private var count: Int
+    /// 使用样式
+    private var style: Style = .symble
+    public enum Style {
+        case symble
+        case tag
+    }
+    
+    // MARK: func
+    public static func config(enable: Bool = true, style: Style = .tag, logger: XYLogger) {
+        shared.enable = enable
+        shared.style = style
+        shared.logger = logger
+    }
 }
 
 public extension XYLog {
@@ -105,38 +116,63 @@ public extension XYLog {
                        content: Any...) {
         guard shared.enable else { return }
         guard let logger = shared.logger else { return }
+        
         // file
         let fileLen = 25
+        let fileSpace = String(repeating: " ", count: fileLen)
         let fileName = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        let fileStr = String((fileName + String(repeating: " ", count: fileLen)).prefix(fileLen))
+        let fileStr = String((fileName + fileSpace).prefix(fileLen))
+        
         // function
         let funcLen = 30
-        let funcStr = String((function + String(repeating: " ", count: funcLen)).prefix(funcLen))
+        let funcSpace = String(repeating: " ", count: funcLen)
+        let funcStr = String((function + funcSpace).prefix(funcLen))
+        
         // line
         let lineLen = 4
-        let lineStr = String(("\(line)" + String(repeating: " ", count: lineLen)).prefix(lineLen))
+        let lineSpace = String(repeating: " ", count: lineLen)
+        let lineStr = String(("\(line)" + lineSpace).prefix(lineLen))
+        
         // id
         let idLen = 8
-        var idStr = String(repeating: " ", count: idLen)
+        let idSpace = String(repeating: " ", count: idLen)
+        var idStr = idSpace
         if let id = id {
-            let res = id + idStr
-            idStr = String(res.prefix(idLen))
+            idStr = String((id + idSpace).prefix(lineLen))
         } else {
-            
-    //        let count = _counter.wrappingIncrement()
-            return String(format: "%llu%06llu", time, count)
+            let systemUptime = String(format: "%llu", UInt64(ProcessInfo.processInfo.systemUptime * 1000_000))
+            idStr = String((systemUptime + idSpace).prefix(lineLen))
         }
-        let systemUptime = UInt64(ProcessInfo.processInfo.systemUptime * 1000_000)
         
         // level
-        let levelStr = level.symbol
+        var levelStyle = ""
+        switch shared.style {
+        case .symble:
+            levelStyle = level.symbol
+        case .tag:
+            levelStyle = level.tag
+        }
+        let levelStr = "[\(levelStyle)]"
+        
         // tag
         var tagStr: String?
         if let tag = tag {
             tagStr = "#\(tag.joined(separator: "."))"
         }
+        
         // process
-        let processStr = process?.desc
+        var processStr = ""
+        if let process = process {
+            var processStyle = ""
+            switch shared.style {
+            case .symble:
+                processStyle = process.symbol
+            case .tag:
+                processStyle = process.tag
+            }
+            processStr = "$\(processStyle)"
+        }
+        
         // record
         logger.record(file: fileStr,
                       function: funcStr,

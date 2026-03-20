@@ -18,6 +18,23 @@ public enum XYLogLevel {
     case error    // 错误信息，表示发生了可恢复的错误
     case fatal    // 致命错误，通常会导致程序终止
     
+    public var tag: String {
+        switch self {
+        case .verbose:
+            return "V"
+        case .debug:
+            return "D"
+        case .info:
+            return "I"
+        case .warning:
+            return "W"
+        case .error:
+            return "E"
+        case .fatal:
+            return "F"
+        }
+    }
+    
     public var symbol: String {
         switch self {
         case .verbose:
