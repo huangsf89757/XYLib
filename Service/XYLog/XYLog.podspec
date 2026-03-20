@@ -55,7 +55,6 @@ TODO: Add long description of the pod here.
   # Core
   s.subspec 'Core' do |core|
     core.source_files = 'XYLog/Classes/Core/**/*.swift'
-    core.frameworks = 'Foundation'
   end
 
   # CocoaLumberjack

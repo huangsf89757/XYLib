@@ -27,31 +27,33 @@ TODO: Add long description of the pod here.
   s.author           = { 'hsf89757' => 'hsf89757@gmail.com' }
   s.source           = { :git => 'https://github.com/hsf89757/XYUtil.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  # 当前所处：Tool
-  # 公共依赖（所有平台共享）
+  
+  # --- Version --- #
+  s.swift_version    = '5.7'
+  
+  # --- Target --- #
+  s.ios.deployment_target = '14.0'
+  s.watchos.deployment_target = '9.0'
+  
+  # --- Frameworks --- #
+  s.ios.frameworks = 'UIKit', 'Foundation'
+  s.watchos.frameworks = 'WatchKit', 'Foundation'
+  
+  # --- Dependency --- #
   # Basic
   s.dependency 'XYExtension'
   # Service
-  # Tool
+  # Tool <--
   # Business
   # Third
-
-  # 公共代码
+  
+  # --- SourceFile --- #
   shared_files = 'XYUtil/Classes/**/*.swift'
-
-  # iOS 平台配置
-  s.ios.deployment_target = '14.0'
   s.ios.source_files = [
     shared_files,
   ]
-  s.ios.frameworks = 'UIKit', 'Foundation'
-
-  # watchOS 平台配置
-  s.watchos.deployment_target = '9.0'
   s.watchos.source_files = [
     shared_files,
   ]
-  s.watchos.frameworks = 'WatchKit', 'Foundation'
   
 end
