@@ -9,7 +9,8 @@ import Foundation
 import XYUtil
 import CocoaLumberjack
 
-public class XYCocoaLumberjackLogger: XYLogger {
+// MARK: - XYCocoaLumberjackLogger
+public class XYCocoaLumberjackLogger {
     public static let shared = XYCocoaLumberjackLogger()
     private init() {
         DDLog.add(DDOSLogger.sharedInstance)
@@ -27,34 +28,28 @@ public class XYCocoaLumberjackLogger: XYLogger {
         DDLog.add(DDOSLogger.sharedInstance)
 #endif
     }
-    
-    public func record(file: String,
-                       function: String,
-                       line: String,
-                       id: String?,
-                       level: String,
-                       tag: String?,
-                       process: String?,
-                       content: Any...) {
-//        var message = file + function + line
-        var message = file + line 
-        message += " " + level
-        if let id = id {
-            message += " " + id
-        }
-        if let tag = tag {
+}
+
+// MARK: - XYLogger
+extension XYCocoaLumberjackLogger: XYLogger {
+    public func write(data: XYLogData) {
+        var message = data.file + data.line
+        message += " " + data.level
+        message += " " + data.id
+        if let tag = data.tag {
             message += " " + tag
         }
-        if let process = process {
+        if let process = data.process {
             message += " " + process
         }
-        for item in content {
+        for item in data.content {
             message += " \(item)"
-        }        
+        }
         DDLogDebug(message)
     }
 }
 
+// MARK: - XYCocoaLumberjackFileFormatter
 public final class XYCocoaLumberjackFileFormatter: NSObject, DDLogFormatter {
     public private(set) var dateFormatter: DateFormatter = .init()
     public init(withFormatter formatter: DateFormatter? = nil) {
@@ -74,6 +69,7 @@ public final class XYCocoaLumberjackFileFormatter: NSObject, DDLogFormatter {
     }
 }
 
+// MARK: - XYCocoaLumberjackFileManager
 public final class XYCocoaLumberjackFileManager: DDLogFileManagerDefault {
     let suffix = ".log"
     public override var newLogFileName: String {
@@ -82,7 +78,6 @@ public final class XYCocoaLumberjackFileManager: DDLogFileManagerDefault {
     public override func isLogFile(withName fileName: String) -> Bool {
         return fileName.hasPrefix(XYApp.name) && fileName.hasSuffix(suffix)
     }
-    
     var _dateFormatter: DateFormatter!
     var dateFormatter: DateFormatter {
         guard _dateFormatter == nil else { return _dateFormatter }

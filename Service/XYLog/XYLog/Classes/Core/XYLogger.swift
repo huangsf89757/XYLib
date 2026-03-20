@@ -7,13 +7,7 @@
 
 import Foundation
 
+// MARK: - XYLogger
 public protocol XYLogger {
-    func record(file: String,
-                function: String,
-                line: String,
-                id: String?,
-                level: String,
-                tag: String?,
-                process: String?,
-                content: Any...)
+    func write(data: XYLogData)
 }

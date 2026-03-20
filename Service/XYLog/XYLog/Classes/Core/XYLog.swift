@@ -24,6 +24,9 @@ public final class XYLog {
         case symble
         case tag
     }
+    /// 缓存
+    private var tagCache: [String: XYLogTag] = [:]
+    private let cacheQueue = DispatchQueue(label: "com.xy.log.cache", attributes: .concurrent)
     
     // MARK: func
     public static func config(enable: Bool = true, style: Style = .tag, logger: XYLogger) {
@@ -33,6 +36,7 @@ public final class XYLog {
     }
 }
 
+// MARK: - Func
 public extension XYLog {
     static func verbose(file: String = #file,
                         function: String = #function,
@@ -41,7 +45,7 @@ public extension XYLog {
                         tag: [String]? = nil,
                         process: XYLogProcess? = nil,
                         content: Any...) {
-        record(file: file, function: function, line: line, id: id, level: .verbose, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .verbose, tag: tag, process: process, content: content)
     }
     
     static func debug(file: String = #file,
@@ -51,7 +55,7 @@ public extension XYLog {
                       tag: [String]? = nil,
                       process: XYLogProcess? = nil,
                       content: Any...) {
-        record(file: file, function: function, line: line, id: id, level: .debug, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .debug, tag: tag, process: process, content: content)
     }
     
     static func info(file: String = #file,
@@ -61,7 +65,7 @@ public extension XYLog {
                      tag: [String]? = nil,
                      process: XYLogProcess? = nil,
                      content: Any...) {
-        record(file: file, function: function, line: line, id: id, level: .info, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .info, tag: tag, process: process, content: content)
     }
     
     static func warning(file: String = #file,
@@ -71,7 +75,7 @@ public extension XYLog {
                         tag: [String]? = nil,
                         process: XYLogProcess? = nil,
                         content: Any...) {
-        record(file: file, function: function, line: line, id: id, level: .warning, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .warning, tag: tag, process: process, content: content)
     }
     
     static func error(file: String = #file,
@@ -81,7 +85,7 @@ public extension XYLog {
                       tag: [String]? = nil,
                       process: XYLogProcess? = nil,
                       content: Any...) {
-        record(file: file, function: function, line: line, id: id, level: .error, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .error, tag: tag, process: process, content: content)
     }
     
     static func fatal(file: String = #file,
@@ -91,96 +95,124 @@ public extension XYLog {
                       tag: [String]? = nil,
                       process: XYLogProcess? = nil,
                       content: Any...) {
-        record(file: file, function: function, line: line, id: id, level: .fatal, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .fatal, tag: tag, process: process, content: content)
     }
 }
 
-public extension XYLog {
-    /// 记录日志
-    /// - Parameters:
-    ///   - file: 文件名
-    ///   - function: 函数名
-    ///   - id: 唯一id
-    ///   - line: 行号
-    ///   - level: 级别
-    ///   - tag: 标记
-    ///   - process: 过程
-    ///   - content: 内容
-    private static func record(file: String = #file,
-                       function: String = #function,
-                       line: Int = #line,
-                       id: String? = nil,
-                       level: XYLogLevel = .verbose,
-                       tag: [String]? = nil,
-                       process: XYLogProcess? = nil,
-                       content: Any...) {
-        guard shared.enable else { return }
-        guard let logger = shared.logger else { return }
+
+// MARK: - Record
+extension XYLog {
+    private func record(file: String = #file,
+                        function: String = #function,
+                        line: Int = #line,
+                        id: String? = nil,
+                        level: XYLogLevel = .verbose,
+                        tag: [String]? = nil,
+                        process: XYLogProcess? = nil,
+                        content: Any...) {
+        guard enable else { return }
+        guard let logger = logger else { return }
+        let tagStr = format(tag: tag)
         
-        // file
-        let fileLen = 25
-        let fileSpace = String(repeating: " ", count: fileLen)
-        let fileName = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        let fileStr = String((fileName + fileSpace).prefix(fileLen))
-        
-        // function
-        let funcLen = 30
-        let funcSpace = String(repeating: " ", count: funcLen)
-        let funcStr = String((function + funcSpace).prefix(funcLen))
-        
-        // line
-        let lineLen = 4
-        let lineSpace = String(repeating: " ", count: lineLen)
-        let lineStr = String(("\(line)" + lineSpace).prefix(lineLen))
-        
-        // id
-        let idLen = 8
-        let idSpace = String(repeating: " ", count: idLen)
-        var idStr = idSpace
+        guard let data = getData(file: file, function: function, line: line, id: id, level: .fatal, tag: tag, process: process, content: content) else { return }
+        logger.write(data: data)
+    }
+    
+    private func getData(file: String = #file,
+                         function: String = #function,
+                         line: Int = #line,
+                         id: String? = nil,
+                         level: XYLogLevel = .verbose,
+                         tag: [String]? = nil,
+                         process: XYLogProcess? = nil,
+                         content: Any...) -> XYLogData? {
+        let fileStr = format(file: file)
+        let funcStr = format(function: function)
+        let lineStr = format(line: line)
+        let idStr = format(id: id)
+        let levelStr = format(level: level)
+        let tagStr = format(tag: tag)
+        let processStr = format(process: process)
+        let data = XYLogData(file: fileStr,
+                             function: funcStr,
+                             line: lineStr,
+                             id: idStr,
+                             level: levelStr,
+                             tag: tagStr,
+                             process: processStr,
+                             content: content)
+        return data
+    }
+}
+
+// MARK: - Format
+extension XYLog {
+    private func format(file: String) -> String {
+        let len = 25
+        let space = String(repeating: " ", count: len)
+        let name = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
+        let str = String((name + space).prefix(len))
+        return str
+    }
+    
+    private func format(function: String) -> String {
+        let len = 30
+        let space = String(repeating: " ", count: len)
+        let str = String((function + space).prefix(len))
+        return str
+    }
+    
+    private func format(line: Int) -> String {
+        let len = 4
+        let space = String(repeating: " ", count: len)
+        let str = String(("\(line)" + space).prefix(len))
+        return str
+    }
+    
+    private func format(id: String?) -> String {
+        let len = 8
+        let space = String(repeating: " ", count: len)
+        var str = space
         if let id = id {
-            idStr = String((id + idSpace).prefix(lineLen))
+            str = String((id + space).prefix(len))
         } else {
             let systemUptime = String(format: "%llu", UInt64(ProcessInfo.processInfo.systemUptime * 1000_000))
-            idStr = String((systemUptime + idSpace).prefix(lineLen))
+            str = String((systemUptime + space).prefix(len))
         }
-        
-        // level
-        var levelStyle = ""
-        switch shared.style {
+        return str
+    }
+    
+    private func format(level: XYLogLevel) -> String {
+        var styleStr = ""
+        switch style {
         case .symble:
-            levelStyle = level.symbol
+            styleStr = level.symbol
         case .tag:
-            levelStyle = level.tag
+            styleStr = level.tag
         }
-        let levelStr = "[\(levelStyle)]"
-        
-        // tag
-        var tagStr: String?
+        return "[\(styleStr)]"
+    }
+    
+    private func format(tag: [String]?) -> String? {
+        var str: String?
         if let tag = tag {
-            tagStr = "#\(tag.joined(separator: "."))"
+            str = "#\(tag.joined(separator: "."))"
         }
-        
-        // process
-        var processStr = ""
+        return str
+    }
+    
+    private func format(process: XYLogProcess?) -> String? {
+        var str: String?
         if let process = process {
-            var processStyle = ""
-            switch shared.style {
+            var processStr = ""
+            switch style {
             case .symble:
-                processStyle = process.symbol
+                processStr = process.symbol
             case .tag:
-                processStyle = process.tag
+                processStr = process.tag
             }
-            processStr = "$\(processStyle)"
+            str = "$\(processStr)"
         }
-        
-        // record
-        logger.record(file: fileStr,
-                      function: funcStr,
-                      line: lineStr,
-                      id: idStr,
-                      level: levelStr,
-                      tag: tagStr,
-                      process: processStr,
-                      content: content)
+        return str
     }
 }
