@@ -56,7 +56,7 @@ extension XYLogAlign {
             str = String((id + space).prefix(len))
         } else {
             let now = CACurrentMediaTime()
-            str = String(("\(now)" + space).suffix(len))
+            str = String((space + "\(now)").suffix(len))
         }
         return str
     }
