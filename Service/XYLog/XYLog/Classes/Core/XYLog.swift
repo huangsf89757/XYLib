@@ -18,8 +18,11 @@ public final class XYLog {
     public var enable = false
     /// 当前日志对象
     public var logger: XYLogger?
-    /// 使用样式
-    private var style: XYLogStyle = .symble
+    /// 样式
+    public var style: XYLogStyle = .symble
+    /// 对齐
+    public var align = XYLogAlign()
+    
     /// 节流
     private lazy var throttle: XYLogThrottle = { return XYLogThrottle() }()
     /// 队列
@@ -126,13 +129,13 @@ extension XYLog {
                          tag: XYLogTag?,
                          process: XYLogProcess?,
                          content: Any...) -> XYLogData? {
-        let fileStr = format(file: file)
-        let funcStr = format(function: function)
-        let lineStr = format(line: line)
-        let idStr = format(id: id)
-        let levelStr = format(level: level)
-        let tagStr = format(tag: tag)
-        let processStr = format(process: process)
+        let fileStr = align.format(file: file)
+        let funcStr = align.format(function: function)
+        let lineStr = align.format(line: line)
+        let idStr = align.format(id: id)
+        let levelStr = align.format(level: level, style: style)
+        let tagStr = align.format(tag: tag)
+        let processStr = align.format(process: process, style: style)
         let data = XYLogData(file: fileStr,
                              function: funcStr,
                              line: lineStr,
@@ -142,82 +145,5 @@ extension XYLog {
                              process: processStr,
                              content: content)
         return data
-    }
-}
-
-// MARK: - Format
-extension XYLog {
-    private func format(file: String) -> String {
-        let len = 25
-        let space = String(repeating: " ", count: len)
-        let name = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        let str = String((name + space).prefix(len))
-        return str
-    }
-    
-    private func format(function: String) -> String {
-        let len = 30
-        let space = String(repeating: " ", count: len)
-        let str = String((function + space).prefix(len))
-        return str
-    }
-    
-    private func format(line: Int) -> String {
-        let len = 4
-        let space = String(repeating: " ", count: len)
-        let str = String(("\(line)" + space).prefix(len))
-        return str
-    }
-    
-    private func format(id: String?) -> String {
-        let len = 8
-        let space = String(repeating: " ", count: len)
-        var str = space
-        if let id = id {
-            str = String((id + space).prefix(len))
-        } else {
-            let systemUptime = String(format: "%llu", UInt64(ProcessInfo.processInfo.systemUptime * 1000_000))
-            str = String((systemUptime + space).prefix(len))
-        }
-        return str
-    }
-    
-    private func format(level: XYLogLevel) -> String {
-        var styleStr = ""
-        switch style {
-        case .symble:
-            styleStr = level.symbol
-        case .tag:
-            styleStr = level.tag
-        }
-        return "[\(styleStr)]"
-    }
-    
-    private func format(tag: XYLogTag?) -> String? {
-        var str: String?
-        if let tag = tag {
-            switch tag {
-            case .com(let contents):
-                str = "#\(contents.joined(separator: "."))"
-            case .tag(contents: let contents, throttle: let interval):
-                str = "#\(contents.joined(separator: "."))"
-            }
-        }
-        return str
-    }
-    
-    private func format(process: XYLogProcess?) -> String? {
-        var str: String?
-        if let process = process {
-            var processStr = ""
-            switch style {
-            case .symble:
-                processStr = process.symbol
-            case .tag:
-                processStr = process.tag
-            }
-            str = "$\(processStr)"
-        }
-        return str
     }
 }
