@@ -5,7 +5,6 @@
 //  Created by hsf on 2025/9/2.
 //
 
-
 import Foundation
 import WatchConnectivity
 import XYExtension
@@ -36,7 +35,7 @@ public final class XYWcManager: NSObject {
     
     // MARK: activate
     public func activate() {
-        let logTag = [Self.logTag, "activate()"]
+        let logTag = [Self.logTag, "activate()"].joined(separator: ".")
         guard let session = session else {
             XYLog.info(tag: logTag, process: .fail, content: "session=nil")
             return
@@ -52,7 +51,7 @@ public final class XYWcManager: NSObject {
 
 extension XYWcManager: WCSessionDelegate {
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {
-        let logTag = [Self.logTag, "activationDidComplete()"]
+        let logTag = [Self.logTag, "activationDidComplete()"].joined(separator: ".")
         if let error = error {
             XYLog.info(tag: logTag, content: "state=\(activationState.info)", "error=\(error.info)")
         } else {
@@ -64,7 +63,7 @@ extension XYWcManager: WCSessionDelegate {
     }
     
     public func sessionReachabilityDidChange(_ session: WCSession) {
-        let logTag = [Self.logTag, "reachabilityDidChange()"]
+        let logTag = [Self.logTag, "reachabilityDidChange()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "isReachable=\(session.isReachable)")
         plugins.forEach { plugin in
             plugin.sessionReachabilityDidChange?(session)
@@ -74,8 +73,8 @@ extension XYWcManager: WCSessionDelegate {
 #if os(watchOS)
     
     public func sessionCompanionAppInstalledDidChange(_ session: WCSession) {
-        let logTag = [Self.logTag, "companionAppInstalledDidChange()"]
-        XYLog.info(tag: logTag, content: "isCompanionAppInstalled=\(session.isCompanionAppInstalled)")        
+        let logTag = [Self.logTag, "companionAppInstalledDidChange()"].joined(separator: ".")
+        XYLog.info(tag: logTag, content: "isCompanionAppInstalled=\(session.isCompanionAppInstalled)")
         plugins.forEach { plugin in
             plugin.sessionCompanionAppInstalledDidChange?(session)
         }
@@ -84,7 +83,7 @@ extension XYWcManager: WCSessionDelegate {
 #elseif os(iOS)
     
     public func sessionDidBecomeInactive(_ session: WCSession) {
-        let logTag = [Self.logTag, "didBecomeInactive()"]
+        let logTag = [Self.logTag, "didBecomeInactive()"].joined(separator: ".")
         XYLog.info(tag: logTag)
         plugins.forEach { plugin in
             plugin.sessionDidBecomeInactive(session)
@@ -92,7 +91,7 @@ extension XYWcManager: WCSessionDelegate {
     }
     
     public func sessionDidDeactivate(_ session: WCSession) {
-        let logTag = [Self.logTag, "didDeactivate()"]
+        let logTag = [Self.logTag, "didDeactivate()"].joined(separator: ".")
         XYLog.info(tag: logTag)
         plugins.forEach { plugin in
             plugin.sessionDidDeactivate(session)
@@ -100,7 +99,7 @@ extension XYWcManager: WCSessionDelegate {
     }
     
     public func sessionWatchStateDidChange(_ session: WCSession) {
-        let logTag = [Self.logTag, "watchStateDidChange()"]
+        let logTag = [Self.logTag, "watchStateDidChange()"].joined(separator: ".")
         XYLog.info(tag: logTag)
         plugins.forEach { plugin in
             plugin.sessionWatchStateDidChange?(session)
@@ -125,7 +124,7 @@ extension XYWcManager {
     ///   - logTag: 日志标签
     ///   - mustReachable: 是否必须可达
     /// - Returns: 会话对象
-    func getUsefulSession(logTag: [String], mustReachable: Bool) -> WCSession? {
+    func getUsefulSession(logTag: String, mustReachable: Bool) -> WCSession? {
         guard let session = session else {
             XYLog.info(tag: logTag, process: .fail, content: "session=nil")
             return nil
@@ -176,7 +175,7 @@ extension XYWcManager {
 /// 发送方
 extension XYWcManager {
     public func updateApplicationContext(dict: [String : Any]) {
-        let logTag = [Self.logTag, Self.logTagSender, "updateApplicationContext()"]
+        let logTag = [Self.logTag, Self.logTagSender, "updateApplicationContext()"].joined(separator: ".")
         XYLog.info(tag: logTag, process: .begin, content: "context=\(dict.toJSONString())")
         guard let session = getUsefulSession(logTag: logTag, mustReachable: false) else { return }
         do {
@@ -193,7 +192,7 @@ extension XYWcManager {
 /// 接收方
 extension XYWcManager {
     public func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveApplicationContext()"]
+        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveApplicationContext()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "context=\(applicationContext.toJSONString())")
         plugins.forEach { plugin in
             plugin.session?(session, didReceiveApplicationContext: applicationContext)
@@ -206,7 +205,7 @@ extension XYWcManager {
 /// 发送方
 extension XYWcManager {
     public func sendMessage(dict: [String : Any], replyHandler: (([String : Any]) -> Void)?) {
-        let logTag = [Self.logTag, Self.logTagSender, "sendMessageDict()"]
+        let logTag = [Self.logTag, Self.logTagSender, "sendMessageDict()"].joined(separator: ".")
         XYLog.info(tag: logTag, process: .begin, content: "dict=\(dict.toJSONString())")
         guard isValidUserInfo(dict) else {
             XYLog.info(tag: logTag, process: .fail, content: "isValidUserInfo=false")
@@ -238,7 +237,7 @@ extension XYWcManager {
 /// 接收方
 extension XYWcManager {
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageDict()"]
+        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageDict()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "dict=\(message.toJSONString())")
         plugins.forEach { plugin in
             plugin.session?(session, didReceiveMessage: message)
@@ -246,7 +245,7 @@ extension XYWcManager {
     }
     
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageDictWithReply()"]
+        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageDictWithReply()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "dict=\(message.toJSONString())")
         plugins.forEach { plugin in
             plugin.session?(session, didReceiveMessage: message, replyHandler: replyHandler)
@@ -259,7 +258,7 @@ extension XYWcManager {
 /// 发送方
 extension XYWcManager {
     public func sendMessage(data: Data, replyHandler: ((Data) -> Void)?) {
-        let logTag = [Self.logTag, Self.logTagSender, "sendMessageData()"]
+        let logTag = [Self.logTag, Self.logTagSender, "sendMessageData()"].joined(separator: ".")
         XYLog.info(tag: logTag, process: .begin, content: "data=\(data.toHexString())")
         guard let session = getUsefulSession(logTag: logTag, mustReachable: true) else { return }
         var newReplyHandler: ((Data) -> Void)?
@@ -287,7 +286,7 @@ extension XYWcManager {
 /// 接收方
 extension XYWcManager {
     public func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
-        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageData()"]
+        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageData()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "data=\(messageData.toHexString())")
         plugins.forEach { plugin in
             plugin.session?(session, didReceiveMessageData: messageData)
@@ -295,7 +294,7 @@ extension XYWcManager {
     }
     
     public func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
-        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageDataWithReply()"]
+        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveMessageDataWithReply()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "data=\(messageData.toHexString())")
         plugins.forEach { plugin in
             plugin.session?(session, didReceiveMessageData: messageData, replyHandler: replyHandler)
@@ -310,7 +309,7 @@ extension XYWcManager {
     
 #if os(iOS)
     public func transferCurrentComplicationUserInfo(dict: [String : Any]) {
-        let logTag = [Self.logTag, Self.logTagSender, "transferCurrentComplicationUserInfo()"]
+        let logTag = [Self.logTag, Self.logTagSender, "transferCurrentComplicationUserInfo()"].joined(separator: ".")
         XYLog.info(tag: logTag, process: .begin, content: "userInfo=\(dict.toJSONString())")
         guard isValidUserInfo(dict) else {
             XYLog.info(tag: logTag, process: .fail, content: "isValidUserInfo=false")
@@ -332,7 +331,7 @@ extension XYWcManager {
 #endif
     
     public func transferUserInfo(dict: [String : Any]) {
-        let logTag = [Self.logTag, Self.logTagSender, "transferUserInfo()"]
+        let logTag = [Self.logTag, Self.logTagSender, "transferUserInfo()"].joined(separator: ".")
         XYLog.info(tag: logTag, process: .begin, content: "userInfo=\(dict.toJSONString())")
         guard isValidUserInfo(dict) else {
             XYLog.info(tag: logTag, process: .fail, content: "isValidUserInfo=false")
@@ -346,7 +345,7 @@ extension XYWcManager {
         }
     }
     public func session(_ session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error: (any Error)?) {
-        let logTag = [Self.logTag, Self.logTagSender, "didFinishTransferUserInfo()"]
+        let logTag = [Self.logTag, Self.logTagSender, "didFinishTransferUserInfo()"].joined(separator: ".")
         if let error = error {
             XYLog.info(tag: logTag, content: "error=\(error.info)")
         } else {
@@ -360,7 +359,7 @@ extension XYWcManager {
 /// 接收方
 extension XYWcManager {
     public func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
-        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveTransferUserInfo()"]
+        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveTransferUserInfo()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "userInfo=\(userInfo.toJSONString())")
         plugins.forEach { plugin in
             plugin.session?(session, didReceiveUserInfo: userInfo)
@@ -379,7 +378,7 @@ extension XYWcManager {
         onProgress: ((Double) -> Void)? = nil,
         onDone: ((Result<Void, Error>) -> Void)? = nil
     ) -> WCSessionFileTransfer? {
-        let logTag = [Self.logTag, Self.logTagSender, "transferFile()"]
+        let logTag = [Self.logTag, Self.logTagSender, "transferFile()"].joined(separator: ".")
         XYLog.info(tag: logTag, process: .begin, content: "url=\(url)")
         guard let session = getUsefulSession(logTag: logTag, mustReachable: false) else { return nil }
         guard FileManager.default.fileExists(atPath: url.path) else {
@@ -404,13 +403,13 @@ extension XYWcManager {
     }
     
     public func cancelAllFileTransfers() {
-        let logTag = [Self.logTag, Self.logTagSender, "cancelAllFileTransfers()"]
+        let logTag = [Self.logTag, Self.logTagSender, "cancelAllFileTransfers()"].joined(separator: ".")
         XYLog.info(tag: logTag)
         session?.outstandingFileTransfers.forEach { $0.cancel() }
     }
     
     public func session(_ session: WCSession, didFinish fileTransfer: WCSessionFileTransfer, error: (any Error)?) {
-        let logTag = [Self.logTag, Self.logTagSender, "didFinishTransferFile()"]
+        let logTag = [Self.logTag, Self.logTagSender, "didFinishTransferFile()"].joined(separator: ".")
         if let error = error {
             XYLog.info(tag: logTag, content: "error=\(error.info)")
         } else {
@@ -424,7 +423,7 @@ extension XYWcManager {
 /// 接收方
 extension XYWcManager {
     public func session(_ session: WCSession, didReceive file: WCSessionFile) {
-        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveTransferFile()"]
+        let logTag = [Self.logTag, Self.logTagReceiver, "didReceiveTransferFile()"].joined(separator: ".")
         XYLog.info(tag: logTag, content: "file=\(file.fileURL)")
         plugins.forEach { plugin in
             plugin.session?(session, didReceive: file)
@@ -453,4 +452,3 @@ private final class FileTransferCallbackRegistry {
         }
     }
 }
-

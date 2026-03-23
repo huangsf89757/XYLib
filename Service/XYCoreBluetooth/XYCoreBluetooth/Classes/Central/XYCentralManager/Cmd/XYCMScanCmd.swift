@@ -57,7 +57,7 @@ public class XYCMScanCmd: XYCentralManagerCmd<AsyncThrowingStream<CBPeripheral, 
         self.options = options
         self.condition = condition
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay, centralManagerWrapper: centralManagerWrapper)
-        self.logTag = ["XYCmd", "Ble", "CM", "Scan"]
+        self.logTag = ["XYCmd", "Ble", "CM", "Scan"].joined(separator: ".")
     }
     
     // MARK: run

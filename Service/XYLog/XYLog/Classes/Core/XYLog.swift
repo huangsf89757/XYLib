@@ -42,60 +42,66 @@ extension XYLog {
                                function: String = #function,
                                line: Int = #line,
                                id: String? = nil,
-                               tag: XYLogTag? = nil,
+                               tag: String? = nil,
                                process: XYLogProcess? = nil,
+                               throttle: XYLogThrottle.Method? = nil,
                                content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .verbose, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .verbose, tag: tag, process: process, throttle: throttle, content: content)
     }
     
     public static func debug(file: String = #file,
                              function: String = #function,
                              line: Int = #line,
                              id: String? = nil,
-                             tag: XYLogTag? = nil,
+                             tag: String? = nil,
                              process: XYLogProcess? = nil,
+                             throttle: XYLogThrottle.Method? = nil,
                              content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .debug, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .debug, tag: tag, process: process, throttle: throttle, content: content)
     }
     
     public static func info(file: String = #file,
                             function: String = #function,
                             line: Int = #line,
                             id: String? = nil,
-                            tag: XYLogTag? = nil,
+                            tag: String? = nil,
                             process: XYLogProcess? = nil,
+                            throttle: XYLogThrottle.Method? = nil,
                             content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .info, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .info, tag: tag, process: process, throttle: throttle, content: content)
     }
     
     public static func warning(file: String = #file,
                                function: String = #function,
                                line: Int = #line,
                                id: String? = nil,
-                               tag: XYLogTag? = nil,
+                               tag: String? = nil,
                                process: XYLogProcess? = nil,
+                               throttle: XYLogThrottle.Method? = nil,
                                content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .warning, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .warning, tag: tag, process: process, throttle: throttle, content: content)
     }
     
     public static func error(file: String = #file,
                              function: String = #function,
                              line: Int = #line,
                              id: String? = nil,
-                             tag: XYLogTag? = nil,
+                             tag: String? = nil,
                              process: XYLogProcess? = nil,
+                             throttle: XYLogThrottle.Method? = nil,
                              content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .error, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .error, tag: tag, process: process, throttle: throttle, content: content)
     }
     
     public static func fatal(file: String = #file,
                              function: String = #function,
                              line: Int = #line,
                              id: String? = nil,
-                             tag: XYLogTag? = nil,
+                             tag: String? = nil,
                              process: XYLogProcess? = nil,
+                             throttle: XYLogThrottle.Method? = nil,
                              content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .fatal, tag: tag, process: process, content: content)
+        shared.record(file: file, function: function, line: line, id: id, level: .fatal, tag: tag, process: process, throttle: throttle, content: content)
     }
 }
 
@@ -105,14 +111,15 @@ extension XYLog {
     private func record(file: String = #file,
                         function: String = #function,
                         line: Int = #line,
-                        id: String?,
-                        level: XYLogLevel,
-                        tag: XYLogTag?,
-                        process: XYLogProcess?,
+                        id: String? = nil,
+                        level: XYLogLevel = .info,
+                        tag: String? = nil,
+                        process: XYLogProcess? = nil,
+                        throttle method: XYLogThrottle.Method? = nil,
                         content: Any...) {
         guard enable else { return }
         guard let logger else { return }
-        throttle.check(tag: tag) { [weak self] in
+        throttle.check(method: method) { [weak self] in
             guard let self = self else { return }
             guard let data = getData(file: file, function: function, line: line, id: id, level: level, tag: tag, process: process, content: content) else { return }
             self.logQueue.async {
@@ -126,7 +133,7 @@ extension XYLog {
                          line: Int = #line,
                          id: String?,
                          level: XYLogLevel,
-                         tag: XYLogTag?,
+                         tag: String?,
                          process: XYLogProcess?,
                          content: Any...) -> XYLogData? {
         let fileStr = align.format(file: file)
@@ -134,7 +141,7 @@ extension XYLog {
         let lineStr = align.format(line: line)
         let idStr = align.format(id: id)
         let levelStr = align.format(level: level, style: style)
-        let tagStr = align.format(tag: tag)
+        let tagStr = tag
         let processStr = align.format(process: process, style: style)
         let data = XYLogData(file: fileStr,
                              function: funcStr,

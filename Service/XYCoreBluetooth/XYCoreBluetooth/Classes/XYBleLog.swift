@@ -64,7 +64,7 @@ public final class XYBleLog {
                     function: function,
                     line: line,
                     id: id,
-                    tag: [tag],
+                    tag: tag,
                     process: process,
                     content: content)
     }

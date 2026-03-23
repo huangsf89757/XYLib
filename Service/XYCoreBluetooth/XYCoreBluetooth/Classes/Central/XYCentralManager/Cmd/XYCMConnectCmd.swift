@@ -54,7 +54,7 @@ public class XYCMConnectCmd: XYCentralManagerCmd<CBPeripheral> {
         self.peripheral = peripheral
         self.options = options
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay, centralManagerWrapper: centralManagerWrapper)
-        self.logTag = ["XYCmd", "Ble", "CM", "Connect"]
+        self.logTag = ["XYCmd", "Ble", "CM", "Connect"].joined(separator: ".")
     }
     
     // MARK: run

@@ -49,7 +49,7 @@ open class XYGroupCmd: XYCmd<[String: Any]> {
         self.interruptOnFailure = interruptOnFailure
         self.cancelMode = cancelMode
         super.init(id: id, timeout: timeout, maxRetries: maxRetries, retryDelay: retryDelay)
-        self.logTag = ["XYCmd", "G"]
+        self.logTag = "XYCmd.G"
     }
     
     // MARK: run

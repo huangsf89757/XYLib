@@ -55,8 +55,8 @@ extension XYLogAlign {
         if let id = id {
             str = String((id + space).prefix(len))
         } else {
-            let systemUptime = String(format: "%llu", UInt64(ProcessInfo.processInfo.systemUptime * 1000_000))
-            str = String((systemUptime + space).prefix(len))
+            let now = CACurrentMediaTime()
+            str = String(("\(now)" + space).suffix(len))
         }
         return str
     }
@@ -71,21 +71,7 @@ extension XYLogAlign {
         }
         return String(format: self.levelFormat, str)
     }
-    
-    public func format(tag: XYLogTag?) -> String? {
-        if let tag = tag {
-            var str: String
-            switch tag {
-            case .com(let contents):
-                str = contents.joined(separator: ".")
-            case .tag(contents: let contents, throttle: let interval):
-                str = contents.joined(separator: ".")
-            }
-            return String(format: self.tagFormat, str)
-        }
-        return nil
-    }
-    
+        
     public func format(process: XYLogProcess?, style: XYLogStyle) -> String? {
         if let process = process {
             var str: String

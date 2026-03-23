@@ -20,7 +20,7 @@ import XYLog
 // MARK: - XYCmd
 open class XYCmd<ResultType>: XYExecutable {
     // MARK: log
-    public var logTag = ["XYCmd"]
+    public var logTag = "XYCmd"
     
     // MARK: identifier
     public let id: String

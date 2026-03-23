@@ -9,6 +9,8 @@ import Foundation
 
 // MARK: - XYLogData
 public struct XYLogData {
+    /// 时间
+    public let date = Date()
     /// 文件名
     public let file: String
     /// 函数名
