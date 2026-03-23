@@ -17,7 +17,7 @@ public final class XYDebounce {
     public var queue: DispatchQueue
     /// 任务
     public private(set) var workItem: DispatchWorkItem?
-    /// 同步线程
+    /// 队列
     private let syncQueue = DispatchQueue(label: "com.xy.util.debounce", attributes: .concurrent)
     
     // MARK: init
@@ -27,16 +27,10 @@ public final class XYDebounce {
     }
     
     // MARK: func
-    /// 执行防抖操作（使用初始化时设定的默认延迟）
-    /// - Parameter action: 需要执行的任务
     public func work(action: @escaping () -> Void) {
         self.work(delay: delay, action: action)
     }
     
-    /// 执行防抖操作（允许临时指定延迟时间）
-    /// - Parameters:
-    ///   - delay: 延迟时间（秒），会覆盖默认延迟
-    ///   - action: 需要执行的任务
     public func work(delay: TimeInterval, action: @escaping () -> Void) {
         syncQueue.async(flags: .barrier) { [weak self] in
             self?.workItem?.cancel()
@@ -51,7 +45,6 @@ public final class XYDebounce {
         }
     }
     
-    /// 立即取消当前的防抖任务
     public func cancel() {
         syncQueue.async(flags: .barrier) { [weak self] in
             self?.workItem?.cancel()

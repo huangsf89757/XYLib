@@ -8,61 +8,75 @@
 import Foundation
 
 // MARK: - XYThrottle
-/// 节流
+/// 截流
 public final class XYThrottle {
     // MARK: var
     /// 间隔
     public var interval: TimeInterval
     /// 队列
     public var queue: DispatchQueue
+    /// 前缘
+    public var leading: Bool
+    /// 后缘
+    public var trailing: Bool
+    
     /// 任务
-    public private(set) var workItem: DispatchWorkItem?
-    /// 上次触发时间
-    public private(set) var lastFireTime: TimeInterval?
-    /// 同步线程
+    private var workItem: DispatchWorkItem?
+    /// 上次时间
+    private var lastFireTime: TimeInterval = 0
+    /// 队列
     private let syncQueue = DispatchQueue(label: "com.xy.util.throttle", attributes: .concurrent)
     
     // MARK: init
-    public init(interval: TimeInterval = 1, queue: DispatchQueue = .main) {
+    public init(interval: TimeInterval = 1,
+                queue: DispatchQueue = .main,
+                leading: Bool = true,
+                trailing: Bool = true) {
         self.interval = interval
         self.queue = queue
+        self.leading = leading
+        self.trailing = trailing
     }
     
     // MARK: func
-    /// 执行节流操作（使用初始化时设定的默认间隔）
-    /// - Parameter action: 需要执行的任务
     public func work(action: @escaping () -> Void) {
-        self.work(interval: interval, action: action)
+        work(interval: interval, action: action)
     }
     
-    /// 执行节流操作（允许临时指定间隔时间）
-    /// - Parameters:
-    ///   - interval: 间隔时间（秒），会覆盖默认间隔
-    ///   - action: 需要执行的任务
     public func work(interval: TimeInterval, action: @escaping () -> Void) {
         syncQueue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
+            
             let now = CACurrentMediaTime()
-            if let lastFireTime = self.lastFireTime {
-                let timeSinceLastFire = now - lastFireTime
-                guard timeSinceLastFire >= interval else {
-                    return
+            let timeSinceLastFire = now - self.lastFireTime
+            
+            let shouldFireImmediately = self.leading && timeSinceLastFire >= interval
+            
+            if shouldFireImmediately {
+                self.lastFireTime = now
+                self.workItem?.cancel()
+                self.workItem = nil
+                
+                let item = DispatchWorkItem { action() }
+                self.queue.async(execute: item)
+            } else if self.trailing {
+                self.workItem?.cancel()
+                
+                let delay = max(0, interval - timeSinceLastFire)
+                let item = DispatchWorkItem { [weak self] in
+                    action()
+                    self?.syncQueue.async(flags: .barrier) {
+                        self?.lastFireTime = CACurrentMediaTime()
+                        self?.workItem = nil
+                    }
                 }
+                
+                self.workItem = item
+                self.queue.asyncAfter(deadline: .now() + delay, execute: item)
             }
-            self.lastFireTime = now
-            self.workItem?.cancel()
-            let newWorkItem = DispatchWorkItem { [weak self] in
-                action()
-                self?.syncQueue.async(flags: .barrier) {
-                    self?.workItem = nil
-                }
-            }
-            self.workItem = newWorkItem
-            self.queue.async(execute: newWorkItem)
         }
     }
     
-    /// 立即取消当前的节流任务
     public func cancel() {
         syncQueue.async(flags: .barrier) { [weak self] in
             self?.workItem?.cancel()
