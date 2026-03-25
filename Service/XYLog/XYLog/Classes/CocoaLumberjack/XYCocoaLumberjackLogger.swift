@@ -12,8 +12,7 @@ import CocoaLumberjack
 // MARK: - XYCocoaLumberjackLogger
 public class XYCocoaLumberjackLogger {
     public static let shared = XYCocoaLumberjackLogger()
-    private init() {
-        DDLog.add(DDOSLogger.sharedInstance)
+    public init() {
         let documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? NSTemporaryDirectory()
         let logDir = (documentDir as NSString).appendingPathComponent("Log")
         let fileManager = XYCocoaLumberjackFileManager(logsDirectory: logDir)
