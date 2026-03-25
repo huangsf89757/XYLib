@@ -23,6 +23,8 @@ public struct XYLogData {
     public let level: String
     /// 标签
     public let tag: String?
+    /// 间隔
+    public let interval: String?
     /// 进度
     public let process: String?
     /// 内容

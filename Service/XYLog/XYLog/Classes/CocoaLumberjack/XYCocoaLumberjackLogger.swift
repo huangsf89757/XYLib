@@ -39,6 +39,9 @@ extension XYCocoaLumberjackLogger: XYLogger {
         if let tag = data.tag {
             message += " " + tag
         }
+        if let interval = data.interval {
+            message += " " + interval
+        }
         if let process = data.process {
             message += " " + process
         }

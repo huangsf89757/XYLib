@@ -21,7 +21,9 @@ public final class XYLog {
     /// 样式
     public var style: XYLogStyle = .symble
     /// 对齐
-    public var align = XYLogAlign()
+    public var aligner = XYLogAligner()
+    /// 格式化
+    public var formatter = XYLogFormatter()
     
     /// 节流
     private lazy var throttle: XYLogThrottle = { return XYLogThrottle() }()
@@ -38,77 +40,96 @@ public final class XYLog {
 
 // MARK: - Func
 extension XYLog {
-    public static func verbose(file: String = #file,
+    public static func verbose(from: Date? = nil,
+                               file: String = #file,
                                function: String = #function,
                                line: Int = #line,
                                id: String? = nil,
                                tag: String? = nil,
                                process: XYLogProcess? = nil,
                                throttle: XYLogThrottle.Method? = nil,
+                               aligner: XYLogAligner? = nil,
+                               formatter: XYLogFormatter? = nil,
                                content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .verbose, tag: tag, process: process, throttle: throttle, content: content)
+        shared.record(from: from, file: file, function: function, line: line, id: id, level: .verbose, tag: tag, process: process, throttle: throttle, aligner: aligner, formatter: formatter, content: content)
     }
     
-    public static func debug(file: String = #file,
+    public static func debug(from: Date? = nil,
+                             file: String = #file,
                              function: String = #function,
                              line: Int = #line,
                              id: String? = nil,
                              tag: String? = nil,
                              process: XYLogProcess? = nil,
                              throttle: XYLogThrottle.Method? = nil,
+                             aligner: XYLogAligner? = nil,
+                             formatter: XYLogFormatter? = nil,
                              content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .debug, tag: tag, process: process, throttle: throttle, content: content)
+        shared.record(from: from, file: file, function: function, line: line, id: id, level: .debug, tag: tag, process: process, throttle: throttle, aligner: aligner, formatter: formatter, content: content)
     }
     
-    public static func info(file: String = #file,
+    public static func info(from: Date? = nil,
+                            file: String = #file,
                             function: String = #function,
                             line: Int = #line,
                             id: String? = nil,
                             tag: String? = nil,
                             process: XYLogProcess? = nil,
                             throttle: XYLogThrottle.Method? = nil,
+                            aligner: XYLogAligner? = nil,
+                            formatter: XYLogFormatter? = nil,
                             content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .info, tag: tag, process: process, throttle: throttle, content: content)
+        shared.record(from: from, file: file, function: function, line: line, id: id, level: .info, tag: tag, process: process, throttle: throttle, aligner: aligner, formatter: formatter, content: content)
     }
     
-    public static func warning(file: String = #file,
+    public static func warning(from: Date? = nil,
+                               file: String = #file,
                                function: String = #function,
                                line: Int = #line,
                                id: String? = nil,
                                tag: String? = nil,
                                process: XYLogProcess? = nil,
                                throttle: XYLogThrottle.Method? = nil,
+                               aligner: XYLogAligner? = nil,
+                               formatter: XYLogFormatter? = nil,
                                content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .warning, tag: tag, process: process, throttle: throttle, content: content)
+        shared.record(from: from, file: file, function: function, line: line, id: id, level: .warning, tag: tag, process: process, throttle: throttle, aligner: aligner, formatter: formatter, content: content)
     }
     
-    public static func error(file: String = #file,
+    public static func error(from: Date? = nil,
+                             file: String = #file,
                              function: String = #function,
                              line: Int = #line,
                              id: String? = nil,
                              tag: String? = nil,
                              process: XYLogProcess? = nil,
                              throttle: XYLogThrottle.Method? = nil,
+                             aligner: XYLogAligner? = nil,
+                             formatter: XYLogFormatter? = nil,
                              content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .error, tag: tag, process: process, throttle: throttle, content: content)
+        shared.record(from: from, file: file, function: function, line: line, id: id, level: .error, tag: tag, process: process, throttle: throttle, aligner: aligner, formatter: formatter, content: content)
     }
     
-    public static func fatal(file: String = #file,
+    public static func fatal(from: Date? = nil,
+                             file: String = #file,
                              function: String = #function,
                              line: Int = #line,
                              id: String? = nil,
                              tag: String? = nil,
                              process: XYLogProcess? = nil,
                              throttle: XYLogThrottle.Method? = nil,
+                             aligner: XYLogAligner? = nil,
+                             formatter: XYLogFormatter? = nil,
                              content: Any...) {
-        shared.record(file: file, function: function, line: line, id: id, level: .fatal, tag: tag, process: process, throttle: throttle, content: content)
+        shared.record(from: from, file: file, function: function, line: line, id: id, level: .fatal, tag: tag, process: process, throttle: throttle, aligner: aligner, formatter: formatter, content: content)
     }
 }
 
 
 // MARK: - Record
 extension XYLog {
-    private func record(file: String = #file,
+    private func record(from: Date? = nil,
+                        file: String = #file,
                         function: String = #function,
                         line: Int = #line,
                         id: String? = nil,
@@ -116,12 +137,14 @@ extension XYLog {
                         tag: String? = nil,
                         process: XYLogProcess? = nil,
                         throttle method: XYLogThrottle.Method? = nil,
+                        aligner: XYLogAligner? = nil,
+                        formatter: XYLogFormatter? = nil,
                         content: Any...) {
         guard enable else { return }
         guard let logger else { return }
         throttle.check(method: method) { [weak self] in
             guard let self = self else { return }
-            guard let data = getData(file: file, function: function, line: line, id: id, level: level, tag: tag, process: process, content: content) else { return }
+            guard let data = getData(file: file, function: function, line: line, id: id, level: level, tag: tag, process: process, aligner: aligner, formatter: formatter, content: content) else { return }
             self.logQueue.async {
                 logger.write(data: data)
             }
@@ -133,22 +156,35 @@ extension XYLog {
                          line: Int = #line,
                          id: String?,
                          level: XYLogLevel,
-                         tag: String?,
-                         process: XYLogProcess?,
+                         tag: String? = nil,
+                         from time: TimeInterval? = nil,
+                         process: XYLogProcess? = nil,
+                         aligner: XYLogAligner? = nil,
+                         formatter: XYLogFormatter? = nil,
                          content: Any...) -> XYLogData? {
-        let fileStr = align.format(file: file)
-        let funcStr = align.format(function: function)
-        let lineStr = align.format(line: line)
-        let idStr = align.format(id: id)
-        let levelStr = align.format(level: level, style: style)
-        let tagStr = tag
-        let processStr = align.format(process: process, style: style)
+        var curAligner = self.aligner
+        if let aligner {
+            curAligner = aligner
+        }
+        var curFormatter = self.formatter
+        if let formatter {
+            curFormatter = formatter
+        }
+        let fileStr = curAligner.align(file: file)
+        let funcStr = curAligner.align(function: function)
+        let lineStr = curAligner.align(line: line)
+        let idStr = curAligner.align(id: id)
+        let levelStr = curFormatter.format(level: level, style: style)
+        let tagStr = curFormatter.format(tag: tag)
+        let intervalStr = curFormatter.format(interval: time)
+        let processStr = curFormatter.format(process: process, style: style)
         let data = XYLogData(file: fileStr,
                              function: funcStr,
                              line: lineStr,
                              id: idStr,
                              level: levelStr,
                              tag: tagStr,
+                             interval: intervalStr,
                              process: processStr,
                              content: content)
         return data
