@@ -1,0 +1,114 @@
+PODS:
+  - CocoaLumberjack/Core (3.9.0)
+  - CocoaLumberjack/Swift (3.9.0):
+    - CocoaLumberjack/Core
+  - DeviceKit (5.7.0)
+  - MTBleCore (0.0.1)
+  - XYApp (1.0.0):
+    - DeviceKit
+    - XYExtension
+    - XYUtil
+  - XYCmd (1.0.0):
+    - XYExtension
+    - XYLog
+  - XYCoreBluetooth (1.0.0):
+    - XYCmd
+    - XYExtension
+    - XYLog
+    - XYUtil
+  - XYExtension (1.0.0)
+  - XYGlucose (1.0.0):
+    - CocoaLumberjack/Swift
+    - MTBleCore
+    - XYCoreBluetooth
+    - XYExtension
+    - XYLog
+    - XYNetwork
+    - XYStorage
+    - XYUtil
+    - XYWatchConnectivity
+  - XYLog (1.0.0):
+    - CocoaLumberjack/Swift
+    - XYExtension
+    - XYUtil
+  - XYNetwork (1.0.0):
+    - XYExtension
+    - XYLog
+    - XYUtil
+  - XYStorage (1.0.0):
+    - XYExtension
+    - XYLog
+    - XYUtil
+  - XYUser (1.0.0):
+    - XYExtension
+  - XYUtil (1.0.0):
+    - XYExtension
+  - XYWatchConnectivity (1.0.0):
+    - XYExtension
+    - XYLog
+    - XYUtil
+
+DEPENDENCIES:
+  - MTBleCore (from `~/Desktop/hsf89757/Lib/Apple/Third/MTBleCore/`)
+  - XYApp (from `~/Desktop/hsf89757/Lib/Apple/Business/XYApp/`)
+  - XYCmd (from `~/Desktop/hsf89757/Lib/Apple/Tool/XYCmd/`)
+  - XYCoreBluetooth (from `~/Desktop/hsf89757/Lib/Apple/Server/XYCoreBluetooth/`)
+  - XYExtension (from `~/Desktop/hsf89757/Lib/Apple/Basic/XYExtension/`)
+  - XYGlucose (from `~/Desktop/hsf89757/Lib/Apple/Business/XYGlucose/`)
+  - XYLog (from `~/Desktop/hsf89757/Lib/Apple/Server/XYLog/`)
+  - XYNetwork (from `~/Desktop/hsf89757/Lib/Apple/Server/XYNetwork/`)
+  - XYStorage (from `~/Desktop/hsf89757/Lib/Apple/Server/XYStorage/`)
+  - XYUser (from `~/Desktop/hsf89757/Lib/Apple/Business/XYUser/`)
+  - XYUtil (from `~/Desktop/hsf89757/Lib/Apple/Tool/XYUtil/`)
+  - XYWatchConnectivity (from `~/Desktop/hsf89757/Lib/Apple/Server/XYWatchConnectivity/`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CocoaLumberjack
+    - DeviceKit
+
+EXTERNAL SOURCES:
+  MTBleCore:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Third/MTBleCore/"
+  XYApp:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Business/XYApp/"
+  XYCmd:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Tool/XYCmd/"
+  XYCoreBluetooth:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Server/XYCoreBluetooth/"
+  XYExtension:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Basic/XYExtension/"
+  XYGlucose:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Business/XYGlucose/"
+  XYLog:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Server/XYLog/"
+  XYNetwork:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Server/XYNetwork/"
+  XYStorage:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Server/XYStorage/"
+  XYUser:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Business/XYUser/"
+  XYUtil:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Tool/XYUtil/"
+  XYWatchConnectivity:
+    :path: "~/Desktop/hsf89757/Lib/Apple/Server/XYWatchConnectivity/"
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
+  DeviceKit: d1a956e25b957efb60a87bfe70be4e00ef36846d
+  MTBleCore: 2c56e59161ee4e1c37f87578aa1399ffabcca0e5
+  XYApp: 920ae5cdd9f24e9a2731bcb67bfc4f22bbec97e0
+  XYCmd: 4dc6722c2bb2eca547acb258507e610021331bdc
+  XYCoreBluetooth: 1b4c20cf0ea6192ed228d1c7c53a95acf92d9a81
+  XYExtension: 883d94168ffc4cc5f4bff3e00e96aaf75b0f2041
+  XYGlucose: b34f25ad836337fbab5d250e3b8974f09b150f4a
+  XYLog: 22bc8883abd56a232546d8f8c9206fa88fe193cb
+  XYNetwork: 67bc5ffada98294449948ef0b042ca4f72a16094
+  XYStorage: a2bdb7e36d549e3bb9d7f97cd00aabbc0ace7e29
+  XYUser: 5caf94c347f106026286beace9118f8dec638bc0
+  XYUtil: 6015148dfe2cc2e775a373f42a65759af7027e23
+  XYWatchConnectivity: 8bd7ad9d677d5bc66e0cf7cb5bdd3551d7a9b191
+
+PODFILE CHECKSUM: 1d28f4178e8c1bb156719ca4d7140e621cd6b497
+
+COCOAPODS: 1.16.2

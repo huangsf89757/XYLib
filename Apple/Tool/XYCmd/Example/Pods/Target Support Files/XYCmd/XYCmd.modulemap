@@ -1,0 +1,6 @@
+framework module XYCmd {
+  umbrella header "XYCmd-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,194 @@
+# CocoaPods 官方 Specs 源
+source 'https://github.com/CocoaPods/Specs.git'
+
+# 启用 Swift 动态框架
+use_frameworks!
+
+# 隐藏所有 CocoaPods 警告
+inhibit_all_warnings!
+
+# 关闭 deterministic UUIDs（便于 Git 差异对比）
+install! 'cocoapods', :deterministic_uuids => false
+
+
+# ================== 配置常量 ==================
+MAIN_PROJECT_NAME = 'XYGlucose'
+MAIN_PROJECT_PATH = "./#{MAIN_PROJECT_NAME}.xcodeproj"
+
+LIB_ROOT = '~/Desktop/hsf89757/Lib/Apple/'
+PATHS = {
+  basic:    LIB_ROOT + 'Basic/',
+  server:   LIB_ROOT + 'Server/',
+  tool:     LIB_ROOT + 'Tool/',
+  business: LIB_ROOT + 'Business/',
+  third:    LIB_ROOT + 'Third/'
+}
+
+
+# ================== 动态获取主工程各平台部署目标 ==================
+require 'xcodeproj'
+
+def get_deployment_target(project, platform_symbol, target_key)
+  project.targets.each do |target|
+    if target.platform_name == platform_symbol || target.platform_name == :osx
+      config = target.build_configurations.first
+      return config.build_settings[target_key] if config && config.build_settings.key?(target_key)
+    end
+  end
+  nil
+end
+
+ios_deployment_target = nil
+watchos_deployment_target = nil
+macos_deployment_target = nil
+visionos_deployment_target = nil
+
+begin
+  main_project = Xcodeproj::Project.open(MAIN_PROJECT_PATH)
+
+  ios_deployment_target = get_deployment_target(main_project, :ios, 'IPHONEOS_DEPLOYMENT_TARGET')
+  watchos_deployment_target = get_deployment_target(main_project, :watchos, 'WATCHOS_DEPLOYMENT_TARGET')
+  macos_deployment_target = get_deployment_target(main_project, :macos, 'MACOSX_DEPLOYMENT_TARGET')
+  visionos_deployment_target = get_deployment_target(main_project, :visionos, 'VISIONOS_DEPLOYMENT_TARGET')
+
+rescue => e
+  puts "⚠️ 无法打开主工程 #{MAIN_PROJECT_PATH}，使用默认部署目标: #{e.message}"
+end
+
+
+puts "🎯 #{MAIN_PROJECT_NAME} 支持的平台:"
+
+main_project.targets.each do |target|
+  platform = target.platform_name
+  deployment_target = nil
+  platform_display = case platform
+                     when :ios, :iphoneos
+                       deployment_target = get_deployment_target(main_project, platform, 'IPHONEOS_DEPLOYMENT_TARGET')
+                       'iOS'
+                     when :watchos
+                       deployment_target = get_deployment_target(main_project, platform, 'WATCHOS_DEPLOYMENT_TARGET')
+                       'watchOS'
+                     when :macos, :osx
+                       deployment_target = get_deployment_target(main_project, platform, 'MACOSX_DEPLOYMENT_TARGET')
+                       'macOS'
+                     when :visionos
+                       deployment_target = get_deployment_target(main_project, platform, 'VISIONOS_DEPLOYMENT_TARGET')
+                       'visionOS'
+                     else
+                       platform.to_s.upcase
+                     end
+
+  version = deployment_target || '?'
+  puts "  - #{target.name}: #{platform_display} #{version}"
+end
+
+
+# ================== 公共依赖库（所有平台共享）==================
+def pod_common
+  # Basic
+  pod 'XYExtension', :path => PATHS[:basic] + 'XYExtension/'
+
+  # Server
+  pod 'XYLog',                :path => PATHS[:server] + 'XYLog/'
+  pod 'XYCoreBluetooth',      :path => PATHS[:server] + 'XYCoreBluetooth/'
+  pod 'XYWatchConnectivity',  :path => PATHS[:server] + 'XYWatchConnectivity/'
+  pod 'XYStorage',            :path => PATHS[:server] + 'XYStorage/'
+  pod 'XYNetwork',            :path => PATHS[:server] + 'XYNetwork/'
+
+  # Tool
+  pod 'XYUtil',               :path => PATHS[:tool] + 'XYUtil/'
+  pod 'XYCmd',                :path => PATHS[:tool] + 'XYCmd/'
+
+  # Business
+  pod 'XYApp',                :path => PATHS[:business] + 'XYApp/'
+  pod 'XYUser',               :path => PATHS[:business] + 'XYUser/'
+  pod 'XYGlucose',            :path => PATHS[:business] + 'XYGlucose/'
+
+  # Third
+  pod 'MTBleCore',         :path => PATHS[:third] + 'MTBleCore/'
+end
+
+
+# ================== 平台专属依赖 ==================
+def pod_ios
+  # iOS 特有依赖（如需）
+end
+
+def pod_watchos
+  # watchOS 特有依赖（如需）
+end
+
+def pod_macos
+  # macOS 特有依赖（如需）
+end
+
+def pod_visionos
+  # visionOS 特有依赖（如需）
+end
+
+
+# ================== Targets ==================
+
+target 'XYGlucose_Example' do
+  platform :ios, ios_deployment_target
+  pod_common
+  pod_ios
+
+  target 'XYGlucose_Tests' do
+    inherit! :search_paths
+  end
+  
+end
+
+
+# ================== 安装后处理：同步主工程构建设置 ==================
+post_install do |installer|
+  begin
+    main_project = Xcodeproj::Project.open(MAIN_PROJECT_PATH)
+    main_target = main_project.targets.first
+
+    if main_target.nil?
+      puts "⚠️ 主工程无有效 target，跳过 build settings 同步"
+      return
+    end
+
+    main_config = main_target.build_configurations.first
+    main_archs = main_config.build_settings['ARCHS']
+    main_valid_archs = main_config.build_settings['VALID_ARCHS']
+    main_only_active_arch = main_config.build_settings['ONLY_ACTIVE_ARCH']
+
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        case target.platform_name
+        when :ios, :iphoneos
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = ios_deployment_target
+        when :watchos
+          config.build_settings['WATCHOS_DEPLOYMENT_TARGET'] = watchos_deployment_target
+        when :macos, :osx
+          config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = macos_deployment_target
+        when :visionos
+          config.build_settings['VISIONOS_DEPLOYMENT_TARGET'] = visionos_deployment_target
+        else
+          puts "⚠️ 未知平台: #{target.platform_name}"
+        end
+
+        # 同步架构相关设置（如有）
+        if main_archs
+          config.build_settings['ARCHS'] = main_archs
+        end
+        if main_valid_archs
+          config.build_settings['VALID_ARCHS'] = main_valid_archs
+        end
+        if main_only_active_arch
+          config.build_settings['ONLY_ACTIVE_ARCH'] = main_only_active_arch
+        end
+      end
+    end
+
+    installer.pods_project.save()
+    puts "✅ Pods 项目已成功更新并同步构建设置"
+
+  rescue => e
+    puts "⚠️ post_install 阶段发生错误: #{e.message}"
+  end
+end

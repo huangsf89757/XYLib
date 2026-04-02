@@ -1,0 +1,6 @@
+framework module Pods_XYGlucose_Example {
+  umbrella header "Pods-XYGlucose_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
